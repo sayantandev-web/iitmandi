@@ -75,7 +75,6 @@
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<!-- Vendor JS Files -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
 <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
@@ -88,13 +87,10 @@
 <script src="<?php echo base_url()?>assets/fontend/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/php-email-form/validate.js"></script>
-<!-- Template Main JS File -->
 <script src="<?php echo base_url()?>assets/fontend/js/main.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/wowslider.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/script.js"></script>
 <script src="<?php echo base_url()?>ckeditor/ckeditor.js" type="text/javascript"></script>
-<!-- for menu -->
-<!-- <script src="<?php echo base_url();?>assets/fontend/js/js_nlm7XvIloyPDi0SaRBYmQtQBChCi536bF5OFGig-VRY.js"></script> -->
 <script src="<?php echo base_url();?>assets/fontend/js/primary-nav.nuKHgqPrYVsT.js?v=9.3.21" type="module"></script>
 <script>
     ! function(d, s, id) {
