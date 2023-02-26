@@ -243,13 +243,14 @@ class Student extends CI_Controller {
 	}
 
 	public function save_publication() {
+		$author_name = implode(",", $this->input->post('author_name'));
 		$record_id = $this->input->post('pubid');
 		if($record_id != '') {
 			$insArr=array();
 			$insArr['user_id'] = $this->input->post('uid');
 			$insArr['publication_type']=$this->input->post('publication_type');
 			$insArr['attachment']=$this->input->post('attachment');
-			$insArr['author_name']=$this->input->post('author_name');
+			$insArr['author_name']=$author_name;
 			$insArr['paper_title'] = $this->input->post('paper_title');
 			$insArr['journal_name']=$this->input->post('journal_name');
 			$insArr['conference_name']=$this->input->post('conference_name');
@@ -274,7 +275,7 @@ class Student extends CI_Controller {
 			$insArr['user_id'] = $this->input->post('uid');
 			$insArr['publication_type']=$this->input->post('publication_type');
 			$insArr['attachment']=$this->input->post('attachment');
-			$insArr['author_name']=$this->input->post('author_name');
+			$insArr['author_name']=$author_name;
 			$insArr['paper_title'] = $this->input->post('paper_title');
 			$insArr['journal_name']=$this->input->post('journal_name');
 			$insArr['conference_name']=$this->input->post('conference_name');

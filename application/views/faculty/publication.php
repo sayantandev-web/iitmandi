@@ -27,6 +27,7 @@ echo $header;
     .profile_menu a {color: #FFF; text-decoration: none;}
     .active {background: #032851 !important; color: #fff !important;}
     .btn {padding: 15px 35px !important;}
+    .chosen-container {width: 100% !important;}
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top: 80px;">
@@ -165,14 +166,23 @@ echo $header;
                                     <div class="form-group col-sm-4 cstm_details author_name">
                                         <label for="Event Name" class="control-label">Authors Name</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
-                                            <select class="selectpicker form-control" id="author_name" name="author_name[]" multiple data-live-search="true">
-                                             <?php if(!empty($ourteam)) { 
+                                            <!-- <select class="selectpicker form-control" id="author_name" name="author_name[]" multiple data-live-search="true">
+                                            <?php if(!empty($ourteam)) { 
                                                 foreach($ourteam as $row) { ?>
                                                 <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
-                                             <?php  } } else { ?>
+                                            <?php  } } else { ?>
                                                 <option value="">No Data</option>
                                                 <?php } ?>
-                                          </select>
+                                            </select> -->
+                                            <select data-placeholder="Author List" multiple class="chosen-select"  id="author_name" name="author_name[]">
+                                                <option value=""></option>
+                                                <?php if(!empty($ourteam)) { 
+                                                foreach($ourteam as $row) { ?>
+                                                <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
+                                            <?php  } } else { ?>
+                                                <option value="">No Data</option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details paper_title">

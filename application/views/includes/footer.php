@@ -76,6 +76,9 @@
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <!-- Vendor JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/aos/aos.js"></script>
@@ -133,6 +136,9 @@
         },
     });
     $(document).ready(function(){
+        $(".chosen-select").chosen({
+            no_results_text: "Oops, nothing found!"
+        })
         // $('.hero-slider').slick({
         //     autoplay: false,
         //     autoplaySpeed: 3000,
@@ -398,13 +404,31 @@
 
         $("#form_pub").on('submit',(function(e) {
             e.preventDefault();
+            var uid = $("#uid").val();
+            var attachment = $('#attachment').val();
+            var publication_type = $('#publication_type').val();
+            var author_name = $('#author_name').val();
+            var paper_title = $('#paper_title').val();
+            var journal_name = $('#journal_name').val();
+            var conference_name = $('#conference_name').val();
+            var book_name = $('#book_name').val();
+            var publish_date = $('#publish_date').val();
+            var patient_number = $('#patient_number').val();
+            var publisher = $('#publisher').val();
+            var location = $('#location').val();
+            var external_Link = $('#external_Link').val();
+            var editors = $('#editors').val();
+            var page_number = $('#page_number').val();
+            var volume_number = $('#volume_number').val();
+            var issue_number = $('#issue_number').val();
+            var short_summery = CKEDITOR.instances['short_summery'].getData();
+            var key_points = CKEDITOR.instances['key_points'].getData();
+            var highlight = $('#highlight').val();
+            var status = $('#status').val();
             $.ajax({
                 url: "<?php echo base_url()?>student/save_publication",
                 type: "POST",
-                data:  new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false,
+                data:  {uid: uid, attachment: attachment, publication_type: publication_type, author_name: author_name, paper_title: paper_title, journal_name: journal_name, conference_name: conference_name, book_name: book_name, publish_date: publish_date, patient_number: patient_number, publisher: publisher, location: location, external_Link: external_Link, editors: editors, page_number: page_number, volume_number: volume_number, issue_number: issue_number, short_summery: short_summery, key_points: key_points, highlight: highlight, status: status},
                 beforeSend : function() {
                     //$("#preview").fadeOut();
                     $("#err").fadeOut();
