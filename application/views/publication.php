@@ -96,18 +96,41 @@ opacity: .5;}
                                 <?php if(!empty($publications)) { 
                                     $i=1; ?>
                                     <?php foreach($publications as $row) { ?>
-                                    <tr>
-                                        <td><?php echo $i ?></td>
-                                        <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['journal_name'].", ".$row['conference_name'].", ".$row['book_name'].", ".$row['publish_date'].", ".$row['patient_number'].", ".$row['publisher'].", ".$row['location'].", ".$row['external_Link'].", ".$row['editors'].", ".$row['page_number']?></td>
-                                        <?php if ($this->session->userdata('user_id') != '') { ?>
-                                        <td>
-                                            <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                        </td>
-                                        <?php } else { ?>
-                                            <td><a href="<?php echo base_url()?>pages/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
-                                        <?php } ?>
-                                    </tr>
+                                        <?php 
+                                            $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                            //echo "<pre>"; print_r($author->result_array());
+                                            $value = $author->result_array();
+                                            $count = count($author->result_array());
+                                            for($i = 0; $i < $count; $i++) {
+                                                if ($value[$i]['mname'] == '') {
+                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                } else {
+                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                }
+                                            }
+                                            $lastItem = array_pop($commonValues);
+                                            $text = implode(', ', $commonValues); // a, b 
+                                            if ($text == ''){
+                                                $text .= $lastItem; 
+                                            } else {
+                                                $text .= ', & '.$lastItem; // a, b and c
+                                            }
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i; ?></td>
+                                            <?php if ($row['publication_type'] == 'Journal Article') { ?> 
+                                                <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". ".$row['external_Link']; ?></td>
+                                            <?php } elseif ($row['publication_type'] == 'Conference Paper') { ?>
+                                                <td style="text-align: left;"><?php echo $text." (".date('Y, M', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". ".$row['external_Link']; ?></td>
+                                            <?php } elseif ($row['publication_type'] == 'Book Chapter') { ?>
+                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['book_name'].", ".$row['publish_date'].", ".$row['editors'].", ".$row['page_number']?></td>
+                                            <?php } elseif ($row['publication_type'] == 'Book') { ?>
+                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['publish_date'].", ".$row['patient_number'].", ".$row['publisher'].", ".$row['page_number']?></td>
+                                            <?php } else { ?>
+                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['publish_date'].", ".$row['patient_number']?></td>
+                                            <?php } ?>
+                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                        </tr>
                                 <?php $i++; } } ?>
                                 </tbody>
                             </table>

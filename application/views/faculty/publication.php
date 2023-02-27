@@ -45,7 +45,7 @@ echo $header;
                                             <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
                                         </div>
                                         <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
-                                            <h3 style="text-transform: capitalize; text-align: center;font-size: 36px;"><?php echo $about_me[0]['fname'];?></h3>
+                                            <h3 style="text-transform: capitalize; text-align: center;font-size: 36px;"><?php echo $about_me[0]['fname']." ".$about_me[0]['mname']." ".$about_me[0]['lname'] ?></h3>
                                             <?php 
                                             $designation = $this->db->query("SELECT * FROM iitmandi_designation WHERE id = ".$about_me[0]['designation']);
                                             foreach ($designation->result_array() as $row1) { ?>
