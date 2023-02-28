@@ -6,25 +6,13 @@
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
-    .col-sm-1 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-2 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-3 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-4 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-5 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-8 {display: inline-block;float: left;}
-    .col-sm-12 {display: inline-block;}
+    
     .fade:not(.show) { opacity: 1 !important; background: #00000063;}
     .modal-lg { margin-top : 10%}
     .close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;
 opacity: .5;}
     * {box-sizing: border-box;}
-    .container_1 {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 10px;
-                flex-wrap: wrap;
-            }
+    
             .title {
                         display: flex;
                         width: 40%;
@@ -67,16 +55,95 @@ opacity: .5;}
           font-weight: 100;
           color: white;
           backdrop-filter: blur(8px) brightness(30%);
-        }   
+        } 
+
+        /*27.02.2023*/
+        .portfolio-info{width:100%;}
+        .portfolio-info h6{font-size: 35px; line-height: 45px; text-align: center; color: #010f70; margin: 0px;padding-bottom: 15px; }
+        .lab_sec{width:100%; margin-top: 15px; position: relative; overflow: hidden;transition: all ease-in-out .2s; border-radius: 40px;} 
+        .lab_img{width: 100%;} 
+        .lab_img img{border-radius: 40px;   transition: all ease-in-out .2s; width: 100%;}
+        .lab_txt{width: 100%; position: absolute; left:0px; right: 0px; margin: 0 auto; top: 36%; background: rgba(0, 0, 0, 0.5); padding: 10px 0;}
+        .lab_txt p{font-size: 24px; line-height: 40px; text-align: center; color: #fff; margin: 0px;padding:0px; }
+        .lab_sec:hover .lab_img img{transform: scale(1.1);transition: all ease-in-out .2s; border-radius: 40px;}
+        a{cursor: pointer;}
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top:30px;">
         <div class="container_1">
             <div class="row gy-4">
-                <div class="col-lg-12">
+                <div class="col-sm-10 offset-sm-1">
                     <div class="portfolio-info">
+                       <h6>Teaching Laboratories</h6>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <a onclick="location.href='<?php echo base_url()?>pages/teaching_labs_details';">
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                            <img src="https://www.zingerbug.com/Backgrounds/background_images/blue-sky-background.jpg" alt="">
+                                             <div class="lab_txt">
+                                                 <p>Environmental Engineering </p>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                             <div class="col-sm-4">                                
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                           <img src="https://images.theconversation.com/files/275002/original/file-20190516-69195-1yg53ff.jpg?ixlib=rb-1.1.0&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip"  alt="">
+                                             <div class="lab_txt">
+                                                 <p>Geotechnical Engineering</p>
+                                             </div>
+                                        </div>
+                                    </div>                                
+                            </div>
+
+                             <div class="col-sm-4">                                
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                           <img src="https://damassets.autodesk.net/content/dam/autodesk/www/solutions/bim/fy22/structural-design/what-is-bim-for-structures-thumb-1172x660.jpg"  alt="">
+                                             <div class="lab_txt">
+                                                 <p>Structural Engineering</p>
+                                             </div>
+                                        </div>
+                                    </div>                                 
+                              </div>
+
+                              <div class="col-sm-4">                                
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                           <img src=""  alt="">
+                                             <div class="lab_txt">
+                                                 <p>Transportation Engineering</p>
+                                             </div>
+                                        </div>
+                                    </div>                                 
+                              </div>
+
+                              <div class="col-sm-4">                                
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                           <img src=""  alt="">
+                                             <div class="lab_txt">
+                                                 <p>Water Resources Engineering</p>
+                                             </div>
+                                        </div>
+                                    </div>                                 
+                              </div>
+                          </div>
+                       
+
+
+
+
+
+
+
+
                         <!-- <h3 style="text-align:center"><?php echo $title?></h3> -->
-                        <div class='col-sm-12' style="margin-top: 50px;">
+                        <!-- <div class='col-sm-12' style="margin-top: 50px;">
                             <div class="container_1">
         <div class="title">
             <h1 style="font-size: 38px;"> Teaching Laboratories</h1>
@@ -133,7 +200,7 @@ opacity: .5;}
 
 
 </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
