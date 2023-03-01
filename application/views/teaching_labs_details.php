@@ -66,11 +66,15 @@ h1      {
 .lab_details_lt{width: 100%; border: 1px solid #ffbf00; border-radius: 15px;}
 .lab_details_lt img{width: 100%; border-radius: 15px;}
 .lab_details_rt{width: 100%; padding-top:0px;}
-.lab_details_rt h6{font-size: 30px; line-height: 36px; text-align: left; color: #13639e; margin: 0px;padding-bottom: 15px; }
-.lab_details_rt p{padding: 0px; font-size: 18px; line-height: 24px; text-align: left; color: #444444;}
-.lab_details_inn{width: 100%; padding: 15px; box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);     -webkit-box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);  -moz-box-shadow: 2px 4px 9px 0px rgba(120,120,120,0.75); border-radius: 8px; margin-bottom: 15px;}
-
-
+.lab_details_rt h6{font-size: 26px; line-height: 30px; text-align: left; color: #13639e; margin: 0px;padding-bottom: 15px; }
+.lab_details_rt p{padding: 0px; font-size: 16px; line-height: 22px; text-align: left; color: #444444;}
+.lab_details_inn{width: 100%; margin-top:15px; padding: 15px; box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);     -webkit-box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);  -moz-box-shadow: 2px 4px 9px 0px rgba(120,120,120,0.75); border-radius: 8px; margin-bottom: 15px;}
+.lab_details_rt_top{width: 100%; margin-bottom: 30px;}
+.lab_details_rt_top p{font-size: 16px; color:#222; text-align: center; line-height: 25px}
+.lab_details_rt_top p strong{font-size: 20px;}
+.cont_txt{width:100%; padding: 15px;}
+.cont_txt p{padding: 0px 0 20px; font-size: 16px; line-height: 22px; text-align: left; color: #444444;}
+.cont_txt
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top:30px;">
@@ -79,17 +83,31 @@ h1      {
                 <div class="col-sm-10 offset-sm-1">
                   <div class="lab_details_sec">
                       <h4>Environmental Engineering Laboatory</h4>
+                       <div class="cont_txt">
+                           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages</p>
+
+                           <span>Coordinator <img style="width:50px;" src="<?php echo base_url() ?>uploads/environmentallab/user.png" alt=""></span>
+                           <span>Coordinator <img style="width:50px;" src="<?php echo base_url() ?>uploads/environmentallab/user.png" alt=""></span>
+                       </div>
                         <div class="lab_details_inn">
                             <div class="row">
-                               <div class="col-sm-3">
+                                <div class="col-sm-12">
+                                    <div class="lab_details_rt_top">
+                                           <p><strong>Name of the Equipment:</strong>  Concrete Moisture Meter </p>
+                                           <p><strong>Specialization:</strong> Construction Material Non Destructive Testing</p>
+                                           <p><strong>Name of the lab:</strong> Construction Material Lab </p>
+                                           <p><strong>Type of Lab:</strong> Research</p>
+                                       </div>
+                                </div>
+                               <div class="col-sm-4">
                                    <div class="lab_details_lt">
-                                       <img src="<?php echo base_url() ?>uploads/environmentallab/env1.jpg">
+                                       <img src="<?php echo base_url() ?>uploads/environmentallab/01.png" alt="">
                                    </div>
                                </div>
-                               <div class="col-sm-9">
-                                   <div class="lab_details_rt">
-                                       <h6> PM2.5 sampler</h6>
-                                       <p>PM2.5 sampler is used for collection of ambient particulate matter with aerodynamic diameter ≤ 2.5 µm. It operates with a flow rate of 16.7 liters per minute (lpm). The sample is collected using a filter of 47 mm diameter.</p>
+                               <div class="col-sm-8">
+                                   <div class="lab_details_rt">                                       
+                                       <h6>Concrete Moisture Meter</h6>
+                                       <p>Tramex Concrete Moisture Encounter X5 detects and evaluates the moisture conditions within the slab or screed by non-destructively measuring the electrical impedance. A low frequency electronic signal is transmitted into the material under test via the electrodes in the base of the instrument.</p>
                                    </div>
                                </div>
                             </div>
