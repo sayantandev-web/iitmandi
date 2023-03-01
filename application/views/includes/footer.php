@@ -295,6 +295,8 @@
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').show();
                 $('.conference_name').hide();
                 $('.book_name').hide();
@@ -315,6 +317,8 @@
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').show();
                 $('.book_name').hide();
@@ -325,7 +329,7 @@
                 $('.external_Link').show();
                 $('.editors').hide();
                 $('.page_number').show();
-                $('.volume_number').hide();
+                $('.volume_number').show();
                 $('.issue_number').hide();
                 $('.short_summery').show();
                 $('.key_points').show();
@@ -334,7 +338,9 @@
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
-                $('.paper_title').show();
+                $('.paper_title').hide();
+                $('.chapter_title').show();
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').show();
@@ -355,6 +361,8 @@
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').hide();
@@ -374,7 +382,9 @@
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
-                $('.paper_title').show();
+                $('.paper_title').hide();
+                $('.chapter_title').hide();
+                $('.patent_title').show();
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').hide();
@@ -388,7 +398,7 @@
                 $('.volume_number').hide();
                 $('.issue_number').hide();
                 $('.short_summery').show();
-                $('.key_points').show();
+                $('.key_points').hide();
             } else {
                 $('.body_content').hide();
             }
@@ -405,6 +415,8 @@
             var publication_type = $('#publication_type').val();
             var author_name = $('#author_name').val();
             var paper_title = $('#paper_title').val();
+            var chapter_title = $('#chapter_title').val();
+            var patent_title = $('#patent_title').val();
             var journal_name = $('#journal_name').val();
             var conference_name = $('#conference_name').val();
             var book_name = $('#book_name').val();
@@ -424,7 +436,7 @@
             $.ajax({
                 url: "<?php echo base_url()?>student/save_publication",
                 type: "POST",
-                data:  {uid: uid, attachment: attachment, publication_type: publication_type, author_name: author_name, paper_title: paper_title, journal_name: journal_name, conference_name: conference_name, book_name: book_name, publish_date: publish_date, patient_number: patient_number, publisher: publisher, location: location, external_Link: external_Link, editors: editors, page_number: page_number, volume_number: volume_number, issue_number: issue_number, short_summery: short_summery, key_points: key_points, highlight: highlight, status: status},
+                data:  {uid: uid, attachment: attachment, publication_type: publication_type, author_name: author_name, paper_title: paper_title, chapter_title: chapter_title, patent_title: patent_title, journal_name: journal_name, conference_name: conference_name, book_name: book_name, publish_date: publish_date, patient_number: patient_number, publisher: publisher, location: location, external_Link: external_Link, editors: editors, page_number: page_number, volume_number: volume_number, issue_number: issue_number, short_summery: short_summery, key_points: key_points, highlight: highlight, status: status},
                 beforeSend : function() {
                     //$("#preview").fadeOut();
                     $("#err").fadeOut();
@@ -432,7 +444,8 @@
                 success: function(data) {
                     if(data !='invalid') {
                         $("#form_pub")[0].reset(); 
-                        location.reload();
+                        //location.reload();
+                        window.location.reload(true);
                     }
                 },
                 error: function(e) {
