@@ -76,14 +76,14 @@ echo $header;
                                 <?php //if(!empty($experience)) { ?>
                                 <a href="<?php echo base_url()?>faculty/miscellaneous/<?php echo $uid?>"><button type="button" class="btn btn-primary">Miscellaneous</button></a>
                                 <?php //} ?>
-                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                                 <?php } ?>
                                 <!-- Tab navs -->
                             </div>
                             
                             <!-- Research Publication Start -->
-                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                             <div class="col-sm-12" style="text-align: right; margin-top: 15px;">
                                 <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
                             </div>
@@ -125,7 +125,7 @@ echo $header;
                                                 }    
                                             ?> 
                                             <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                             <td>
                                                 <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -175,7 +175,7 @@ echo $header;
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                                 <td>
                                                     <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -225,7 +225,7 @@ echo $header;
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                                 <td>
                                                     <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -275,7 +275,7 @@ echo $header;
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                                 <td>
                                                     <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -325,7 +325,7 @@ echo $header;
                                                 }    
                                             ?>
                                                 <td style="text-align: left;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                                 <td>
                                                     <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>

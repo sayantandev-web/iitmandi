@@ -119,3 +119,23 @@ $route['faculty/save_experience'] = 'facultys/facultys/save_experience';
 $route['faculty/save_award'] = 'facultys/facultys/save_award';
 $route['faculty/save_event'] = 'facultys/facultys/save_event';
 $route['faculty/logout'] = 'facultys/facultys/logout';
+
+/* Postdoc */
+$route['postdoc'] = 'postdocs/postdocs/index';
+$route['postdoc/login'] = 'postdocs/postdocs/login';
+$route['postdoc/reset_password/(:any)'] = 'postdocs/postdocs/reset_password/$1';
+$route['postdoc/update_password'] = 'postdocs/postdocs/update_password';
+$route['postdoc/dashboard/(:any)'] = 'postdocs/postdocs/dashboard/$1';
+$route['postdoc/research/(:any)'] = 'postdocs/postdocs/research/$1';
+$route['postdoc/publication/(:any)'] = 'postdocs/postdocs/publication/$1';
+$route['postdoc/projects/(:any)'] = 'postdocs/postdocs/projects/$1';
+$route['postdoc/lab_members/(:any)'] = 'postdocs/postdocs/lab_members/$1';
+$route['postdoc/current_opening/(:any)'] = 'postdocs/postdocs/current_opening/$1';
+$route['postdoc/miscellaneous/(:any)'] = 'postdocs/postdocs/miscellaneous/$1';
+$route['postdoc/save_aboutme'] = 'postdocs/postdocs/save_aboutme';
+$route['postdoc/save_research'] = 'postdocs/postdocs/save_research';
+$route['postdoc/save_educate'] = 'postdocs/postdocs/save_educate';
+$route['postdoc/save_experience'] = 'postdocs/postdocs/save_experience';
+$route['postdoc/save_award'] = 'postdocs/postdocs/save_award';
+$route['postdoc/save_event'] = 'postdocs/postdocs/save_event';
+$route['postdoc/logout'] = 'postdocs/postdocs/logout';
