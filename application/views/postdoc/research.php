@@ -91,7 +91,7 @@ echo $header;
                                 <?php //if(!empty($experience)) { ?>
                                 <a href="<?php echo base_url()?>faculty/miscellaneous/<?php echo $uid?>"><button type="button" class="btn btn-primary">Miscellaneous</button></a>
                                 <?php //} ?>
-                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                                 <?php } ?>
                                 <!-- Tab navs -->
@@ -109,7 +109,7 @@ echo $header;
                                                 <div class="col-sm-12" style="float: left;display: inline-block;">
                                                     <div class='bio_text1'><?php echo $about_me[0]['research_interest'];?></div>
                                                 </div>
-                                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                                 <div class="col-sm-12" style="text-align: right;">
                                                     <button type="button" class="btn btn-primary research_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Update Research</button>
                                                 </div>

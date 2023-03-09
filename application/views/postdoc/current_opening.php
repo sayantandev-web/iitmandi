@@ -92,7 +92,7 @@ echo $header;
                                 <?php //if(!empty($experience)) { ?>
                                 <a href="<?php echo base_url()?>faculty/miscellaneous/<?php echo $uid?>"><button type="button" class="btn btn-primary">Miscellaneous</button></a>
                                 <?php //} ?>
-                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                                 <?php } ?>
                                 <!-- Tab navs -->
@@ -128,7 +128,7 @@ echo $header;
                                         <tr>
                                             <td><?php echo $i ?></td>
                                             <td style="text-align: left;"><?php echo $row['description']?></td>
-                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                                             <td>
                                                 <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -143,7 +143,7 @@ echo $header;
                             </div>
                             <?php } ?>
                             
-                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Postdoc') { ?>
                             <div class="col-sm-12" style="text-align: right;">
                                 <button type="button" class="btn btn-primary opening_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5">Add New Record</button>
                             </div>

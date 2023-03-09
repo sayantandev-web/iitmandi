@@ -194,8 +194,41 @@ class Home extends CI_Controller {
         }
     }
 
-    public function publications() { 
-        $data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
+    public function journal() { 
+        $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
+        $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Publications';
+        $this->load->view('publication',$data);
+    }
+    public function conference() { 
+        $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
+        $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Publications';
+        $this->load->view('publication',$data);
+    }
+    public function book_chapter() { 
+        //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
+        $data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
+        $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Publications';
+        $this->load->view('publication',$data);
+    }
+    public function book() { 
+        $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
+        $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Publications';
+        $this->load->view('publication',$data);
+    }
+    public function patent() { 
+        $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);

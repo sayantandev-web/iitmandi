@@ -154,7 +154,7 @@
                         </div>
                       </li>
                       <li class="menu-item">
-                        <a href="#" data-drupal-link-system-path="node/2033">Research labs</a>
+                        <a href="<?php echo base_url()?>pages/research_labs" data-drupal-link-system-path="node/2033">Research labs</a>
                       </li>
                     </ul>
                   </li>
@@ -187,19 +187,19 @@
                     </div>
                     <ul class="menu">
                       <li class="menu-item">
-                        <a href="<?php echo base_url()?>pages/publications" data-drupal-link-system-path="news/latest">Journal</a>
+                        <a href="<?php echo base_url()?>pages/journal" data-drupal-link-system-path="news/latest">Journal</a>
                       </li>
                       <li class="menu-item">
-                        <a href="#" data-drupal-link-system-path="taxonomy/term/24">Conference</a>
+                        <a href="<?php echo base_url()?>pages/conference" data-drupal-link-system-path="taxonomy/term/24">Conference</a>
                       </li>
                       <li class="menu-item">
-                        <a href="#" data-drupal-link-system-path="node/48756">Book Chapter</a>
+                        <a href="<?php echo base_url()?>pages/book_chapter" data-drupal-link-system-path="node/48756">Book Chapter</a>
                       </li>
                       <li class="menu-item">
-                        <a href="#" data-drupal-link-system-path="node/48756">Book</a>
+                        <a href="<?php echo base_url()?>pages/book" data-drupal-link-system-path="node/48756">Book</a>
                       </li>
                       <li class="menu-item">
-                        <a href="#" data-drupal-link-system-path="node/48756">Patent</a>
+                        <a href="<?php echo base_url()?>pages/patent" data-drupal-link-system-path="node/48756">Patent</a>
                       </li>
                     </ul>
                   </li>

@@ -251,7 +251,15 @@ class Student extends CI_Controller {
 			$insArr['publication_type']=$this->input->post('publication_type');
 			$insArr['attachment']=$this->input->post('attachment');
 			$insArr['author_name']=$author_name;
-			$insArr['paper_title'] = $this->input->post('paper_title');
+			if ($this->input->post('paper_title') != '') {
+				$insArr['paper_title'] = $this->input->post('paper_title');
+			} 
+			if ($this->input->post('chapter_title') != '') {
+				$insArr['paper_title'] = $this->input->post('chapter_title');
+			}
+			if ($this->input->post('patent_title') != '') {
+				$insArr['paper_title'] = $this->input->post('patent_title');
+			}
 			$insArr['journal_name']=$this->input->post('journal_name');
 			$insArr['conference_name']=$this->input->post('conference_name');
 			$insArr['book_name']=$this->input->post('book_name');
@@ -276,7 +284,15 @@ class Student extends CI_Controller {
 			$insArr['publication_type']=$this->input->post('publication_type');
 			$insArr['attachment']=$this->input->post('attachment');
 			$insArr['author_name']=$author_name;
-			$insArr['paper_title'] = $this->input->post('paper_title');
+			if ($this->input->post('paper_title') != '') {
+				$insArr['paper_title'] = $this->input->post('paper_title');
+			} 
+			if ($this->input->post('chapter_title') != '') {
+				$insArr['paper_title'] = $this->input->post('chapter_title');
+			}
+			if ($this->input->post('patent_title') != '') {
+				$insArr['paper_title'] = $this->input->post('patent_title');
+			}
 			$insArr['journal_name']=$this->input->post('journal_name');
 			$insArr['conference_name']=$this->input->post('conference_name');
 			$insArr['book_name']=$this->input->post('book_name');

@@ -1,6 +1,7 @@
 <?php 
 if ($this->session->userdata('user_id') != "") {
     $uid = $this->session->userdata('user_id');
+    $position = $this->session->userdata('position');
 } else {
     $uid = $about_me[0]['id'];
 }
@@ -90,7 +91,7 @@ echo $header;
                                 <?php //if(!empty($experience)) { ?>
                                 <a href="<?php echo base_url()?>faculty/miscellaneous/<?php echo $uid?>"><button type="button" class="btn btn-primary active">Miscellaneous</button></a>
                                 <?php //} ?>
-                                <?php if ($this->session->userdata('user_id') != '') { ?>
+                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                                 <?php } ?>
                                 <!-- Tab navs -->

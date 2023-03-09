@@ -1,6 +1,7 @@
 <?php 
 if ($this->session->userdata('user_id') != "") {
     $uid = $this->session->userdata('user_id');
+    $position = $this->session->userdata('position');
 } else {
     $uid = $about_me[0]['id'];
 }
@@ -75,20 +76,21 @@ echo $header;
                                 <?php //if(!empty($experience)) { ?>
                                 <a href="<?php echo base_url()?>faculty/miscellaneous/<?php echo $uid?>"><button type="button" class="btn btn-primary">Miscellaneous</button></a>
                                 <?php //} ?>
-                                <?php if ($this->session->userdata('user_id') != '') { ?>
+                                <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                                 <?php } ?>
                                 <!-- Tab navs -->
                             </div>
                             
                             <!-- Research Publication Start -->
-                            <?php if ($this->session->userdata('user_id') != '') { ?>
+                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                             <div class="col-sm-12" style="text-align: right; margin-top: 15px;">
                                 <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
                             </div>
                             <?php } ?>
-                            <?php if(!empty($publications)) { ?>
+                            <?php if(!empty($journal)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
+                                <h3 style="text-transform: capitalize">Journal Article</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
@@ -98,41 +100,32 @@ echo $header;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $i=1;
-                                        foreach($publications as $row) { 
-                                            $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
-                                            //echo "<pre>"; print_r($author->result_array());
-                                            $value = $author->result_array();
-                                            $count = count($author->result_array());
-                                            for($i = 0; $i < $count; $i++) {
-                                                if ($value[$i]['mname'] == '') {
-                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
-                                                } else {
-                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
-                                                }
-                                            }
-                                            $lastItem = array_pop($commonValues);
-                                            $text = implode(', ', $commonValues); // a, b 
-                                            if ($text == ''){
-                                                $text .= $lastItem; 
-                                            } else {
-                                                $text .= ', & '.$lastItem; // a, b and c
-                                            }
-                                        ?>
+                                        <?php $j=1;
+                                        foreach($journal as $row) { ?>
                                         <tr>
-                                            <td><?php echo $i ?></td>
-                                            <?php if ($row['publication_type'] == 'Journal Article') { ?> 
-                                                <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". ".$row['external_Link']; ?></td>
-                                            <?php } elseif ($row['publication_type'] == 'Conference Paper') { ?>
-                                                <td style="text-align: left;"><?php echo $text." (".date('Y, M', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". ".$row['external_Link']; ?></td>
-                                            <?php } elseif ($row['publication_type'] == 'Book Chapter') { ?>
-                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['book_name'].", ".$row['publish_date'].", ".$row['editors'].", ".$row['page_number']?></td>
-                                            <?php } elseif ($row['publication_type'] == 'Book') { ?>
-                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['publish_date'].", ".$row['patient_number'].", ".$row['publisher'].", ".$row['page_number']?></td>
-                                            <?php } else { ?>
-                                                <td style="text-align: left;"><?php echo $row['author_name'].", ".$row['paper_title'].", ".$row['publish_date'].", ".$row['patient_number']?></td>
-                                            <?php } ?>
-                                            <?php if ($this->session->userdata('user_id') != '') { ?>
+                                            <td><?php echo $j ?></td>
+                                            <?php 
+                                            $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                //echo "<pre>"; print_r($author->result_array());
+                                                $value = $author->result_array();
+                                                $count = count($author->result_array());
+                                                for($i = 0; $i < $count; $i++) {
+                                                    if ($value[$i]['mname'] == '') {
+                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem = array_pop($commonValues);
+                                                $text = implode(', ', $commonValues); // a, b 
+                                                if ($text == ''){
+                                                    $text .= $lastItem; 
+                                                } else {
+                                                    $text .= ', & '.$lastItem; // a, b and c
+                                                }    
+                                            ?> 
+                                            <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                             <td>
                                                 <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -141,10 +134,211 @@ echo $header;
                                                 <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
                                             <?php } ?>
                                         </tr>
-                                    <?php $i++; } } ?>
+                                        <?php $j++; } ?>
                                     </tbody>
                                 </table>
                             </div>
+                            <?php } ?>
+
+                            <?php if(!empty($conference)) { ?>
+                            <div class='col-sm-12' style="margin-top: 50px;">
+                                <h3 style="text-transform: capitalize">Conference Paper</h3>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>Publication Details</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $j=1;
+                                        foreach($conference as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $j ?></td>
+                                            <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $value1 = $author1->result_array();
+                                                $count1 = count($author1->result_array());
+                                                for($i = 0; $i < $count1; $i++) {
+                                                    if ($value1[$i]['mname'] == '') {
+                                                        $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['mname'], 0, 1).", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem1 = array_pop($commonValues1);
+                                                $text1 = implode(', ', $commonValues1); // a, b 
+                                                if ($text1 == ''){
+                                                    $text1 .= $lastItem1; 
+                                                } else {
+                                                    $text1 .= ', & '.$lastItem1; // a, b and c
+                                                }
+                                            ?>
+                                            <td style="text-align: left;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                                <td>
+                                                    <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <?php $j++; } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
+
+                            <?php if(!empty($bookc)) { ?>
+                            <div class='col-sm-12' style="margin-top: 50px;">
+                                <h3 style="text-transform: capitalize">Book Chapter</h3>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>Publication Details</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $j=1;
+                                        foreach($bookc as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $j ?></td>
+                                            <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $value2 = $author2->result_array();
+                                                $count2 = count($author2->result_array());
+                                                for($i = 0; $i < $count2; $i++) {
+                                                    if ($value2[$i]['mname'] == '') {
+                                                        $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['mname'], 0, 1).", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem2 = array_pop($commonValues2);
+                                                $text2 = implode(', ', $commonValues2); // a, b 
+                                                if ($text2 == ''){
+                                                    $text2 .= $lastItem2; 
+                                                } else {
+                                                    $text2 .= ', & '.$lastItem2; // a, b and c
+                                                }
+                                            ?>
+                                            <td style="text-align: left;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                                <td>
+                                                    <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <?php $j++; } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
+
+                            <?php if(!empty($book)) { ?>
+                            <div class='col-sm-12' style="margin-top: 50px;">
+                                <h3 style="text-transform: capitalize">Book</h3>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>Publication Details</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $j=1;
+                                        foreach($book as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $j ?></td>
+                                            <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $value3 = $author3->result_array();
+                                                $count3 = count($author3->result_array());
+                                                for($i = 0; $i < $count3; $i++) {
+                                                    if ($value3[$i]['mname'] == '') {
+                                                        $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['mname'], 0, 1).", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem3 = array_pop($commonValues3);
+                                                $text3 = implode(', ', $commonValues3); // a, b 
+                                                if ($text3 == ''){
+                                                    $text3 .= $lastItem3; 
+                                                } else {
+                                                    $text3 .= ', & '.$lastItem3; // a, b and c
+                                                }
+                                            ?>
+                                            <td style="text-align: left;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                                <td>
+                                                    <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <?php $j++; } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
+
+                            <?php if(!empty($patent)) { ?>
+                            <div class='col-sm-12' style="margin-top: 50px;">
+                                <h3 style="text-transform: capitalize">Patent</h3>
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No.</th>
+                                            <th>Publication Details</th>
+                                            <th>View</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $j=1;
+                                        foreach($patent as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $j ?></td>
+                                            <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $value4 = $author4->result_array();
+                                                $count4 = count($author4->result_array());
+                                                for($i = 0; $i < $count4; $i++) {
+                                                    if ($value4[$i]['mname'] == '') {
+                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['mname'], 0, 1).", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem4 = array_pop($commonValues4);
+                                                $text4 = implode(', ', $commonValues4); // a, b 
+                                                if ($text4 == ''){
+                                                    $text4 .= $lastItem4; 
+                                                } else {
+                                                    $text4 .= ', & '.$lastItem4; // a, b and c
+                                                }    
+                                            ?>
+                                                <td style="text-align: left;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
+                                            <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
+                                                <td>
+                                                    <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                    <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
+                                            <?php } else { ?>
+                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <?php $j++; } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -208,6 +402,18 @@ echo $header;
                                         <label for="Event Name" class="control-label">Title of Paper</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
                                             <input type="text" class="form-control required" id="paper_title" name="paper_title" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 cstm_details chapter_title">
+                                        <label for="Event Name" class="control-label">Title of Chapter</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-8">
+                                            <input type="text" class="form-control required" id="chapter_title" name="chapter_title" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-4 cstm_details patent_title">
+                                        <label for="Event Name" class="control-label">Title of Patent</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-8">
+                                            <input type="text" class="form-control required" id="patent_title" name="patent_title" value="">
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details journal_name">
@@ -284,13 +490,13 @@ echo $header;
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-group col-sm-12 cstm_details page_number">
+                                    <div class="form-group col-sm-12 cstm_details short_summery">
                                         <label for="Event Name" class="control-label">Short Summary</label>
                                         <div class="col-sm-12">
                                             <textarea id="short_summery" name="short_summery"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group col-sm-12 cstm_details page_number">
+                                    <div class="form-group col-sm-12 cstm_details key_points">
                                         <label for="Event Name" class="control-label">Key points</label>
                                         <div class="col-sm-12">
                                             <textarea id="key_points" name="key_points"></textarea>
