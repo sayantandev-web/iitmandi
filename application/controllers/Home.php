@@ -227,4 +227,13 @@ class Home extends CI_Controller {
         $data['title']='Teaching Labs Details';
         $this->load->view('teaching_labs_details',$data);
     }
+
+    public function research_lab() { 
+        //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Research Labs';
+        $this->load->view('research_lab',$data);
+    }
 }

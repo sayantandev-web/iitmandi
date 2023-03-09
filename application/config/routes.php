@@ -79,6 +79,7 @@ $route['pages/publications'] = 'home/publications';
 $route['pages/publication_details/(:any)'] = 'home/publication_details/$1';
 $route['pages/teaching_labs'] = 'home/teaching_labs';
 $route['pages/teaching_labs_details'] = 'home/teaching_labs_details';
+$route['pages/research_lab'] = 'home/research_lab';
 
 /* Students */
 $route['student'] = 'student/student/index';
