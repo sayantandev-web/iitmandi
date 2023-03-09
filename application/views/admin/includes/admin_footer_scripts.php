@@ -439,6 +439,15 @@
                 evt.preventDefault();
             }
         });
+
+        $('#typeofLab').change(function(){
+            var typeofLab = $(this).children("option:selected").val();
+            if (typeofLab == 1) {
+                $('.coCoordinators').show();
+            } else {
+                $('.coCoordinators').hide();
+            }
+        })
     });
     CKEDITOR.replace('description');
 </script>

@@ -154,7 +154,7 @@
                         </div>
                       </li>
                       <li class="menu-item">
-                        <a href="<?php echo base_url()?>pages/research_labs" data-drupal-link-system-path="node/2033">Research labs</a>
+                        <a href="<?php echo base_url()?>pages/research_lab" data-drupal-link-system-path="node/2033">Research labs</a>
                       </li>
                     </ul>
                   </li>

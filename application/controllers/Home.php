@@ -245,16 +245,15 @@ class Home extends CI_Controller {
     }
 
     public function teaching_labs() { 
-        //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
-        //$data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['teachinglabs']=$this->common_model->get_data_array(LABSECTION,'','','','','','',LABSECTION.".id DESC",array('typeofLab'=>1,'status'=>1,'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title']='Teaching Labs';
         $this->load->view('teaching_labs',$data);
     }
 
-    public function teaching_labs_details() { 
-        //$data['pub_details']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('id'=>$id,'status'=>1,'is_delete'=>1));
+    public function teaching_labs_details($labname) { 
+        $data['labdetails']=$this->db->query("SELECT iitmandi_labsection.id, iitmandi_labsection.labname, iitmandi_labsection.page_slug, iitmandi_labsection.description, iitmandi_labsection.specialization, iitmandi_labsection.typeofLab, iitmandi_labsection.coordinator, iitmandi_labsection.cocooordinator, iitmandi_labsection.cover_photo, iitmandi_labsection.status, iitmandi_labsection.is_delete, iitmandi_labequipment.equipment_name, iitmandi_labequipment.description as 'equipment_description', iitmandi_labequipment.lab_name, iitmandi_labequipment.eqpmnt_img, iitmandi_labequipment.status, iitmandi_labequipment.is_delete FROM `iitmandi_labequipment` JOIN iitmandi_labsection ON iitmandi_labsection.page_slug = iitmandi_labequipment.lab_name WHERE iitmandi_labsection.page_slug = '".$labname."'");
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title']='Teaching Labs Details';
@@ -262,11 +261,18 @@ class Home extends CI_Controller {
     }
 
     public function research_lab() { 
-        //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
-        //$data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
+        $data['researchlab']=$this->common_model->get_data_array(LABSECTION,'','','','','','',LABSECTION.".id DESC",array('typeofLab'=>2,'status'=>1,'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title']='Research Labs';
         $this->load->view('research_lab',$data);
+    }
+
+    public function research_labs_details($labname) { 
+        $data['rlabdetails']=$this->db->query("SELECT iitmandi_labsection.id, iitmandi_labsection.labname, iitmandi_labsection.page_slug, iitmandi_labsection.description, iitmandi_labsection.specialization, iitmandi_labsection.typeofLab, iitmandi_labsection.coordinator, iitmandi_labsection.cocooordinator, iitmandi_labsection.cover_photo, iitmandi_labsection.status, iitmandi_labsection.is_delete, iitmandi_labequipment.equipment_name, iitmandi_labequipment.description as 'equipment_description', iitmandi_labequipment.lab_name, iitmandi_labequipment.eqpmnt_img, iitmandi_labequipment.status, iitmandi_labequipment.is_delete FROM `iitmandi_labequipment` JOIN iitmandi_labsection ON iitmandi_labsection.page_slug = iitmandi_labequipment.lab_name WHERE iitmandi_labsection.page_slug = '".$labname."'");
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']='Research Labs Details';
+        $this->load->view('research_labs_details',$data);
     }
 }

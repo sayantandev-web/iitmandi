@@ -37,29 +37,22 @@ h1 {color: rgb(1 15 112);}
             <div class="row gy-4">
                 <div class="col-sm-10 offset-sm-1">
                     <div class="lab_details_sec">
-                        <?php $labdetails = $labdetails->result_array();?>
-                        <h4><?php echo $labdetails[0]['labname']?></h4>
+                        <?php $rlabdetails = $rlabdetails->result_array();?>
+                        <h4><?php echo $rlabdetails[0]['labname']?></h4>
                         <div class="cont_txt">
-                            <p><?php echo $labdetails[0]['description']?></p>
+                            <p><?php echo $rlabdetails[0]['description']?></p>
                             <span>Coordinator: 
                                 <?php 
-                                $coordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$labdetails[0]['coordinator']."'");
+                                $coordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$rlabdetails[0]['coordinator']."'");
                                 $coordinator = $coordinator->result_array();
                                 echo $coordinator[0]['fname']." ".$coordinator[0]['mname']." ".$coordinator[0]['lname']; 
                                 ?> 
                                 <img style="width:50px;border-radius: 50%;border: 3px solid #000;" src="<?php echo base_url() ?>uploads/our_team/<?php echo $coordinator[0]['team_image']?>" alt="">
                             </span>
-                            <span>Co-Cordinator:
-                                <?php 
-                                $cocooordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$labdetails[0]['cocooordinator']."'");
-                                $cocooordinator = $cocooordinator->result_array();
-                                echo $cocooordinator[0]['fname']." ".$cocooordinator[0]['mname']." ".$cocooordinator[0]['lname']; 
-                                ?>
-                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;" src="<?php echo base_url() ?>uploads/environmentallab/user.png" alt=""></span>
                         </div>
-                        <?php if(!empty($labdetails)) {
+                        <?php if(!empty($rlabdetails)) {
                             $i=1; ?>
-                        <?php foreach($labdetails as $row) { ?>
+                        <?php foreach($rlabdetails as $row) { ?>
                         <div class="lab_details_inn">
                             <div class="row">
                                 <div class="col-sm-12">
