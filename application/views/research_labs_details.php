@@ -84,3 +84,4 @@ h1 {color: rgb(1 15 112);}
     </section>
     <!-- End Portfolio Details Section -->
 </main>
+<?php echo $footer; ?>

@@ -59,3 +59,4 @@ a{cursor: pointer;}
         </div>
     </section>
 </main>
+<?php echo $footer; ?>
