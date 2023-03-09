@@ -397,6 +397,7 @@ echo $header;
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <div><a href="" class="pageLoad">Add External User</a></div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details paper_title">
                                         <label for="Event Name" class="control-label">Title of Paper</label>

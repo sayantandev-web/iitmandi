@@ -742,6 +742,13 @@
                 }          
             });
         }));
+
+        $('.pageLoad').on('click', function(e){ 
+            e.preventDefault(); 
+            var url = "<?php echo base_url()?>admin/ourteam/add_team"; 
+            window.open(url, '_blank');
+            location.reload();
+        });
     });
 
     /* Edit education */

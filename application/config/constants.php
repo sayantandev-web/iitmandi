@@ -104,3 +104,5 @@ define('DESIGNATION', 'iitmandi_designation');
 define('PROJECT', 'iitmandi_project');
 define('AWARDEVENT', 'iitmandi_awardevent');
 define('CRNTOPENING', 'iitmandi_crntopening');
+define('LABSECTION', 'iitmandi_labsection');
+define('LABEQUIPMENT', 'iitmandi_labequipment');

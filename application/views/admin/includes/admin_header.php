@@ -1,4 +1,5 @@
 <?php
+if($this->session->userdata('uid') != '') {
     $uid=$this->session->userdata('uid');
     $get_name = get_admin_name($uid);
     $get_logo = get_logo_name();
@@ -33,3 +34,4 @@
         </ul>
     </div>
 </nav>
+<?php } ?>

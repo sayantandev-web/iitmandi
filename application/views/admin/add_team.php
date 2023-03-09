@@ -63,14 +63,18 @@
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <select class="form-control" id="position" name="position" require>
                                              <option value="">Choose an Option</option>
-                                             <option value="1" <?php if(@$banner['user_type']==1){ echo "selected"; } ?>>Faculty</option>
-                                             <option value="2" <?php if(@$banner['user_type']==2){ echo "selected"; } ?>>Postdocs</option>
-                                             <option value="3" <?php if(@$banner['user_type']==3){ echo "selected"; } ?>>Scholars</option>
-                                             <option value="4" <?php if(@$banner['user_type']==4){ echo "selected"; } ?>>Project Staff</option>
-                                             <option value="5" <?php if(@$banner['user_type']==5){ echo "selected"; } ?>>Students</option>
-                                             <option value="6" <?php if(@$banner['user_type']==6){ echo "selected"; } ?>>Technical Staff</option>
-                                             <option value="7" <?php if(@$banner['user_type']==7){ echo "selected"; } ?>>Supporting Staff</option>
-                                             <option value="8" <?php if(@$banner['user_type']==8){ echo "selected"; } ?>>External</option>
+                                             <?php if ($uid != '') { ?>
+                                                <option value="1" <?php if(@$banner['user_type']==1){ echo "selected"; } ?>>Faculty</option>
+                                                <option value="2" <?php if(@$banner['user_type']==2){ echo "selected"; } ?>>Postdocs</option>
+                                                <option value="3" <?php if(@$banner['user_type']==3){ echo "selected"; } ?>>Scholars</option>
+                                                <option value="4" <?php if(@$banner['user_type']==4){ echo "selected"; } ?>>Project Staff</option>
+                                                <option value="5" <?php if(@$banner['user_type']==5){ echo "selected"; } ?>>Students</option>
+                                                <option value="6" <?php if(@$banner['user_type']==6){ echo "selected"; } ?>>Technical Staff</option>
+                                                <option value="7" <?php if(@$banner['user_type']==7){ echo "selected"; } ?>>Supporting Staff</option>
+                                                <option value="8" <?php if(@$banner['user_type']==8){ echo "selected"; } ?>>External</option>
+                                             <?php } else { ?>
+                                                <option value="8" <?php if(@$banner['user_type']==8){ echo "selected"; } ?>>External</option>
+                                             <?php } ?>
                                           </select>
                                        </div>
                                     </div>

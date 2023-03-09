@@ -1,4 +1,5 @@
 <?php
+if($this->session->userdata('uid') != '') {
     $uid=$this->session->userdata('uid');
     $get_name = get_admin_name($uid);
     $footer_content=$this->common_model->get_data(SETTINGS,array('id'=>1));
@@ -58,6 +59,15 @@
                     <li><a href="admin/ourteam"><i class="fa fa-circle-o"></i>All Users</a></li>
                     <li><a href="admin/alumni"><i class="fa fa-circle-o"></i>Alumni</a></li>
                 </ul>
+            </li>
+            <li class="treeview">
+                <a href="javascript:void(0);"><i class="fa fa-circle-o"></i>
+                    <span>Facilities</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/labsection"><i class="fa fa-circle-o"></i>Lab Managment</a></li>
+                    <li><a href="admin/labequipment"><i class="fa fa-circle-o"></i>Lab Equipment Managment</a></li>
+                </ul>
             </li> 
             <li class="treeview">
                 <a href="admin/project"><i class="fa fa-circle-o"></i>
@@ -72,3 +82,4 @@
         </ul>
     </section>
 </aside>
+<?php } ?>

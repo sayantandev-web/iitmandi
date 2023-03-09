@@ -7,9 +7,9 @@ class Ourteam extends CI_Controller{
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
 		session_start();
-        if($this->session->userdata('uid') == ''){
-            redirect(base_url().'admin/');
-        }
+        // if($this->session->userdata('uid') == ''){
+        //     redirect(base_url().'admin/');
+        // }
 	}
 
 	public function index() {
@@ -24,7 +24,7 @@ class Ourteam extends CI_Controller{
 	} 
 	
 	public function add_team($id='') {
-		print_r($this->input->post());
+		//print_r($this->input->post());
 		if($this->input->post()) {
 			$insArr=array();
 			$insArr['fname'] = $this->input->post('fname');
