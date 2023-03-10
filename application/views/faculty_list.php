@@ -6,11 +6,13 @@
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
-    .col-sm-1 {display: inline-block;}
-    .col-sm-4{display: inline-block;}
-    .col-sm-2 {width:20.667%;display: inline-block;}
+   
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
+    .box_sec{background:#ddd;  padding:25px 15px; border-radius: 20px; text-align:center;}
+    .box_sec img{width:260px; height:auto;}
+    .box_sec a{display:inline-block;}
+    .box_sec a h6{margin:0px; text-transform:uppercase;}
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
@@ -18,7 +20,7 @@
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
                     <h3 style="text-align:center"><?php echo $title?></h3>
-                    <div class="col-sm-12 filter_data">
+                    <div class="row filter_data">
                         <div class="col-sm-4">
                             <select class="form-control" id="designation" name="designation">
                                 <option value="">Choose Designation</option>
@@ -51,14 +53,17 @@
                     <?php 
                     $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
                     ?>
-                    <div class="col-sm-12 cls_filter_data">
+                    <div class="row cls_filter_data">
                         <?php if(!empty($faculty1->result_array())) {
                             $i=1; ?>
                         <?php foreach($faculty1->result_array() as $row) { ?>
-                        <div class="col-sm-2" style="border: 1px solid;/*box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999;*/ margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">
-                            <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">
-                            <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><p style="text-align: center; background: #fff;"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?><br><small><?php echo $row['designation']?></small></p></a>
-                            <p style="text-align: center; background: #fff;"><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                        <div class="col-sm-3">
+                         <div class="box_sec">
+                         <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="" >
+                            <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small></p></a>
+                            <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                  
+                         </div>    
                         </div>
                         <?php $i++; } } ?>
                     </div>
