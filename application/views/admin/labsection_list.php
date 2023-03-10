@@ -59,7 +59,7 @@
                                                         <?php } ?>
                                                     </td>
                                                     <td><?php echo $row['labname'] ?></td>
-                                                    <td><?php echo $row['specialization']; ?></td>
+                                                    <td><?php if ($row['specialization'] != ''){echo $row['specialization']; } else {echo 'None'; } ?></td>
                                                     <td><?php if ($row['typeofLab'] == '1'){echo 'Teaching'; } else {echo 'Research'; } ?>
                                                     </td>
                                                     <td>

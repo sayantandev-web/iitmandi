@@ -443,9 +443,15 @@
         $('#typeofLab').change(function(){
             var typeofLab = $(this).children("option:selected").val();
             if (typeofLab == 1) {
+                $('.lspecialization').show();
+                $('.coordinator').show();
                 $('.coCoordinators').show();
+                $('.external_link').hide();
             } else {
+                $('.lspecialization').hide();
+                $('.coordinator').hide();
                 $('.coCoordinators').hide();
+                $('.external_link').show();
             }
         })
     });

@@ -29,7 +29,7 @@ h1 {color: rgb(1 15 112);}
 a{cursor: pointer;}
 </style>
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details" style="margin-top:30px;">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
         <div class="container_1">
             <div class="row gy-4">
                 <div class="col-sm-10 offset-sm-1">
@@ -40,7 +40,7 @@ a{cursor: pointer;}
                             $i=1; ?>
                         <?php foreach($researchlab as $row) { ?>
                             <div class="col-sm-4">
-                                <a onclick="location.href='<?php echo base_url()?>research_labs_details/<?php echo $row['page_slug']?>'">
+                                <a href="<?php echo $row['external_link']?>" target="_blank">
                                     <div class="lab_sec">
                                         <div class="lab_img">
                                             <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="">

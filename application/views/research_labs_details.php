@@ -32,12 +32,15 @@ h1 {color: rgb(1 15 112);}
 .cont_txt p{padding: 0px 0 20px; font-size: 16px; line-height: 22px; text-align: left; color: #444444;}
 </style>
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details" style="margin-top:30px;">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-sm-10 offset-sm-1">
                     <div class="lab_details_sec">
-                        <?php $rlabdetails = $rlabdetails->result_array();?>
+                        <?php 
+                        $rlabdetails = $rlabdetails->result_array();
+                        if (!empty($rlabdetails)) {
+                        ?>
                         <h4><?php echo $rlabdetails[0]['labname']?></h4>
                         <div class="cont_txt">
                             <p><?php echo $rlabdetails[0]['description']?></p>
@@ -45,9 +48,9 @@ h1 {color: rgb(1 15 112);}
                                 <?php 
                                 $coordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$rlabdetails[0]['coordinator']."'");
                                 $coordinator = $coordinator->result_array();
-                                echo $coordinator[0]['fname']." ".$coordinator[0]['mname']." ".$coordinator[0]['lname']; 
-                                ?> 
+                                ?>
                                 <img style="width:50px;border-radius: 50%;border: 3px solid #000;" src="<?php echo base_url() ?>uploads/our_team/<?php echo $coordinator[0]['team_image']?>" alt="">
+                                <a href = "<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($rlabdetails[0]['coordinator'])?>"><?php echo $coordinator[0]['fname']." ".$coordinator[0]['mname']." ".$coordinator[0]['lname']; ?></a>
                             </span>
                         </div>
                         <?php if(!empty($rlabdetails)) {
@@ -55,14 +58,14 @@ h1 {color: rgb(1 15 112);}
                         <?php foreach($rlabdetails as $row) { ?>
                         <div class="lab_details_inn">
                             <div class="row">
-                                <div class="col-sm-12">
+                                <!-- <div class="col-sm-12">
                                     <div class="lab_details_rt_top">
                                         <p><strong>Name of the Equipment: </strong><?php echo $row['equipment_name']; ?></p>
                                         <p><strong>Specialization: </strong><?php echo $row['specialization']; ?></p>
                                         <p><strong>Name of the lab: </strong><?php echo $row['labname']; ?></p>
                                         <p><strong>Type of Lab: </strong><?php if($row['typeofLab'] == '1'){echo 'Teaching Labs'; } else {echo 'Research Labs';}?></p>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-sm-4">
                                     <div class="lab_details_lt">
                                         <img src="<?php echo base_url() ?>uploads/labequipment/<?php echo $row['eqpmnt_img']; ?>" alt="">
@@ -76,7 +79,7 @@ h1 {color: rgb(1 15 112);}
                                 </div>
                             </div>
                         </div>
-                        <?php $i++; } } ?>
+                        <?php $i++; } } }?>
                     </div>
                 </div>
             </div>

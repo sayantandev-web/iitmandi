@@ -33,6 +33,7 @@ class Labsection extends CI_Controller{
 			$insArr['typeofLab'] = $this->input->post('typeofLab');
 			$insArr['coordinator'] = $this->input->post('coordinator');
 			$insArr['cocooordinator'] = $this->input->post('cocooordinator');
+			$insArr['external_link'] = $this->input->post('external_link');
 			$insArr['status'] = $this->input->post('status');
 			if ($_FILES['cover_photo']['name'] != '') {
 				$data['result']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -98,7 +99,7 @@ class Labsection extends CI_Controller{
 		} else {
 			$data['page_title'] = "Add Lab Section";
 		}
-		$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1, 'is_delete'=>1));
+		$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[1,2],'status'=>1, 'is_delete'=>1));
 		//$data['project_list']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('is_delete'=>1));
 		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
 	    $data['header']=$this->load->view('admin/includes/admin_header','',true);

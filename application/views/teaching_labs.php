@@ -29,7 +29,7 @@ h1 {color: rgb(1 15 112);}
 a{cursor: pointer;}
 </style>
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details" style="margin-top:30px;">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
         <div class="container_1">
             <div class="row gy-4">
                 <div class="col-sm-10 offset-sm-1">

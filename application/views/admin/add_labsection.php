@@ -47,18 +47,26 @@
                                        </div>
                                     </div>
                                     <div class="form-group">
-                                       <label for="banner_title" class="control-label col-lg-3 col-md-3 col-sm-4">Specialization</label>
-                                       <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="specialization" name="specialization" placeholder="Specialization" value="<?php echo @$labsection['specialization']; ?>">
-                                       </div>
-                                    </div>
-                                    <div class="form-group">
                                        <label class="col-lg-3 col-md-3 col-sm-4 control-label">Type of Lab</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <select class="form-control" id="typeofLab" name="typeofLab" require>
                                              <option value="">Choose an Option</option>
                                              <option value="1" <?php if(@$labsection['typeofLab']==1){ echo "selected"; } ?>>Teaching</option>
                                              <option value="2" <?php if(@$labsection['typeofLab']==2){ echo "selected"; } ?>>Research</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group lspecialization">
+                                       <label for="banner_title" class="control-label col-lg-3 col-md-3 col-sm-4">Specialization</label>
+                                       <div class="col-lg-9 col-md-9 col-sm-8">
+                                          <select class="form-control" id="specialization" name="specialization">
+                                             <option value="">Choose an Option</option>
+                                             <option value="Environmental Engineering" <?php if(@$labsection['specialization'] == 'Environmental Engineering'){ echo "selected"; } ?>>Environmental Engineering</option>
+                                             <option value="Geotechnical Engineering" <?php if(@$labsection['specialization'] == 'Geotechnical Engineering'){ echo "selected"; } ?>>Geotechnical Engineering</option>
+                                             <option value="Structural Engineering" <?php if(@$labsection['specialization'] == 'Structural Engineering'){ echo "selected"; } ?>>Structural Engineering</option>
+                                             <option value="Water Resources Engineering" <?php if(@$labsection['specialization'] == 'Water Resources Engineering'){ echo "selected"; } ?>>Water Resources Engineering</option>
+                                             <option value="Transportation Engineering" <?php if(@$labsection['specialization'] == 'Transportation Engineering'){ echo "selected"; } ?>>Transportation Engineering</option>
+                                             <option value="Remote Sensing and GIS" <?php if(@$labsection['specialization'] == 'Remote Sensing and GIS'){ echo "selected"; } ?>>Remote Sensing and GIS</option>
                                           </select>
                                        </div>
                                     </div>
@@ -89,6 +97,12 @@
                                                 <option value="">No Data</option>
                                                 <?php } ?>
                                           </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group external_link">
+                                       <label for="banner_title" class="control-label col-lg-3 col-md-3 col-sm-4">External Link</label>
+                                       <div class="col-lg-9 col-md-9 col-sm-8">
+                                          <input type="text" class="form-control" id="external_link" name="external_link" placeholder="External Link" value="<?php echo @$labsection['external_link']; ?>">
                                        </div>
                                     </div>
                                     <?php if(!empty($labsection)){ ?>
