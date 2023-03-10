@@ -2,7 +2,7 @@
 require_once(APPPATH."libraries/lib/config_paytm.php");
 require_once(APPPATH."libraries/lib/encdec_paytm.php");
 
-class Postdocs extends CI_Controller {
+class Postdoctr extends CI_Controller {
     public function __construct() {
         @parent::__construct();
         $this->load->library('pagination');
