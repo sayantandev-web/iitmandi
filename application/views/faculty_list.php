@@ -9,18 +9,21 @@
    
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
-    .box_sec{background: #ddd;  padding: 25px 15px; border-radius: 20px; text-align: center; position: relative;}
+    .box_sec{background: #efefef;  padding: 25px 15px; border-radius: 20px; text-align: center; position: relative;}
     .box_sec img{width:260px; height:260px; transition:all ease-in-out .2s; position:relative;}
     .box_dwn a{display:inline-block; color:#000;}
     .box_dwn a h6{margin:0px; text-transform:uppercase;}
     .box_dwn{width:100%; height:60px; overflow:hidden; padding-top:8px;}
-    .box_dwn p{margin:0px; font-size:18px; line-height:20px; -webkit-transform: translate3d(0,100%,0); 	transform: translate3d(0,100%,0);}
+    .box_dwn h6{margin:0px; line-height:20px;}
+    .box_dwn p{margin:0px; font-size:16px; line-height:20px; -webkit-transform: translate3d(0,100%,0); 	transform: translate3d(0,100%,0); padding-left:15px; text-align:left; color:#222;}
     .box_sec:hover img{transition: all ease-in-out .2s; transform: scale(.5)translateY(-154px);}
     .box_sec:hover .box_dwn{transform: translateY(-131px); position: absolute; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
     .box_sec:hover{padding:32px 15px 78px;}
     .choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
+    .box_dwn small{color:#222;}
+   
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
     }
@@ -71,18 +74,20 @@
                             $i=1; ?>
                         <?php foreach($faculty1->result_array() as $row) { ?>
                         <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
+                        <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'>
                          <div class="box_sec">
                           <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="" >
                             <div class="box_dwn">
-                            <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small></p></a>
-                            <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                           <p>specialization</p>
-                           <p>Research Interest</p>
-                           <p>Email</p>
-                           <p>Phone No.</p>
+                            <h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small></p>
+                                <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                                <p>specialization</p>
+                                <p>Research Interest</p>
+                                <p>Email</p>
+                                <p>Phone No.</p>
 
                             </div>
-                         </div>    
+                          </div> 
+                         </a>   
                         </div>
                         <?php $i++; } } ?>
                     </div>

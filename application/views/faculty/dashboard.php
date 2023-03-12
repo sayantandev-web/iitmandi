@@ -9,7 +9,7 @@ echo $header;
 ?>
 <style>
     .nav-pills .nav-link{margin-bottom: 15px;}
-    .bio_img {width: 200px; height: 200px;}
+    .bio_img {width: 100%; }
     .bio_text {margin-bottom: auto;}
     .bio_text1 {text-align: justify; /*border: 1px solid #eee; padding: 30px;margin: 20px 0 0 0;*/}
     .td_class {padding: 0px; display: initial;}
@@ -28,6 +28,7 @@ echo $header;
     .profile_menu a {color: #FFF; text-decoration: none;}
     .active {background: #032851 !important; color: #fff !important;}
     .btn {padding: 15px 35px !important;}
+    .btn-primary{background:#ff9800 !important; color:#022851 !important;}
     *,
 *:before,
 *:after {
@@ -299,6 +300,10 @@ echo $header;
 .basr-social-share.social li a span {
   display: none;
 }
+#example tbody tr:hover{background:#ddd;}
+#example thead tr th{ font-size:18px;}
+#example tbody tr td{font-size:16px;}
+.degree_sec h2{margin:0px; margin:0px; font-size:25px;}
 </style>
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
@@ -312,20 +317,22 @@ echo $header;
                         <?php if ($this->session->userdata('user_id') == '') { ?>
                             <div class="col-12">
                                 <div class="row">
-                                    <div class='col-sm-12' style="margin-top: 20px;border: 1px solid;box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999;margin-bottom: 30px;">
+                                    <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+                                        <div class="row p-3">
                                         <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
                                             <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
                                         </div>
                                         <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
-                                            <h3 style="text-transform: capitalize; text-align: center;font-size: 36px;"><?php echo $about_me[0]['fname'];?></h3>
+                                            <h3 style="text-transform: capitalize; text-align: center;font-size: 36px; color:#022851;"><?php echo $about_me[0]['fname'];?></h3>
                                             <?php 
                                             $designation = $this->db->query("SELECT * FROM iitmandi_designation WHERE id = ".$about_me[0]['designation']);
                                             foreach ($designation->result_array() as $row1) { ?>
-                                                <p style="text-align: center; background: #fff;font-size: 25px;margin: 0;"><?php echo $row1['designation'];?></p>
+                                                <p style="text-align: center; background: #fff;font-size: 25px;margin: 0; "><?php echo $row1['designation'];?></p>
                                             <?php } ?>
                                             <p style="text-align: center; background: #fff;font-size: 25px;"><?php if ($about_me[0]['specialization'] == '1'){echo 'Environmental Engineering'; } else if($about_me[0]['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($about_me[0]['specialization'] == '3'){echo 'Structural Engineering'; } else if($about_me[0]['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($about_me[0]['specialization'] == '5'){echo 'Transportation Engineering'; } else if($about_me[0]['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                                         </div>
-                                        <div class="basr-social-share social" style="margin-left: 47%;">
+                                        </div>
+                                        <!-- <div class="basr-social-share social" style="margin-left: 47%;">
                                             <ul class="">
                                                 <?php if ($about_me[0]['research_gate'] != '') {?>
                                                 <li style="margin-top: 10px;">
@@ -358,7 +365,7 @@ echo $header;
                                                 </li>
                                                 <?php } ?>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -425,9 +432,9 @@ echo $header;
                             <!-- Home Start -->
                             <div class="col-12">
                                 <div class="row">
-                                    <div class='col-sm-12'  style="margin-top: 50px;border: 1px solid;box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999;margin-bottom: 30px;">
+                                    <div class='col-sm-12'  style="margin-top: 50px;margin-bottom: 30px;">
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <h3 style="text-transform: capitalize; text-align: center;">About</h3>
+                                            <h3 style="text-transform: uppercase; text-align: center; margin:0px; padding-bottom:18px !important;">About</h3>
                                             <div class='bio_text1'>
                                                 <div class="col-sm-12"><?php echo $about_me[0]['aboutme'];?></div>
                                             </div>
@@ -441,14 +448,14 @@ echo $header;
                                 </div>
                             </div>
                             
-                            <div class="col-12">
+                            <div class="col-12 degree_sec">
                                 <?php if(!empty($education)) { ?>
                                 <div class="row">
                                     <div class='col-sm-12'>
-                                        <h2 style="text-align: center; margin-top: 30px;">Academic Background</h2>
+                                        <h2 style="text-align: center; padding: 20px 0;">Academic Background</h2>
                                     </div>
                                     <div class='col-sm-12'>
-                                        <table id="example" class="table table-striped" style="width:100%">
+                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>Degree</th>
@@ -485,7 +492,7 @@ echo $header;
                                 </div>
                                 <?php } ?>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 degree_sec">
                                 <?php if(!empty($experience)) { ?>
                                 <div class="row">
                                     <div class='col-sm-12'>
@@ -530,7 +537,7 @@ echo $header;
                                 </div>
                                 <?php } ?>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 degree_sec">
                                 <?php if(!empty($award)) { ?>
                                 <div class="row">
                                     <div class='col-sm-12'>
@@ -573,7 +580,7 @@ echo $header;
                                 </div>
                                 <?php } ?>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 degree_sec">
                                 <?php if(!empty($event)) { ?>
                                 <div class="row">
                                     <div class='col-sm-12'>
