@@ -32,7 +32,7 @@
                 <div class="col-lg-12 portfolio-info">
                     <h3 style="text-align:center"><?php echo $title?></h3>
                     <?php
-                    $chk_postdoc = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 2 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+                    $chk_postdoc = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 3 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
                     if(!empty($chk_postdoc->result_array())) {
                     foreach($chk_postdoc->result_array() as $row) { ?>
                     <div class="col-sm-12 cls_filter_data" style="display: inline-block;">
@@ -44,7 +44,7 @@
                         foreach($postdoc->result_array() as $row1) { ?>
                         <div class="col-sm-2" style="border: 1px solid;box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999; margin-right: 40px; float: left;">
                             <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 210px;height: 185px;">
-                            <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row1['id'])?>'>
+                            <a href= '<?php echo base_url();?>pages/postdocs_details/<?php echo base64_encode($row1['id'])?>'>
                                 <p style="text-align: center; background: #fff;"><?php echo $row1['fname']?><!-- <br><small><?php //echo $row1['designation']?></small> --></p></a>
                             <p style="text-align: center; background: #fff;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                         </div>
