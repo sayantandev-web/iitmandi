@@ -28,7 +28,7 @@ echo $header;
     .profile_menu a {color: #FFF; text-decoration: none;}
     .active {background: #032851 !important; color: #fff !important;}
     .btn {padding: 15px 35px !important;}
-    .btn-primary{background:#ff9800 !important; color:#022851 !important;}
+    .btn-primary{background:#ff9800 !important; color:#022851 !important;margin: 0px;}
     *,
 *:before,
 *:after {
