@@ -27,7 +27,7 @@ class Postdoctr extends CI_Controller {
             redirect(base_url('postdoc/dashboard/'.$this->session->userdata('user_id')));
 		}
 		if($this->input->post()) {
-			$sql="`email` ='".$this->input->post('email')."' AND `position` IN (2) AND (`status`= 1) AND (`is_delete`= 1)";
+			$sql="`email` ='".$this->input->post('email')."' AND `position` IN (3) AND (`status`= 1) AND (`is_delete`= 1)";
 			$result=$this->common_model->get_data(TEAM,$sql);
 			if(base64_encode($this->input->post('password')) == $result[0]['password']) {
 				if($result[0]['position'] == 2) {
