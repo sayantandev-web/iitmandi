@@ -275,6 +275,17 @@ echo $header;
     font-size: 16px;
   }
 }
+
+@media (min-width:992px) and (max-width:1199px){
+    .profile_menu .btn{padding: 15px 25px !important;}
+    .primary-nav li { width: 116px;}
+    .primary-nav a, .primary-nav__nolink{margin:0px;}
+    .primary-nav__top-link a{font-size:13px;}
+    .primary-nav a:after, .primary-nav__nolink:after{width:auto;}
+    
+}
+
+
 .social ul li a i.fa-envelope {
   font-size: 14px;
   top: 48%;
@@ -303,7 +314,7 @@ echo $header;
 #example tbody tr:hover{background:#ddd;}
 #example thead tr th{ font-size:18px;}
 #example tbody tr td{font-size:16px;}
-.degree_sec h2{margin:0px; margin:0px; font-size:25px;}
+.degree_sec h2{margin:0px; padding:0px 0 25px; font-size:25px;}
 </style>
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
