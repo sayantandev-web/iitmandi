@@ -9,9 +9,15 @@ class Postdocs extends CI_Controller {
         $this->load->library('image_lib');
         $this->load->helper('cookie');
         date_default_timezone_set('Asia/Calcutta');
+        session_start();
     }
 
     public function index() { 
+        $this->load->library('session');
+		if($this->session->userdata('user_id') != ''){
+            $this->session->unset_userdata('uid');
+            session_unset();
+		}
         $data['postdocs'] = $this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1, 'is_delete'=>1, 'position'=>2));
         $data['designation'] = $this->common_model->get_data_array(DESIGNATION,'','','','','','',DESIGNATION.".id DESC",array('status'=>1, 'is_delete'=>1, 'user_type'=>2));
         $data['header']=$this->load->view('includes/header','',true);
