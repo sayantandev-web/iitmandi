@@ -51,6 +51,26 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/engine1/style.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/engine1/style_new.css" />
   <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/jquery.js"></script>
+
+
+  <style>
+        .menu_sec{width: 100%; background: #022851;}
+        .navbar-brand{width: 120px}
+        .navbar-brand img{width: 100%;}
+        .nav-link{color: #fff !important;}
+        .dropdown-toggle::after{display: inline-block; margin-left: 0.255em; vertical-align: 1px; content: ""; border-top: 0.3em solid; border-right: 0.3em solid transparent;
+    border-bottom: 0; border-left: 0.3em solid transparent;}
+        .dropdown-menu{background: #fde9ac;}
+        .dropdown-item:hover{background: #ffbf00;}
+  </style>
+
+  <script>
+    $(function(){
+        $("a").click(function(){
+            $("#menu").hide();    //or $("#menu").slideUp() if you want it to slide up instead of just disappearing.
+        });
+    });
+  </script>
 <!-- End WOWSlider.com HEAD section -->
 </head>
 
@@ -248,3 +268,76 @@
       </div>
     </div>
   </header>
+
+  
+  <!-- <section class="menu_sec">
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#"><img src="logo.png" alt=""></a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" >People</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Facilities</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Activities</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Resources</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Publication
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
+                              <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
+                              <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">projects</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
+                                <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                          </li>
+                          
+                        </ul>
+                       
+                      </div>
+                    </div>
+                          </nav>
+            </div>
+        </div>
+      </div>
+    </section> -->
+
+
+  
+

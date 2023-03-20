@@ -5,19 +5,17 @@
     .bio_text {margin-bottom: auto;}
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
-    .table>:not(caption)>*>* {text-align: center;}
-    .col-sm-1 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-2 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-3 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-4 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-5 {display: inline-block;float: left; margin-left:5px;}
-    .col-sm-8 {display: inline-block;float: left;}
-    .col-sm-12 {display: inline-block;}
+    .table>:not(caption)>*>* {text-align: center;}   
     .fade:not(.show) { opacity: 1 !important; background: #00000063;}
     .modal-lg { margin-top : 10%}
     .close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;
 opacity: .5;}
     .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1520px !important;}
+    .choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
+    .choose_sec .btn:hover{background:#022851; color:#fff;}
+    .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
+    #example thead tr th {font-size: 18px;}
+    #example tbody tr td {font-size: 16px;}
 
 </style>
 <main id="main">
@@ -27,7 +25,8 @@ opacity: .5;}
                 <div class="col-lg-12">
                     <div class="portfolio-info">
                         <h3 style="text-align:center"><?php echo $title?></h3>
-                        <div class="col-sm-12 filter_data">
+                        <div class="row choose_sec filter_data">
+                       
                             <!-- <div class="col-sm-4">
                                 <select class="form-control" id="funding_agencyflt" name="funding_agency">
                                 <option value="">Funding Agency</option>
@@ -43,6 +42,7 @@ opacity: .5;}
                                     <?php } ?>
                                 </select>
                             </div> -->
+                            <div class="col-sm-1"></div>
                             <div class="col-sm-4">
                                 <select class="form-control" id="starting_yearflt" name="starting_year">
                                     <option value="">Year</option>
@@ -56,7 +56,7 @@ opacity: .5;}
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="col-sm-5">
+                            <div class="col-sm-4">
                                 <select class="form-control" id="faculty_memberflt" name="faculty_member">
                                     <option value="">Author</option>
                                     <?php if(!empty($team)) { 
@@ -76,11 +76,12 @@ opacity: .5;}
                                     <option value="Closed">Closed</option>
                                 </select>
                             </div> -->
-                            <div class="col-sm-1">
+                            <div class="col-sm-2">
                                 <button type="button" class="btn btn-secondary" onClick="window.location.reload();">Reset</button>
                                 <input type="hidden" id="project_type" value = '2'>
                             </div>
-                        </div>
+                        
+                                    </div>
 
                         <?php 
                         if($this->uri->segment(2) == 'journal') {
@@ -120,7 +121,7 @@ opacity: .5;}
                                                     $text .= ', & '.$lastItem; // a, b and c
                                                 }    
                                             ?> 
-                                            <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                            <td><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
                                         </tr>
                                         <?php $j++; } ?>
