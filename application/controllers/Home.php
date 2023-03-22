@@ -195,6 +195,7 @@ class Home extends CI_Controller {
     }
 
     public function journal() { 
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -203,6 +204,7 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function conference() { 
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -211,6 +213,7 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function book_chapter() { 
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
@@ -220,6 +223,7 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function book() { 
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -228,6 +232,7 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function patent() { 
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -274,5 +279,43 @@ class Home extends CI_Controller {
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title']='Research Labs Details';
         $this->load->view('research_labs_details',$data);
+    }
+
+    public function filterByYear() {
+        $fs_id = $this->input->post('fs_id');
+        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+
+        if(!empty($get_data->result_array())) {
+            $html='';
+            if(!empty($get_data->result_array())) {
+                foreach($get_data->result_array() as $row){
+                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
+                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
+                }
+            }
+        } else {
+            $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
+        }
+        echo $html;
+    }
+
+    public function filterByAuthor() {
+        $fs_id = $this->input->post('fs_id');
+        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+
+        if(!empty($get_data->result_array())) {
+            $html='';
+            if(!empty($get_data->result_array())) {
+                foreach($get_data->result_array() as $row){
+                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
+                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
+                }
+            }
+        } else {
+            $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
+        }
+        echo $html;
     }
 }

@@ -706,6 +706,30 @@
             )
         });
 
+        $("#filterByYear").change(function(){
+            var yrid = $("#filterByYear").val();
+            $.post(
+                "<?php echo base_url('home/filterByYear') ?>", {fs_id: yrid}, 
+                function(result){
+                    if(result) {
+                        $(".cls_filter_data").html(result);
+                    }
+                }
+            )
+        });
+
+        $("#filterByAuthor").change(function(){
+            var athrid = $("#filterByAuthor").val();
+            $.post(
+                "<?php echo base_url('home/filterByAuthor') ?>", {fs_id: athrid}, 
+                function(result){
+                    if(result) {
+                        $(".cls_filter_data").html(result);
+                    }
+                }
+            )
+        });
+
         $(".myLargeModalLabel").click(function() {
             $(".myLargeModal").css("opacity", "1");
         });
