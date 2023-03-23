@@ -67,12 +67,10 @@ opacity: .5;}
                                 <input type="hidden" id="project_type" value = '2'>
                             </div>
                         </div>
-
-                        <?php 
-                        if($this->uri->segment(2) == 'journal') {
+                        <?php if($this->uri->segment(2) == 'journal') {
                             if(!empty($journal)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
-                                <table id="example" class="table table-striped" style="width:100%">
+                                <table id="example" class="table table-striped filtered_pub" style="width:100%">
                                     <tbody>
                                         <?php $j=1;
                                         foreach($journal as $row) { ?>
@@ -104,12 +102,12 @@ opacity: .5;}
                                         <?php $j++; } ?>
                                     </tbody>
                                 </table>
+                                <input type="hidden" id="pub_type" value="Journal Article">
                             </div>
                             <?php } 
                         } ?>
 
-                        <?php 
-                        if ($this->uri->segment(2) == 'conference') {
+                        <?php if ($this->uri->segment(2) == 'conference') {
                             if(!empty($conference)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <table id="example" class="table table-striped" style="width:100%">
@@ -142,12 +140,12 @@ opacity: .5;}
                                         <?php $j++; } ?>
                                     </tbody>
                                 </table>
+                                <input type="hidden" id="pub_type" value="Conference Paper">
                             </div>
                             <?php } 
                         } ?>
 
-                        <?php 
-                        if ($this->uri->segment(2) == 'book_chapter') {
+                        <?php if ($this->uri->segment(2) == 'book_chapter') {
                             if(!empty($bookc)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <table id="example" class="table table-striped" style="width:100%">
@@ -180,12 +178,12 @@ opacity: .5;}
                                         <?php $j++; } ?>
                                     </tbody>
                                 </table>
+                                <input type="hidden" id="pub_type" value="Book Chapter">
                             </div>
                             <?php } 
                         } ?>
 
-                        <?php 
-                        if ($this->uri->segment(2) == 'book') {
+                        <?php if ($this->uri->segment(2) == 'book') {
                             if(!empty($book)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <table id="example" class="table table-striped" style="width:100%">
@@ -218,12 +216,12 @@ opacity: .5;}
                                         <?php $j++; } ?>
                                     </tbody>
                                 </table>
+                                <input type="hidden" id="pub_type" value="Book">
                             </div>
                             <?php } 
                         } ?>
 
-                        <?php 
-                        if ($this->uri->segment(2) == 'patent') {
+                        <?php if ($this->uri->segment(2) == 'patent') {
                             if(!empty($patent)) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <table id="example" class="table table-striped" style="width:100%">
@@ -256,6 +254,7 @@ opacity: .5;}
                                         <?php $j++; } ?>
                                     </tbody>
                                 </table>
+                                <input type="hidden" id="pub_type" value="Patent">
                             </div>
                             <?php } 
                         } ?>

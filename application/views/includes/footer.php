@@ -708,11 +708,12 @@
 
         $("#filterByYear").change(function(){
             var yrid = $("#filterByYear").val();
+            var pub_type = $("#pub_type").val();
             $.post(
-                "<?php echo base_url('home/filterByYear') ?>", {fs_id: yrid}, 
+                "<?php echo base_url('home/filterByYear') ?>", {yrid: yrid, pub_type: pub_type}, 
                 function(result){
                     if(result) {
-                        $(".cls_filter_data").html(result);
+                        $(".filtered_pub").html(result);
                     }
                 }
             )
@@ -720,11 +721,12 @@
 
         $("#filterByAuthor").change(function(){
             var athrid = $("#filterByAuthor").val();
+            var pub_type = $("#pub_type").val();
             $.post(
-                "<?php echo base_url('home/filterByAuthor') ?>", {fs_id: athrid}, 
+                "<?php echo base_url('home/filterByAuthor') ?>", {athrid: athrid, pub_type: pub_type}, 
                 function(result){
                     if(result) {
-                        $(".cls_filter_data").html(result);
+                        $(".filtered_pub").html(result);
                     }
                 }
             )

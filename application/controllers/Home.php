@@ -282,17 +282,34 @@ class Home extends CI_Controller {
     }
 
     public function filterByYear() {
-        $fs_id = $this->input->post('fs_id');
-        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+        $yrid = $this->input->post('yrid');
+        $pub_type = $this->input->post('pub_type');
+        $get_data = $this->db->query("SELECT * FROM `iitmandi_publication` WHERE `publication_type` = '$pub_type' AND `publish_date` LIKE '%$yrid%' and `status` = 1 and `is_delete` = 1");
 
         if(!empty($get_data->result_array())) {
             $html='';
-            if(!empty($get_data->result_array())) {
-                foreach($get_data->result_array() as $row){
-                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
-                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
-                }
+            $j=1;
+            foreach($get_data->result_array() as $row){
+                $html .='<tbody><tr><td>'.$j.')</td>';
+                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row["author_name"].")");
+                    //echo "<pre>"; print_r($author->result_array());
+                    $value = $author->result_array();
+                    $count = count($author->result_array());
+                    for($i = 0; $i < $count; $i++) {
+                        if ($value[$i]['mname'] == '') {
+                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                        } else {
+                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                        }
+                    }
+                    $lastItem = array_pop($commonValues);
+                    $text = implode(', ', $commonValues); // a, b 
+                    if ($text == ''){
+                        $text .= $lastItem; 
+                    } else {
+                        $text .= ', & '.$lastItem; // a, b and c
+                    }    
+                $html .='<td>'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
@@ -301,17 +318,34 @@ class Home extends CI_Controller {
     }
 
     public function filterByAuthor() {
-        $fs_id = $this->input->post('fs_id');
-        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+        $athrid = $this->input->post('athrid');
+        $pub_type = $this->input->post('pub_type');
+        $get_data = $this->db->query("SELECT * FROM iitmandi_publication WHERE `publication_type` = '$pub_type' AND `author_name` IN ($athrid) and `status` = 1 and `is_delete` = 1");
 
         if(!empty($get_data->result_array())) {
             $html='';
-            if(!empty($get_data->result_array())) {
-                foreach($get_data->result_array() as $row){
-                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
-                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
-                }
+            $j=1;
+            foreach($get_data->result_array() as $row){
+                $html .='<tbody><tr><td>'.$j.')</td>';
+                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row["author_name"].")");
+                    //echo "<pre>"; print_r($author->result_array());
+                    $value = $author->result_array();
+                    $count = count($author->result_array());
+                    for($i = 0; $i < $count; $i++) {
+                        if ($value[$i]['mname'] == '') {
+                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                        } else {
+                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                        }
+                    }
+                    $lastItem = array_pop($commonValues);
+                    $text = implode(', ', $commonValues); // a, b 
+                    if ($text == ''){
+                        $text .= $lastItem; 
+                    } else {
+                        $text .= ', & '.$lastItem; // a, b and c
+                    }    
+                $html .='<td>'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
