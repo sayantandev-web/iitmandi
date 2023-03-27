@@ -18,7 +18,7 @@
     /* .box_dwn p{margin:0px; font-size:16px; line-height:20px; -webkit-transform: translate3d(0,100%,0); 	transform: translate3d(0,100%,0); padding-left:15px; text-align:left; color:#222; text-align: center;}*/
     .box_dwn p{margin:0px; font-size:14px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
    
-    .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.5)translateY(-100px);}
+    .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
     /* .box_sec:hover .box_dwn{transform: translateY(-131px); position: absolute; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;} */
     .box_sec:hover .box_dwn{/*transform: translateY(-131px); */position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
     /* .box_sec:hover{padding:32px 15px 130px;} */
