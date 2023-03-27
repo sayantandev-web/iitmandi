@@ -53,6 +53,7 @@
   .dropdown-toggle::after{display: inline-block; margin-left: 0.255em; vertical-align: 1px; content: ""; border-top: 0.3em solid; border-right: 0.3em solid transparent;border-bottom: 0; border-left: 0.3em solid transparent;}
   .dropdown-menu{background: #fde9ac;}
   .dropdown-item:hover{background: #ffbf00;}
+  .header_navbar{background:#022851;}
   @media (min-width: 992px) and (max-width: 2560px)  {
     .menu_sec {display: none;}
   }
