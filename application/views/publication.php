@@ -54,8 +54,8 @@ opacity: .5;}
                             <div class="col-sm-4">
                                 <select class="form-control" id="filterByAuthor" name="filterByAuthor">
                                     <option value="">Select Author</option>
-                                    <?php if(!empty($ourteam)) { 
-                                    foreach($ourteam as $row) { ?>
+                                    <?php if(!empty($ourteam->result_array())) { 
+                                    foreach($ourteam->result_array() as $row) { ?>
                                     <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                     <?php  } } else { ?>
                                     <option value="">No Data</option>

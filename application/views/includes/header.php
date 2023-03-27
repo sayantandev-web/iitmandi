@@ -154,13 +154,13 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item menu-item--expanded">
+                  <!-- <li class="menu-item menu-item--expanded">
                     <div class="submenu-toggle__wrapper primary-nav__top-link">
                       <a href="#" data-drupal-link-system-path="node/31">Resources<span class="primary-nav__submenu-indicator"></span>
                       </a>
                       <button class="submenu-toggle" aria-label="Toggle Submenu"><span class="submenu-toggle__icon"></span></button>
                     </div>
-                  </li>
+                  </li> -->
                   <li class="menu-item menu-item--expanded">
                     <div class="submenu-toggle__wrapper primary-nav__top-link">
                       <a href="#" data-drupal-link-system-path="node/2343">Publications<span class="primary-nav__submenu-indicator"></span></a>
@@ -227,46 +227,43 @@
                   <li class="nav-item">
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" >People</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/faculty_list">Faculty</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/postdocs">Postdocs</a></li>                             
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/scholars">Scholars</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/staff">Staff</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Facilities</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/teaching_labs">Teaching Labs</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/research_lab">Research Labs</a></li>                             
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Activities</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="https://nirmaan.iitmandi.co.in/">Nirmaan Club</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Resources</a>
-                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" href="<?php echo base_url()?>pages/faculty_list">Resources</a>
+                  </li> -->
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Publication
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publication</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/journal">Journal</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/conference">Conference</a></li>                             
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/book_chapter">Book Chapter</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/book">Book</a></li>
+                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/patent">Patent</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">projects</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Action</a></li>
-                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Another action</a></li>                             
-                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/research">Research</a></li>
+                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/consultancy">Consultancy</a></li>                             
                       </ul>
                   </li>
                 </ul>

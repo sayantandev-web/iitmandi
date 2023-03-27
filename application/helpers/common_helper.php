@@ -31,13 +31,6 @@ function get_admin_name($uid)
     return $CI->common_model->get_data(ADMIN,array('user_id'=>$uid));
 }
 
-function get_users_name($uid)
-{
-    $CI =& get_instance();
-    $CI->load->model('common_model');
-    return $CI->common_model->get_data(TEAM,array('id'=>$uid));
-}
-
 function social_link($uid)
 {
     $CI =& get_instance();

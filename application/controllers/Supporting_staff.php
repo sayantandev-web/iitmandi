@@ -9,7 +9,7 @@ class Supporting_staff extends CI_Controller {
         $this->load->library('image_lib');
         $this->load->helper('cookie');
         date_default_timezone_set('Asia/Calcutta');
-        session_start();
+        //session_start();
     }
 
     public function index() { 

@@ -195,7 +195,8 @@ class Home extends CI_Controller {
     }
 
     public function journal() { 
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>8,'status'=>1,'is_delete'=>1));
+        $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
         $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
