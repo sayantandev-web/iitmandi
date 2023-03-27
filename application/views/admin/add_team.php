@@ -18,6 +18,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1><?php echo $page_title; ?><small>Control panel</small></h1>
+                <?php $uid = $this->session->userdata('uid'); ?>
                 <ol class="breadcrumb">
                     <li><a href="admin"><i class="fa fa-dashboard"></i>Home</a></li>
                     <li class="active"><?php echo $page_title; ?></li>
@@ -63,7 +64,7 @@
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <select class="form-control" id="position" name="position" require>
                                              <option value="">Choose an Option</option>
-                                             <?php if ($uid != '') { ?>
+                                             <?php if ($uid == '-1') { ?>
                                                 <option value="1" <?php if(@$banner['user_type']==1){ echo "selected"; } ?>>Faculty</option>
                                                 <option value="2" <?php if(@$banner['user_type']==2){ echo "selected"; } ?>>Postdocs</option>
                                                 <option value="3" <?php if(@$banner['user_type']==3){ echo "selected"; } ?>>Scholars</option>
@@ -155,6 +156,12 @@
                                              <option value="5" <?php if(@$banner['specialization']==5){ echo "selected"; } ?>>Transportation Engineering</option>
                                              <option value="6" <?php if(@$banner['specialization']==6){ echo "selected"; } ?>>Remote Sensing and GIS</option>
                                           </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group research_keyword">
+                                       <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Research Keyword</label>
+                                       <div class="col-lg-9 col-md-9 col-sm-8">
+                                          <input type="text" class="form-control" id="research_keyword" name="research_keyword" placeholder="Research Keyword" value="<?php echo @$banner['research_keyword']; ?>">
                                        </div>
                                     </div>
                                     <div class="form-group project_name">

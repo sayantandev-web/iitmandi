@@ -54,9 +54,9 @@ class Faculty extends CI_Controller {
             $html='';
             if(!empty($get_data->result_array())) {
                 foreach($get_data->result_array() as $row){
-                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
-                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
+                    $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
+                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><div class="box_sec">';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p><p>Email</p><p>Phone No.</p></div></div></div></a></div>';
                 }
             }
         } else {
@@ -73,9 +73,9 @@ class Faculty extends CI_Controller {
             $html='';
             if(!empty($get_data->result_array())) {
                 foreach($get_data->result_array() as $row){
-                    $html .='<div class="col-sm-2" style="border: 1px solid; margin-right: 40px; float: left; padding:0px; border-radius: 20px 20px 0 0px">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="" style="width: 261px;height: 250px; border-radius: 20px 20px 0 0px">';
-                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><p style="text-align: center; background: #fff;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'<br><small>'.$row['designation'].'</small></p></a></div>';
+                    $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
+                    $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><div class="box_sec">';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p><p>Email</p><p>Phone No.</p></div></div></div></a></div>';
                 }
             }
         } else {

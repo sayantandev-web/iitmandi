@@ -7,9 +7,9 @@ class Ourteam extends CI_Controller{
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
 		//session_start();
-        // if($this->session->userdata('uid') == ''){
-        //     redirect(base_url().'admin/');
-        // }
+        if($this->session->userdata('uid') == ''){
+            redirect(base_url().'admin/');
+        }
 	}
 
 	public function index() {
@@ -48,6 +48,7 @@ class Ourteam extends CI_Controller{
 			$insArr['mobile'] = $this->input->post('mobile');
 			$insArr['office'] = $this->input->post('office');
 			$insArr['specialization'] = $this->input->post('specialization');
+			$insArr['research_keyword'] = $this->input->post('research_keyword');
 			$insArr['admssnyear'] = $this->input->post('admssnyear');
 			$insArr['department'] = $this->input->post('department');
 			$insArr['institutename'] = $this->input->post('institutename');
