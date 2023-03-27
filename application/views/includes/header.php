@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="<?php echo base_url()?>assets/plugins/slick/slick.css">
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url()?>assets/fontend/css/style.css" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- for menu -->
   <link rel="stylesheet" media="all" href="<?php echo base_url();?>assets/fontend/css/css_l-Q5BuVYysT6d0aOjpFukKgtxMmIb0MECzYxDkO92iM.css" />
