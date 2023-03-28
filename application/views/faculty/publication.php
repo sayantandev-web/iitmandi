@@ -65,20 +65,13 @@ echo $header;
                                 <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
                             </div>
                             <?php } ?>
-                            <?php if(!empty($journal)) { ?>
+                            <?php if(!empty($journal->result_array())) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <h3 style="text-transform: capitalize">Journal Article</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No.</th>
-                                            <th>Publication Details</th>
-                                            <th>View</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php $j=1;
-                                        foreach($journal as $row) { ?>
+                                        foreach($journal->result_array() as $row) { ?>
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php 
@@ -108,7 +101,7 @@ echo $header;
                                                 <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                             </td>
                                             <?php } else { ?>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                                <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
                                             <?php } ?>
                                         </tr>
                                         <?php $j++; } ?>
@@ -117,20 +110,13 @@ echo $header;
                             </div>
                             <?php } ?>
 
-                            <?php if(!empty($conference)) { ?>
+                            <?php if(!empty($conference->result_array())) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <h3 style="text-transform: capitalize">Conference Paper</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No.</th>
-                                            <th>Publication Details</th>
-                                            <th>View</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php $j=1;
-                                        foreach($conference as $row) { ?>
+                                        foreach($conference->result_array() as $row) { ?>
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
@@ -158,7 +144,7 @@ echo $header;
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             <?php } else { ?>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                                <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
                                             <?php } ?>
                                         </tr>
                                         <?php $j++; } ?>
@@ -167,20 +153,13 @@ echo $header;
                             </div>
                             <?php } ?>
 
-                            <?php if(!empty($bookc)) { ?>
+                            <?php if(!empty($bookc->result_array())) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <h3 style="text-transform: capitalize">Book Chapter</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No.</th>
-                                            <th>Publication Details</th>
-                                            <th>View</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php $j=1;
-                                        foreach($bookc as $row) { ?>
+                                        foreach($bookc->result_array() as $row) { ?>
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
@@ -208,7 +187,7 @@ echo $header;
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             <?php } else { ?>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                                <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
                                             <?php } ?>
                                         </tr>
                                         <?php $j++; } ?>
@@ -217,20 +196,13 @@ echo $header;
                             </div>
                             <?php } ?>
 
-                            <?php if(!empty($book)) { ?>
+                            <?php if(!empty($book->result_array())) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <h3 style="text-transform: capitalize">Book</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No.</th>
-                                            <th>Publication Details</th>
-                                            <th>View</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php $j=1;
-                                        foreach($book as $row) { ?>
+                                        foreach($book->result_array() as $row) { ?>
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
@@ -258,7 +230,7 @@ echo $header;
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             <?php } else { ?>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                                <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
                                             <?php } ?>
                                         </tr>
                                         <?php $j++; } ?>
@@ -267,20 +239,13 @@ echo $header;
                             </div>
                             <?php } ?>
 
-                            <?php if(!empty($patent)) { ?>
+                            <?php if(!empty($patent->result_array())) { ?>
                             <div class='col-sm-12' style="margin-top: 50px;">
                                 <h3 style="text-transform: capitalize">Patent</h3>
                                 <table id="example" class="table table-striped" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Sl No.</th>
-                                            <th>Publication Details</th>
-                                            <th>View</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         <?php $j=1;
-                                        foreach($patent as $row) { ?>
+                                        foreach($patent->result_array() as $row) { ?>
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
@@ -308,7 +273,7 @@ echo $header;
                                                     <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             <?php } else { ?>
-                                                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                                <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
                                             <?php } ?>
                                         </tr>
                                         <?php $j++; } ?>

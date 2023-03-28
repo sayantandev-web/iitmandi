@@ -79,28 +79,26 @@
                         <?php if(!empty($faculty1->result_array())) {
                             $i=1; ?>
                         <?php foreach($faculty1->result_array() as $row) { ?>
-
                         <div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">
                             <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'>
-                            <div class="box_sec">
-                            <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
-                                <div class="box_dwn">
-                                <h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small>
-                                <div class="box_dwn_inn">
-                                        <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                                        <p>Research Interest</p>
-                                       
-                                </div>
-                                <div class="social_sec">
-                                    <span><i class="fa-regular fa-envelope"></i></span>
-                                    <span><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                </div>
-                                </div>
-                            </div> 
+                                <div class="box_sec">
+                                    <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
+                                    <div class="box_dwn">
+                                        <h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small>
+                                        <div class="box_dwn_inn">
+                                            <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                                            <p>Research Interest</p>
+                                        </div>
+                                        <div class="social_sec">
+                                            <span><i class="fa-regular fa-envelope"></i></span>
+                                            <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div> 
                             </a>   
-                            </div>
-                            <?php $i++; } } ?>
                         </div>
+                        <?php $i++; } } ?>
+                    </div>
                 </div>
             </div>
         </div>

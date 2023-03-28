@@ -121,7 +121,6 @@ class Facultys extends CI_Controller {
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			//$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
 			$data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
 			$data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
@@ -139,12 +138,11 @@ class Facultys extends CI_Controller {
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			//$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
-			$data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
-			$data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
-			$data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
-			$data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
-			$data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
 			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
@@ -152,7 +150,6 @@ class Facultys extends CI_Controller {
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
 			$this->load->view('faculty/publication',$data);
-			//redirect(base_url()."faculty/");
 		}
     }
 

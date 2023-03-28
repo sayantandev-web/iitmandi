@@ -56,7 +56,7 @@ class Faculty extends CI_Controller {
                 foreach($get_data->result_array() as $row){
                     $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
                     $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><div class="box_sec">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p><p>Email</p><p>Phone No.</p></div></div></div></a></div>';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p></div><div class="social_sec"><span><i class="fa-regular fa-envelope"></i></span><span><i class="fa fa-phone" aria-hidden="true"></i></span></div></div></div></a></div>';
                 }
             }
         } else {
@@ -75,7 +75,7 @@ class Faculty extends CI_Controller {
                 foreach($get_data->result_array() as $row){
                     $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
                     $html .='<a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><div class="box_sec">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p><p>Email</p><p>Phone No.</p></div></div></div></a></div>';
+                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""><div class="box_dwn"><h6>'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>Research Interest</p></div><div class="social_sec"><span><i class="fa-regular fa-envelope"></i></span><span><i class="fa fa-phone" aria-hidden="true"></i></span></div></div></div></a></div>';
                 }
             }
         } else {
