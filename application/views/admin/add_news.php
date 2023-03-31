@@ -51,6 +51,7 @@
                                                </div>
                                             </div>
                                             <div class="image_post">
+                                                <?php if(!empty($news['file_name'])) { ?>
                                                 <div class="form-group">
                                                     <label for="image" class="control-label col-lg-3 col-md-3 col-sm-4">News Cover Picture</label>
                                                     <div class="col-lg-9 col-md-9 col-sm-8">
@@ -61,6 +62,7 @@
                                                         <?php } ?>
                                                     </div>
                                                 </div>
+                                                <?php } ?>
                                                 <div class="form-group">
                                                     <label for="about_me" class="control-label col-lg-3 col-md-3 col-sm-4">Upload Picture</label>
                                                     <div class="col-lg-9 col-md-9 col-sm-8">

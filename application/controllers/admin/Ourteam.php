@@ -6,7 +6,7 @@ class Ourteam extends CI_Controller{
 		@parent::__construct();
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
-		//session_start();
+		session_start();
         if($this->session->userdata('uid') == ''){
             redirect(base_url().'admin/');
         }
@@ -131,6 +131,7 @@ class Ourteam extends CI_Controller{
 			$data['page_title'] = "Add User";
 		}
 		$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[1,2],'status'=>1, 'is_delete'=>1));
+		$data['designation']=$this->common_model->get_data_array(DESIGNATION,'','','','','','',DESIGNATION.".id DESC",array('status'=>1, 'is_delete'=>1));
 		$data['project_list']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('is_delete'=>1));
 		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
 	    $data['header']=$this->load->view('admin/includes/admin_header','',true);

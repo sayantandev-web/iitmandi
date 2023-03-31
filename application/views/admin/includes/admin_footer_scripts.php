@@ -78,7 +78,7 @@
                 $('.cosupervisors').hide();
                 $('.post').hide();
                 $('.lab').hide();
-                $('.mobile').hide();
+                $('.mobile').show();
                 $('.office').hide();
                 $('.specialization').show();
                 $('.research_keyword').show();
@@ -97,7 +97,7 @@
                 $('.cosupervisors').show();
                 $('.post').hide();
                 $('.lab').hide();
-                $('.mobile').hide();
+                $('.mobile').show();
                 $('.office').hide();
                 $('.specialization').show();
                 $('.research_keyword').hide();
@@ -252,9 +252,10 @@
             $('.cosupervisors').hide();
             $('.post').hide();
             $('.lab').hide();
-            $('.mobile').hide();
+            $('.mobile').show();
             $('.office').hide();
             $('.specialization').show();
+            $('.research_keyword').show();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -270,9 +271,10 @@
             $('.cosupervisors').show();
             $('.post').hide();
             $('.lab').hide();
-            $('.mobile').hide();
+            $('.mobile').show();
             $('.office').hide();
             $('.specialization').show();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -291,6 +293,7 @@
             $('.mobile').hide();
             $('.office').hide();
             $('.specialization').show();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -309,6 +312,7 @@
             $('.mobile').hide();
             $('.office').hide();
             $('.specialization').show();
+            $('.research_keyword').hide();
             $('.project_name').show();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -327,6 +331,7 @@
             $('.mobile').hide();
             $('.office').hide();
             $('.specialization').hide();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').show();
@@ -345,6 +350,7 @@
             $('.mobile').show();
             $('.office').hide();
             $('.specialization').hide();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -363,6 +369,7 @@
             $('.mobile').show();
             $('.office').show();
             $('.specialization').hide();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -381,6 +388,7 @@
             $('.mobile').hide();
             $('.office').hide();
             $('.specialization').hide();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -399,6 +407,7 @@
             $('.mobile').hide();
             $('.office').hide();
             $('.specialization').hide();
+            $('.research_keyword').hide();
             $('.project_name').hide();
             $('.ndesignation').hide();
             $('.admssnyear').hide();
@@ -407,7 +416,7 @@
             $('.institutename').hide();
             $('.profilelink').hide();
             $('.degree').hide();
-            }
+        }
 
         $("#position").change(function(){
             var position = $("#position").val();

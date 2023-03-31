@@ -1384,8 +1384,8 @@ section {
   border-top: 1px solid #1a2e40;
   z-index: 2;
   position: relative;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 17px;
+  padding-bottom: 5px;
 }
 
 #footer .copyright {

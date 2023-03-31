@@ -90,17 +90,6 @@
 <?php $footer_content=$this->common_model->get_data(SETTINGS,array('id'=>1));?>
   <!-- ======= Header ======= -->
   <header class="l-header header">
-    <!-- <div class="mobile-bar">
-      <div class="mobile-bar__nav-toggle">
-        <button class="nav-toggle js-nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle Main Menu">
-        <span class="nav-toggle__icon nav-toggle__icon--menu">Menu</span>
-        </button>
-      </div>
-      <div class="mobile-bar__fixed-site-name"><a href="/" title="Home" rel="home">IIT Mandi</a></div>
-      <div class="mobile-bar__university">
-        <a href="/"><img src="<?php echo base_url()?>uploads/site_logo/<?php echo $footer_content[0]['profile_pic'];?>" class="ucd-logo" alt="IIT Mandi Logo"/></a>
-      </div>
-    </div> -->
     <div class="l-header__branding"></div>
     <div class="l-navbar header__navbar navbar menu--closed">
       <div class="l-container--navigation off-canvas off-canvas--left">
@@ -211,15 +200,18 @@
                       </li>
                     </ul>
                   </li>
-                  <li class="menu-item menu-item--expanded">
+                  <!-- <li class="menu-item menu-item--expanded">
                     <div class="submenu-toggle__wrapper primary-nav__top-link">
                       <a href="<?php echo base_url()?>" style="padding: 0;"><img src="<?php echo base_url()?>uploads/site_logo/1666640517228772.png" class="ucd-logo1" alt="IIT Mandi Logo" width="85" height="58" /></a>
                       <button class="submenu-toggle" aria-label="Toggle Submenu"><span class="submenu-toggle__icon"></span></button>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </nav>
             </div>
+          </div>
+          <div class="l-nav-horizontal__brand" style="grid-area: unset;">
+            <a href="https://iitmandi.ac.in/"><img src="<?php echo base_url()?>uploads/site_logo/main_logo.png" class="ucd-logo1" alt="IIT Mandi Logo" width="85" height="58" /></a>
           </div>
         </div>
       </div>

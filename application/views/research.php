@@ -124,7 +124,7 @@ opacity: .5;}
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr style="background-color: #dff0d8;">
-                                        <th colspan="2" style="text-align: center; font-size: 1.4em; font-family: 'Noto Serif', serif;">Complete Project Detail 
+                                        <th colspan="2" style="text-align: center; font-size: 1.4em; font-family: 'Noto Serif', serif;">Project Details
                                             <button type="button" class="close" data-dismiss="modal">×</button>
                                         </th>
                                     </tr>

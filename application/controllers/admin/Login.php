@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
     public function __construct() {
         @parent::__construct();
-        //session_start();
+        session_start();
     }
     
     public function index() {
-        if($this->session->userdata('uid') == '1'){
+        if($this->session->userdata('uid') == '-1'){
            redirect(base_url('admin/dashboard'));
         }
         if($this->input->post()) {
-            $sql="`email` ='".$this->input->post('email')."' AND (`user_type`=1)";
+            $sql="`email` ='".$this->input->post('email')."' AND (`user_type`='-1')";
             $result=$this->common_model->get_data(ADMIN,$sql);
             if(md5($this->input->post('password')) == $result[0]['password']) {
                 $this->session->set_userdata('uid',$result[0]['user_id']);

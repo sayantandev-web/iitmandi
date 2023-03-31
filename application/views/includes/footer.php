@@ -15,48 +15,41 @@
                         <li class=""><?php echo $footer_content[0]['email']; ?></li>
                     </ul>
                 </div>
-
                 <div class="footeredit2">
                     <h4 class="text-white mb-2 alignedit">Quick Access</h4>
                     <ul class="list-unstyled">
                         <li class="alignedit"><a class="text-color" href="https://www.google.com/url?q=https%3A//mail.google.com&amp;amp%3Bsa=D&amp;amp%3Bsource=editors&amp;amp%3Bust=1647003312975139&amp;amp%3Busg=AOvVaw02jhZDIG8OOIc9uuoLqfQ3">Webmail</a></li>
                         <li class="alignedit"><a class="text-color" href="https://insite.iitmandi.ac.in">Intranet</a></li>
-                        <li class="alignedit"><a class="text-color" href="/national-institutional-ranking-framework-nirf">NIRF</a></li>
-                        <li class="alignedit"><a class="text-color" href="/atal-ranking-institutions-innovation-achievements-ariia">ARIIA</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/national-institutional-ranking-framework-nirf">NIRF</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/atal-ranking-institutions-innovation-achievements-ariia">ARIIA</a></li>
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/new/innovation-and-entrepreneurship">Innovation and Entrepreneurship</a></li>
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/files/bus_schedule.pdf">Institute Bus Schedule</a></li>
-                        <li class="alignedit"><a class="text-color" href="/how-reach-us">How to Reach</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/how-reach-us">How to Reach</a></li>
                         <!-- <li class="alignedit"><a class="text-color" href="">RTI</a></li> -->
                     </ul>
                 </div>
-
-
                 <div class="footeredit2">
                     <h4 class="text-white mb-2 alignedit">Explore</h4>
                     <ul class="list-unstyled">
-                        <li class="alignedit"><a class="text-color" href="/scaling-heights-iit-mandis-first-decade">Scaling the Heights Book</a></li>
-                        <li class="alignedit"><a class="text-color" href="/iit-mandi-scaling-heights-10-year-odyssey">IIT Mandi Scaling the Heights,Director</a></li>
-                        <li class="alignedit"><a class="text-color" href="/directors-corner">From the Director</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/scaling-heights-iit-mandis-first-decade">Scaling the Heights Book</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/iit-mandi-scaling-heights-10-year-odyssey">IIT Mandi Scaling the Heights,Director</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/directors-corner">From the Director</a></li>
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/Newspaper_reports/index.php">IIT Mandi in the News</a></li>
-                        <li class="alignedit"><a class="text-color" href="/press">Press Releases</a></li>
-                        <li class="alignedit"><a class="text-color" href="/rankings">Rankings</a></li>
-                        <li class="alignedit"><a class="text-color" href="/annual-reports">Annual Reports</a></li>
-                        <li class="alignedit"><a class="text-color" href="/audit-reports">Audit Reports</a></li>
-                        <li class="alignedit"><a class="text-color" href="http://iitmandi.ac.in/directory/display.php">Contacts</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/press">Press Releases</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/rankings">Rankings</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/annual-reports">Annual Reports</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/audit-reports">Audit Reports</a></li>
+                        <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/directory/display.php">Contacts</a></li>
                     </ul>
                 </div>
                 <div class="footeredit1" style="display:flex;flex-direction:column;width:300px">
                     <a class="weatherwidget-io" href="https://forecast7.com/en/31d7877d00/kamand/" data-label_2="WEATHER" data-days="3" data-basecolor="rgb(0,0,0,0.1)" data-textcolor="white" data-highcolor="red" data-lowcolor="white">WEATHER</a>
-
-
                     <!-- <ul class="list-unstyled">
                         <li class="mt-4"><?php echo $footer_content[0]['gmap']; ?></li>
                     </ul> -->
                 </div>
             </div>
-
         </div>
-        <br><br>
         <div class="social-links">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

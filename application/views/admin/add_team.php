@@ -65,16 +65,16 @@
                                           <select class="form-control" id="position" name="position" require>
                                              <option value="">Choose an Option</option>
                                              <?php if ($uid == '-1') { ?>
-                                                <option value="1" <?php if(@$banner['user_type']==1){ echo "selected"; } ?>>Faculty</option>
-                                                <option value="2" <?php if(@$banner['user_type']==2){ echo "selected"; } ?>>Postdocs</option>
-                                                <option value="3" <?php if(@$banner['user_type']==3){ echo "selected"; } ?>>Scholars</option>
-                                                <option value="4" <?php if(@$banner['user_type']==4){ echo "selected"; } ?>>Project Staff</option>
-                                                <option value="5" <?php if(@$banner['user_type']==5){ echo "selected"; } ?>>Students</option>
-                                                <option value="6" <?php if(@$banner['user_type']==6){ echo "selected"; } ?>>Technical Staff</option>
-                                                <option value="7" <?php if(@$banner['user_type']==7){ echo "selected"; } ?>>Supporting Staff</option>
-                                                <option value="8" <?php if(@$banner['user_type']==8){ echo "selected"; } ?>>External</option>
+                                                <option value="1" <?php if(@$banner['position']==1){ echo "selected"; } ?>>Faculty</option>
+                                                <option value="2" <?php if(@$banner['position']==2){ echo "selected"; } ?>>Postdocs</option>
+                                                <option value="3" <?php if(@$banner['position']==3){ echo "selected"; } ?>>Scholars</option>
+                                                <option value="4" <?php if(@$banner['position']==4){ echo "selected"; } ?>>Project Staff</option>
+                                                <option value="5" <?php if(@$banner['position']==5){ echo "selected"; } ?>>Students</option>
+                                                <option value="6" <?php if(@$banner['position']==6){ echo "selected"; } ?>>Technical Staff</option>
+                                                <option value="7" <?php if(@$banner['position']==7){ echo "selected"; } ?>>Supporting Staff</option>
+                                                <option value="8" <?php if(@$banner['position']==8){ echo "selected"; } ?>>External</option>
                                              <?php } else { ?>
-                                                <option value="8" <?php if(@$banner['user_type']==8){ echo "selected"; } ?>>External</option>
+                                                <option value="8" <?php if(@$banner['position']==8){ echo "selected"; } ?>>External</option>
                                              <?php } ?>
                                           </select>
                                        </div>
@@ -82,14 +82,20 @@
                                     <div class="form-group enrollno">
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Enrollment No</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="enrollno" name="enrollno" placeholder="Enrollment No" value="<?php echo @$banner['designation']; ?>">
+                                          <input type="text" class="form-control" id="enrollno" name="enrollno" placeholder="Enrollment No" value="<?php echo @$banner['enrollno']; ?>">
                                        </div>
                                     </div>
                                     <div class="form-group pddesignation">
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Designation</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <select class="form-control" id="designation" name="designation">
-                                             <option value="">Choose an Option</option>
+                                          <option value="">Choose an Option</option>
+                                          <?php if(!empty($designation)) { 
+                                             foreach($designation as $row) { ?>
+                                             <option value="<?php echo $row['id']?>" <?php if(@$banner['designation'] == $row['id']){ echo "selected"; } ?>><?php echo $row['designation']?></option>
+                                          <?php  } } else { ?>
+                                             <option value="">No Data</option>
+                                          <?php } ?>
                                           </select>
                                        </div>
                                     </div>
@@ -103,7 +109,7 @@
                                              <option value="<?php echo $row['id']?>"><?php echo $row['fname']?></option>
                                           <?php  } } else { ?>
                                              <option value="">No Data</option>
-                                             <?php } ?>
+                                          <?php } ?>
                                           </select>
                                        </div> 
                                     </div>
@@ -161,7 +167,7 @@
                                     <div class="form-group research_keyword">
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Research Keyword</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="research_keyword" name="research_keyword" placeholder="Research Keyword" value="<?php echo @$banner['research_keyword']; ?>">
+                                          <input type="text" class="form-control" id="research_keyword" name="research_keyword" placeholder="Research Keyword" value="<?php echo @$banner['research_keyword']; ?>" maxlength=50>
                                        </div>
                                     </div>
                                     <div class="form-group project_name">
@@ -233,7 +239,7 @@
                                        <label for="about_me" class="control-label col-lg-3 col-md-3 col-sm-4">Team Image</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <?php if(@$banner['team_image']){ ?>
-                                          <img style="width: 200px" src="<?php echo base_url(); ?>uploads/our_team/thumb/<?php echo @$banner['team_image']; ?>" alt="<?php echo @$banner['team_image']; ?>" />
+                                          <img style="width: 200px" src="<?php echo base_url(); ?>uploads/our_team/<?php echo @$banner['team_image']; ?>" alt="<?php echo @$banner['team_image']; ?>" />
                                           <?php } else { ?>
                                           <img src="<?php echo base_url(); ?>images/no-img.png" alt="no-img.png">
                                           <?php } ?>
