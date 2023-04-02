@@ -1,27 +1,39 @@
 <?php echo $header;?>
 <style>
     .nav-pills .nav-link{margin-bottom: 15px;}
-    .bio_img {width: 140px; height: 140px; border-radius: 50%;}
+    .bio_img {width: 100%;  border-radius: 50%;}
     .bio_text {margin: 0px 0px 0px 40px; text-align: left;}
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
+    .bio_text1 p{text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1590px !important;}
+    /* .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1590px !important;} */
     .cstm_gllery {float: left; display: inline;}
     .cstm_gllery img {padding: 12px;}
     .cstm_gllery h3, p {text-align: center;}
+    .modal-content {padding: 30px}
+    .modal-lg, .modal-xl {--bs-modal-width: 90% !important;}
+    .cstm_details {float: left; display: inline-block;}
+    .portfolio-details .portfolio-info h3{margin-bottom: 0 !important; padding-bottom: 0 !important; border-bottom: none !important;}
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1440px !important;}
+    .cslm_crnt_open ul { list-style-type: disc !important; padding-left:1em !important; margin-left:1em;}
+    .cstmf_gllery {float: left; display: inline;}
+    .cstmf_gllery img {padding: 12px;}
 </style>
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top: 70px">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-12">
                     <div class="portfolio-info">
+                        <div class="row">
                         <h3 style="text-align: center; text-transform: capitalize"><?php echo $about_me[0]['fname'];?></h3>                      
                         <div class="row">
-                            <div class="col-2">
-                                <!-- Tab navs -->
+
+                           
+                            <!-- <div class="col-2">
+                                
                                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
                                     <a class="nav-link active" id="v-pills-link1-tab" data-mdb-toggle="pill" role="tab">About me</a>
                                     <a class="nav-link active" id="v-pills-link2-tab" data-mdb-toggle="pill" role="tab">Education</a>
@@ -30,36 +42,49 @@
                                     <a class="nav-link active" id="v-pills-link5-tab" data-mdb-toggle="pill" role="tab">Awards and Honours</a>
                                     <a class="nav-link active" id="v-pills-link6-tab" data-mdb-toggle="pill" role="tab">Photo Gallery</a>
                                 </div>
-                                <!-- Tab navs -->
-                            </div>
-                            <div class="col-10">
+                                 
+                            </div>  -->
+                            <div class="col-md-12">
                             <!-- Tab content -->
                                 <div class="container slide_content">
-                                    <div class="row" style="overflow: scroll; height: 650px;">
+                                    <div class="row">
                                         <div class="tab-content1" id="v-pills-tabContent1">
                                             <div class="tab-pane" id="v-pills-link1" role="tabpanel" aria-labelledby="v-pills-link1-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <div class="col-sm-6" style="text-align: right;float: left;display: inline-block;">
+                                                <div class="container" >
+                                                    <div class="row ">
+                                                        <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+                                                            <div class="p-3 row">
+                                                            <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
                                                                 <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
                                                             </div>
-                                                            <div class="col-sm-6" style="float: left;display: inline-block;">
-                                                                <p class='bio_text'>Name: <?php echo $about_me[0]['fname'];?></p>
-                                                                <p class='bio_text'>Enrolment No.: <?php echo $about_me[0]['enrollno'];?></p>
-                                                                <p class='bio_text'>Email: <?php echo $about_me[0]['email'];?></p>
-                                                                <p class='bio_text'>Admission year: <?php echo $about_me[0]['admssnyear'];?></p>
-                                                                <p class='bio_text'>Research Interests: <?php echo $about_me[0]['research_interest'];?></p>
+                                                            <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
+                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;" ><strong>Name:</strong> <?php echo $about_me[0]['fname'];?></p>
+                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Enrolment No.: </strong><?php echo $about_me[0]['enrollno'];?></p>
+                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77"><strong>Email: </strong><?php echo $about_me[0]['email'];?></p>
+                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Admission year: </strong><?php echo $about_me[0]['admssnyear'];?></p>
+                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Research Interests: </strong><?php echo $about_me[0]['research_interest'];?></p>
+                                                            </div>
                                                             </div>
                                                         </div>
                                                         <div class='col-sm-12'>
-                                                            <div class='bio_text1'><?php echo $about_me[0]['aboutme'];?></div>
+                                                            <div class='bio_text1' style="margin-bottom:40px;"><?php echo $about_me[0]['aboutme'];?></div>
                                                         </div>
+                                                        <div class="col-12" style="text-align:center">
+                                <!-- Tab navs -->
+                                <button type="button"  id="v-pills-link1-tab" class="btn btn-primary">About me</button>
+                                <button type="button"  id="v-pills-link2-tab" class="btn btn-primary">Education</button>
+                                <button type="button"  id="v-pills-link3-tab" class="btn btn-primary">Experience</button>
+                                <button type="button"  id="v-pills-link4-tab" class="btn btn-primary">Publications</button>
+                                <button type="button"  id="v-pills-link5-tab" class="btn btn-primary">Awards and Honours</button>
+                                <button type="button"  id="v-pills-link6-tab" class="btn btn-primary">Photo Gallery</button>
+                                
+                                <!-- Tab navs -->
+                            </div>
                                                     </div>
                                                     <div class="col-sm-12" style="display: inline-block;">
                                                     <?php 
                                                         if ($about_me[0]['supervisor'] != '') { ?>
-                                                        <div class="col-sm-6" style="display: inline-block;float: left;">
+                                                        <div class="col-sm-4" style="display: inline-block;float: left;">
                                                             <h3 style="text-align: center; border-bottom: none;">Supervisor</h3>
                                                         <?php $supervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` =".$about_me[0]['supervisor']);
                                                         if(!empty($supervisor->result_array())) {
@@ -73,7 +98,7 @@
                                                         <?php } ?>
                                                         <?php 
                                                         if ($about_me[0]['cosupervisors'] != '') { ?>
-                                                        <div class="col-sm-6" style="display: inline-block;float: left;">
+                                                        <div class="col-sm-4" style="display: inline-block;float: left;">
                                                             <h3 style="text-align: center; border-bottom: none;">Co-Supervisor</h3>
                                                         <?php $cosupervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` IN (".$about_me[0]['cosupervisors'].")");
                                                         if(!empty($cosupervisor->result_array())) {
@@ -252,6 +277,7 @@
                                     </div>
                                 </div>
                                 <!-- Tab content -->
+                            </div>
                             </div>
                         </div>
                     </div>
