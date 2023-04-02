@@ -945,10 +945,10 @@ html {
     min-width: 40px;
 }
 
-.btn-primary {
+/* .btn-primary {
     color: #ff9800 !important;
     background-color: #022851 !important;
-}
+} */
 
 .eventcard:hover {
     transform: scale(0.95);

@@ -73,29 +73,27 @@
                         </div>
                     </div>
                     <?php 
-                    $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+                    $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
                     ?>
                     <div class="row cls_filter_data">
                         <?php if(!empty($faculty1->result_array())) {
                             $i=1; ?>
                         <?php foreach($faculty1->result_array() as $row) { ?>
                         <div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">
-                            <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'>
-                                <div class="box_sec">
-                                    <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
-                                    <div class="box_dwn">
-                                        <h6><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></h6><small><?php echo $row['designation']?></small>
-                                        <div class="box_dwn_inn">
-                                            <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                                            <p>Research Interest</p>
-                                        </div>
-                                        <div class="social_sec">
-                                            <span><i class="fa-regular fa-envelope"></i></span>
-                                            <span><i class="fa fa-phone" aria-hidden="true"></i></span>
-                                        </div>
+                            <div class="box_sec">
+                                <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt=""></a>
+                                <div class="box_dwn">
+                                    <h6><a href='<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>' style="text-decoration: none;"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></a></h6><small><?php echo $row['designation']?></small>
+                                    <div class="box_dwn_inn">
+                                        <p><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                                        <p><?php echo $row['research_keyword']?></p>
                                     </div>
-                                </div> 
-                            </a>   
+                                    <div class="social_sec">
+                                        <a href='mailto:<?php echo $row['email']?>'><i class="fa-regular fa-envelope"></i></a>
+                                        <a href='tel:<?php echo $row['mobile']?>'><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>   
                         </div>
                         <?php $i++; } } ?>
                     </div>
