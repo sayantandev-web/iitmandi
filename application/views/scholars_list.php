@@ -10,7 +10,10 @@
     .col-sm-2{display: inline-block;}
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
     .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px;}
     .box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
     .box_dwn a{display:inline-block; color:#000;}
@@ -28,6 +31,7 @@
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
     .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
+<<<<<<< HEAD
    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 15px;}
     .social_sec{width:100%;}
     .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
@@ -37,6 +41,14 @@
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
+=======
+    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 15px;}
+    .social_sec{width:100%;}
+    .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
+    .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
+    @media screen and (max-width: 600px) {
+      .box_sec{margin-top:10px;}  
+>>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
     }
 </style>
 <main id="main">
@@ -58,6 +70,7 @@
                         $scholars = $this->db->query("SELECT * from iitmandi_team WHERE iitmandi_team.position = 3 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
                         if(!empty($scholars->result_array())) {
                         foreach($scholars->result_array() as $row1) { ?>
+<<<<<<< HEAD
 
 
 
@@ -77,6 +90,26 @@
                                 <p style="text-align: center;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                             </div>
                         </a>
+=======
+                        <!-- <div class="col-sm-2" style="border: 1px solid;box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999; margin-right: 40px; float: left;">
+                            <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 210px;height: 185px;">
+                            <a href= '<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'>
+                                <p style="text-align: center; background: #fff;"><?php echo $row1['fname']?></p></a>
+                            <p style="text-align: center; background: #fff;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                        </div> -->
+                        <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
+                            <div class="box_sec">
+                                <a href= '<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'>
+                                    <div class="box_dwn">
+                                        <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 210px;height: 185px;">
+                                    </div>     
+                                    <div class="box_dwn_inn">                       
+                                        <p style="text-align: center;"><?php echo $row1['fname']?><!-- <br><small><?php //echo $row1['designation']?></small> --></p>
+                                        <p style="text-align: center;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                                    </div>
+                                </a>
+                            </div>
+>>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
                         </div>
                         </div>
                         

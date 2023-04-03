@@ -26,6 +26,7 @@
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
     .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
+<<<<<<< HEAD
    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
 .social_sec{width:100%;}
 .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
@@ -35,6 +36,16 @@
 .res_txt1{opacity: 1;}
 .box_sec:hover .res_txt1{opacity: 0;}
 
+=======
+    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
+    .social_sec{width:100%;}
+    .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
+    .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
+    .res_txt2{opacity: 0;}
+    .box_sec:hover .res_txt2{opacity: 1;}
+    .res_txt1{opacity: 1;}
+    .box_sec:hover .res_txt1{opacity: 0;}
+>>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -92,7 +103,11 @@
                                     <div class="box_dwn_inn">
                                         <p class="res_txt1"><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                                         <p class="res_txt2"><?php echo $row['research_keyword']?></p>
+<<<<<<< HEAD
                                      </div>
+=======
+                                    </div>
+>>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
                                     <div class="social_sec">
                                         <a href='mailto:<?php echo $row['email']?>'><i class="fa-regular fa-envelope"></i></a>
                                         <a href='tel:<?php echo $row['mobile']?>'><i class="fa fa-phone" aria-hidden="true"></i></a>

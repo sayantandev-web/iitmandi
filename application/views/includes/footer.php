@@ -4,7 +4,9 @@
     <div class="footer-top">
         <div class="contia">
             <div class="footeredit" style="width:100%">
-                <div class="footeredit1">
+              <div class="row">
+                 <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
+                 <div class="footeredit1">
                     <a class="logo-footer" href="<?php echo base_url() ?>home">
                         <img class="img-fluid mb-4" style="width: 200px" src="<?php echo base_url() ?>uploads/site_logo/<?php echo $footer_content[0]['profile_pic']; ?>" alt="logo">
                     </a>
@@ -15,6 +17,8 @@
                         <li class=""><?php echo $footer_content[0]['email']; ?></li>
                     </ul>
                 </div>
+                 </div>
+                <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
                 <div class="footeredit2">
                     <h4 class="text-white mb-2 alignedit">Quick Access</h4>
                     <ul class="list-unstyled">
@@ -28,6 +32,8 @@
                         <!-- <li class="alignedit"><a class="text-color" href="">RTI</a></li> -->
                     </ul>
                 </div>
+                </div>
+                <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
                 <div class="footeredit2">
                     <h4 class="text-white mb-2 alignedit">Explore</h4>
                     <ul class="list-unstyled">
@@ -42,11 +48,18 @@
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/directory/display.php">Contacts</a></li>
                     </ul>
                 </div>
-                <div class="footeredit1" style="display:flex;flex-direction:column;width:300px">
+                </div>
+                <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
+                <div class="footeredit1">
                     <a class="weatherwidget-io" href="https://forecast7.com/en/31d7877d00/kamand/" data-label_2="WEATHER" data-days="3" data-basecolor="rgb(0,0,0,0.1)" data-textcolor="white" data-highcolor="red" data-lowcolor="white">WEATHER</a>
                     <!-- <ul class="list-unstyled">
                         <li class="mt-4"><?php echo $footer_content[0]['gmap']; ?></li>
                     </ul> -->
+                </div>
+                </div>
+                
+               
+                
                 </div>
             </div>
         </div>
@@ -509,12 +522,26 @@
 
         $("#formf_aboutme").on('submit',(function(e) {
             e.preventDefault();
-            var uid = $("#uid").val();
-            var aboutme = CKEDITOR.instances['aboutme'].getData();
+            // var uid = $("#uid").val();
+            // var aboutme = CKEDITOR.instances['aboutme'].getData();
+            // var research_gate = $("#research_gate").val();
+            // var google_scholar = $("#google_scholar").val();
+            // var linedin_link = $("#linedin_link").val();
+            // var twitter_link = $("#twitter_link").val();
+            // var github_link = $("#github_link").val();
+            // var medium_link = $("#medium_link").val();
+            // var team_image = $('#team_image').prop('files')[0];
+            var form = $('#formf_aboutme')[0];
+            var data = new FormData(form);
             $.ajax({
                 url: "<?php echo base_url()?>faculty/save_aboutme",
                 type: "POST",
-                data:  {uid: uid, aboutme: aboutme},
+                // data:  {uid: uid, aboutme: aboutme, research_gate: research_gate, google_scholar: google_scholar, linedin_link: linedin_link, twitter_link: twitter_link, github_link: github_link, medium_link: medium_link, team_image: team_image},
+                enctype: 'multipart/form-data',
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
                 beforeSend : function() {
                     $("#err").fadeOut();
                 },
@@ -736,14 +763,14 @@
         $("#form_opening").on('submit',(function(e) {
             e.preventDefault();
             var uid = $("#uid").val();
-            //var position = $("#position").val();
+            var cid = $("#copeningid").val();
             var codescription = CKEDITOR.instances['codescription'].getData();
             var status = $("#opening_status").val();
             $.ajax({
                 url: "<?php echo base_url()?>facultys/facultys/save_currentopening",
                 type: "POST",
                 //data:  {uid: uid, position: position, codescription: codescription, status: status},
-                data:  {uid: uid, codescription: codescription, status: status},
+                data:  {uid: uid, cid: cid, codescription: codescription, status: status},
                 beforeSend : function() {
                     $("#err").fadeOut();
                 },
@@ -1386,6 +1413,50 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url()?>facultys/facultys/dlt_event",
+                data: {id:e_id},
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#err").fadeOut();
+                },
+                success: function (response) {
+                    console.log(response);
+                    alert('Successfuly deleted');
+                    location.reload();
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+
+    function EditCOpngnID(id) {
+        var e_id = id;
+        $.ajax({
+	        type: "POST",
+	        url: "<?php echo base_url()?>facultys/facultys/edit_currentopening",
+	        data: {id:e_id},
+	        beforeSend: function () {
+	            //$("#preview").fadeOut();
+                $("#err").fadeOut();
+	        },
+	        success: function (response) {
+                //console.log(response);
+	            response = JSON.parse(response);
+                console.log(response);
+                $("#copeningid").val(response.id);
+	            //$("#codescription").val(response.description);
+                CKEDITOR.instances['codescription'].setData(response.description);
+                $("#opening_status").val(response.status);
+	        }
+	    });
+    }
+
+    function DtlCOpngnID(id) {
+        if(confirm("Are you sure you want to delete this?")){
+            var e_id = id;
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url()?>facultys/facultys/dlt_currentopening",
                 data: {id:e_id},
                 beforeSend: function () {
                     //$("#preview").fadeOut();
