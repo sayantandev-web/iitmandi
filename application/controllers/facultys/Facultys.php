@@ -11,7 +11,7 @@ class Facultys extends CI_Controller {
         $this->load->library('email');
 		$this->load->library('session');
         date_default_timezone_set('Asia/Calcutta');
-        //session_start();
+        session_start();
     }
 
     public function index() {
@@ -121,11 +121,11 @@ class Facultys extends CI_Controller {
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
-			$data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
-			$data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
-			$data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
-			$data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$id,') AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
 			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
@@ -578,7 +578,7 @@ class Facultys extends CI_Controller {
 	}
 
 	public function save_currentopening() {
-		$record_id = $this->input->post('copeningid');
+		$record_id = $this->input->post('cid');
 		if($record_id != '') {
 			$insArr=array();
 			$insArr['user_id'] = $this->input->post('uid');
@@ -596,6 +596,23 @@ class Facultys extends CI_Controller {
 			$this->common_model->tbl_insert(CRNTOPENING,$insArr);
 			echo "Sucessfully Added";
 		}
+	}
+
+	public function edit_currentopening() {
+		$id = $this->input->post('id');
+		$currentopening=$this->common_model->get_data_row(CRNTOPENING,array('id'=>$id));
+		echo json_encode($currentopening);
+	}
+
+	public function dlt_currentopening() {
+		$id = $this->input->post('id');
+		$currentopening=$this->common_model->get_data(CRNTOPENING,array('id'=>$id));
+		if($currentopening[0]['is_delete']==1) {
+			$status = array('is_delete'=>2);
+		} else {
+			$status = array('is_delete'=>1);
+		}
+		$this->common_model->tbl_update(CRNTOPENING,array('id'=>$id),$status);
 	}
 
 	public function reset_password () {

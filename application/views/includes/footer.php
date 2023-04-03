@@ -509,12 +509,26 @@
 
         $("#formf_aboutme").on('submit',(function(e) {
             e.preventDefault();
-            var uid = $("#uid").val();
-            var aboutme = CKEDITOR.instances['aboutme'].getData();
+            // var uid = $("#uid").val();
+            // var aboutme = CKEDITOR.instances['aboutme'].getData();
+            // var research_gate = $("#research_gate").val();
+            // var google_scholar = $("#google_scholar").val();
+            // var linedin_link = $("#linedin_link").val();
+            // var twitter_link = $("#twitter_link").val();
+            // var github_link = $("#github_link").val();
+            // var medium_link = $("#medium_link").val();
+            // var team_image = $('#team_image').prop('files')[0];
+            var form = $('#formf_aboutme')[0];
+            var data = new FormData(form);
             $.ajax({
                 url: "<?php echo base_url()?>faculty/save_aboutme",
                 type: "POST",
-                data:  {uid: uid, aboutme: aboutme},
+                // data:  {uid: uid, aboutme: aboutme, research_gate: research_gate, google_scholar: google_scholar, linedin_link: linedin_link, twitter_link: twitter_link, github_link: github_link, medium_link: medium_link, team_image: team_image},
+                enctype: 'multipart/form-data',
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
                 beforeSend : function() {
                     $("#err").fadeOut();
                 },
@@ -736,14 +750,14 @@
         $("#form_opening").on('submit',(function(e) {
             e.preventDefault();
             var uid = $("#uid").val();
-            //var position = $("#position").val();
+            var cid = $("#copeningid").val();
             var codescription = CKEDITOR.instances['codescription'].getData();
             var status = $("#opening_status").val();
             $.ajax({
                 url: "<?php echo base_url()?>facultys/facultys/save_currentopening",
                 type: "POST",
                 //data:  {uid: uid, position: position, codescription: codescription, status: status},
-                data:  {uid: uid, codescription: codescription, status: status},
+                data:  {uid: uid, cid: cid, codescription: codescription, status: status},
                 beforeSend : function() {
                     $("#err").fadeOut();
                 },
@@ -1386,6 +1400,50 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url()?>facultys/facultys/dlt_event",
+                data: {id:e_id},
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#err").fadeOut();
+                },
+                success: function (response) {
+                    console.log(response);
+                    alert('Successfuly deleted');
+                    location.reload();
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+
+    function EditCOpngnID(id) {
+        var e_id = id;
+        $.ajax({
+	        type: "POST",
+	        url: "<?php echo base_url()?>facultys/facultys/edit_currentopening",
+	        data: {id:e_id},
+	        beforeSend: function () {
+	            //$("#preview").fadeOut();
+                $("#err").fadeOut();
+	        },
+	        success: function (response) {
+                //console.log(response);
+	            response = JSON.parse(response);
+                console.log(response);
+                $("#copeningid").val(response.id);
+	            //$("#codescription").val(response.description);
+                CKEDITOR.instances['codescription'].setData(response.description);
+                $("#opening_status").val(response.status);
+	        }
+	    });
+    }
+
+    function DtlCOpngnID(id) {
+        if(confirm("Are you sure you want to delete this?")){
+            var e_id = id;
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url()?>facultys/facultys/dlt_currentopening",
                 data: {id:e_id},
                 beforeSend: function () {
                     //$("#preview").fadeOut();
