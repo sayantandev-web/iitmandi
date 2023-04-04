@@ -166,9 +166,10 @@
                 <a href="#">
                   <h5 class="card-title itemedit"><?php echo $row['title'] ?></h5>
                 </a>
-                <p class="card-text itemedit"><?php// echo $row['description'] ?></p>
+                <!-- <p class="card-text itemedit"><?php echo $row['description'] ?></p> -->
                 <p class="hideit">
-                  <?php echo mb_substr(html_entity_decode($row['description']),0,50); ?>
+                  <?php //echo mb_substr(html_entity_decode($row['description']),0,50); ?>
+                  <?php echo html_entity_decode($row['description']); ?>
                   <!-- <a href="course-single.html" class="mt-4 itemedit btn btn-primary btn-sm">Read More</a> -->
                 </p>
               </div>

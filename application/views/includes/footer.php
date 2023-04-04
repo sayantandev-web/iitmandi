@@ -29,6 +29,10 @@
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/new/innovation-and-entrepreneurship">Innovation and Entrepreneurship</a></li>
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/files/bus_schedule.pdf">Institute Bus Schedule</a></li>
                         <li class="alignedit"><a class="text-color" href="https://iitmandi.ac.in/how-reach-us">How to Reach</a></li>
+                        <li class="alignedit"><a class="text-color" href="<?php echo base_url()?>faculty">Faculty Login</a></li>
+                        <li class="alignedit"><a class="text-color" href="<?php echo base_url()?>postdoctor">Post-Doc Login</a></li>
+                        <li class="alignedit"><a class="text-color" href="<?php echo base_url()?>student">Student Login</a></li>
+                        <li class="alignedit"><a class="text-color" href="<?php echo base_url()?>admin">Admin Login</a></li>
                         <!-- <li class="alignedit"><a class="text-color" href="">RTI</a></li> -->
                     </ul>
                 </div>
