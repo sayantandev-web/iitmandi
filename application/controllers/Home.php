@@ -208,7 +208,8 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function conference() { 
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
         $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -217,8 +218,8 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function book_chapter() { 
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
-        //$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
         $data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -227,7 +228,8 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function book() { 
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
         $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -236,7 +238,8 @@ class Home extends CI_Controller {
         $this->load->view('publication',$data);
     }
     public function patent() { 
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
+        $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
         $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
@@ -324,8 +327,7 @@ class Home extends CI_Controller {
     public function filterByAuthor() {
         $athrid = $this->input->post('athrid');
         $pub_type = $this->input->post('pub_type');
-        $get_data = $this->db->query("SELECT * FROM iitmandi_publication WHERE `publication_type` = '$pub_type' AND `author_name` IN ($athrid) and `status` = 1 and `is_delete` = 1");
-
+        $get_data = $this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$athrid,') AND `publication_type` = '".$pub_type."' AND `status` = 1 AND `is_delete` = 1");
         if(!empty($get_data->result_array())) {
             $html='';
             $j=1;

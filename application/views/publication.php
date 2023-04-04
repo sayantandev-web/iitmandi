@@ -73,6 +73,7 @@ opacity: .5;}
                                 <table id="example" class="table table-striped filtered_pub" style="width:100%">
                                     <tbody>
                                         <?php $j=1;
+                                        //echo "<pre>"; print_r($journal);
                                         foreach($journal as $row) { ?>
                                         <tr>
                                             <td><?php echo $j.")" ?></td>
@@ -80,21 +81,25 @@ opacity: .5;}
                                             $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
                                                 //echo "<pre>"; print_r($author->result_array());
                                                 $value = $author->result_array();
-                                                $count = count($author->result_array());
+                                                //echo "<pre>"; print_r($value);
+                                                $count = count($value);
+                                                //echo "<pre>"; print_r($count);
                                                 for($i = 0; $i < $count; $i++) {
                                                     if ($value[$i]['mname'] == '') {
-                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
                                                     }
+                                                    //echo "<pre>"; print_r($commonValues[$i]);
+                                                    $lastItem = array_pop($commonValues);
                                                 }
-                                                $lastItem = array_pop($commonValues);
+                                                //echo "<pre>"; print_r($commonValues);
                                                 $text = implode(', ', $commonValues); // a, b 
                                                 if ($text == ''){
                                                     $text .= $lastItem; 
                                                 } else {
                                                     $text .= ', & '.$lastItem; // a, b and c
-                                                }    
+                                                }
                                             ?> 
                                             <td><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
