@@ -19,6 +19,9 @@
     .cslm_crnt_open ul { list-style-type: disc !important; padding-left:1em !important; margin-left:1em;}
     .cstmf_gllery {float: left; display: inline;}
     .cstmf_gllery img {padding: 12px;}
+    #example thead tr th {
+    font-size: 18px;
+}
 </style>
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
@@ -65,9 +68,34 @@
                                                 <div class="container" >
                                                     <div class="row ">
                                                         <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+
+
+                                                        <div class="col-sm-12" style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+                                                            <div class="row p-3">
+                                                                <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
+                                                                <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt="">
+                                                                </div>
+                                                                <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
+                                                                        <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;" ><strong>Name:</strong> <?php echo $about_me[0]['fname'];?></p>
+                                                                        <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Enrolment No.: </strong><?php echo $about_me[0]['enrollno'];?></p>
+                                                                        <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77"><strong>Email: </strong><?php echo $about_me[0]['email'];?></p>
+                                                                        <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Admission year: </strong><?php echo $about_me[0]['admssnyear'];?></p>
+                                                                        <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Research Interests: </strong><?php echo $about_me[0]['research_interest'];?></p>
+                                                                                                        
+                                                                    <!-- <div class="social_sec">
+                                                                        <a href="mailto:vivekgupta@iitmandi.ac.in"><i class="fa-regular fa-envelope"></i> vivekgupta@iitmandi.ac.in</a><br>
+                                                                        <a href="tel:"><i class="fa fa-phone" aria-hidden="true"></i> </a>
+                                                                    </div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
                                                             <div class="p-3 row">
                                                             <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
-                                                                <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
+                                                                <img class="bio_img" src="" alt=""/>
                                                             </div>
                                                             <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
                                                                 <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;" ><strong>Name:</strong> <?php echo $about_me[0]['fname'];?></p>

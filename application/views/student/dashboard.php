@@ -51,6 +51,11 @@ echo $header;
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-sm-12">
+
+
+
+
+                                                        
                                                             <div class="col-sm-6" style="text-align: right;float: left;display: inline-block;">
                                                                 <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
                                                             </div>
