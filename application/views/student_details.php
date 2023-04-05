@@ -29,21 +29,11 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-12">
-<<<<<<< HEAD
                     <div class="portfolio-info">
                         <div class="row">
                         <h3 style="text-align: center; text-transform: capitalize"><?php echo $about_me[0]['fname'];?></h3>                      
                         <div class="row">
-
-                           
                             <!-- <div class="col-2">
-                                
-=======
-                    <div class="portfolio-info" style="margin-top: 70px">
-                        <h3 style="text-align: center; text-transform: capitalize"><?php echo $about_me[0]['fname'];?></h3>                      
-                        <div class="row">
-                            <!-- <div class="col-2">
->>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
                                 <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
                                     <a class="nav-link active" id="v-pills-link1-tab" data-mdb-toggle="pill" role="tab">About me</a>
                                     <a class="nav-link active" id="v-pills-link2-tab" data-mdb-toggle="pill" role="tab">Education</a>
@@ -52,14 +42,8 @@
                                     <a class="nav-link active" id="v-pills-link5-tab" data-mdb-toggle="pill" role="tab">Awards and Honours</a>
                                     <a class="nav-link active" id="v-pills-link6-tab" data-mdb-toggle="pill" role="tab">Photo Gallery</a>
                                 </div>
-<<<<<<< HEAD
-                                 
                             </div>  -->
                             <div class="col-md-12">
-=======
-                            </div> -->
-                            <div class="col-sm-12">
->>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
                             <!-- Tab content -->
                                 <div class="container slide_content">
                                     <div class="row">

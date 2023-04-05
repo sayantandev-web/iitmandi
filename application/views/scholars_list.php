@@ -10,10 +10,6 @@
     .col-sm-2{display: inline-block;}
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
-<<<<<<< HEAD
-
-=======
->>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
     .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px;}
     .box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
     .box_dwn a{display:inline-block; color:#000;}
@@ -31,7 +27,6 @@
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
     .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
-<<<<<<< HEAD
    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 15px;}
     .social_sec{width:100%;}
     .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
@@ -41,14 +36,6 @@
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
-=======
-    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 15px;}
-    .social_sec{width:100%;}
-    .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
-    .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
-    @media screen and (max-width: 600px) {
-      .box_sec{margin-top:10px;}  
->>>>>>> 215935d9a9fec2f3a496c16f3ef7ea71ce671497
     }
 </style>
 <main id="main">
