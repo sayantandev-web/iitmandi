@@ -799,6 +799,35 @@
             window.open(url, '_blank');
             location.reload();
         });
+
+        $(".Role_add_btn").click(function() {
+            $(".role_data").css("opacity", "1");
+        });
+
+        $("#form_Role").on('submit',(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "<?php echo base_url()?>facultys/facultys/save_frole",
+                type: "POST",
+                data:  new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false,
+                beforeSend : function() {
+                    //$("#preview").fadeOut();
+                    $("#err").fadeOut();
+                },
+                success: function(data) {
+                    if(data !='invalid') {
+                        $("#form_Role")[0].reset(); 
+                        location.reload();
+                    }
+                },
+                error: function(e) {
+                    $("#err").html(e).fadeIn();
+                }          
+            });
+        }));
     });
 
     /* Edit education */
@@ -1424,6 +1453,51 @@
                 },
                 success: function (response) {
                     console.log(response);
+                    alert('Successfuly deleted');
+                    location.reload();
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+
+    function EditFRoleID(id) {
+        var r_id = id;
+        $.ajax({
+	        type: "POST",
+	        url: "<?php echo base_url()?>facultys/facultys/edit_frole",
+	        data: {id: r_id},
+	        beforeSend: function () {
+	            //$("#preview").fadeOut();
+                $("#err").fadeOut();
+	        },
+	        success: function (response) {
+                //console.log(response);
+	            response = JSON.parse(response);
+                console.log(response);
+                $("#frid").val(response.id);
+	            $("#role_name").val(response.role_name);
+	            $("#role_yr").val(response.role_yr);
+	            $("#status").val(response.status);
+	        }
+	    });
+    }
+
+    /* Delete faculty Role */
+    function DtlFRoleID(id) {
+        if(confirm("Are you sure you want to delete this?")){
+            var e_id = id;
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url()?>facultys/facultys/dlt_frole",
+                data: {id:e_id},
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#err").fadeOut();
+                },
+                success: function (response) {
+                    //console.log(response);
                     alert('Successfuly deleted');
                     location.reload();
                 }

@@ -62,6 +62,7 @@ class Facultys extends CI_Controller {
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
 			$data['event']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Event','status'=>1,'is_delete'=>1));
+			$data['frole']=$this->common_model->get_data_array(ROLEE,'','','','','','',ROLEE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
@@ -76,6 +77,7 @@ class Facultys extends CI_Controller {
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
 			$data['event']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Event','status'=>1,'is_delete'=>1));
+			$data['frole']=$this->common_model->get_data_array(ROLEE,'','','','','','',ROLEE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
@@ -575,6 +577,44 @@ class Facultys extends CI_Controller {
 			$status = array('is_delete'=>1);
 		}
 		$this->common_model->tbl_update(AWARDEVENT,array('id'=>$id),$status);
+	}
+
+	public function save_frole() {
+		$record_id = $this->input->post('frid');
+		if($record_id != '') {
+			$insArr=array();
+			$insArr['user_id'] = $this->input->post('uid');
+			$insArr['role_name']=$this->input->post('role_name');
+			$insArr['role_yr']=$this->input->post('role_yr');
+			$insArr['status']=$this->input->post('status');
+			$this->common_model->tbl_update(ROLEE,array('id'=>$record_id),$insArr);
+			echo "Sucessfully Updated";
+		} else {
+			$insArr=array();
+			$insArr['user_id'] = $this->input->post('uid');
+			$insArr['role_name']=$this->input->post('role_name');
+			$insArr['role_yr']=$this->input->post('role_yr');
+			$insArr['status']=$this->input->post('status');
+			$banner_record_id=$this->common_model->tbl_insert(ROLEE,$insArr);
+			echo "Sucessfully Added";
+		}
+	}
+
+	public function edit_frole() {
+		$id = $this->input->post('id');
+		$rolee=$this->common_model->get_data_row(ROLEE,array('id'=>$id));
+		echo json_encode($rolee);
+	}
+
+	public function dlt_frole() {
+		$id = $this->input->post('id');
+		$rolee=$this->common_model->get_data(ROLEE,array('id'=>$id));
+		if($rolee[0]['is_delete']==1) {
+			$status = array('is_delete'=>2);
+		} else {
+			$status = array('is_delete'=>1);
+		}
+		$this->common_model->tbl_update(ROLEE,array('id'=>$id),$status);
 	}
 
 	public function save_currentopening() {

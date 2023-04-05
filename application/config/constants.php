@@ -106,3 +106,4 @@ define('AWARDEVENT', 'iitmandi_awardevent');
 define('CRNTOPENING', 'iitmandi_crntopening');
 define('LABSECTION', 'iitmandi_labsection');
 define('LABEQUIPMENT', 'iitmandi_labequipment');
+define('ROLEE', 'iitmandi_faculty_role');

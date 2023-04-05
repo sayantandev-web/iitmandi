@@ -291,6 +291,49 @@ echo $header;
                   </div>
                   <?php } ?>
                 </div>
+                <div class="col-12 degree_sec">
+                    <?php if(!empty($frole)) { ?>
+                    <div class="row">
+                        <div class='col-sm-12'>
+                            <h2 style="text-align: left;">Role :</h2>
+                        </div>
+                        <div class='col-sm-12'>
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Role Name</th>
+                                        <th>Year</th>
+                                        <?php if ($this->session->userdata('user_id') != '') { ?>
+                                        <th>Action</th>
+                                        <?php } ?>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                    $i=1; ?>
+                                    <?php foreach($frole as $row) { ?>
+                                    <tr>
+                                    <td><?php echo $row['role_name'];?></td>
+                                    <td><?php echo $row['role_yr'];?></td>
+                                        <?php if ($this->session->userdata('user_id') != '') { ?>
+                                        <td>
+                                            <button type="button" class="btn btn-primary Role_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg7" onclick="EditFRoleID(<?php echo $row['id']?>)">Edit</button>
+                                            <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtlFRoleID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                        </td>
+                                        <?php } ?>
+                                    </tr>
+                                    <?php $i++; } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php if ($this->session->userdata('user_id') != '') { ?>
+                    <div class="col-sm-12" style="text-align: right;">
+                        <button type="button" class="btn btn-primary Role_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg7" style="margin-top: 20px;">Add Role</button>
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
           </div>
         </div>
@@ -704,6 +747,49 @@ echo $header;
                         <input class="btn btn-primary evnt_save" type="submit" value="Submit">
                         <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>">
                         <input type="hidden" id="evntid" name="evntid">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg7 role_data" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="background: #000000b0;">
+    <div class="modal-dialog modal-lg" style="margin-top: 5%; width: 100%;">
+        <div class="modal-content">
+            <form id="form_Role" action="" method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" style="margin-bottom: 40px;">
+                            <div class="col-sm-12" style="float: left; display: inline-block;">
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Role Name" class="control-label">Name</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <input type="text" class="form-control required" id="role_name" name="role_name" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Role Name" class="control-label">Year</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <input type="text" class="form-control required" id="role_yr" name="role_yr" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Role Name" class="control-label">Status</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <select class="form-control" name="status">
+                                            <option value="1" <?php if(@$research_category['status']==1){ echo "selected"; } ?>>Active</option>
+                                            <option value="2" <?php if(@$research_category['status']==2){ echo "selected"; } ?>>Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="text-align: center;margin-top: 20px;">
+                        <div id="err"></div>
+                        <input class="btn btn-primary role_save" type="submit" value="Submit">
+                        <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>">
+                        <input type="hidden" id="frid" name="frid">
                     </div>
                 </div>
             </form>
