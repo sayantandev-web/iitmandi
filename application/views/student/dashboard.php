@@ -20,6 +20,9 @@ echo $header;
     .modal-content {padding: 30px}
     .modal-lg, .modal-xl {--bs-modal-width: 90% !important;}
     .cstm_details {float: left; display: inline-block;}
+    .degree_sec h2 { margin: 0; padding: 0 0 25px; font-size: 25px;}
+    
+
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details">
@@ -52,9 +55,6 @@ echo $header;
                                                     <div class="row">
                                                         <div class="col-sm-12">
 
-
-
-
                                                         
                                                             <div class="col-sm-6" style="text-align: right;float: left;display: inline-block;">
                                                                 <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
@@ -79,7 +79,9 @@ echo $header;
                                             <div class="tab-pane" id="v-pills-link2" role="tabpanel" aria-labelledby="v-pills-link2-tab">
                                                 <div class="container">
                                                     <div class="row">
-                                                        <div class='col-sm-12'>
+                                                        <div class="col-12 degree_sec">
+                                                            <div class="row">
+                                                            <div class='col-sm-12'>
                                                             <h2 style="text-align: center;">Education</h2>
                                                         </div>
                                                         <div class='col-sm-12'>
@@ -109,6 +111,8 @@ echo $header;
                                                                 <?php $i++; } } ?>
                                                                 </tbody>
                                                             </table>
+                                                        </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12" style="text-align: right;">

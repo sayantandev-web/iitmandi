@@ -19,9 +19,14 @@
     .cslm_crnt_open ul { list-style-type: disc !important; padding-left:1em !important; margin-left:1em;}
     .cstmf_gllery {float: left; display: inline;}
     .cstmf_gllery img {padding: 12px;}
-    #example thead tr th {
-    font-size: 18px;
-}
+    #example thead tr th { font-size: 18px;}
+    #example tbody tr td { font-size: 16px;}
+    .degree_sec h2 { margin: 0; padding: 0 0 25px; font-size: 25px;}
+    .co-codi{width:100px;float:left; text-align:center;}
+    .co-codi a{width:100%; text-align:center;}
+    .co-codi .bio_text{margin:0px; text-align:center;}
+    .degree_sec{margin-top:15px;}
+
 </style>
 <main id="main">
     <!-- ======= Portfolio Details Section ======= -->
@@ -51,10 +56,7 @@
                                             <div class="tab-pane" id="v-pills-link1" role="tabpanel" aria-labelledby="v-pills-link1-tab">
                                                 <div class="container" >
                                                     <div class="row ">
-                                                        <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
-
-
-                                                        <div class="col-sm-12" style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+                                                        <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">                                                        
                                                             <div class="row p-3">
                                                                 <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
                                                                 <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt="">
@@ -77,35 +79,25 @@
 
 
 
-                                                            <div class="p-3 row">
-                                                            <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
-                                                                <img class="bio_img" src="" alt=""/>
-                                                            </div>
-                                                            <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
-                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;" ><strong>Name:</strong> <?php echo $about_me[0]['fname'];?></p>
-                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Enrolment No.: </strong><?php echo $about_me[0]['enrollno'];?></p>
-                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77"><strong>Email: </strong><?php echo $about_me[0]['email'];?></p>
-                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Admission year: </strong><?php echo $about_me[0]['admssnyear'];?></p>
-                                                                <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Research Interests: </strong><?php echo $about_me[0]['research_interest'];?></p>
-                                                            </div>
+                                                        
                                                             </div>
                                                         </div>
                                                         <div class='col-sm-12'>
                                                             <div class='bio_text1' style="margin-bottom:40px;"><?php echo $about_me[0]['aboutme'];?></div>
                                                         </div>
                                                         <div class="col-12" style="text-align:center">
-                                <!-- Tab navs -->
-                                <button type="button"  id="v-pills-link1-tab" class="btn btn-primary">About me</button>
-                                <button type="button"  id="v-pills-link2-tab" class="btn btn-primary">Education</button>
-                                <button type="button"  id="v-pills-link3-tab" class="btn btn-primary">Experience</button>
-                                <button type="button"  id="v-pills-link4-tab" class="btn btn-primary">Publications</button>
-                                <button type="button"  id="v-pills-link5-tab" class="btn btn-primary">Awards and Honours</button>
-                                <button type="button"  id="v-pills-link6-tab" class="btn btn-primary">Photo Gallery</button>
-                                
-                                <!-- Tab navs -->
-                            </div>
+                                                            <!-- Tab navs --
+                                                            <button type="button"  id="v-pills-link1-tab" class="btn btn-primary">About me</button>
+                                                            <button type="button"  id="v-pills-link2-tab" class="btn btn-primary">Education</button>
+                                                            <button type="button"  id="v-pills-link3-tab" class="btn btn-primary">Experience</button>
+                                                            <button type="button"  id="v-pills-link4-tab" class="btn btn-primary">Publications</button>
+                                                            <button type="button"  id="v-pills-link5-tab" class="btn btn-primary">Awards and Honours</button>
+                                                            <button type="button"  id="v-pills-link6-tab" class="btn btn-primary">Photo Gallery</button>
+                                                            
+                                                             Tab navs -->
+                                                        </div>
                                                     </div>
-                                                    <div class="col-sm-12" style="display: inline-block;">
+                                                    <!-- <div class="col-sm-12" style="display: inline-block;">
                                                     <?php 
                                                         if ($about_me[0]['supervisor'] != '') { ?>
                                                         <div class="col-sm-4" style="display: inline-block;float: left;">
@@ -134,6 +126,40 @@
                                                         <?php } } ?>
                                                         </div>
                                                         <?php } ?>
+                                                    </div> -->
+
+                                                    <div class="col-sm-12">
+                                                    <div class="row">
+                                                       <div class="col-sm-6">
+                                                       <div>
+                                                       <span style="float:left;">Coordinator:</span> 
+                                                            <?php 
+                                                            $supervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` =".$about_me[0]['supervisor']);
+                                                            if(!empty($supervisor->result_array())) {
+                                                            foreach($supervisor->result_array() as $row1) { ?>
+                                                             <div class="co-codi">
+                                                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
+                                                            <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($about_me[0]['supervisor'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                            </div>
+                                                            <?php } } ?>
+                                                              
+                                                        </div>
+                                                        
+                                                    </div>
+                                                      
+                                                       <div class="col-sm-6">
+                                                       <div>
+                                                        <span style="float:left;">Co-Cordinator:</span> 
+                                                        <?php $cosupervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` IN (".$about_me[0]['cosupervisors'].")");
+                                                                                    if(!empty($cosupervisor->result_array())) {
+                                                                                    foreach($cosupervisor->result_array() as $row1) { ?>
+                                                                        <div class="co-codi"><img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
+                                                                                            <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row1['id'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                                                            </div>         
+                                                                                    <?php } } ?>           
+                                                        
+                                                        </div> </div>
+                                                       </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,11 +168,13 @@
                                                 $i=1; ?>
                                                 <div class="container">
                                                     <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Education</h2>
+                                                        <div class="col-12 degree_sec">
+                                                            <div class="row ">
+                                                            <div class='col-sm-12'>
+                                                            <h2 style="text-align: left;">Education</h2>
                                                         </div>
                                                         <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
+                                                            <table id="example" class="table table-striped table-bordered" style="width:100%">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Sl No.</th>
@@ -167,6 +195,8 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <?php } ?>
@@ -176,11 +206,13 @@
                                                 $i=1; ?>
                                                 <div class="container">
                                                     <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Professional Experience</h2>
+                                                        <div class="col-12 degree_sec">
+                                                            <div class="row">
+                                                            <div class='col-sm-12'>
+                                                            <h2 style="text-align: left;">Professional Experience</h2>
                                                         </div>
                                                         <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
+                                                            <table id="example" class="table table-striped table-bordered" style="width:100%">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Sl No.</th>
@@ -198,6 +230,8 @@
                                                                     <?php $i++; } ?>
                                                                 </tbody>
                                                             </table>
+                                                        </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
