@@ -142,6 +142,15 @@
         },
     });
     $(document).ready(function(){
+        ('.eventcard').hover (
+            function () {
+                $(this).show();
+            }, 
+            function () {
+                $(this).hide();
+            }
+        );
+        
         $(".chosen-select").chosen({
             no_results_text: "Oops, nothing found!"
         })

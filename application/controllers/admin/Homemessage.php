@@ -27,7 +27,10 @@ class Homemessage extends CI_Controller{
         if(empty($home_message)){
             if($this->input->post()) {
                 $updtarr=array();
-                $updtarr['description']=$this->input->post('description');
+                $updtarr['name']=$this->input->post('cp_name');
+                $updtarr['designation']=$this->input->post('designation');
+                $updtarr['location']=$this->input->post('location');
+                $updtarr['description']=nl2br($this->input->post('description'));
                 if($_FILES['homemsg_img']['size']!='') {
                     $config1=array();
                     $config1['upload_path']='./uploads/homemessage/thumb';
@@ -69,7 +72,7 @@ class Homemessage extends CI_Controller{
                 $updtarr['name']=$this->input->post('cp_name');
                 $updtarr['designation']=$this->input->post('designation');
                 $updtarr['location']=$this->input->post('location');
-                $updtarr['description']=$this->input->post('description');
+                $updtarr['description']=nl2br($this->input->post('description'));
                 $this->common_model->tbl_update(HOMEMESSAGE,array('id'=>1),$updtarr);
                 if($_FILES['homemsg_img']['size']!='') {
                     $data['result']=$this->common_model->get_data(HOMEMESSAGE,array('id'=>1));

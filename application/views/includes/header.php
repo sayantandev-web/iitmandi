@@ -29,27 +29,58 @@
   <link rel="stylesheet" media="all" href="<?php echo base_url(); ?>assets/fontend/css/editstyle.css" />
   <style>
   .navbar ul {align-items: unset !important;}.l-nav-horizontal__brand {padding: 0 2rem !important;}.clients {padding: 0;background: linear-gradient(180deg, #032851 0%, #032851 100%);color: #fdc134;}.Scroll {height:600px;overflow-y: scroll;}.services .card-img img {margin-top: 30px;width: 100%;height : 250px;border-radius: 50%}.services .card-body {margin-top: 10px;text-align: justify;}#footer .footer-top {padding: 25px 0;}#footer .footer-bottom{padding-top: 5px;padding-bottom: 5px}.services .card-title {margin-top: 20px;}#footer .footer-top .social-links {margin-top: -50px;}.text-color {color: #fdc134;}.hover-shadow {transition: .3s ease;}.card {position: relative;display: -ms-flexbox;display: flex;-ms-flex-direction: column;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0,0,0,.125);border-radius: 0.25rem;}.rounded-0 {border-radius: 0!important;}.p-0 {padding: 0!important;}.border-primary {border-color: #ededf1 !important;}.mb-5, .my-5 {margin-bottom: 3rem!important;}.rounded-0 {border-radius: 0!important;}.card-img-top {width: 100%;border-top-left-radius: calc(0.25rem - 1px);border-top-right-radius: calc(0.25rem - 1px);}.card-body {-ms-flex: 1 1 auto;flex: 1 1 auto;padding: 1.25rem;}.mb-2, .my-2 {margin-bottom: 0.5rem!important;}.list-inline {padding-left: 0;list-style: none;}.list-inline-item:not(:last-child) {margin-right: 0.5rem;}.list-inline-item {display: inline-block;}.text-color {color: #5c5c77;}class^="ti-"], [class*=" ti-"] {font-family: 'themify';speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}.mr-1, .mx-1 {margin-right: 0.25rem!important;}.mb-4, .my-4 {margin-bottom: 1.5rem!important;}p, .paragraph {font-weight: 400;color: #5c5c77;font-size: 15px;line-height: 1.9;font-family: 'Raleway';}.btn:not(:disabled):not(.disabled) {cursor: pointer;}.btn-primary {background: #ffbc3b;color: #fff;}.btn-sm {font-size: 14px;padding: 10px 35px;}.btn {font-size: 16px;font-family: "Poppins", sans-serif;text-transform: capitalize;padding: 15px 40px;border-radius: 0;font-weight: 500;border: 0;position: relative;z-index: 1;transition: .2s ease;overflow: hidden;}.hover-shadow:hover {box-shadow: 0px 4px 25px 0px rgb(27 39 71 / 15%);}.school_img {width: 35%;float: left;position: relative;z-index: 9;margin-left: 2%;}.school_img img {width: 100%;float: left;}.into-inner {width: 60%;float: left;margin-top: 100px;}.intro {background: #ebebeb;padding: 10px 20px;position: relative;border-top-right-radius: 20px;border-bottom-right-radius: 20px;}.intro h3 {font-size: 35px !important;text-align: left;padding: 0;font-family: 'Raleway';font-weight: 700;color: #000;letter-spacing: 1px;margin: 0 !important;padding: 0;text-align: center;line-height: normal !important;}.intro p {color: #002a5c;font-size: 18px !important;padding: 0 0 4px;max-width: 900px;margin: 0 auto;text-align: center;}.intro p:nth-child(3) {color: black;font-style: initial;font-size: 18px;padding: 10px 0 0;max-width: 900px;margin: 0 auto;font-family: 'Helvetica', sans-serif;line-height: 25px;text-transform: capitalize;}
-  .primary-nav li {width: 273px;}.about .content p {text-align: justify; font-family: 'Raleway';}.services .card img {transform: scale(1.1) !important;}.about .content h3{font-size: 32px !important;text-align: center;}#wowslider-container1 .ws-title{text-align: center;}.ws_controls{display: none;}
+  .primary-nav li {width: 273px;}.about .content p {text-align: justify; font-family: 'Raleway';}.services .card img {transform: scale(1.1) !important;}.about .content h3{font-size: 32px !important;text-align: center;}#wowslider-container1 .ws-title{text-align: center;}.ws_controls{display: none;}#wowslider-container1{margin-top: 60px !important;}
 
-  @media (min-width: 1600px) and (max-width: 1670px)  {
+  @media (min-width: 5121px) and (max-width: 10120px)  {
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 5119px) and (max-width: 5120px)  {
+    .primary-nav li {width: 946px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 4095px) and (max-width: 4096px)  {
+    .primary-nav li {width: 741px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 3839px) and (max-width: 3840px)  {
+    .primary-nav li {width: 690px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 2559px) and (max-width: 2560px)  {
+    .primary-nav li {width: 442px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 1919px) and (max-width: 1920px)  {
+    .primary-nav li {width: 320px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 1679px) and (max-width: 1680px)  {
     .primary-nav li {width: 273px;}
+    .menu_sec {display: none !important;}
   }
-  @media (min-width: 1560px) and (max-width: 1600px)  {
-    .primary-nav li {width: 257px;}
+  @media (min-width: 1439px) and (max-width: 1440px)  {
+    .primary-nav li {width: 226px;}
+    .menu_sec {display: none !important;}
   }
-  @media (min-width: 1200px) and (max-width: 1399px)  {
-    .primary-nav li {width: 158px;}
-  } 
-  @media (min-width: 992px) and (max-width: 1199px)  {
-    .primary-nav li {width: 145px;}
-  } 
+  @media (min-width: 1365px) and (max-width: 1366px)  {
+    .primary-nav li {width: 212px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 1279px) and (max-width: 1280px)  {
+    .primary-nav li {width: 195px;}
+    .menu_sec {display: none !important;}
+  }
+  @media (min-width: 1023px) and (max-width: 1024px)  {
+    .primary-nav li {width: 137px;}
+    .menu_sec {display: none !important;}
+  }
   .portfolio-details .portfolio-info {display: inline-block;}
   .portfolio-info {width: 100%}
   .first h3 {color: #fff;}
   .second h3 {color: #fff;}
   .carded-edit {margin-right: 28px;}
   .card1ed p {color : #fff;}
-  .menu_sec{width: 100%; background: #022851;}
+  .menu_sec{width: 100%; background: #022851;display: none;}
   .navbar-brand{width: 120px}
   .navbar-brand img{width: 100%;}
   .nav-link{color: #fff !important;}
@@ -61,7 +92,8 @@
     .menu_sec {display: none;}
   }
   @media (max-width: 991px) {
-    .menu_sec {padding: 0;}
+    .menu_sec {padding: 0;display: block; !important;}
+    #wowslider-container1{margin-top: 0px !important;}
   }
   @media screen and (min-width: 600px) {
   .nav-link{padding:10px 0 !important;}

@@ -6,7 +6,7 @@ class Events extends CI_Controller{
 		@parent::__construct();
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
-		session_start();
+		//session_start();
         if($this->session->userdata('uid') == ''){
             redirect(base_url().'admin/');
         }
@@ -29,7 +29,7 @@ class Events extends CI_Controller{
 			$insArr['title']=$this->input->post('event_name');
 			$insArr['location']=$this->input->post('event_venue');
 			$insArr['event_date']=$this->input->post('event_date');
-			$insArr['description']=$this->input->post('description');
+			$insArr['description']=nl2br($this->input->post('description'));
 			$insArr['status']=$this->input->post('status');
 			if(!empty($id)){
 				$this->common_model->tbl_update(EVENTS,array('id'=>$id),$insArr);

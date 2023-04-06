@@ -38,7 +38,7 @@
                                                    <th>Sl No.</th>
                                                    <th>Image</th>
                                                    <th>Title</th>
-                                                   <th>Description</th>
+                                                   <!-- <th>Description</th> -->
                                                    <th>Date</th>
                                                    <th>Action</th>
                                                 </tr>
@@ -50,20 +50,20 @@
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
                                                     <td>
-                                                        <?php if(!empty($news['file_name'])) { ?>
-                                                            <img src="<?php echo base_url(); ?>assets/images/news/thumb/<?php echo $row['file_name']; ?>" alt="<?php $news['file_name']; ?>" width="116" height="87">
+                                                        <?php if(!empty($row['file_name'])) { ?>
+                                                            <img src="<?php echo base_url(); ?>uploads/news/thumb/<?php echo $row['file_name']; ?>" alt="<?php $row['file_name']; ?>" width="116" height="87">
                                                         <?php } else { ?>
                                                             <img src="<?php echo base_url(); ?>assets/images/no-cover.png" alt="no-cover" width="116" height="87">
                                                         <?php } ?>
                                                     </td>
                                                     <td><?php echo $row['title']; ?></td>
-                                                    <td class="news_desc">
-                                                        <?php if(str_word_count($row['description']) >= 250){ ?>
-                                                            <div><?php echo substr($row['description'],0,250); ?></div>
-                                                        <?php } else { ?>
-                                                            <div><?php echo $row['description']; ?></div>
-                                                        <?php } ?>
-                                                    </td>
+                                                    <!-- <td class="news_desc">
+                                                        <?php //if(str_word_count($row['description']) >= 250){ ?>
+                                                            <div><?php //echo substr($row['description'],0,250); ?></div>
+                                                        <?php //} else { ?>
+                                                            <div><?php //echo $row['description']; ?></div>
+                                                        <?php //} ?>
+                                                    </td> -->
                                                     <td><?php echo $row['add_date']; ?></td>
                                                     <td style="width: 142px;">
                                                         <a href="admin/news/add_news/<?php echo $row['id']; ?>" class="btn btn-primary waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

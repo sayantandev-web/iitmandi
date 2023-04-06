@@ -40,7 +40,7 @@ class Project extends CI_Controller{
             $insert_array['starting_year']=$this->input->post('starting_year');
             $insert_array['project_duration']=$this->input->post('project_duration');
             $insert_array['reference_number']=$this->input->post('reference_number');
-            $insert_array['description'] = addslashes($this->input->post('description'));
+            $insert_array['description'] = nl2br(addslashes($this->input->post('description')));
             $insert_array['status']=$this->input->post('status');
             if(!empty($id)) {
 				$this->common_model->tbl_update(PROJECT,array('id'=>$id),$insert_array);

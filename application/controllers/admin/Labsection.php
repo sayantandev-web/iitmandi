@@ -28,7 +28,7 @@ class Labsection extends CI_Controller{
 		if($this->input->post()) {
 			$insArr=array();
 			$insArr['labname'] = $this->input->post('labname');
-			$insArr['description'] = $this->input->post('description');
+			$insArr['description'] = nl2br($this->input->post('description'));
 			$insArr['specialization'] = $this->input->post('specialization');
 			$insArr['typeofLab'] = $this->input->post('typeofLab');
 			$insArr['coordinator'] = $this->input->post('coordinator');

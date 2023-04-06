@@ -1,4 +1,7 @@
   <?php echo $header; ?>
+  <style>
+    .imgedited {width: 100%;}
+  </style>
   <div id="wowslider-container1">
     <div class="ws_images">
       <ul>
@@ -15,29 +18,24 @@
   <!-- ======= Hero Banner Section ======= -->
   <main id="main">
     <!-- ======= Welcome Section ======= -->
+    <?php if(!empty($home_about)) { ?>
     <section id="about" class="about">
       <div class="container">
         <div class="row gy-4">
-          <div class="image col-xl-5" style="background:url('https://scene.iitmandi.ac.in/dev/uploads/homeabout/1676737649149657.jpg') no-repeat center center/cover"></div>
+          <div class="image col-xl-5" style="background:url('<?php echo base_url()?>uploads/homeabout/<?php echo $home_about[0]['homeabt_img']?>') no-repeat center center/cover"></div>
           <div class="col-xl-7">
             <div class="content d-flex flex-column justify-content-center ps-0 ps-xl-4">
               <h3 style="font-size: 1.5rem !important; color:black">Welcome to School of Civil and Environmental Engineering</h3>
               <br>
-              <p style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">
-                <!-- info -->
-                SCENE provides the following academic programmes - B.Tech. in Civil Engineering, M.Tech. in Structural Engineering, and MTech (R) and Ph.D. in all areas of Civil Engineering. We currently have 19 regular faculty members and two visiting faculty members to support the academic programs. We currently also have more than 50 Ph.D. students, 20 M.Tech. Students, 10 M.Tech. (R) students and 100 B.Tech. students. The School has state-of-the-art laboratory and computational facilities to support cutting-edge research in the various disciplines of Civil and Environmental Engineering.
-
-                While being part of the School of Engineering (SE), starting from 2015, the Civil and Environmental Engineering faculty successfully secured research and consultancy projects from several renowned external funding agencies. Currently, there are several ongoing research and consultancy projects with SCENE faculty.
-
-                We are striving our best to bring excellence in all domains of Civil and Environmental Engineering.
-              </p>
+              <div style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">
+                <?php echo $home_about[0]['description']?>
+              </div>
             </div>
-            <!-- End .content-->
           </div>
         </div>
-        
       </div>
     </section>
+  <?php } ?>
     <div class="containeditmain">
       <div class="section">
         <div class="first">
@@ -93,9 +91,7 @@
           </div>
         </div>
       </section>
-      <!-- End Count Section -->
-
-      <!-- ======= Announcement Section ======= -->
+      <?php if(!empty($home_message)) { ?>
       <div id="services" class="services">
         <div class="conti">
           <div>
@@ -117,20 +113,19 @@
           </div>
         </div>
       </div>
+      <?php } ?>
     </div>
-
     <div class="swiper mySwiper ">
       <div class="section-title">
         <h2 style="color : black !important">News And Announcements</h2>
       </div>
-      <div class="  swiper-wrapper news-section ">
+      <div class="swiper-wrapper news-section" style="transition-duration: 0ms !important; transform: translate3d(68.75px, 0px, 0px) !important;">
         <?php if (!empty($news)) {
           foreach ($news as $row) { ?>
             <div class="card1ed swiper-slide">
-              <img class="mb-2" src="uploads\news\<?php echo $row['file_name']?>">
-              <h5><a href="#" style="color: #fff"; ><?php echo $row['title']?></a></h5> <!-- title of news -->
+              <img class="mb-2" src="uploads\news\<?php echo $row['file_name']?>" style="width: auto;height: 290px;">
+              <h5 style="line-height: 18px;"><a href="#" style="color: #fff;font-size: 16px;text-decoration: none;"; ><?php echo $row['title']?></a></h5> <!-- title of news -->
               <hr>
-              <p class="paraedit mt-3" style="height: 1px";><?php echo $row['description']?></p>
             </div>
         <?php }
         } ?>
@@ -139,8 +134,6 @@
     </div>
     <br>
     </section>
-    <!-- End Announcement Section -->
-    <!-- ======= Events Section ======= -->
     <section id="features" class="features section-bg">
       <div class="section-title">
         <h2>Events</h2>
@@ -162,16 +155,27 @@
                     <?php echo date("d", strtotime($row['event_date']));?>
                   </div>
                 </div>
-                <span class="list-inline-item itemedit"><i class="ti-calendar text-color"></i><?php echo $date = date("D, d M Y", strtotime($row['event_date'])); ?></span>
+                <!-- <span class="list-inline-item itemedit"><i class="ti-calendar text-color"></i><?php //echo $date = date("D, d M Y", strtotime($row['event_date'])); ?></span> -->
                 <a href="#">
                   <h5 class="card-title itemedit"><?php echo $row['title'] ?></h5>
                 </a>
-                <!-- <p class="card-text itemedit"><?php echo $row['description'] ?></p> -->
-                <p class="hideit">
-                  <?php //echo mb_substr(html_entity_decode($row['description']),0,50); ?>
-                  <?php echo html_entity_decode($row['description']); ?>
-                  <!-- <a href="course-single.html" class="mt-4 itemedit btn btn-primary btn-sm">Read More</a> -->
-                </p>
+                <div class="hideit">
+                  <div>
+                    <?php 
+                    $string = strip_tags($row['description']);
+                    if (strlen($string) > 600) {
+                      // truncate string
+                      $stringCut = substr($string, 0, 600);
+                      $endPoint = strrpos($stringCut, ' ');
+
+                      //if the string doesn't contain any space then it will cut without word basis.
+                      $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                      $string .= '... <a href="#">Read More</a>';
+                    }
+                    echo $string;
+                    ?>
+                  </div>
+                </div>
               </div>
             </div>
         <?php }

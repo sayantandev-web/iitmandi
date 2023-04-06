@@ -31,9 +31,11 @@
     .social_sec{width:100%;}
     .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
     .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
-
+   
+    
     @media screen and (max-width: 600px) {
-      .box_sec{margin-top:10px;}
+      .box_sec{margin-top:10px;}  
+
     }
 </style>
 <main id="main">
@@ -47,27 +49,41 @@
                     if(!empty($chk_scholars->result_array())) {
                     foreach($chk_scholars->result_array() as $row) { ?>
                     <div class="row">
+                    
+                   
                         <h3 style="text-align:center"><?php echo $row['designation']?></h3>
                         <?php 
                         //echo "SELECT * from iitmandi_team WHERE iitmandi_team.position = 2 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1";
                         $scholars = $this->db->query("SELECT * from iitmandi_team WHERE iitmandi_team.position = 3 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
                         if(!empty($scholars->result_array())) {
                         foreach($scholars->result_array() as $row1) { ?>
-                        <div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">
-                            <div class="box_sec">
-                                <a href= '<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'>
-                                    <div class="box_dwn">
-                                        <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 210px;height: 185px;">
-                                    </div>     
-                                    <div class="box_dwn_inn">                       
-                                        <p style="text-align: center;"><?php echo $row1['fname']?><!-- <br><small><?php //echo $row1['designation']?></small> --></p>
-                                        <p style="text-align: center;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                                    </div>
-                                </a>
+
+
+
+
+                     
+                      
+
+                        <div class="col-sm-6 col-xl-3 col-lg-3 col-md-6 col-12">
+                        <div class="box_sec">
+                        <a href= '<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'>
+                            <div class="box_dwn">
+                                <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 210px;height: 185px;">
+                            </div>     
+                            <div class="box_dwn_inn">                       
+                                <p style="text-align: center;"><?php echo $row1['fname']?><!-- <br><small><?php //echo $row1['designation']?></small> --></p>
+                            
+                                <p style="text-align: center;"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                             </div>
+                        </a>
                         </div>
+                        </div>
+                        
+                    
                         <?php } } ?>
-                    </div>
+                    
+                        </div>
+                        </div>
                     <?php } } ?>
                 </div>
             </div>

@@ -673,7 +673,7 @@ hr {
 /* } */
 
 .news-section {
-    margin: 0px 0px 45px!important;
+    margin: 0px -600px 45px!important;
 }
 
 
@@ -712,7 +712,7 @@ p {
 
 .eventcard {
     width: 350px;
-    height: 480px;
+    height: 570px;
     transform: scale(0.9);
     transition: all 0.5s ease-in;
     background-color: white;
@@ -724,12 +724,13 @@ p {
     border-radius: 10px;
 }
 
+.hideit {display: none;}
 
 .eventcard:hover {
     cursor: pointer;
     transition: 1s ease;
     transform: rotateY(180deg);
-    justify-content: center;
+    justify-content: initial;
 }
 
 .eventcard:hover {
@@ -752,10 +753,14 @@ p {
 .card-title {
     transform: rotateY(0deg);
     transition: all 1s ease;
+    font-size: 20px;
 }
 
 .hideit {
     display: none;
+    width: 100%;
+    padding: 12px;
+    word-wrap: break-word;
 }
 
 .eventcard:hover .itemedit {
@@ -772,13 +777,14 @@ p {
 
 .eventcard:hover .hideit,
 .eventcard:hover .card-title ,.eventcard:hover .btn-sm{
-    display: block !important;
+    display: block;
     transition: all 1s ease;
     transform: rotateY(2deg);
     font-size: 18px;
 }
 .eventcard:hover .card-title{
     font-size: 25px !important;
+    display: none;
 }
 
 

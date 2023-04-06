@@ -27,7 +27,7 @@ class Homeabout extends CI_Controller{
         if(empty($home_about)){
             if($this->input->post()) {
                 $updtarr=array();
-                $updtarr['description']=$this->input->post('description');
+                $updtarr['description']=nl2br($this->input->post('description'));
                 if($_FILES['homeabt_img']['size']!='') {
                     $config1=array();
                     $config1['upload_path']='./uploads/homeabout/thumb';
@@ -66,7 +66,7 @@ class Homeabout extends CI_Controller{
             $data['result']=$this->common_model->get_data(HOMEABOUT,array('id'=>1));
             if($this->input->post()) {
                 $updtarr=array();
-                $updtarr['description']=$this->input->post('description');
+                $updtarr['description']=nl2br($this->input->post('description'));
                 $this->common_model->tbl_update(HOMEABOUT,array('id'=>1),$updtarr);
                 if($_FILES['homeabt_img']['size']!='') {
                     $data['result']=$this->common_model->get_data(HOMEABOUT,array('id'=>1));

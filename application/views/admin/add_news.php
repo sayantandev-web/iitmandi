@@ -56,7 +56,7 @@
                                                     <label for="image" class="control-label col-lg-3 col-md-3 col-sm-4">News Cover Picture</label>
                                                     <div class="col-lg-9 col-md-9 col-sm-8">
                                                         <?php if(!empty($news['file_name'])) { ?>
-                                                        <img src="<?php echo base_url(); ?>assets/uploads/news/thumb/<?php echo $news['file_name']; ?>" alt="<?php $news['file_name']; ?>">
+                                                        <img src="<?php echo base_url(); ?>uploads/news/thumb/<?php echo $news['file_name']; ?>" alt="<?php $news['file_name']; ?>">
                                                         <?php } else { ?>
                                                         <img src="<?php echo base_url(); ?>assets/images/no-cover.png" alt="no-cover">
                                                         <?php } ?>
