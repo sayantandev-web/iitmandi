@@ -52,7 +52,7 @@
                                                     <td><?php echo $row['project_title']; ?></td>
                                                     <td><?php echo $row['starting_year']; ?></td>
                                                     <td><?php echo $row['project_duration']; ?></td>
-                                                    <td><?php echo $row['status']; ?></td>
+                                                    <td><?php echo $row['pstatus']; ?></td>
                                                     <td style="width: 142px;">
                                                         <a href="admin/project/add_project/<?php echo $row['id']; ?>" class="btn btn-primary waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                         <?php if($row['status']==1) { ?>

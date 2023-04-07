@@ -5,7 +5,7 @@
 <head>
    <?php echo $header_scripts; ?>
    <style>
-      .bootstrap-select .dropdown-toggle .filter-option {position: relative !important;}
+      .dropdown-toggle { height: 34px !important;}
    </style>
 </head>
 <body class="skin-blue">
@@ -106,7 +106,7 @@
                                           <option value="">Choose an Option</option>
                                           <?php if(!empty($ourteam)) { 
                                              foreach($ourteam as $row) { ?>
-                                             <option value="<?php echo $row['id']?>"><?php echo $row['fname']?></option>
+                                             <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                           <?php  } } else { ?>
                                              <option value="">No Data</option>
                                           <?php } ?>
@@ -119,7 +119,7 @@
                                           <select class="selectpicker form-control" id="cosupervisors" name="cosupervisors[]" multiple data-live-search="true">
                                              <?php if(!empty($ourteam)) { 
                                                 foreach($ourteam as $row) { ?>
-                                                <option value="<?php echo $row['id']?>"><?php echo $row['fname']?></option>
+                                                <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                              <?php  } } else { ?>
                                                 <option value="">No Data</option>
                                                 <?php } ?>
@@ -141,7 +141,7 @@
                                     <div class="form-group mobile">
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Mobile</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?php echo @$banner['mobile']; ?>">
+                                          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?php echo @$banner['mobile']; ?>" maxlength=10>
                                        </div>
                                     </div>
                                     <div class="form-group office">

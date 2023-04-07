@@ -57,7 +57,7 @@
                                                     <option value="">Choose an Option</option>
                                                     <?php if(!empty($ourteam)) { 
                                                         foreach($ourteam as $row) { ?>
-                                                        <option value="<?php echo $row['id'];?>" <?php if($row['id'] == @$project['project_incharge']) {echo "selected"; }?>><?php echo $row['fname']?></option>
+                                                        <option value="<?php echo $row['id'];?>" <?php if($row['id'] == @$project['project_incharge']) {echo "selected"; }?>><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                                     <?php  } } else { ?>
                                                         <option value="">No Data</option>
                                                         <?php } ?>
@@ -70,7 +70,7 @@
                                                     <select class="selectpicker form-control" id="coproject_incharge" name="coproject_incharge[]" multiple data-live-search="true">
                                                         <?php if(!empty($ourteam)) { 
                                                             foreach($ourteam as $row) { ?>
-                                                            <option value="<?php echo $row['id'];?>" <?php if($row['id'] == @$project['coproject_incharge']) {echo "selected"; }?>><?php echo $row['fname']?></option>
+                                                            <option value="<?php echo $row['id'];?>" <?php if($row['id'] == @$project['coproject_incharge']) {echo "selected"; }?>><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                                         <?php  } } else { ?>
                                                             <option value="">No Data</option>
                                                             <?php } ?>
@@ -135,12 +135,12 @@
                                             <div class="form-group">
                                                 <label for="status" class="control-label col-lg-3 col-md-3 col-sm-4">Status</label>
                                                 <div class="col-lg-9 col-md-9 col-sm-8">
-                                                    <select class="form-control" name="status">
+                                                    <select class="form-control" name="pstatus">
                                                         <option value="">Choose an option</option>
-                                                        <option value="Ongoing" <?php if(@$project['status']=='Ongoing'){ echo "selected"; } ?>>Ongoing</option>
-                                                        <option value="Completed" <?php if(@$project['status']=='Completed'){ echo "selected"; } ?>>Completed</option>
-                                                        <option value="Transferred" <?php if(@$project['status']=='Transferred'){ echo "selected"; } ?>>Transferred</option>
-                                                        <option value="Closed" <?php if(@$project['status']=='Closed'){ echo "selected"; } ?>>Closed</option>
+                                                        <option value="Ongoing" <?php if(@$project['pstatus']=='Ongoing'){ echo "selected"; } ?>>Ongoing</option>
+                                                        <option value="Completed" <?php if(@$project['pstatus']=='Completed'){ echo "selected"; } ?>>Completed</option>
+                                                        <option value="Transferred" <?php if(@$project['pstatus']=='Transferred'){ echo "selected"; } ?>>Transferred</option>
+                                                        <option value="Closed" <?php if(@$project['pstatus']=='Closed'){ echo "selected"; } ?>>Closed</option>
                                                     </select>
                                                </div>
                                             </div>

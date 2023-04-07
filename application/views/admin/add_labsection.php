@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                        <label for="banner_title" class="control-label col-lg-3 col-md-3 col-sm-4">Description</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <textarea class="form-control" type="text" name="description" rows="15"><?php echo strip_tags(@$labsection['description']); ?></textarea>
+                                          <textarea class="form-control" type="text" name="description" rows="15"><?php echo @$labsection['description']; ?></textarea>
                                        </div>
                                     </div>
                                     <div class="form-group">

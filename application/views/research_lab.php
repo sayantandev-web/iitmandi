@@ -37,13 +37,14 @@ a{cursor: pointer;}
                        <h6>Research Laboratories</h6>
                         <div class="row">
                         <?php if(!empty($researchlab)) {
-                            $i=1; ?>
-                        <?php foreach($researchlab as $row) { ?>
+                            $i=1;
+                            foreach($researchlab as $row) { 
+                            if ($row['external_link'] != "") { ?>
                             <div class="col-sm-4">
                                 <a href="<?php echo $row['external_link']?>" target="_blank">
                                     <div class="lab_sec">
                                         <div class="lab_img">
-                                            <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="">
+                                            <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="" style="height: 271px;">
                                             <div class="lab_txt">
                                                 <p><?php echo $row['labname']?></p>
                                             </div>
@@ -51,6 +52,18 @@ a{cursor: pointer;}
                                     </div>
                                 </a>
                             </div>
+                            <?php } else { ?>
+                            <div class="col-sm-4">
+                                <div class="lab_sec">
+                                    <div class="lab_img">
+                                        <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="" style="height: 271px;">
+                                        <div class="lab_txt">
+                                            <p><?php echo $row['labname']?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
                         <?php $i++; } } ?>
                         </div>
                     </div>

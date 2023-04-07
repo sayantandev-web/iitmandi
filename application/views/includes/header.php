@@ -54,6 +54,10 @@
     .primary-nav li {width: 320px;}
     .menu_sec {display: none !important;}
   }
+  @media (min-width: 1819px) and (max-width: 1860px)  {
+    .primary-nav li {width: 307px;}
+    .menu_sec {display: none !important;}
+  }
   @media (min-width: 1679px) and (max-width: 1680px)  {
     .primary-nav li {width: 273px;}
     .menu_sec {display: none !important;}

@@ -28,7 +28,7 @@ class Labequipment extends CI_Controller{
 		if($this->input->post()) {
 			$insArr=array();
 			$insArr['equipment_name'] = $this->input->post('equipment_name');
-			$insArr['description'] = nl2br($this->input->post('description'));
+			$insArr['description'] = $this->input->post('description');
 			$insArr['lab_name'] = $this->input->post('lab_name');
 			$insArr['status'] = $this->input->post('status');
 			if ($_FILES['eqpmnt_img']['name'] != '') {

@@ -6,16 +6,14 @@
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
-    
+    .container {max-width: 1600px;}
     .fade:not(.show) { opacity: 1 !important; background: #00000063;}
     .modal-lg { margin-top : 10%}
-    .close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;
-opacity: .5;}
+    .close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff; opacity: .5;}
     .choose_sec select { height: 40px; font-size: 16px;  padding: 0 10px; }
     .choose_sec .btn {background: #ffdf80; color: #fff; border-radius: 5px; width: 100%; padding: 8px 0; color: #022851;}
     #datatable thead tr th { font-size: 18px;}
     #datatable tbody tr td { font-size: 16px;}
-
 </style>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
@@ -58,7 +56,7 @@ opacity: .5;}
                                     <option value="">Faculty Member</option>
                                     <?php if(!empty($team)) { 
                                     foreach($team as $row) { ?>
-                                    <option value="<?php echo $row['id']?>"><?php echo $row['fname']?></option>
+                                    <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
                                     <?php  } } else { ?>
                                     <option value="">No Data</option>
                                     <?php } ?>
@@ -97,7 +95,7 @@ opacity: .5;}
                                     <tr>
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $row['project_title']; ?></td>
-                                        <td><?php echo $row['status']; ?></td>
+                                        <td><?php echo $row['pstatus']; ?></td>
                                         <td>
                                         <button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details(<?php echo $row['id']?>)">View More</button>
                                         </td>

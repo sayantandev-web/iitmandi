@@ -6,7 +6,10 @@
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
-   
+    /*.col-sm-4{display: inline-block;}
+    .col-sm-2{display: inline-block;}
+    .filter_data{text-align:center;margin: 0 0 35px 0;}
+    .fetch_data {background-color: #ffbf00; color: #fff;}*/
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
     .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px;}
@@ -16,7 +19,7 @@
     .box_dwn{width:100%;  padding-top:8px;}
     .box_dwn h6{margin:0px; line-height:20px;}
     /* .box_dwn p{margin:0px; font-size:16px; line-height:20px; -webkit-transform: translate3d(0,100%,0); 	transform: translate3d(0,100%,0); padding-left:15px; text-align:left; color:#222; text-align: center;}*/
-    .box_dwn p{margin:0px; font-size:14px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
+    .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
    
     .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
     /* .box_sec:hover .box_dwn{transform: translateY(-131px); position: absolute; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;} */
@@ -26,7 +29,7 @@
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
     .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
-   .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
+    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
     .social_sec{width:100%;}
     .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
     .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
@@ -47,16 +50,16 @@
                 <div class="col-lg-12 portfolio-info">
                     <h3 style="text-align:center"><?php echo $title?></h3>
                     <div class="row filter_data choose_sec">
-                    <div class="col-sm-1"></div>
+                        <div class="col-sm-1"></div>
                         <div class="col-sm-4">
                             <select class="form-control" id="designation" name="designation">
                                 <option value="">Choose Designation</option>
-                            <?php 
-                            $designate = $this->db->query("SELECT DISTINCT iitmandi_designation.id, iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
-                            if(!empty($designate->result_array())) { 
-                                foreach($designate->result_array() as $row) { ?>
-                                <option value="<?php echo $row['id']?>"><?php echo $row['designation']?></option>
-                            <?php  } } else { ?>
+                                <?php 
+                                $designate = $this->db->query("SELECT DISTINCT iitmandi_designation.id, iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+                                if(!empty($designate->result_array())) { 
+                                    foreach($designate->result_array() as $row) { ?>
+                                    <option value="<?php echo $row['id']?>"><?php echo $row['designation']?></option>
+                                <?php  } } else { ?>
                                 <option value="">No Data</option>
                                 <?php } ?>
                             </select>

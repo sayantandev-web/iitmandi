@@ -43,7 +43,7 @@ a{cursor: pointer;}
                                 <a onclick="location.href='<?php echo base_url()?>teaching_labs_details/<?php echo $row['page_slug']?>'">
                                     <div class="lab_sec">
                                         <div class="lab_img">
-                                            <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="">
+                                            <img src="<?php echo base_url()?>uploads/labsection/<?php echo $row['cover_photo']?>" alt="" style="height: 271px;">
                                             <div class="lab_txt">
                                                 <p><?php echo $row['labname']?></p>
                                             </div>

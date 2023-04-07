@@ -43,13 +43,13 @@ h1 {color: rgb(1 15 112);}
                     ?>
                         <h4><?php echo $labdetails[0]['labname']?></h4>
                         <div class="cont_txt">
-                            <p><?php echo $labdetails[0]['description']?></p>
+                            <div><?php echo $text = $labdetails[0]['description']; ?></div>
                             <div>Coordinator: 
                                 <?php 
                                 $coordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$labdetails[0]['coordinator']."'");
                                 $coordinator = $coordinator->result_array();
                                 ?>
-                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;" src="<?php echo base_url() ?>uploads/our_team/<?php echo $coordinator[0]['team_image']?>" alt="">
+                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;height: 50px;" src="<?php echo base_url() ?>uploads/our_team/<?php echo $coordinator[0]['team_image']?>" alt="">
                                 <a href = "<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($labdetails[0]['coordinator'])?>"><?php echo $coordinator[0]['fname']." ".$coordinator[0]['mname']." ".$coordinator[0]['lname']; ?></a>
                             </div>
                             <div>Co-Cordinator:
@@ -57,7 +57,7 @@ h1 {color: rgb(1 15 112);}
                                 $cocooordinator = $this->db->query("SELECT * FROM `iitmandi_team` WHERE id = '".$labdetails[0]['cocooordinator']."'");
                                 $cocooordinator = $cocooordinator->result_array();
                                 ?>
-                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;" src="<?php echo base_url() ?>uploads/environmentallab/user.png" alt="">
+                                <img style="width:50px;border-radius: 50%;border: 3px solid #000;height: 50px;" src="<?php echo base_url() ?>uploads/our_team/<?php echo $cocooordinator[0]['team_image']?>" alt="">
                                 <a href = "<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($labdetails[0]['cocooordinator'])?>"><?php echo $cocooordinator[0]['fname']." ".$cocooordinator[0]['mname']." ".$cocooordinator[0]['lname']; ?></a>
                             </div>
                         </div>
