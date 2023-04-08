@@ -7,8 +7,7 @@ class Video extends CI_Controller{
 		@parent::__construct();
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
-		if(!$this->session->userdata('uid'))
-		{
+		if(!$this->session->userdata('uid')) {
 			redirect(base_url().'admin/');
 		}
 	}

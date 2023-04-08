@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center"><?php echo $title?></h3>
+                    <h3 style="text-align:center"><?php //echo $title?></h3>
                     <div class="row filter_data choose_sec">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-4">

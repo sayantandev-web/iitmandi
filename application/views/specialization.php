@@ -43,45 +43,35 @@
 
     }
 </style>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/style.css">
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
-                <h3 style="text-align:center"><?php //echo $title?></h3>
-                    <?php
-                    $chk_scholars = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 3 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
-                    if(!empty($chk_scholars->result_array())) {
-                    foreach($chk_scholars->result_array() as $row) { ?>
-                    <div class="row">
-                        <h3 style="text-align:center"><?php echo $row['designation']?></h3>
-                        <?php 
-                        $scholars = $this->db->query("SELECT * from iitmandi_team WHERE iitmandi_team.position = 3 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
-                        if(!empty($scholars->result_array())) {
-                        foreach($scholars->result_array() as $row1) { ?>
-                        <div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">
-                            <div class="box_sec">
-                                <a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="">
-                                <div class="box_dwn">
-                                    <h6><a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>' style="text-decoration: none;"><?php echo $row1['fname']." ".$row1['mname']." ".$row1['lname'] ?></a></h6><small><?php echo $row['designation']?></small>
-                                    <div class="box_dwn_inn">
-                                        <p class="res_txt1"><?php if ($row1['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row1['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row1['specialization'] == '3'){echo 'Structural Engineering'; } else if($row1['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row1['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row1['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                                        <p class="res_txt2"><?php echo $row1['research_keyword']?></p>
-                                     </div>
-                                    <div class="social_sec">
-                                        <a href='mailto:<?php echo $row1['email']?>'><i class="fa-regular fa-envelope"></i></a>
-                                        <a href='tel:<?php echo $row1['mobile']?>'><i class="fa fa-phone" aria-hidden="true"></i></a>
+                    <h3 style="text-align:center"><?php //echo $title?></h3>
+                    <div class="wrap main-bg table-div">
+                        <div class="view-box d-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12 position">
+                                        <div class="logo" style="text-align: center;">
+                                            <a href="index.html"><img src="images/logo-1.png" alt="" style="width:300px" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="main-content">
+                                            <div class="md-headline clearfix">
+                                                <h1 style="text-align: center;">Currently Under Construction</h1>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                </a>
-                            </div>   
+                            </div>
                         </div>
-                        <?php } } ?>
-                    </div>
-                    <?php } } ?>
                 </div>
             </div>
         </div>
     </section>
-</main>
+</main><!-- End #main -->
 <?php echo $footer?>

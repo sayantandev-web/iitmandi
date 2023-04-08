@@ -135,7 +135,7 @@
                 $('.cosupervisors').show();
                 $('.post').hide();
                 $('.lab').hide();
-                $('.mobile').hide();
+                $('.mobile').show();
                 $('.office').hide();
                 $('.specialization').show();
                 $('.research_keyword').hide();
@@ -309,7 +309,7 @@
             $('.cosupervisors').show();
             $('.post').hide();
             $('.lab').hide();
-            $('.mobile').hide();
+            $('.mobile').show();
             $('.office').hide();
             $('.specialization').show();
             $('.research_keyword').hide();

@@ -87,6 +87,10 @@ $route['pages/teaching_labs_details'] = 'home/teaching_labs_details';
 $route['pages/research_lab'] = 'home/research_lab';
 $route['teaching_labs_details/(:any)'] = 'home/teaching_labs_details/$1';
 $route['research_labs_details/(:any)'] = 'home/research_labs_details/$1';
+$route['pages/specialization'] = 'home/specialization';
+$route['pages/programs'] = 'home/programs';
+$route['pages/courses'] = 'home/courses';
+$route['pages/admission'] = 'home/admission';
 
 /* Students */
 $route['student'] = 'student/student/index';

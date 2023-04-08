@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center"><?php echo $title?></h3>
+                    <h3 style="text-align:center"><?php //echo $title?></h3>
                     <?php
                     $chk_postdoc = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 2 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
                     if(!empty($chk_postdoc->result_array())) {

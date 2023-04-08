@@ -66,14 +66,6 @@ h1 {color: rgb(1 15 112);}
                         <?php foreach($labdetails as $row) { ?>
                         <div class="lab_details_inn">
                             <div class="row">
-                                <!-- <div class="col-sm-12">
-                                    <div class="lab_details_rt_top">
-                                        <p><strong>Name of the Equipment: </strong><?php echo $row['equipment_name']; ?></p>
-                                        <p><strong>Specialization: </strong><?php echo $row['specialization']; ?></p>
-                                        <p><strong>Name of the lab: </strong><?php echo $row['labname']; ?></p>
-                                        <p><strong>Type of Lab: </strong><?php if($row['typeofLab'] == '1'){echo 'Teaching Labs'; } else {echo 'Research Labs';}?></p>
-                                    </div>
-                                </div> -->
                                 <div class="col-sm-4">
                                     <div class="lab_details_lt">
                                         <img src="<?php echo base_url() ?>uploads/labequipment/<?php echo $row['eqpmnt_img']; ?>" alt="">
@@ -93,6 +85,5 @@ h1 {color: rgb(1 15 112);}
             </div>
         </div>
     </section>
-    <!-- End Portfolio Details Section -->
 </main>
 <?php echo $footer; ?>

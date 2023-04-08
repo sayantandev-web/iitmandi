@@ -177,7 +177,7 @@
                                              <option value="">Choose an Option</option>
                                              <?php if(!empty($project_list)) { 
                                                 foreach($project_list as $row) { ?>
-                                                <option value="<?php echo $row['id']?>"><?php echo $row['project_title']?></option>
+                                                <option value="<?php echo $row['id']?>" <?php if(@$banner['project_name'] == $row['id']){ echo "selected"; } ?>><?php echo $row['project_title']?></option>
                                              <?php  } } else { ?>
                                                 <option value="">No Data</option>
                                                 <?php } ?>

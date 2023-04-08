@@ -59,6 +59,7 @@ class Ourteam extends CI_Controller{
 			if($this->input->post('degree') != '') {
 				$insArr['designation'] = $this->input->post('degree');
 			}
+			$insArr['project_name'] = $this->input->post('project_name');
 			$insArr['status'] = $this->input->post('status');
 			if ($_FILES['team_image']['name'] != '') {
 				$data['result']=$this->common_model->get_data(TEAM,array('id'=>$id));
