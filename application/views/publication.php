@@ -102,7 +102,7 @@ opacity: .5;}
                                                 }
                                             ?> 
                                             <td><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
-                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" class="btn btn-primary">View More</button></td>
+                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
                                     </tbody>
@@ -140,7 +140,7 @@ opacity: .5;}
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
-                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
                                     </tbody>
@@ -178,7 +178,7 @@ opacity: .5;}
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
-                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
                                     </tbody>
@@ -216,7 +216,7 @@ opacity: .5;}
                                                 }
                                             ?>
                                             <td style="text-align: left;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
-                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
                                     </tbody>
@@ -254,7 +254,7 @@ opacity: .5;}
                                                 }    
                                             ?>
                                             <td style="text-align: left;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
-                                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More</button></td>
+                                            <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
                                     </tbody>

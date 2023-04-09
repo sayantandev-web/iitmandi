@@ -40,16 +40,16 @@
       <div class="section">
         <div class="first">
           <h3>Vision</h3>
-          <p style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">To pioneer excellence in academics, research, and innovations for sustainable and climate-resilient infrastructure development with a focus on the built environment, livelihood, and disaster risk reduction for societal benefit.</p>
+          <p style="line-height:unset !important; font-size: 16px; color:black; text-align:left; font-family: 'Raleway';">To pioneer excellence in academics, research, and innovations for sustainable and climate-resilient infrastructure development with a focus on the built environment, livelihood, and disaster risk reduction for societal benefit.</p>
         </div>
-        <div class="second" style="margin-top: 45px;">
+        <div class="second" style="margin-top: 20px;">
           <h3>Mission</h3>
           <p>
           <ul class="paralist">
-            <li style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">Multidisciplinary and holistic teaching and learning to achieve global standards in skill and research development towards self-reliant nation.</li>
-            <li style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">Developing innovative and sustainable solutions for resilient infrastructure with specific focus on mountain hazards.</li>
-            <li style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">To develop socio-techno-economic-green solutions to alleviate climatic and anthropogenic catastrophes.</li>
-            <li style="line-height:unset !important ;font-size:0.95rem ;color:black ;text-align:left">To imbibe flexible, critical, creative and ethic centered principles in the education and research process.</li>
+            <li style="line-height:unset !important; font-size: 16px; color:black; text-align:left; font-family: 'Raleway';">Multidisciplinary and holistic teaching and learning to achieve global standards in skill and research development towards self-reliant nation.</li>
+            <li style="line-height:unset !important; font-size: 16px; color:black; text-align:left; font-family: 'Raleway';">Developing innovative and sustainable solutions for resilient infrastructure with specific focus on mountain hazards.</li>
+            <li style="line-height:unset !important; font-size: 16px; color:black; text-align:left; font-family: 'Raleway';">To develop socio-techno-economic-green solutions to alleviate climatic and anthropogenic catastrophes.</li>
+            <li style="line-height:unset !important; font-size: 16px; color:black; text-align:left; font-family: 'Raleway';">To imbibe flexible, critical, creative and ethic centered principles in the education and research process.</li>
           </ul>
           </p>
         </div>

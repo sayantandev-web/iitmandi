@@ -78,7 +78,7 @@
 }
 
 .services .card-body p {
-    font-size: 0.95rem !important;
+    font-size: 16px !important;
     color: rgb(255, 255, 255);
     line-height: unset !important;
     text-align: left;
@@ -328,6 +328,7 @@
     margin-top: unset !important;
 }
 
+.footeredit {margin-top: 50px;}
 
 /* .footeredit {
     display: flex;
@@ -366,7 +367,7 @@
 .contia {
     width: 100%;
     padding: 0 2rem 0;
-    min-height: 500px;
+    min-height: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -717,7 +718,7 @@ p {
     transition: all 0.5s ease-in;
     background-color: white;
     display: flex;
-    margin: 30px;
+    /*margin: 30px;*/
     flex-direction: column;
     align-items: start;
     z-index: 1;

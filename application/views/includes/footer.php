@@ -193,17 +193,18 @@
 
         $("#form_aboutme").on('submit',(function(e) {
             e.preventDefault();
-            var uid = $("#uid").val();
-            var fname = $("#fname").val();
-            var email = $("#email").val();
-            var enrollno = $("#enrollno").val();
-            var admissionyear = $("#admissionyear").val();
-            var research_interest = $("#research_interest").val();
-            var aboutme = CKEDITOR.instances['aboutme'].getData();
+            var form = $('#form_aboutme')[0];
+            var data = new FormData(form);
+            data.append('aboutme', CKEDITOR.instances['aboutme'].getData());
             $.ajax({
                 url: "<?php echo base_url()?>student/save_aboutme",
                 type: "POST",
-                data:  {uid: uid,fname: fname, email: email, enrollno: enrollno, admissionyear: admissionyear, research_interest: research_interest, aboutme: aboutme},
+                // data:  {uid: uid, aboutme: aboutme, research_gate: research_gate, google_scholar: google_scholar, linedin_link: linedin_link, twitter_link: twitter_link, github_link: github_link, medium_link: medium_link, team_image: team_image},
+                enctype: 'multipart/form-data',
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
                 beforeSend : function() {
                     $("#err").fadeOut();
                 },
@@ -512,17 +513,9 @@
 
         $("#formf_aboutme").on('submit',(function(e) {
             e.preventDefault();
-            // var uid = $("#uid").val();
-            // var aboutme = CKEDITOR.instances['aboutme'].getData();
-            // var research_gate = $("#research_gate").val();
-            // var google_scholar = $("#google_scholar").val();
-            // var linedin_link = $("#linedin_link").val();
-            // var twitter_link = $("#twitter_link").val();
-            // var github_link = $("#github_link").val();
-            // var medium_link = $("#medium_link").val();
-            // var team_image = $('#team_image').prop('files')[0];
             var form = $('#formf_aboutme')[0];
             var data = new FormData(form);
+            data.append('aboutme', CKEDITOR.instances['aboutme'].getData());
             $.ajax({
                 url: "<?php echo base_url()?>faculty/save_aboutme",
                 type: "POST",
@@ -1252,6 +1245,51 @@
                 },
                 success: function (response) {
                     console.log(response);
+                    alert('Successfuly deleted');
+                    location.reload();
+                }
+            });
+        } else {
+            return false;
+        }
+    }
+
+    function EditAwrdID(id) {
+        var e_id = id;
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url()?>student/student/edit_award",
+            data: {id:e_id},
+            beforeSend: function () {
+                //$("#preview").fadeOut();
+                $("#err").fadeOut();
+            },
+            success: function (response) {
+                //console.log(response);
+                response = JSON.parse(response);
+                console.log(response);
+                $("#awdid").val(response.id);
+                $("#title").val(response.name);
+                $("#awrd_year").val(response.year);
+                $("#status").val(response.status);
+            }
+        });
+    }
+
+    /* Delete faculty Award */
+    function DtlAwrdID(id) {
+        if(confirm("Are you sure you want to delete this?")){
+            var e_id = id;
+            $.ajax({
+                type: "POST",
+                url: "<?php echo base_url()?>student/student/dlt_award",
+                data: {id:e_id},
+                beforeSend: function () {
+                    //$("#preview").fadeOut();
+                    $("#err").fadeOut();
+                },
+                success: function (response) {
+                    //console.log(response);
                     alert('Successfuly deleted');
                     location.reload();
                 }

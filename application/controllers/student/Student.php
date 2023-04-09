@@ -57,12 +57,13 @@ class Student extends CI_Controller {
     		$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['publication']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			// $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Journal Article','status'=>1,'is_delete'=>1));
-			// $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Conference Paper','status'=>1,'is_delete'=>1));
-			// $data['book_chapter']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Book Chapter','status'=>1,'is_delete'=>1));
-			// $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'publication_type'=>'Book','is_delete'=>1));
-			// $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'publication_type'=>'Patent','is_delete'=>1));
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
+			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
+			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
 			$this->load->view('student/dashboard',$data);
@@ -71,32 +72,17 @@ class Student extends CI_Controller {
     		$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['publication']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			// $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Journal Article','status'=>1,'is_delete'=>1));
-			// $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Conference Paper','status'=>1,'is_delete'=>1));
-			// $data['book_chapter']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'publication_type'=>'Book Chapter','status'=>1,'is_delete'=>1));
-			// $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'publication_type'=>'Book','is_delete'=>1));
-			// $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$id,'status'=>1,'publication_type'=>'Patent','is_delete'=>1));
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
+			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
+			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
 			$this->load->view('student/dashboard',$data);
     	}
-		// if($this->session->userdata('user_id') != ''){
-		// 	$data['page_title'] = "Dashboard";
-		// 	$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'status'=>1,'is_delete'=>1));
-		// 	$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'status'=>1,'is_delete'=>1));
-		// 	//$data['publication']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'status'=>1,'is_delete'=>1));
-		// 	$data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'publication_type'=>'Journal Article','status'=>1,'is_delete'=>1));
-		// 	$data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'publication_type'=>'Conference Paper','status'=>1,'is_delete'=>1));
-		// 	$data['book_chapter']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'publication_type'=>'Book Chapter','status'=>1,'is_delete'=>1));
-		// 	$data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'status'=>1,'publication_type'=>'Book','is_delete'=>1));
-		// 	$data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('user_id'=>$this->session->userdata('user_id'),'status'=>1,'publication_type'=>'Patent','is_delete'=>1));
-		// 	$data['header']=$this->load->view('includes/header','',true);
-		// 	$data['footer']=$this->load->view('includes/footer','',true);
-		// 	$this->load->view('student/dashboard',$data);
-		// } else {
-		// 	redirect(base_url()."student/");
-		// }
     }
 
     public function save_aboutme() {
@@ -107,7 +93,7 @@ class Student extends CI_Controller {
 			$insArr['email']=$this->input->post('email');
 			$insArr['enrollno']=$this->input->post('enrollno');
 			$insArr['admssnyear']=$this->input->post('admissionyear');
-			$insArr['research_interest']=$this->input->post('research_interest');
+			$insArr['research_interest']=$this->input->post('research_interest1');
 			$insArr['aboutme']=$this->input->post('aboutme');
 			$id = $this->input->post('uid');
 			if(!empty($id)){
@@ -331,11 +317,28 @@ class Student extends CI_Controller {
 		$this->common_model->tbl_update(PUBLICATION,array('id'=>$id),$status);
 	}
 
+	public function edit_award() {
+		$id = $this->input->post('id');
+		$award=$this->common_model->get_data_row(AWARDEVENT,array('id'=>$id));
+		echo json_encode($award);
+	}
+
+	public function dlt_award() {
+		$id = $this->input->post('id');
+		$award=$this->common_model->get_data(AWARDEVENT,array('id'=>$id));
+		if($award[0]['is_delete']==1) {
+			$status = array('is_delete'=>2);
+		} else {
+			$status = array('is_delete'=>1);
+		}
+		$this->common_model->tbl_update(AWARDEVENT,array('id'=>$id),$status);
+	}
+
 	public function reset_password () {
 		$data['page_title'] = "Reset Password";
 		$data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
-		$this->load->view('faculty/reset_password',$data);
+		$this->load->view('student/reset_password',$data);
 	}
 
 	public function update_password () {

@@ -396,6 +396,12 @@ echo $header;
                                             <input type="text" class="form-control required" id="medium_link" name="medium_link" value="<?php echo $about_me[0]['medium_link'];?>">
                                         </div>
                                     </div>
+                                    <div class="form-group col-sm-12 cstm_details">
+                                        <label for="Event Name" class="control-label col-lg-3 col-md-3 col-sm-4">Other Link</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-8">
+                                            <input type="text" class="form-control required" id="other_link" name="other_link" value="<?php echo $about_me[0]['other_link'];?>">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

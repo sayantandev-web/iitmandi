@@ -6,466 +6,433 @@ if ($this->session->userdata('user_id') != "") {
 } else {
     $uid = $about_me[0]['id'];
 }
-echo $header;
-?>
+echo $header; ?>
 <style>
     .nav-pills .nav-link{margin-bottom: 15px;}
-    .bio_img {width: 140px; height: 140px; border-radius: 50%;}
+    .bio_img {width: 100%;  border-radius: 50%; height: 50px;}
     .bio_text {margin: 0px 0px 0px 40px; text-align: left;}
     .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
+    .bio_text1 p{text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;}
     .td_class {padding: 0px; display: initial;}
     .table>:not(caption)>*>* {text-align: center;}
+    /* .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1590px !important;} */
     .cstm_gllery {float: left; display: inline;}
     .cstm_gllery img {padding: 12px;}
+    .cstm_gllery h3, p {text-align: center;}
     .modal-content {padding: 30px}
     .modal-lg, .modal-xl {--bs-modal-width: 90% !important;}
     .cstm_details {float: left; display: inline-block;}
+    .portfolio-details .portfolio-info h3{margin-bottom: 0 !important; padding-bottom: 0 !important; border-bottom: none !important;}
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {max-width: 1440px !important;}
+    .cslm_crnt_open ul { list-style-type: disc !important; padding-left:1em !important; margin-left:1em;}
+    .cstmf_gllery {float: left; display: inline;}
+    .cstmf_gllery img {padding: 12px;}
+    #example thead tr th { font-size: 18px;}
+    #example tbody tr td { font-size: 16px;}
     .degree_sec h2 { margin: 0; padding: 0 0 25px; font-size: 25px;}
-    
-
+    .co-codi{width:100px;float:left; text-align:center;}
+    .co-codi a{width:100%; text-align:center;}
+    .co-codi .bio_text{margin:0px; text-align:center;}
+    .degree_sec{margin-top:15px;}
+    #author_name_chosen {width: 100% !important;}
 </style>
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details">
-        <!-- <div class="container"> -->
+    <section id="portfolio-details" class="portfolio-details" style="margin-top: 70px">
+        <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-12">
                     <div class="portfolio-info">
-                        <h3 style="text-align: center; text-transform: capitalize">Welcome <?php echo $about_me[0]['fname'];?></h3>
                         <div class="row">
-                            <div class="col-2">
-                                <!-- Tab navs -->
-                                <div class="nav flex-column nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical" >
-                                    <a class="nav-link active" id="v-pills-link1-tab" data-mdb-toggle="pill" role="tab">About me</a>
-                                    <a class="nav-link active" id="v-pills-link2-tab" data-mdb-toggle="pill" role="tab">Education</a>
-                                    <a class="nav-link active" id="v-pills-link3-tab" data-mdb-toggle="pill" role="tab">Experience</a>
-                                    <a class="nav-link active" id="v-pills-link4-tab" data-mdb-toggle="pill" role="tab">Publications</a>
-                                    <a class="nav-link active" id="v-pills-link5-tab" data-mdb-toggle="pill" role="tab">Awards and Honours</a>
-                                    <a class="nav-link active" id="v-pills-link6-tab" data-mdb-toggle="pill" role="tab">Photo Gallery</a>
-                                    <a href="<?php echo base_url()?>student/logout" class="nav-link active" id="v-pills-link6-tab" data-mdb-toggle="pill" role="tab">Logout</a>
-                                </div>
-                                <!-- Tab navs -->
-                            </div>
-                            <div class="col-10">
-                            <!-- Tab content -->
+                            <div class="col-md-12">
                                 <div class="container slide_content">
-                                    <div class="row" style="overflow: scroll; height: 480px;">
-                                        <div class="tab-content1" id="v-pills-tabContent1">
-                                            <div class="tab-pane" id="v-pills-link1" role="tabpanel" aria-labelledby="v-pills-link1-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-
-                                                        
-                                                            <div class="col-sm-6" style="text-align: right;float: left;display: inline-block;">
-                                                                <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
-                                                            </div>
-                                                            <div class="col-sm-6" style="float: left;display: inline-block;">
-                                                                <p class='bio_text'>Name: <?php echo $about_me[0]['fname'];?></p>
-                                                                <p class='bio_text'>Enrolment No.: <?php echo $about_me[0]['enrollno'];?></p>
-                                                                <p class='bio_text'>Email: <?php echo $about_me[0]['email'];?></p>
-                                                                <p class='bio_text'>Admission year: <?php echo $about_me[0]['admssnyear'];?></p>
-                                                                <p class='bio_text'>Research Interests: <?php echo $about_me[0]['research_interest'];?></p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-12">
-                                                            <div class="bio_text1"><?php echo $about_me[0]['aboutme'];?></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary about_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Edit Record</button>
-                                                    </div>
+                                    <div class="row">
+                                        <?php if ($this->session->userdata('user_id') != '') { ?>
+                                        <a href="<?php echo base_url()?>student/logout"><button type="button" class="btn btn-primary">Logout</button></a>
+                                        <?php } ?>
+                                        <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">                                                        
+                                            <div class="row p-3">
+                                                <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
+                                                    <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt="" style=" height: 302px;">
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane" id="v-pills-link2" role="tabpanel" aria-labelledby="v-pills-link2-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-12 degree_sec">
-                                                            <div class="row">
-                                                            <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Education</h2>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Degree</th>
-                                                                        <th>University</th>
-                                                                        <th>Year</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($education)) {
-                                                                    $i=1; ?>
-                                                                <?php foreach($education as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['degree'];?></td>
-                                                                        <td><?php echo $row['university'];?></td>
-                                                                        <td><?php echo $row['year'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="EditEduID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <input type="hidden" id="data_id" name="data_id" value="<?php echo $row['id'];?>">
-                                                                            <button type="button" class="btn btn-danger edu_add_btn" onclick="DtlEduID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2">Add New Record</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="v-pills-link3" role="tabpanel" aria-labelledby="v-pills-link3-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Professional Experience</h2>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Position(Company name)</th>
-                                                                        <th>Year</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($experience)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($experience as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['position'];?></td>
-                                                                        <td><?php echo $row['year'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3" onclick="EditExpID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlExpID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3">Add New Record</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="v-pills-link4" role="tabpanel" aria-labelledby="v-pills-link4-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Publications</h2>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <p>1. Journal article</p>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Authors Name</th>
-                                                                        <th>Title of Paper</th>
-                                                                        <th>Journal Name</th>
-                                                                        <th>Publised date</th>
-                                                                        <th>Publisher</th>
-                                                                        <th>DOI (External Link)</th>
-                                                                        <th>Page Number</th>
-                                                                        <th>Highlights</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($journal)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($journal as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['attachment'];?></td>
-                                                                        <td><?php echo $row['author_name'];?></td>
-                                                                        <td><?php echo $row['paper_title'];?></td>
-                                                                        <td><?php echo $row['journal_name'];?></td>
-                                                                        <td><?php echo $row['publish_date'];?></td>
-                                                                        <td><?php echo $row['publisher'];?></td>
-                                                                        <td><?php echo $row['external_Link'];?></td>
-                                                                        <td><?php echo $row['page_number'];?></td>
-                                                                        <td><?php echo $row['highlight'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditjorID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <p>2. Conference paper</p>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Authors Name</th>
-                                                                        <th>Title of Paper</th>
-                                                                        <th>Conference name</th>
-                                                                        <th>Publised date</th>
-                                                                        <th>Organizer/Publisher</th>
-                                                                        <th>location</th>
-                                                                        <th>External Link</th>
-                                                                        <th>Page Number</th>
-                                                                        <th>Highlights</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($conference)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($conference as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['attachment'];?></td>
-                                                                        <td><?php echo $row['author_name'];?></td>
-                                                                        <td><?php echo $row['paper_title'];?></td>
-                                                                        <td><?php echo $row['conference_name'];?></td>
-                                                                        <td><?php echo $row['publish_date'];?></td>
-                                                                        <td><?php echo $row['publisher'];?></td>
-                                                                        <td><?php echo $row['location'];?></td>
-                                                                        <td><?php echo $row['external_Link'];?></td>
-                                                                        <td><?php echo $row['page_number'];?></td>
-                                                                        <td><?php echo $row['highlight'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditconID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlconID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <p>3. Book chapter</p>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Authors Name</th>
-                                                                        <th>Title</th>
-                                                                        <th>Book name</th>
-                                                                        <th>Publised date</th>
-                                                                        <th>DOI (External Link)</th>
-                                                                        <th>Editors</th>
-                                                                        <th>Page Number</th>
-                                                                        <th>Highlights</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($book_chapter)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($book_chapter as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['attachment'];?></td>
-                                                                        <td><?php echo $row['author_name'];?></td>
-                                                                        <td><?php echo $row['paper_title'];?></td>
-                                                                        <td><?php echo $row['book_name'];?></td>
-                                                                        <td><?php echo $row['publish_date'];?></td>
-                                                                        <td><?php echo $row['external_Link'];?></td>
-                                                                        <td><?php echo $row['editors'];?></td>
-                                                                        <td><?php echo $row['page_number'];?></td>
-                                                                        <td><?php echo $row['highlight'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBcID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlBcID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <p>4. Book</p>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Authors Name</th>
-                                                                        <th>Title</th>
-                                                                        <th>Publised date</th>
-                                                                        <th>Publisher</th>
-                                                                        <th>DOI (External Link)</th>
-                                                                        <th>Page Number</th>
-                                                                        <th>Highlights</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($book)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($book as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['attachment'];?></td>
-                                                                        <td><?php echo $row['author_name'];?></td>
-                                                                        <td><?php echo $row['paper_title'];?></td>
-                                                                        <td><?php echo $row['publish_date'];?></td>
-                                                                        <td><?php echo $row['publisher'];?></td>
-                                                                        <td><?php echo $row['external_Link'];?></td>
-                                                                        <td><?php echo $row['page_number'];?></td>
-                                                                        <td><?php echo $row['highlight'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBkID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlBkID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <p>5. Patent</p>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Image</th>
-                                                                        <th>Authors Name</th>
-                                                                        <th>Title</th>
-                                                                        <th>Publised date</th>
-                                                                        <th>Patent Number</th>
-                                                                        <th>Highlights</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <?php if(!empty($patent)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($patent as $row) { ?>
-                                                                    <tr>
-                                                                        <td><?php echo $row['attachment'];?></td>
-                                                                        <td><?php echo $row['author_name'];?></td>
-                                                                        <td><?php echo $row['paper_title'];?></td>
-                                                                        <td><?php echo $row['publish_date'];?></td>
-                                                                        <td><?php echo $row['patient_number'];?></td>
-                                                                        <td><?php echo $row['highlight'];?></td>
-                                                                        <td>
-                                                                            <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditPtID(<?php echo $row['id']?>)">Edit</button>
-                                                                            <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlPtID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="v-pills-link5" role="tabpanel" aria-labelledby="v-pills-link5-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Awards and Honours</h2>
-                                                        </div>
-                                                        <div class='col-sm-12'>
-                                                            <table id="example" class="table table-striped" style="width:100%">
-                                                                <thead>
-                                                                <?php if(!empty($award)) {
-                                                                    $i=1; ?>
-                                                                    <?php foreach($award as $row) { ?>
-                                                                    <tr>
-                                                                        <th>Demo</th>
-                                                                        <th>Demo</th>
-                                                                        <th>Demo</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>Demo</td>
-                                                                        <td>Demo</td>
-                                                                        <td>Demo</td>
-                                                                        <td>
-                                                                            <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                                            <a href="##" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure you want to delete this record?')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                <?php $i++; } } ?>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary awrd_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5">Add New Record</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane" id="v-pills-link6" role="tabpanel" aria-labelledby="v-pills-link6-tab">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class='col-sm-12'>
-                                                            <h2 style="text-align: center;">Photo Gallery</h2>
-                                                        </div>
-                                                        <div class="content">
-                                                            <div class='col-sm-12'>
-                                                                <div class="col-sm-3 cstm_gllery">
-                                                                    <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
-                                                                </div>
-                                                                <div class="col-sm-3 cstm_gllery">
-                                                                    <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
-                                                                </div>
-                                                                <div class="col-sm-3 cstm_gllery">
-                                                                    <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
-                                                                </div>
-                                                                <div class="col-sm-3 cstm_gllery">
-                                                                    <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12" style="text-align: right;">
-                                                        <button type="button" class="btn btn-primary"><a href=''>Add New Album</a></button>
+                                                <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
+                                                    <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;" ><strong>Name:</strong> <?php echo $about_me[0]['fname']." ".$about_me[0]['mname']." ".$about_me[0]['lname'] ?></p>
+                                                    <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Enrolment No.: </strong><?php echo $about_me[0]['enrollno'];?></p>
+                                                    <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Admission year: </strong><?php echo $about_me[0]['admssnyear'];?></p>
+                                                    <p style="text-transform: capitalize; text-align: center;font-size: 25px; color:#5c5c77;"><strong>Research Interests: </strong><?php echo $about_me[0]['research_interest'];?></p>
+                                                    <div class="social_sec">
+                                                        <a href="mailto:<?php echo $about_me[0]['email'];?>"><i class="fa-regular fa-envelope"></i><?php echo $about_me[0]['email'];?></a><br>
+                                                        <a href="tel:<?php echo $about_me[0]['mobile'];?>"><i class="fa fa-phone" aria-hidden="true"></i><?php echo $about_me[0]['mobile'];?></a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Tab content -->
+                                <div class='col-sm-12'>
+                                    <div class='bio_text1' style="margin-bottom:40px;"><?php echo $about_me[0]['aboutme'];?></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="text-align: right;">
+                                <button type="button" class="btn btn-primary about_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Edit Record</button>
                             </div>
                         </div>
+                        <div class="tab-pane degree_sec" id="v-pills-link2" role="tabpanel" aria-labelledby="v-pills-link2-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 degree_sec">
+                                        <div class="row">
+                                            <div class='col-sm-12'>
+                                                <h2 style="text-align: center;">Education</h2>
+                                            </div>
+                                            <div class='col-sm-12'>
+                                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Degree</th>
+                                                            <th>University</th>
+                                                            <th>Year</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <?php if(!empty($education)) {
+                                                        $i=1; ?>
+                                                    <?php foreach($education as $row) { ?>
+                                                        <tr>
+                                                            <td><?php echo $row['degree'];?></td>
+                                                            <td><?php echo $row['university'];?></td>
+                                                            <td><?php echo $row['year'];?></td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="EditEduID(<?php echo $row['id']?>)">Edit</button>
+                                                                <input type="hidden" id="data_id" name="data_id" value="<?php echo $row['id'];?>">
+                                                                <button type="button" class="btn btn-danger edu_add_btn" onclick="DtlEduID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php $i++; } } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2">Add New Record</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane degree_sec" id="v-pills-link3" role="tabpanel" aria-labelledby="v-pills-link3-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-12'>
+                                        <h2 style="text-align: center;">Professional Experience</h2>
+                                    </div>
+                                    <div class='col-sm-12'>
+                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Position(Company name)</th>
+                                                    <th>Year</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php if(!empty($experience)) {
+                                                $i=1; ?>
+                                                <?php foreach($experience as $row) { ?>
+                                                <tr>
+                                                    <td><?php echo $row['position'];?></td>
+                                                    <td><?php echo $row['year'];?></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3" onclick="EditExpID(<?php echo $row['id']?>)">Edit</button>
+                                                        <button type="button" class="btn btn-danger exp_add_btn" onclick="DtlExpID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            <?php $i++; } } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3">Add New Record</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane degree_sec" id="v-pills-link4" role="tabpanel" aria-labelledby="v-pills-link4-tab">
+                            <div class="container">
+                                <div class="row">
+                                <?php if(!empty($journal->result_array())) { ?>
+                                <div class='col-sm-12' style="margin-top: 50px;">
+                                    <h3 style="text-transform: capitalize">Journal Article</h3>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <tbody>
+                                            <?php $j=1;
+                                            foreach($journal->result_array() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $j ?></td>
+                                                <?php 
+                                                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                    //echo "<pre>"; print_r($author->result_array());
+                                                    $value = $author->result_array();
+                                                    $count = count($author->result_array());
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        } else {
+                                                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }    
+                                                ?> 
+                                                <td style="text-align: left;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                                <td>
+                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+                                                    <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <?php $j++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+
+                                <?php if(!empty($conference->result_array())) { ?>
+                                <div class='col-sm-12' style="margin-top: 50px;">
+                                    <h3 style="text-transform: capitalize">Conference Paper</h3>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <tbody>
+                                            <?php $j=1;
+                                            foreach($conference->result_array() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $j ?></td>
+                                                <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                    $value1 = $author1->result_array();
+                                                    $count1 = count($author1->result_array());
+                                                    for($i = 0; $i < $count1; $i++) {
+                                                        if ($value1[$i]['mname'] == '') {
+                                                            $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                        } else {
+                                                            $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['mname'], 0, 1).", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                        }
+                                                    }
+                                                    $lastItem1 = array_pop($commonValues1);
+                                                    $text1 = implode(', ', $commonValues1); // a, b 
+                                                    if ($text1 == ''){
+                                                        $text1 .= $lastItem1; 
+                                                    } else {
+                                                        $text1 .= ', & '.$lastItem1; // a, b and c
+                                                    }
+                                                ?>
+                                                <td style="text-align: left;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
+                                                <td>
+                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+                                                    <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <?php $j++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+
+                                <?php if(!empty($bookc->result_array())) { ?>
+                                <div class='col-sm-12' style="margin-top: 50px;">
+                                    <h3 style="text-transform: capitalize">Book Chapter</h3>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <tbody>
+                                            <?php $j=1;
+                                            foreach($bookc->result_array() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $j ?></td>
+                                                <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                    $value2 = $author2->result_array();
+                                                    $count2 = count($author2->result_array());
+                                                    for($i = 0; $i < $count2; $i++) {
+                                                        if ($value2[$i]['mname'] == '') {
+                                                            $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                        } else {
+                                                            $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['mname'], 0, 1).", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                        }
+                                                    }
+                                                    $lastItem2 = array_pop($commonValues2);
+                                                    $text2 = implode(', ', $commonValues2); // a, b 
+                                                    if ($text2 == ''){
+                                                        $text2 .= $lastItem2; 
+                                                    } else {
+                                                        $text2 .= ', & '.$lastItem2; // a, b and c
+                                                    }
+                                                ?>
+                                                <td style="text-align: left;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
+                                                <td>
+                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+                                                    <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <?php $j++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+
+                                <?php if(!empty($book->result_array())) { ?>
+                                <div class='col-sm-12' style="margin-top: 50px;">
+                                    <h3 style="text-transform: capitalize">Book</h3>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <tbody>
+                                            <?php $j=1;
+                                            foreach($book->result_array() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $j ?></td>
+                                                <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                    $value3 = $author3->result_array();
+                                                    $count3 = count($author3->result_array());
+                                                    for($i = 0; $i < $count3; $i++) {
+                                                        if ($value3[$i]['mname'] == '') {
+                                                            $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                        } else {
+                                                            $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['mname'], 0, 1).", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                        }
+                                                    }
+                                                    $lastItem3 = array_pop($commonValues3);
+                                                    $text3 = implode(', ', $commonValues3); // a, b 
+                                                    if ($text3 == ''){
+                                                        $text3 .= $lastItem3; 
+                                                    } else {
+                                                        $text3 .= ', & '.$lastItem3; // a, b and c
+                                                    }
+                                                ?>
+                                                <td style="text-align: left;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
+                                                <td>
+                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+                                                    <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <?php $j++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+
+                                <?php if(!empty($patent->result_array())) { ?>
+                                <div class='col-sm-12' style="margin-top: 50px;">
+                                    <h3 style="text-transform: capitalize">Patent</h3>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <tbody>
+                                            <?php $j=1;
+                                            foreach($patent->result_array() as $row) { ?>
+                                            <tr>
+                                                <td><?php echo $j ?></td>
+                                                <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $value4 = $author4->result_array();
+                                                $count4 = count($author4->result_array());
+                                                for($i = 0; $i < $count4; $i++) {
+                                                    if ($value4[$i]['mname'] == '') {
+                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                    } else {
+                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['mname'], 0, 1).", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                    }
+                                                }
+                                                $lastItem4 = array_pop($commonValues4);
+                                                $text4 = implode(', ', $commonValues4); // a, b 
+                                                if ($text4 == ''){
+                                                    $text4 .= $lastItem4; 
+                                                } else {
+                                                    $text4 .= ', & '.$lastItem4; // a, b and c
+                                                }    
+                                                ?>
+                                                <td style="text-align: left;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
+                                                <td>
+                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
+                                                    <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                </td>
+                                            </tr>
+                                            <?php $j++; } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+                                </div>
+                                <div class="col-sm-12" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane degree_sec" id="v-pills-link5" role="tabpanel" aria-labelledby="v-pills-link5-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-12'>
+                                        <h2 style="text-align: center;">Awards and Honours</h2>
+                                    </div>
+                                    <div class='col-sm-12'>
+                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                            <thead>
+                                            <?php if(!empty($award)) {
+                                                $i=1; ?>
+                                                <?php foreach($award as $row) { ?>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Year</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?php echo $row['name'];?></td>
+                                                    <td><?php echo $row['year'];?></td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary awrd_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5" onclick="EditAwrdID(<?php echo $row['id']?>)">Edit</button>
+                                                        <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtlAwrdID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            <?php $i++; } } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary awrd_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5">Add New Record</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tab-pane degree_sec" id="v-pills-link6" role="tabpanel" aria-labelledby="v-pills-link6-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class='col-sm-12'>
+                                        <h2 style="text-align: center;">Photo Gallery</h2>
+                                    </div>
+                                    <div class="content">
+                                        <div class='col-sm-12'>
+                                            <div class="col-sm-3 cstm_gllery">
+                                                <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
+                                            </div>
+                                            <div class="col-sm-3 cstm_gllery">
+                                                <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
+                                            </div>
+                                            <div class="col-sm-3 cstm_gllery">
+                                                <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
+                                            </div>
+                                            <div class="col-sm-3 cstm_gllery">
+                                                <a href=""><img src="<?php echo base_url()?>uploads/gallery/demo_pic.png"/></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary"><a href=''>Add New Album</a></button>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
     </section>
-    <!-- End Portfolio Details Section -->
 </main>
-<!-- End #main -->
 <div class="modal fade bd-example-modal-lg1 about_data" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="background: #000000b0;">
     <div class="modal-dialog modal-lg" style="margin-top: 5%; width: 100%;">
         <div class="modal-content">
@@ -473,8 +440,12 @@ echo $header;
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12" style="margin-bottom: 40px;">
-                        <div class="col-sm-2" style="text-align: right;float: left;display: inline-block;">
-                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/1667140703711760.jpg" alt=""/>
+                        <div class="col-sm-2" style="text-align: right; float: left; display: inline-block; padding: 10px;">
+                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt="" style="height: 135px !important;"/>
+                            <div class="fileupload btn btn-primary_cust waves-effect waves-light" style="padding: 15px 0 0 !important;font-size: 14px;">
+                                <input type="file" name="team_image" id="team_image" class="upload" style="padding: 0px; border: none;">
+                                <span id="image_name1"></span>
+                            </div>
                         </div>
                         <div class="col-sm-10" style="float: left; display: inline-block;">
                             <div class="form-group col-sm-4 cstm_details">
@@ -504,7 +475,7 @@ echo $header;
                             <div class="form-group col-sm-4 cstm_details">
                                 <label for="Event Name" class="control-label">Research Interests</label>
                                 <div class="col-lg-9 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control required" id="research_interest" name="research_interest" value="<?php echo $about_me[0]['research_interest'];?>">
+                                    <input type="text" class="form-control required" id="research_interest1" name="research_interest1" value="<?php echo $about_me[0]['research_interest'];?>">
                                 </div>
                             </div>
                         </div>
@@ -652,8 +623,17 @@ echo $header;
                                     <div class="form-group col-sm-4 cstm_details author_name">
                                         <label for="Event Name" class="control-label">Authors Name</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
-                                            <input type="text" class="form-control required" id="author_name" name="author_name">
+                                            <select data-placeholder="Author List" multiple class="chosen-select"  id="author_name" name="author_name[]">
+                                                <option value=""></option>
+                                                <?php if(!empty($ourteam)) { 
+                                                foreach($ourteam as $row) { ?>
+                                                <option value="<?php echo $row['id']?>"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></option>
+                                            <?php  } } else { ?>
+                                                <option value="">No Data</option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
+                                        <div><a href="" class="pageLoad">Add External User</a></div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details paper_title">
                                         <label for="Event Name" class="control-label">Title of Paper</label>
@@ -682,7 +662,7 @@ echo $header;
                                     <div class="form-group col-sm-4 cstm_details publish_date">
                                         <label for="Event Name" class="control-label">Publised date</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
-                                            <input type="text" class="form-control required" id="publish_date" name="publish_date">
+                                            <input type="date" class="form-control required" id="publish_date" name="publish_date">
                                         </div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details patient_number">
@@ -784,5 +764,47 @@ echo $header;
         </div>
     </div>
 </div>
-
+<div class="modal fade bd-example-modal-lg5 awrd_data" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="background: #000000b0;">
+    <div class="modal-dialog modal-lg" style="margin-top: 5%; width: 100%;">
+        <div class="modal-content">
+            <form id="form_awrd" action="" method="post" enctype="multipart/form-data">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" style="margin-bottom: 40px;">
+                            <div class="col-sm-12" style="float: left; display: inline-block;">
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Event Name" class="control-label">Name</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <input type="text" class="form-control required" id="title" name="title" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Event Name" class="control-label">Year</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <input type="text" class="form-control required" id="awrd_year" name="awrd_year" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4 cstm_details">
+                                    <label for="Event Name" class="control-label">Status</label>
+                                    <div class="col-lg-9 col-md-9 col-sm-8">
+                                        <select class="form-control" name="status">
+                                            <option value="1" <?php if(@$research_category['status']==1){ echo "selected"; } ?>>Active</option>
+                                            <option value="2" <?php if(@$research_category['status']==2){ echo "selected"; } ?>>Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" style="text-align: center;margin-top: 20px;">
+                        <div id="err"></div>
+                        <input class="btn btn-primary awd_save" type="submit" value="Submit">
+                        <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>">
+                        <input type="hidden" id="awdid" name="awdid">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <?php echo $footer?>
