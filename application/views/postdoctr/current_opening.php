@@ -44,32 +44,32 @@ echo $header;
                         <ul class="">
                           <?php if ($about_me[0]['research_gate'] != '') {?>
                           <li style="margin-top: 10px;">
-                            <a class="facebook" href="<?php echo $about_me[0]['research_gate'] ?>">RG</a>
+                            <a class="facebook" href="<?php echo $about_me[0]['research_gate'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/research_gate.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                           <?php if($about_me[0]['google_scholar'] != '') {?>
                           <li>
-                            <a class="twitter" href="<?php echo $about_me[0]['google_scholar'] ?>">GS</a>
+                            <a class="twitter" href="<?php echo $about_me[0]['google_scholar'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/google-scholar.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                           <?php if($about_me[0]['linedin_link'] != '') {?>
                           <li>
-                            <a class="googleplus" href="<?php echo $about_me[0]['linedin_link'] ?>">in</a>
+                            <a class="googleplus" href="<?php echo $about_me[0]['linedin_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/linkedin-icon.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                           <?php if($about_me[0]['twitter_link'] != '') {?>
                           <li>
-                            <a class="linkedin" href="<?php echo $about_me[0]['twitter_link'] ?>">t</a>
+                            <a class="linkedin" href="<?php echo $about_me[0]['twitter_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/twitter-icon.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                           <?php if($about_me[0]['github_link'] != '') {?>
                           <li>
-                            <a class="tumblr" href="<?php echo $about_me[0]['github_link'] ?>">GH</a>
+                            <a class="tumblr" href="<?php echo $about_me[0]['github_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/github-icon.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                           <?php if($about_me[0]['medium_link'] != '') {?>
                           <li>
-                            <a class="tumblr" href="<?php echo $about_me[0]['medium_link'] ?>">M</a>
+                            <a class="tumblr" href="<?php echo $about_me[0]['medium_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/medium.png" alt="" style="border-radius: 50%;"/></a>
                           </li>
                           <?php } ?>
                         </ul>

@@ -18,13 +18,9 @@
     .box_dwn a h6{margin:0px; text-transform:uppercase;}
     .box_dwn{width:100%;  padding-top:8px;}
     .box_dwn h6{margin:0px; line-height:20px;}
-    /* .box_dwn p{margin:0px; font-size:16px; line-height:20px; -webkit-transform: translate3d(0,100%,0); 	transform: translate3d(0,100%,0); padding-left:15px; text-align:left; color:#222; text-align: center;}*/
     .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
-   
     .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
-    /* .box_sec:hover .box_dwn{transform: translateY(-131px); position: absolute; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;} */
-    .box_sec:hover .box_dwn{/*transform: translateY(-131px); */position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
-    /* .box_sec:hover{padding:32px 15px 130px;} */
+    .box_sec:hover .box_dwn{transform: translateY(-75px); transition: all ease-in-out .5s; position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
     .choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
     .choose_sec .btn:hover{background:#022851; color:#fff;}
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
@@ -36,11 +32,28 @@
     .res_txt2{opacity: 0;}
     .box_sec:hover .res_txt2{opacity: 1;}
     .res_txt1{opacity: 1;}
-    .box_sec:hover .res_txt1{opacity: 0;}
+    .box_sec:hover .res_txt1{opacity: 1;}
     .container {max-width: 1600px;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
-
+    }
+    @media (min-width: 1200px) and (max-width: 1460px) {
+        .col-xl-2 {
+            flex: 0 0 auto !important;
+            width: 21.666667% !important;
+        }
+    }
+    @media (min-width: 991px) and (max-width: 1030px) {
+        .col-lg-3 {
+            flex: 0 0 auto;
+            width: 26% !important;
+        }
+    }
+    @media (min-width: 1461px) and (max-width: 1541px) {
+        .col-lg-3 {
+            flex: 0 0 auto;
+            width: 17.666667% !important;
+        }
     }
 </style>
 <main id="main">
@@ -87,7 +100,7 @@
                         <?php if(!empty($faculty1->result_array())) {
                             $i=1; ?>
                         <?php foreach($faculty1->result_array() as $row) { ?>
-                        <div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">
+                        <div class="col-sm-6 col-xl-2 col-lg-3 col-md-6 col-12">
                             <div class="box_sec">
                                 <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
                                 <div class="box_dwn">

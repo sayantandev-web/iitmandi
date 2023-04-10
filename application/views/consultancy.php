@@ -94,7 +94,7 @@
                                     <?php foreach($consultancy as $row) { ?>
                                     <tr>
                                         <td><?php echo $i; ?></td>
-                                        <td><?php echo $row['project_title']; ?></td>
+                                        <td style="text-align: justify;"><?php echo $row['project_title']; ?></td>
                                         <td><?php echo $row['pstatus']; ?></td>
                                         <td>
                                         <button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details(<?php echo $row['id']?>)">View More</button>

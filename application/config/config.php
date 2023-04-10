@@ -22,8 +22,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | If you need to allow multiple domains, remember that this file is still
 | a PHP script and you can easily do that on your own.
 |
-*/
-$config['base_url'] = 'http://localhost/mandi/iitmandi/';
+ */
+
+ 
+$config['base_url'] = 'https://scene.iitmandi.ac.in/dev';
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,7 @@ $config['index_page'] = '';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 $config['uri_protocol']	= 'REQUEST_URI';
+ // $config['uri_protocol'] = 'AUTO';
 
 /*
 |--------------------------------------------------------------------------

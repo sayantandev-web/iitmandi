@@ -19,6 +19,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <h1><?php echo $page_title; ?><small>Control panel</small></h1>
+                <?php $uid = $this->session->userdata('uid'); ?>
                 <ol class="breadcrumb">
                     <li><a href="admin"><i class="fa fa-dashboard"></i>Home</a></li>
                     <li class="active"><?php echo $page_title; ?></li>
@@ -30,7 +31,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" style="display: flow-root;">
                                 <h3 class="panel-title" style="float: left;"><?php echo $page_title; ?></h3>
+                                <?php if ($uid == '-1') { ?>
                                 <a href="admin/ourteam/add_team" style="float: right;background: #3c8dbc;padding: 10px;color: #fff;">Add User</a>
+                                <?php } ?>
                             </div>
                             <div class="panel-body">
                                 <?php echo $this->utilitylib->showMsg();?>
@@ -44,7 +47,9 @@
                                                     <th>Email</th>
                                                     <th>Designation</th>
                                                     <th>Type</th>
+                                                    <?php if ($uid == '-1') { ?>
                                                     <th style="width: 160px;">Action</th>
+                                                    <?php } ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -72,6 +77,7 @@
                                                     } else { ?>
                                                         <td><?php echo "None"; ?></td>
                                                     <?php } ?>
+                                                    <?php if ($uid == '-1') { ?>
                                                     <td>
                                                     <a href="admin/ourteam/add_team/<?php echo $row['id']; ?>" class="btn btn-info waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                     <?php if($row['status']==1) { ?>
@@ -105,6 +111,7 @@
                                                         <div id='success_<?php echo $i?>'></div>
                                                     </div>
                                                     </td>
+                                                    <?php } ?>
                                                 </tr>
                                                 <?php $i++; } } ?>
                                             </tbody>

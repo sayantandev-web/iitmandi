@@ -139,9 +139,9 @@
                                        </div>
                                     </div>
                                     <div class="form-group mobile">
-                                       <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Mobile</label>
+                                       <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Phone</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" value="<?php echo @$banner['mobile']; ?>" maxlength=10>
+                                          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Phone" value="<?php echo @$banner['mobile']; ?>" maxlength=10>
                                        </div>
                                     </div>
                                     <div class="form-group office">

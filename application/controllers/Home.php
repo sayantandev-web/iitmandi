@@ -92,7 +92,7 @@ class Home extends CI_Controller {
     }
 
     public function research() { 
-        $data['team']=$this->common_model->get_data_array(TEAM,'','','','','','','',array('position'=>[1,2],'status' =>1,'is_delete' =>1));
+        $data['team']=$this->common_model->get_data_array(TEAM,'','','','','','','',array('position'=>[1],'status' =>1,'is_delete' =>1));
         $data['research']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>1, 'status' =>1, 'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -101,7 +101,7 @@ class Home extends CI_Controller {
     }
 
     public function consultancy() { 
-        $data['team']=$this->common_model->get_data_array(TEAM,'','','','','','','',array('position'=>[1,2],'status' =>1,'is_delete' =>1));
+        $data['team']=$this->common_model->get_data_array(TEAM,'','','','','','','',array('position'=>[1],'status' =>1,'is_delete' =>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2, 'status' =>1, 'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -166,7 +166,7 @@ class Home extends CI_Controller {
     public function filterBystatus() { 
         $st_id = $this->input->post('st_id');
         $pt_id = $this->input->post('pt_id');
-        $filter_data = $this->common_model->get_data_array(PROJECT,array('status' => $st_id, 'project_type' =>$pt_id, 'status' =>1, 'is_delete' =>1),'','','','','','');
+        $filter_data = $this->common_model->get_data_array(PROJECT,array('pstatus' => $st_id, 'project_type' =>$pt_id, 'status' =>1, 'is_delete' =>1),'','','','','','');
         if(!empty($filter_data)) {
             $html='<tr>';
             if(!empty($filter_data)) {

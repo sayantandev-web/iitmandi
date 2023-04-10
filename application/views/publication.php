@@ -101,7 +101,7 @@ opacity: .5;}
                                                     $text .= ', & '.$lastItem; // a, b and c
                                                 }
                                             ?> 
-                                            <td><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                            <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
@@ -139,7 +139,7 @@ opacity: .5;}
                                                     $text1 .= ', & '.$lastItem1; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: left;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
@@ -177,7 +177,7 @@ opacity: .5;}
                                                     $text2 .= ', & '.$lastItem2; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: left;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
@@ -215,7 +215,7 @@ opacity: .5;}
                                                     $text3 .= ', & '.$lastItem3; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: left;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>
@@ -253,7 +253,7 @@ opacity: .5;}
                                                     $text4 .= ', & '.$lastItem4; // a, b and c
                                                 }    
                                             ?>
-                                            <td style="text-align: left;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
                                             <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                         </tr>
                                         <?php $j++; } ?>

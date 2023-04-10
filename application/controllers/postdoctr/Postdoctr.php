@@ -18,13 +18,13 @@ class Postdoctr extends CI_Controller {
 		$data['page_title'] = "Postdoc Login";
 		$data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
-		$this->load->view('postdoc/home',$data);
+		$this->load->view('postdoctr/home',$data);
 	}
 
     public function login() {
 		$this->load->library('session');
 		if($this->session->userdata('user_id') != ''){
-            redirect(base_url('postdoc/dashboard/'.$this->session->userdata('user_id')));
+            redirect(base_url('postdoctr/dashboard/'.$this->session->userdata('user_id')));
 		}
 		if($this->input->post()) {
 			$sql="`email` ='".$this->input->post('email')."' AND `position` IN (3) AND (`status`= 1) AND (`is_delete`= 1)";
@@ -36,19 +36,19 @@ class Postdoctr extends CI_Controller {
 				$this->session->set_userdata('user_id',$result[0]['id']);
 				$id = $this->session->userdata('user_id');
 				if($result[0]['update_pass'] == 2) {
-					redirect(base_url()."postdoc/dashboard/".$id);
+					redirect(base_url()."postdoctr/dashboard/".$id);
 				} else {
-					redirect(base_url()."postdoc/reset_password/".$id);
+					redirect(base_url()."postdoctr/reset_password/".$id);
 				}
 			} else {
 				$this->utilitylib->setMsg('<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Wrong email or password!','ERROR');
-				redirect(base_url()."postdoc/");
+				redirect(base_url()."postdoctr/");
 			}
 		}
 		$data['page_title'] = "Login";
 		$data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
-		$this->load->view('postdoc/reset_password',$data);
+		$this->load->view('postdoctr/reset_password',$data);
     }
 
     public function dashboard($id='') {
@@ -66,7 +66,7 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/dashboard',$data);
+			$this->load->view('postdoctr/dashboard',$data);
 		} else {
 			$data['page_title'] = "Dashboard";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -80,7 +80,7 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/dashboard',$data);
+			$this->load->view('postdoctr/dashboard',$data);
 		}
     }
 
@@ -96,7 +96,7 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/research',$data);
+			$this->load->view('postdoctr/research',$data);
 		} else {
 			$data['page_title'] = "Research";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -108,8 +108,8 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/research',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/research',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -131,7 +131,7 @@ class Postdoctr extends CI_Controller {
 			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/publication',$data);
+			$this->load->view('postdoctr/publication',$data);
 		} else {
 			$data['page_title'] = "Publication";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -149,8 +149,8 @@ class Postdoctr extends CI_Controller {
 			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/publication',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/publication',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -166,7 +166,7 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/projects',$data);
+			$this->load->view('postdoctr/projects',$data);
 		} else {
 			$data['page_title'] = "Projects";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -178,8 +178,8 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/projects',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/projects',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -199,7 +199,7 @@ class Postdoctr extends CI_Controller {
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/lab_members',$data);
+			$this->load->view('postdoctr/lab_members',$data);
 		} else {
 			$data['page_title'] = "Lab Members";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -215,8 +215,8 @@ class Postdoctr extends CI_Controller {
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/lab_members',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/lab_members',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -235,7 +235,7 @@ class Postdoctr extends CI_Controller {
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/current_opening',$data);
+			$this->load->view('postdoctr/current_opening',$data);
 		} else {
 			$data['page_title'] = "Current Opening";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -250,8 +250,8 @@ class Postdoctr extends CI_Controller {
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/current_opening',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/current_opening',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -270,7 +270,7 @@ class Postdoctr extends CI_Controller {
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/miscellaneous',$data);
+			$this->load->view('postdoctr/miscellaneous',$data);
 		} else {
 			$data['page_title'] = "Miscellaneous";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
@@ -285,8 +285,8 @@ class Postdoctr extends CI_Controller {
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
 			$data['footer']=$this->load->view('includes/footer','',true);
-			$this->load->view('postdoc/miscellaneous',$data);
-			//redirect(base_url()."postdoc/");
+			$this->load->view('postdoctr/miscellaneous',$data);
+			//redirect(base_url()."postdoctr/");
 		}
     }
 
@@ -603,7 +603,7 @@ class Postdoctr extends CI_Controller {
 		$data['page_title'] = "Reset Password";
 		$data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
-		$this->load->view('postdoc/reset_password',$data);
+		$this->load->view('postdoctr/reset_password',$data);
 	}
 
 	public function update_password () {
@@ -611,12 +611,12 @@ class Postdoctr extends CI_Controller {
 		$insArr['password'] = base64_encode($this->input->post('new_pass'));
 		$insArr['update_pass'] = '2';
 		$resultdata = $this->common_model->tbl_update(TEAM,array('id'=>$this->session->userdata('user_id')),$insArr);
-		redirect(base_url()."postdoc/dashboard/".$this->session->userdata('user_id'));
+		redirect(base_url()."postdoctr/dashboard/".$this->session->userdata('user_id'));
 	}
 
 	public function logout() {
         $this->session->unset_userdata('uid');
         session_unset();  
-        redirect(base_url()."postdoc/");
+        redirect(base_url()."postdoctr/");
     }
 }

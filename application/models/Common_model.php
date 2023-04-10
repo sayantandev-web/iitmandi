@@ -5,7 +5,6 @@
 	
     public function tbl_insert($tablename,$Insertarr){
         $this->db->insert($tablename, $Insertarr);
-        //echo $this->db->last_query();exit;
         return $this->db->insert_id();
     }
 	
@@ -210,7 +209,7 @@
             $this->db->limit($limit,$page);
         }
         $res=$this->db->get();
-        //echo $this->db->last_query();exit;
+        //echo $this->db->last_query();
         return $res->result_array();
     }
 	

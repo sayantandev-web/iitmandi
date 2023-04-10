@@ -7,9 +7,9 @@ class Ourteam extends CI_Controller{
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
 		//session_start();
-        if($this->session->userdata('uid') == ''){
-            redirect(base_url().'admin/');
-        }
+        // if($this->session->userdata('uid') == ''){
+        //     redirect(base_url().'admin/');
+        // }
 	}
 
 	public function index() {
