@@ -83,7 +83,7 @@
 <script src="<?php echo base_url()?>assets/fontend/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/php-email-form/validate.js"></script>
-<script src="<?php echo base_url()?>assets/fontend/js/main.js"></script>
+<!-- <script src="<?php echo base_url()?>assets/fontend/js/main.js"></script> -->
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/wowslider.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/script.js"></script>
 <script src="<?php echo base_url()?>ckeditor/ckeditor.js" type="text/javascript"></script>

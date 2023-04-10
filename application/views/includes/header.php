@@ -66,11 +66,6 @@
       $('.ws_effect').removeClass('ws_dribbles');
       $('#').removeClass('ws_controls');
       $(this).scrollTop(0);
-
-      $("a").click(function(){
-        $("#menu").hide();    //or $("#menu").slideUp() if you want it to slide up instead of just disappearing.
-      });
-
       $(".navbar-toggler").click(function(){
         $(".cstm_toggle").show();    //or $("#menu").slideUp() if you want it to slide up instead of just disappearing.
       });
@@ -225,47 +220,47 @@
         <div class="col-sm-12">
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="<?php echo base_url()?>uploads/site_logo/<?php echo $footer_content[0]['profile_pic'];?>" class="ucd-logo1" alt="IIT Mandi Logo" width="85" height="58" /></a>
+              <a class="navbar-brand" href="<?php echo base_url()?>"><img src="<?php echo base_url()?>uploads/site_logo/<?php echo $footer_content[0]['profile_pic'];?>" class="ucd-logo1" alt="IIT Mandi Logo" width="85" height="58" /></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 cstm_toggle">
                   <li class="nav-item">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" >People</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" >People</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/faculty_list">Faculty</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/postdocs">Postdocs</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/scholars">Scholars</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/staff">Staff</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/faculty_list">Faculty</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/postdocs">Postdocs</a></li>                             
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/scholars">Scholars</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/staff">Staff</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Facilities</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/teaching_labs">Teaching Labs</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/research_lab">Research Labs</a></li>                             
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/teaching_labs">Teaching Labs</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/research_lab">Research Labs</a></li>                             
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Activities</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="https://nirmaan.iitmandi.co.in/">Nirmaan Club</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="https://nirmaan.iitmandi.co.in/">Nirmaan Club</a></li>
                     </ul>
                   </li>
-                  <li class="nav-item dropdown">
+                  <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publication</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/journal">Journal</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/conference">Conference</a></li>                             
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/book_chapter">Book Chapter</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/book">Book</a></li>
-                      <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/patent">Patent</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/journal">Journal</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/conference">Conference</a></li>                             
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/book_chapter">Book Chapter</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/book">Book</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/patent">Patent</a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">projects</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/research">Research</a></li>
-                        <li><a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="<?php echo base_url()?>pages/consultancy">Consultancy</a></li>                             
+                        <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/research">Research</a></li>
+                        <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/consultancy">Consultancy</a></li>                             
                       </ul>
                   </li>
                 </ul>
