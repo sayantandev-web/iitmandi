@@ -167,7 +167,7 @@
                                     <div class="form-group research_keyword">
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Research Keyword</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
-                                          <input type="text" class="form-control" id="research_keyword" name="research_keyword" placeholder="Research Keyword" value="<?php echo @$banner['research_keyword']; ?>" maxlength=50>
+                                          <input type="text" class="form-control" id="research_keyword" name="research_keyword" placeholder="Research Keyword" value="<?php echo @$banner['research_keyword']; ?>" maxlength=100>
                                        </div>
                                     </div>
                                     <div class="form-group project_name">
