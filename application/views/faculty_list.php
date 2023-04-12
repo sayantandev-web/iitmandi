@@ -12,12 +12,12 @@
     .fetch_data {background-color: #ffbf00; color: #fff;}*/
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
-    .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px;}
+    .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px; height: 500px;}
     .box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
     .box_dwn a{display:inline-block; color:#000;}
     .box_dwn a h6{margin:0px; text-transform:uppercase;}
     .box_dwn{width:100%;  padding-top:8px;}
-    .box_dwn h6{margin:0px; line-height:20px;}
+    .box_dwn h6{margin:0px; line-height:20px; height: 40px;}
     .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
     .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
     .box_sec:hover .box_dwn{transform: translateY(-75px); transition: all ease-in-out .5s; position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
@@ -26,13 +26,13 @@
     .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
     .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
     .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
-    .social_sec{width:100%;}
+    .social_sec{width:100%; margin-top: 50px;}
     .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
     .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
-    .res_txt2{opacity: 0;}
-    .box_sec:hover .res_txt2{opacity: 1;}
-    .res_txt1{opacity: 1;}
-    .box_sec:hover .res_txt1{opacity: 1;}
+    .res_txt2{display: none;}
+    .box_sec:hover .res_txt2{display: block;}
+    .res_txt1{display: block;}
+    .box_sec:hover .res_txt1{display: block;}
     .container {max-width: 1600px;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
