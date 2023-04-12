@@ -55,8 +55,8 @@ class Faculty extends CI_Controller {
             if(!empty($get_data->result_array())) {
                 foreach($get_data->result_array() as $row){
                     $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
-                    $html .='<div class="box_sec"><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""></a><div class="box_dwn"><h6><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'" style="text-decoration: none;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</a></h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>'.$row['research_keyword'].'</p></div><div class="social_sec"><a href="'.$row['email'].'"><i class="fa-regular fa-envelope"></i></a><a href="'.$row['mobile'].'"><i class="fa fa-phone" aria-hidden="true"></i></a></div></div></div></div>';
+                    $html .='<div class="box_sec"><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="">';
+                    $html .='<div class="box_dwn"><h6><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'" style="text-decoration: none;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</a></h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>'.$row['research_keyword'].'</p></div></div></a><div class="social_sec"><a href="'.$row['email'].'"><i class="fa-regular fa-envelope"></i></a>  <a href="'.$row['mobile'].'"><i class="fa fa-phone" aria-hidden="true"></i></a></div></div></div>';
                 }
             }
         } else {
@@ -74,8 +74,8 @@ class Faculty extends CI_Controller {
             if(!empty($get_data->result_array())) {
                 foreach($get_data->result_array() as $row){
                     $html .='<div class="col-sm-6 col-xl-2 col-lg-2 col-md-6 col-12">';
-                    $html .='<div class="box_sec"><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'">';
-                    $html .='<img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt=""></a><div class="box_dwn"><h6><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'" style="text-decoration: none;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</a></h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>'.$row['research_keyword'].'</p></div><div class="social_sec"><a href="'.$row['email'].'"><i class="fa-regular fa-envelope"></i></a><a href="'.$row['mobile'].'"><i class="fa fa-phone" aria-hidden="true"></i></a></div></div></div></div>';
+                    $html .='<div class="box_sec"><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'"><img src="'.base_url().'uploads/our_team/'.$row['team_image'].'" alt="">';
+                    $html .='<div class="box_dwn"><h6><a href="'.base_url().'pages/faculty_details/'.base64_encode($row['id']).'" style="text-decoration: none;">'.$row['fname'].' '.$row['mname'].' '.$row['lname'].'</a></h6><small>'.$row['designation'].'</small><div class="box_dwn_inn"><p>'.$row['research_keyword'].'</p></div></div></a><div class="social_sec"><a href="'.$row['email'].'"><i class="fa-regular fa-envelope"></i></a>  <a href="'.$row['mobile'].'"><i class="fa fa-phone" aria-hidden="true"></i></a></div></div></div>';
                 }
             }
         } else {

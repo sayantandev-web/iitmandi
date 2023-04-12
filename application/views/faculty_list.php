@@ -12,13 +12,13 @@
     .fetch_data {background-color: #ffbf00; color: #fff;}*/
     .filter_data{text-align:center;margin: 0 0 35px 0;}
     .fetch_data {background-color: #ffbf00; color: #fff;}
-    .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px; height: 500px;}
+    .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px; height: 520px;}
     .box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
     .box_dwn a{display:inline-block; color:#000;}
     .box_dwn a h6{margin:0px; text-transform:uppercase;}
-    .box_dwn{width:100%;  padding-top:8px;}
+    .box_dwn{width:100%;  padding-top:8px; height: 185px;}
     .box_dwn h6{margin:0px; line-height:20px; height: 40px;}
-    .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
+    .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700;} 
     .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
     .box_sec:hover .box_dwn{transform: translateY(-75px); transition: all ease-in-out .5s; position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
     .choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
@@ -109,12 +109,12 @@
                                         <p class="res_txt1"><?php if ($row['specialization'] == '1'){echo 'Environmental Engineering'; } else if($row['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($row['specialization'] == '3'){echo 'Structural Engineering'; } else if($row['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($row['specialization'] == '5'){echo 'Transportation Engineering'; } else if($row['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
                                         <p class="res_txt2"><?php echo $row['research_keyword']?></p>
                                      </div>
-                                    <div class="social_sec">
-                                        <a href='mailto:<?php echo $row['email']?>'><i class="fa-regular fa-envelope"></i></a>
-                                        <a href='tel:<?php echo $row['mobile']?>'><i class="fa fa-phone" aria-hidden="true"></i></a>
-                                    </div>
                                 </div>
                                 </a>
+                                <div class="social_sec">
+                                    <a href='mailto:<?php echo $row['email']?>'><i class="fa-regular fa-envelope"></i></a>
+                                    <a href='tel:<?php echo $row['mobile']?>'><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                </div>
                             </div>   
                         </div>
                         <?php $i++; } } ?>
