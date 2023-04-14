@@ -66,28 +66,31 @@
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div>
-                                                <span style="float:left;">Coordinator:</span> 
                                                 <?php 
-                                                $supervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` =".$about_me[0]['supervisor']);
+                                                if ($about_me[0]['supervisor'] != "") { ?>
+                                                <span style="float:left;">Supervisor:</span> 
+                                                <?php $supervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` =".$about_me[0]['supervisor']);
                                                 if(!empty($supervisor->result_array())) {
                                                 foreach($supervisor->result_array() as $row1) { ?>
                                                 <div class="co-codi">
                                                     <img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
                                                     <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($about_me[0]['supervisor'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
                                                 </div>
-                                                <?php } } ?>
+                                                <?php } } }?>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div>
-                                                <span style="float:left;">Co-Cordinator:</span> 
+                                                <?php 
+                                                if ($about_me[0]['cosupervisors'] != "") { ?>
+                                                <span style="float:left;">Co-Supervisor:</span> 
                                                 <?php $cosupervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` IN (".$about_me[0]['cosupervisors'].")");
                                                 if(!empty($cosupervisor->result_array())) {
                                                 foreach($cosupervisor->result_array() as $row1) { ?>
                                                 <div class="co-codi"><img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
                                                     <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row1['id'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
                                                 </div>         
-                                                <?php } } ?>           
+                                                <?php } } }?>           
                                             </div>
                                         </div>
                                     </div>
