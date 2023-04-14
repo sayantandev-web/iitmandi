@@ -18,7 +18,7 @@ class Faculty extends CI_Controller {
             $this->session->unset_userdata('uid');
             session_unset();
 		}
-        $data['faculty'] = $this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1, 'is_delete'=>1, 'position'=>1));
+        $data['faculty'] = $this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".`fname` ASC",array('status'=>1, 'is_delete'=>1, 'position'=>1));
         $data['designation'] = $this->common_model->get_data_array(DESIGNATION,'','','','','','',DESIGNATION.".id DESC",array('status'=>1, 'is_delete'=>1, 'user_type'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -48,7 +48,7 @@ class Faculty extends CI_Controller {
 
     public function get_filter_data() {
         $fd_id = $this->input->post('fd_id');
-        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.designation = $fd_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.designation = $fd_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1 ORDER BY fname ASC");
 
         if(!empty($get_data->result_array())) {
             $html='';
@@ -67,7 +67,7 @@ class Faculty extends CI_Controller {
 
     public function filterByspetialization() {
         $fs_id = $this->input->post('fs_id');
-        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+        $get_data = $this->db->query("SELECT iitmandi_team.id, iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 AND iitmandi_team.specialization = $fs_id and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 ORDER BY fname ASC");
 
         if(!empty($get_data->result_array())) {
             $html='';

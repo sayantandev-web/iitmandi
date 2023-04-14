@@ -8,7 +8,7 @@
     .table>:not(caption)>*>* {text-align: center;}
     .cstm_gllery {float: left; display: inline;}
     .cstm_gllery img {padding: 12px; border-radius: 50%; height: 313px;}
-    .cstm_gllery h3, p {text-align: center;}
+    /*.cstm_gllery h3, p {text-align: center;}*/
     .modal-content {padding: 30px}
     .modal-lg, .modal-xl {--bs-modal-width: 90% !important;}
     .cstm_details {float: left; display: inline-block;}
@@ -36,24 +36,40 @@
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
-                                                <h3 style="text-align:center">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
-                                                <h3 style="text-align:center">Journal Name: <?php echo $pub_details[0]['journal_name'];?></h3>
-                                                <h3 style="text-align:center">Author Name: <?php echo $pub_details[0]['author_name'];?></h3>
-                                                <h3 style="text-align:center">Publish Date: <?php echo $pub_details[0]['publish_date'];?></h3>
-                                                <h3 style="text-align:center">Publisher: <?php echo $pub_details[0]['publisher'];?></h3>
-                                                <h3 style="text-align:center">External Link: <?php echo $pub_details[0]['external_Link'];?></h3>
-                                                <h3 style="text-align:center">Page Number: <?php echo $pub_details[0]['page_number'];?></h3>
-                                                <h3 style="text-align:center">Volume Number: <?php echo $pub_details[0]['volume_number'];?></h3>
-                                                <h3 style="text-align:center">Issue Number: <?php echo $pub_details[0]['issue_number'];?></h3>
+                                                <h3 style="text-align:center;font-size: 40px;color: #022851;"> <?php echo $pub_details[0]['paper_title'];?></h3>
+                                                <h3 style="text-align:center;font-size: 30px;"> <?php echo $pub_details[0]['journal_name'];?></h3>
+                                                <h3 style="text-align:center"> 
+                                                    <?php
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $value = $author->result_array();
+                                                    $count = count($value);
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['lname']."";
+                                                        } else {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['mname']." ".$value[$i]['lname'].".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }
+                                                    echo $text;
+                                                    ?>
+                                                </h3>
+                                                <h3 style="text-align:center"> <?php echo $pub_details[0]['publish_date'];?></h3>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div>
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div class="pub_dec">
                                                 <?php echo $pub_details[0]['short_summery'];?>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div>
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div class="pub_dec">
                                                 <?php echo $pub_details[0]['key_points'];?>
                                             </div>
                                         </div>
@@ -67,25 +83,40 @@
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
-                                                <h3 style="text-align:center">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
-                                                <h3 style="text-align:center">Conference Name: <?php echo $pub_details[0]['conference_name'];?></h3>
-                                                <h3 style="text-align:center">Author Name: <?php echo $pub_details[0]['author_name'];?></h3>
-                                                <h3 style="text-align:center">Publish Date: <?php echo $pub_details[0]['publish_date'];?></h3>
-                                                <h3 style="text-align:center">Publisher: <?php echo $pub_details[0]['publisher'];?></h3>
-                                                <h3 style="text-align:center">Location: <?php echo $pub_details[0]['location'];?></h3>
-                                                <h3 style="text-align:center">External Link: <?php echo $pub_details[0]['external_Link'];?></h3>
-                                                <h3 style="text-align:center">Page Number: <?php echo $pub_details[0]['page_number'];?></h3>
-                                                <h3 style="text-align:center">Volume Number: <?php echo $pub_details[0]['volume_numbers'];?></h3>
-                                                
+                                                <h3 style="text-align:center;font-size: 40px;color: #022851;"> <?php echo $pub_details[0]['paper_title'];?></h3>
+                                                <h3 style="text-align:center;font-size: 30px;"> <?php echo $pub_details[0]['conference_name'];?></h3>
+                                                <h3 style="text-align:center"> 
+                                                    <?php
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $value = $author->result_array();
+                                                    $count = count($value);
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['lname']."";
+                                                        } else {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['mname']." ".$value[$i]['lname'].".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }
+                                                    echo $text;
+                                                    ?>
+                                                </h3>
+                                                <h3 style="text-align:center"> <?php echo $pub_details[0]['publish_date'];?></h3>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div>
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div class="pub_dec">
                                                 <?php echo $pub_details[0]['short_summery'];?>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div>
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div class="pub_dec">
                                                 <?php echo $pub_details[0]['key_points'];?>
                                             </div>
                                         </div>
@@ -99,21 +130,38 @@
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
-                                                <h3 style="text-align:center">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
-                                                <h3 style="text-align:center">Book Name: <?php echo $pub_details[0]['book_name'];?></h3>
-                                                <h3 style="text-align:center">Author Name: <?php echo $pub_details[0]['author_name'];?></h3>
-                                                <h3 style="text-align:center">Publish Date: <?php echo $pub_details[0]['volume_number'];?></h3>
-                                                <h3 style="text-align:center">External Link: <?php echo $pub_details[0]['external_Link'];?></h3>
-                                                <h3 style="text-align:center">Editors: <?php echo $pub_details[0]['editors'];?></h3>
-                                                <h3 style="text-align:center">Page Number: <?php echo $pub_details[0]['page_number'];?></h3>
+                                                <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
+                                                <h3 style="text-align:center;font-size: 30px;"> <?php echo $pub_details[0]['book_name'];?></h3>
+                                                <h3 style="text-align:center"> 
+                                                    <?php
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $value = $author->result_array();
+                                                    $count = count($value);
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['lname']."";
+                                                        } else {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['mname']." ".$value[$i]['lname'].".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }
+                                                    echo $text;
+                                                    ?>
+                                                </h3>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
                                             <div>
                                                 <?php echo $pub_details[0]['short_summery'];?>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
                                             <div>
                                                 <?php echo $pub_details[0]['key_points'];?>
                                             </div>
@@ -128,21 +176,38 @@
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
-                                                <h3 style="text-align:center">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
-                                                <h3 style="text-align:center">Author Name: <?php echo $pub_details[0]['author_name'];?></h3>
-                                                <h3 style="text-align:center">Publish Date: <?php echo $pub_details[0]['publish_date'];?></h3>
-                                                <h3 style="text-align:center">Publisher: <?php echo $pub_details[0]['publisher'];?></h3>
-                                                <h3 style="text-align:center">External Link: <?php echo $pub_details[0]['external_Link'];?></h3>
-                                                <h3 style="text-align:center">Page Number: <?php echo $pub_details[0]['page_number'];?></h3>
-                                                <h3 style="text-align:center">Volume Number: <?php echo $pub_details[0]['volume_number'];?></h3>
+                                                <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
+                                                <h3 style="text-align:center"> 
+                                                    <?php
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $value = $author->result_array();
+                                                    $count = count($value);
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['lname']."";
+                                                        } else {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['mname']." ".$value[$i]['lname'].".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }
+                                                    echo $text;
+                                                    ?>
+                                                </h3>
+                                                <h3 style="text-align:center"> <?php echo $pub_details[0]['publish_date'];?></h3>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
                                             <div>
                                                 <?php echo $pub_details[0]['short_summery'];?>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
                                             <div>
                                                 <?php echo $pub_details[0]['key_points'];?>
                                             </div>
@@ -157,19 +222,39 @@
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
-                                                <h3 style="text-align:center">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
-                                                <h3 style="text-align:center">Author Name: <?php echo $pub_details[0]['author_name'];?></h3>
-                                                <h3 style="text-align:center">Publish Date: <?php echo $pub_details[0]['publish_date'];?></h3>
-                                                <h3 style="text-align:center">Patient Number: <?php echo $pub_details[0]['patient_number'];?></h3>
+                                                <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
+                                                <h3 style="text-align:center"> 
+                                                    <?php
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $value = $author->result_array();
+                                                    $count = count($value);
+                                                    for($i = 0; $i < $count; $i++) {
+                                                        if ($value[$i]['mname'] == '') {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['lname']."";
+                                                        } else {
+                                                            $commonValues[$i] = $value[$i]['fname']." ".$value[$i]['mname']." ".$value[$i]['lname'].".";
+                                                        }
+                                                    }
+                                                    $lastItem = array_pop($commonValues);
+                                                    $text = implode(', ', $commonValues); // a, b 
+                                                    if ($text == ''){
+                                                        $text .= $lastItem; 
+                                                    } else {
+                                                        $text .= ', & '.$lastItem; // a, b and c
+                                                    }
+                                                    echo $text;
+                                                    ?>
+                                                </h3>
+                                                <h3 style="text-align:center"> <?php echo $pub_details[0]['publish_date'];?></h3>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div style="text-align:center">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div>
                                                 <?php echo $pub_details[0]['short_summery'];?>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12" style="float: left;display: inline-block;">
-                                            <div style="text-align:center">
+                                        <div class="col-sm-12" style="float: left;display: inline-block;margin-top: 40px;">
+                                            <div>
                                                 <?php echo $pub_details[0]['key_points'];?>
                                             </div>
                                         </div>

@@ -94,7 +94,7 @@
                         </div>
                     </div>
                     <?php 
-                    $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+                    $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1  ORDER BY fname ASC");
                     ?>
                     <div class="row cls_filter_data">
                         <?php if(!empty($faculty1->result_array())) {

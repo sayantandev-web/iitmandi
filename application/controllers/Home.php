@@ -329,7 +329,7 @@ class Home extends CI_Controller {
                     } else {
                         $text .= ', & '.$lastItem; // a, b and c
                     }    
-                $html .='<td>'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
+                $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
@@ -364,7 +364,7 @@ class Home extends CI_Controller {
                     } else {
                         $text .= ', & '.$lastItem; // a, b and c
                     }    
-                $html .='<td>'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
+                $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  

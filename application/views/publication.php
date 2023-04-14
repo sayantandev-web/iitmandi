@@ -78,22 +78,17 @@ opacity: .5;}
                                         <tr>
                                             <td><?php echo $j.")" ?></td>
                                             <?php 
-                                            $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
-                                                //echo "<pre>"; print_r($author->result_array());
+                                                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
                                                 $value = $author->result_array();
-                                                //echo "<pre>"; print_r($value);
                                                 $count = count($value);
-                                                //echo "<pre>"; print_r($count);
                                                 for($i = 0; $i < $count; $i++) {
                                                     if ($value[$i]['mname'] == '') {
                                                         $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                                                     } else {
                                                         $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
                                                     }
-                                                    //echo "<pre>"; print_r($commonValues[$i]);
-                                                    $lastItem = array_pop($commonValues);
                                                 }
-                                                //echo "<pre>"; print_r($commonValues);
+                                                $lastItem = array_pop($commonValues);
                                                 $text = implode(', ', $commonValues); // a, b 
                                                 if ($text == ''){
                                                     $text .= $lastItem; 
