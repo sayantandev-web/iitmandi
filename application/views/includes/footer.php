@@ -1656,21 +1656,28 @@
 
     //CKEDITOR.replace('aboutme');
     CKEDITOR.replace('aboutme', {
-  height: 300,
-  filebrowserUploadUrl: "<?php echo base_url()?>upload.php"
- });
+        filebrowserUploadUrl: "<?php echo base_url()?>home/ck_upload",
+        filebrowserUploadMethod: "form",
+        removePlugins: 'easyimage',
+    });
     CKEDITOR.replace('research_interest');
     //CKEDITOR.replace('short_summery');
     CKEDITOR.replace('short_summery', {
         filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+        filebrowserUploadMethod: "form",
+        removePlugins: 'easyimage',
     });
     //CKEDITOR.replace('key_points');
     CKEDITOR.replace('key_points', {
         filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+        filebrowserUploadMethod: "form",
+        removePlugins: 'easyimage',
     });
     //CKEDITOR.replace('codescription');
     CKEDITOR.replace('codescription', {
         filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+        filebrowserUploadMethod: "form",
+        removePlugins: 'easyimage',
     });
 </script>
 <script>
