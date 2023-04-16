@@ -113,7 +113,7 @@ class Ourteam extends CI_Controller{
 				$this->utilitylib->setMsg(SUCCESS_ICON.' Sucessfully updated','SUCCESS');
 				redirect(base_url()."admin/ourteam/");
 			} else {
-				$check_email=$this->common_model->get_data_row(TEAM,array('email'=>$this->input->post('email')));
+				$check_email=$this->common_model->get_data_row(TEAM,array('email'=>$this->input->post('email'),'is_delete'=>1));
 				if($check_email['email'] == $this->input->post('email')) {
 					echo ('<script>alert("Email ID is already exist!");</script>');
 				} else {
