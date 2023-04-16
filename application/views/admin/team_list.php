@@ -32,7 +32,8 @@
                             <div class="panel-heading" style="display: flow-root;">
                                 <h3 class="panel-title" style="float: left;"><?php echo $page_title; ?></h3>
                                 <?php if ($uid == '-1') { ?>
-                                <a href="admin/ourteam/add_team" style="float: right;background: #3c8dbc;padding: 10px;color: #fff;">Add User</a>
+                                <a href="admin/ourteam/add_team" style="float: right;background: #3c8dbc;padding: 10px;color: #fff;margin-right: 60px;">Add User</a>
+                                <a href="admin/ourteam/all_external_users" style="float: right;background: #3c8dbc;padding: 10px;color: #fff;margin-right: 60px;">External User List</a>
                                 <?php } ?>
                             </div>
                             <div class="panel-body">
@@ -42,7 +43,6 @@
                                         <table id="datatable" class="table table-striped table-bordered dat_tbl">
                                             <thead>
                                                 <tr>
-                                                    <!-- <th>Image</th> -->
                                                     <th>Name</th>
                                                     <th>Email</th>
                                                     <th>Designation</th>
@@ -57,13 +57,6 @@
                                                     $i=1; ?>
                                                 <?php foreach($team as $row) { ?>
                                                 <tr>
-                                                    <!-- <td>
-                                                    <?php if(@$row['team_image']){ ?>
-                                                    <img src="<?php echo base_url(); ?>uploads/our_team/thumb/<?php echo $row['team_image']; ?>" alt="<?php echo $row['team_image']; ?>" width="116" height="87">
-                                                    <?php } else { ?>
-                                                    <img src="<?php echo base_url(); ?>uploads/no-img.jpg" alt="no-img.jpg">
-                                                    <?php } ?>
-                                                    </td> -->
                                                     <td><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></td>
                                                     <td><?php echo $row['email']; ?></td>
                                                     <td><?php if ($row['position'] == '1'){echo 'Faculty'; } else if($row['position'] == '2'){echo 'Postdocs'; } else if($row['position'] == '3'){echo 'Scholars'; } else if($row['position'] == '4'){echo 'Project Staff'; } else if($row['position'] == '5'){echo 'Students'; } else if($row['position'] == '6'){echo 'Technical Staff'; } else if($row['position'] == '7'){echo 'Supporting Staff'; } else if($row['position'] == '8'){echo 'External'; } else {echo '';} ?>
@@ -89,11 +82,11 @@
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     <?php if ($row['update_pass']!= 2) { ?>
-                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereply" data-placement="top" data-toggle="tooltip" data-original-title="Email Content" data-id="<?php echo $i?>">
+                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereply_<?php echo $i;?>" data-placement="top" data-toggle="tooltip" data-original-title="Email Content" data-id="<?php echo $i?>">
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </a>
                                                     <?php } ?>
-                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereset_pass" data-placement="top" data-toggle="tooltip" data-original-title="Reset Password" data-id="<?php echo $i?>">
+                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereset_pass_<?php echo $i;?>" data-placement="top" data-toggle="tooltip" data-original-title="Reset Password" data-id="<?php echo $i?>">
                                                     <i class="fa fa-key" aria-hidden="true"></i>
                                                     </a>
                                                     <div class ='replycomment' id="replycomment_<?php echo $i?>">
@@ -129,21 +122,20 @@
     <?php echo $footer_scripts; ?>
     <script>
     $(function(){
-        $('.replycomment').hide();
-        $(".showhidereply").click(function(){
+        <?php $i=1; 
+        foreach($team as $row) { ?>
+        $('#replycomment_<?php echo $i;?>').hide();
+        $(".showhidereply_<?php echo $i;?>").click(function(){
             var $toggle = $(this);
-            var id = "#replycomment_" + $toggle.data('id'); 
+            var id = "#replycomment_<?php echo $i;?>"; 
             $(id).toggle();
         });
 
-        $('.reset_pass').hide();
-        $(".showhidereset_pass").click(function() {
-            var $toggle1 = $(this);
-            var id1 = "#reset_pass_" + $toggle1.data('id'); 
+        $('#reset_pass_<?php echo $i;?>').hide();
+        $(".showhidereset_pass_<?php echo $i;?>").click(function() {
+            var id1 = "#reset_pass_<?php echo $i;?>"; 
             $(id1).toggle();
         });
-        <?php $i=1; 
-        foreach($team as $row) { ?>
         $('.set_password_<?php echo $i;?>').click(function() {
             var newpass = $('#newpass_<?php echo $i?>').val();
             var uid = $('#u_id_<?php echo $i?>').val();

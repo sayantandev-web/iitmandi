@@ -38,11 +38,6 @@
     .res_txt1{opacity: 1;}
     .box_sec:hover .res_txt1{opacity: 0;}
     .container {max-width: 1600px;}
-    .admission_sec{padding-top: 100px;}
-    .admission_sec .field-content h4{margin:0px; font-size: 30px; text-align: center;}
-    .admission_sec .views-field-field-eventdate{background:none; width: 100%; text-align: center;}
-    .admission_sec .views-field-field-eventdate-1{background:none !important; width: 100%;}
-    .admission_sec .btn { background: #ffdf80; color: #fff;border-radius: 5px; width: 100%;padding: 8px 0; color: #022851;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -50,41 +45,33 @@
 </style>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/style.css">
 <main id="main">
-    <section id="features" class="features section-bg admission_sec">
-      <div class="section-title">
-        <h2>Events</h2>
-      </div>
-      <div class="eventeditmain">
-       
-            <div class="eventcard">
-              <img class="imgedited" src="" alt="">
-              <div class="cardedit">
-                <div class=" itemedit views-field views-field-field-eventdate">
-                  <div class="field-content">
-                    <h4>Ph.D</h4>
-                    <p>Lorem Ipsum</p>
-                  </div>
+    <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 portfolio-info">
+                    <h3 style="text-align:center"><?php //echo $title?></h3>
+                    <div class="wrap main-bg table-div">
+                        <div class="view-box d-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12 position">
+                                        <div class="logo" style="text-align: center;">
+                                            <a href="index.html"><img src="images/logo-1.png" alt="" style="width:300px" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="main-content">
+                                            <div class="md-headline clearfix">
+                                                <h1 style="text-align: center;">Currently Under Construction</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-                <div class=" itemedit views-field views-field-field-eventdate-1">
-                  <div class="field-content">
-                    <button type="button" class="btn btn-secondary" onclick="window.location.reload();">Reset</button>
-                     <button type="button" class="btn btn-secondary" onclick="window.location.reload();">Detail Advertisement</button>
-                  </div>
-                </div>
-                <!-- <span class="list-inline-item itemedit"><i class="ti-calendar text-color"></i><?php //echo $date = date("D, d M Y", strtotime($row['event_date'])); ?></span> -->
-                <a href="#">
-                  <h5 class="card-title itemedit"></h5>
-                </a>
-                <div class="hideit">
-                  <div>
-                   
-                   
-                  </div>
-                </div>
-              </div>
             </div>
-        
-      </div>
+        </div>
     </section>
 </main><!-- End #main -->
 <?php echo $footer?>

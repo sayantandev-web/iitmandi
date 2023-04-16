@@ -13,7 +13,7 @@ class Ourteam extends CI_Controller{
 	}
 
 	public function index() {
-		$data['team']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('is_delete'=>1));
+		$data['team']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[1,2,3,4,5,6,7],'is_delete'=>1));
 		$data['page_title'] = "User Management";
 		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
 	    $data['header']=$this->load->view('admin/includes/admin_header','',true);
@@ -21,6 +21,17 @@ class Ourteam extends CI_Controller{
 		$data['footer']=$this->load->view('admin/includes/admin_footer','',true);
 		$data['footer_scripts']=$this->load->view('admin/includes/admin_footer_scripts','',true);
 		$this->load->view('admin/team_list',$data);
+	} 
+
+	public function all_external_users() {
+		$data['team']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[8],'is_delete'=>1));
+		$data['page_title'] = "External User";
+		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
+	    $data['header']=$this->load->view('admin/includes/admin_header','',true);
+	    $data['sidebar']=$this->load->view('admin/includes/admin_sidebar','',true);
+		$data['footer']=$this->load->view('admin/includes/admin_footer','',true);
+		$data['footer_scripts']=$this->load->view('admin/includes/admin_footer_scripts','',true);
+		$this->load->view('admin/external_list',$data);
 	} 
 	
 	public function add_team($id='') {

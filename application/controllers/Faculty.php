@@ -37,6 +37,7 @@ class Faculty extends CI_Controller {
         $data['patent']=$this->common_model->get_data_array(PUBLICATION,array('user_id'=>base64_decode($id), 'publication_type'=>'Patent', 'status'=>1, 'is_delete'=>1));
         $data['award']=$this->common_model->get_data_array(AWARDEVENT,array('user_id'=>base64_decode($id), 'type'=> 'Award', 'status'=>1, 'is_delete'=>1));
         $data['event']=$this->common_model->get_data_array(AWARDEVENT,array('user_id'=>base64_decode($id), 'type'=> 'Event', 'status'=>1, 'is_delete'=>1));
+        $data['frole']=$this->common_model->get_data_array(ROLEE,'','','','','','',ROLEE.".id DESC",array('user_id'=>base64_decode($id),'status'=>1,'is_delete'=>1));
         $data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>base64_decode($id),'is_delete'=>1));
         $data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>base64_decode($id),'is_delete'=>1));
         $data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>base64_decode($id),'is_delete'=>1));
