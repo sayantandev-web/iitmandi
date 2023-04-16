@@ -1,14 +1,21 @@
 <?php
-// if(isset($_FILES['upload']['name']))
-// {
-// 	$file = $_FILES['upload']['name'];
-// 	$filetmp = $_FILES['upload']['tmp_name'];
-// 	//echo 'sayantan'.$file; die;
-//     //echo dirname(__FILE__); die;
-// 	move_uploaded_file($filetmp,'/images/upload/path/'.$file);
-//     $function_number=$_GET['CKEditorFuncNum'];
-// 	$url='/images/upload/path/'.$file;
-// 	$message='';
-// 	echo "<script>window.parent.CKEDITOR.tools.callFunction('".$function_number."','".$url."','".$message."');</script>";     
-// }
+if(isset($_FILES['upload']['name']))
+{
+ $file = $_FILES['upload']['tmp_name'];
+ $file_name = $_FILES['upload']['name'];
+ $file_name_array = explode(".", $file_name);
+ $extension = end($file_name_array);
+ $new_image_name = rand() . '.' . $extension;
+ chmod('uploads/ckeditor', 0777);
+ $allowed_extension = array("jpg", "gif", "png");
+ if(in_array($extension, $allowed_extension))
+ {
+  move_uploaded_file($file, 'uploads/ckeditor' . $new_image_name);
+  $function_number = $_GET['CKEditorFuncNum'];
+  $url = 'uploads/ckeditor' . $new_image_name;
+  $message = '';
+  echo "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction($function_number, '$url', '$message');</script>";
+ }
+}
+
 ?>

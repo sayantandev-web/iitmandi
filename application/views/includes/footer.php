@@ -1654,22 +1654,25 @@
         )
     };
 
-    CKEDITOR.replace('aboutme');
+    //CKEDITOR.replace('aboutme');
+    CKEDITOR.replace('aboutme', {
+  height: 300,
+  filebrowserUploadUrl: "<?php echo base_url()?>upload.php"
+ });
     CKEDITOR.replace('research_interest');
-    CKEDITOR.replace('short_summery');
-    CKEDITOR.replace('key_points');
-    CKEDITOR.replace('codescription');
-</script>
-<!-- <?php 
-for ($i = 0; $i <= 7; $i++) { ?>
-    <script>
-    $('#v-pills-link'+<?php echo $i; ?>+'-tab').on("click", function(){
-        $('#v-pills-link'+<?php echo $i; ?>+'').addClass("show active");
-        $('#v-pills-link'+<?php echo $i-1; ?>+'').removeClass("show active");
+    //CKEDITOR.replace('short_summery');
+    CKEDITOR.replace('short_summery', {
+        filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
     });
-    </script>
-<?php } ?> -->
-
+    //CKEDITOR.replace('key_points');
+    CKEDITOR.replace('key_points', {
+        filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+    });
+    //CKEDITOR.replace('codescription');
+    CKEDITOR.replace('codescription', {
+        filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+    });
+</script>
 <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];

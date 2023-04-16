@@ -37,7 +37,7 @@
     .box_sec:hover .res_txt2{opacity: 1;}
     .res_txt1{opacity: 1;}
     .box_sec:hover .res_txt1{opacity: 0;}
-    .container {max-width: 1600px;}
+    .container {max-width: 1440px !important;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -49,26 +49,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center"><?php //echo $title?></h3>
-                    <div class="wrap main-bg table-div">
-                        <div class="view-box d-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-12 position">
-                                        <div class="logo" style="text-align: center;">
-                                            <a href="index.html"><img src="images/logo-1.png" alt="" style="width:300px" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12">
-                                        <div class="main-content">
-                                            <div class="md-headline clearfix">
-                                                <h1 style="text-align: center;">Currently Under Construction</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <h3 style="text-align:center">Courses</h3>
+
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Sl No.</th>
+                                    <th>Course Id</th>
+                                    <th>Course Name</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>M-Tech</td>
+                                    <td>IMPS College of Engineering and Technology</td>
+                                    
+                                </tr>
+                                                                                            </tbody>
+                        </table>
+                                                   
+                    
                 </div>
             </div>
         </div>
