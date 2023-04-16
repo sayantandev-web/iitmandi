@@ -7,6 +7,8 @@
     <style type="text/css">
         table td {overflow: scroll;height: 200px;}
         .btn {padding: 3px 3px !important;}
+        .replycomment {display: none;}
+        .reset_pass {display: none;}
     </style>
 </head>
 <body class="skin-blue">
@@ -82,26 +84,26 @@
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                     </a>
                                                     <?php if ($row['update_pass']!= 2) { ?>
-                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereply_<?php echo $i;?>" data-placement="top" data-toggle="tooltip" data-original-title="Email Content" data-id="<?php echo $i?>">
+                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Email Content" onclick = "showhidereply('<?php echo $row['id']; ?>')">
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
                                                     </a>
                                                     <?php } ?>
-                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips showhidereset_pass_<?php echo $i;?>" data-placement="top" data-toggle="tooltip" data-original-title="Reset Password" data-id="<?php echo $i?>">
+                                                    <a href="javascript:void(0);" class="btn btn-info waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Reset Password" onclick = "showhidereset_pass('<?php echo $row['id']; ?>')">
                                                     <i class="fa fa-key" aria-hidden="true"></i>
                                                     </a>
-                                                    <div class ='replycomment' id="replycomment_<?php echo $i?>">
+                                                    <div class ='replycomment' id="replycomment_<?php echo $row['id']; ?>">
                                                     <?php echo $mailContent = '<p>Dear User,<br/>You have successfully registered into IIT Mandi website. Please use the below credential to login into website.<br/>Login Crential:<br/>Email ID: '.$row['email'].'<br/>Password: '.base64_decode($row['password']).'</p>'; ?>
                                                     </div>
-                                                    <div class ='reset_pass' id="reset_pass_<?php echo $i;?>" style="margin-top: 10px;">
+                                                    <div class ='reset_pass' id="reset_pass_<?php echo $row['id']; ?>" style="margin-top: 10px;">
                                                         <form>
                                                             <div class="form-group">
                                                             <label for="exampleInputPassword1">New Password</label>
-                                                            <input type="password" class="form-control" id="newpass_<?php echo $i;?>" placeholder="New Password">
+                                                            <input type="password" class="form-control" id="newpass_<?php echo $row['id']; ?>" placeholder="New Password">
                                                             </div>
-                                                            <button type="button" class="btn btn-primary set_password_<?php echo $i;?>" style="margin-top: 10px;">Submit</button>
-                                                            <input type='hidden' name='u_id' id='u_id_<?php echo $i;?>' value='<?php echo $row['id'];?>'>
+                                                            <button type="button" class="btn btn-primary" onclick = "set_password('<?php echo $row['id']; ?>')" style="margin-top: 10px;">Submit</button>
+                                                            <input type='hidden' name='u_id' id='u_id_<?php echo $row['id']; ?>' value='<?php echo $row['id'];?>'>
                                                         </form>
-                                                        <div id='success_<?php echo $i?>'></div>
+                                                        <div id='success_<?php echo $row['id']; ?>'></div>
                                                     </div>
                                                     </td>
                                                     <?php } ?>
@@ -121,38 +123,29 @@
     </div>
     <?php echo $footer_scripts; ?>
     <script>
-    $(function(){
-        <?php $i=1; 
-        foreach($team as $row) { ?>
-        $('#replycomment_<?php echo $i;?>').hide();
-        $(".showhidereply_<?php echo $i;?>").click(function(){
-            var $toggle = $(this);
-            var id = "#replycomment_<?php echo $i;?>"; 
-            $(id).toggle();
-        });
+        function showhidereply(id){
+            $('#replycomment_'+id).toggle();
+        }
 
-        $('#reset_pass_<?php echo $i;?>').hide();
-        $(".showhidereset_pass_<?php echo $i;?>").click(function() {
-            var id1 = "#reset_pass_<?php echo $i;?>"; 
-            $(id1).toggle();
-        });
-        $('.set_password_<?php echo $i;?>').click(function() {
-            var newpass = $('#newpass_<?php echo $i?>').val();
-            var uid = $('#u_id_<?php echo $i?>').val();
+        function showhidereset_pass(id){
+            $('#reset_pass_'+id).toggle();
+        }
+
+        function set_password(id) {
+            var newpass = $('#newpass_'+id).val();
+            var uid = $('#u_id_'+id).val();
             $.post(
                 "<?php echo base_url('admin/ourteam/reset_password') ?>", {uid: uid, newpass: newpass}, 
                 function(result){
                     if(result) {
-                        $("#success_<?php echo $i?>").html(result);
+                        $("#success_"+id).html(result);
                         setTimeout(function(){
                             window.location.reload();
                         }, 2000);
                     }
                 }
             )
-        })
-        <?php $i++; } ?>
-    });
+        }
     </script>
 </body>
 </html>
