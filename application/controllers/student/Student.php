@@ -10,10 +10,10 @@ class Student extends CI_Controller {
         $this->load->helper('cookie');
         $this->load->library('email');
         date_default_timezone_set('Asia/Calcutta');
-        //session_start();
-        // if($this->session->userdata('uid') == ''){
-        //     redirect(base_url().'student/');
-        // }
+        session_start();
+        if($this->session->userdata('uid') == ''){
+            redirect(base_url().'student/');
+        }
     }
 
     public function index() {

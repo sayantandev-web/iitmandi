@@ -5,7 +5,7 @@ class Homemessage extends CI_Controller{
     public function __construct() {
         @parent::__construct();
         $this->load->library('image_lib');
-        //session_start();
+        session_start();
         if($this->session->userdata('uid') == '') {
             redirect(base_url().'admin/');
         }

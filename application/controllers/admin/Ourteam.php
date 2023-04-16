@@ -6,10 +6,10 @@ class Ourteam extends CI_Controller{
 		@parent::__construct();
 		$this->load->library('pagination');
 		$this->load->library('image_lib');
-		//session_start();
-        // if($this->session->userdata('uid') == ''){
-        //     redirect(base_url().'admin/');
-        // }
+		session_start();
+        if($this->session->userdata('uid') == ''){
+            redirect(base_url().'admin/');
+        }
 	}
 
 	public function index() {

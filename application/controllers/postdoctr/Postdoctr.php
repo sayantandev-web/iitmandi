@@ -11,7 +11,7 @@ class Postdoctr extends CI_Controller {
         $this->load->library('email');
 		$this->load->library('session');
         date_default_timezone_set('Asia/Calcutta');
-        //session_start();
+        session_start();
     }
 
     public function index() {
