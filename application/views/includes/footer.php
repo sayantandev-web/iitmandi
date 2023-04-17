@@ -1596,11 +1596,20 @@
                     } else if (result.status == 2 && result.is_delete == 2) {
                         $("#name_of_pi").html(result.fname);
                     } else {
-                        $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid)+"'>"+result.fname+"</a>");
+                        if(result.position1 == 1){
+                            $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid1)+"'>"+result.fname+"</a>");
+                        } else if (result.position1 == 2){
+                            $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.teamid1)+"'>"+result.fname+"</a>");
+                        }
                     }
                     if (result.hasOwnProperty('copi')) {
                         $(".name_of_copi").show();
-                        $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid)+"'>"+result.copi+"</a>");
+                        if(result.position2 == 1){
+                            $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
+                        } else if (result.position2 == 2){
+                            $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
+                        }
+                        
                     } else {
                         $(".name_of_copi").hide();
                     }
@@ -1635,11 +1644,11 @@
                     } else if (result.status == 2 && result.is_delete == 2) {
                         $("#name_of_pi").html(result.fname);
                     } else {
-                        $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid)+"'>"+result.fname+"</a>");
+                        $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid1)+"'>"+result.fname+"</a>");
                     }
                     if (result.hasOwnProperty('copi')) {
                         $(".name_of_copi").show();
-                        $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid)+"'>"+result.copi+"</a>");
+                        $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
                     } else {
                         $(".name_of_copi").hide();
                     }
