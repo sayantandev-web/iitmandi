@@ -140,29 +140,29 @@
                                         <div class="row">
                                             <div class="col-12 degree_sec">
                                                 <div class="row">
-                                                <div class='col-sm-12'>
-                                                <h2 style="text-align: left;">Professional Experience</h2>
-                                            </div>
-                                            <div class='col-sm-12'>
-                                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Sl No.</th>
-                                                            <th>Position(Company name)</th>
-                                                            <th>Year</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <?php foreach($experience as $row) { ?>
-                                                        <tr>
-                                                            <td><?php echo $i;?></td>
-                                                            <td><?php echo $row['position'];?></td>
-                                                            <td><?php echo $row['year'];?></td>
-                                                        </tr>
-                                                        <?php $i++; } ?>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                    <div class='col-sm-12'>
+                                                        <h2 style="text-align: left;">Professional Experience</h2>
+                                                    </div>
+                                                    <div class='col-sm-12'>
+                                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Sl No.</th>
+                                                                    <th>Position(Company name)</th>
+                                                                    <th>Year</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php foreach($experience as $row) { ?>
+                                                                <tr>
+                                                                    <td><?php echo $i;?></td>
+                                                                    <td><?php echo $row['position'];?></td>
+                                                                    <td><?php echo $row['year'];?></td>
+                                                                </tr>
+                                                                <?php $i++; } ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -361,28 +361,32 @@
                                     <?php if(!empty($award)) { ?>
                                     <div class="container">
                                         <div class="row">
-                                            <div class='col-sm-12'>
-                                                <h2 style="text-align: center;">Awards and Honours</h2>
-                                            </div>
-                                            <div class='col-sm-12'>
-                                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                                    <thead>
-                                                    <?php if(!empty($award)) {
-                                                        $i=1; ?>
-                                                        <?php foreach($award as $row) { ?>
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Year</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><?php echo $row['name'];?></td>
-                                                            <td><?php echo $row['year'];?></td>
-                                                        </tr>
-                                                    <?php $i++; } } ?>
-                                                    </tbody>
-                                                </table>
+                                            <div class="col-12 degree_sec">
+                                                <div class="row">
+                                                    <div class='col-sm-12'>
+                                                        <h2 style="text-align: left;">Awards and Honours</h2>
+                                                    </div>
+                                                    <div class='col-sm-12'>
+                                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                                            <thead>
+                                                            <?php if(!empty($award)) {
+                                                                $i=1; ?>
+                                                                <?php foreach($award as $row) { ?>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Year</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><?php echo $row['name'];?></td>
+                                                                    <td><?php echo $row['year'];?></td>
+                                                                </tr>
+                                                            <?php $i++; } } ?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
