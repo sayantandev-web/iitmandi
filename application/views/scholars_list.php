@@ -63,13 +63,13 @@
                 <div class="col-lg-12 portfolio-info">
                 <h3 style="text-align:center"><?php //echo $title?></h3>
                     <?php
-                    $chk_scholars = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 3 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1");
+                    $chk_scholars = $this->db->query("SELECT DISTINCT iitmandi_designation.id,iitmandi_designation.designation from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 3 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1 ORDER BY fname ASC");
                     if(!empty($chk_scholars->result_array())) {
                     foreach($chk_scholars->result_array() as $row) { ?>
                     <div class="row">
                         <h3 style="text-align:center"><?php echo $row['designation']?></h3>
                         <?php 
-                        $scholars = $this->db->query("SELECT * from iitmandi_team WHERE iitmandi_team.position = 3 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1");
+                        $scholars = $this->db->query("SELECT * from iitmandi_team WHERE iitmandi_team.position = 3 and iitmandi_team.designation = ".$row['id']." and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 ORDER BY fname ASC");
                         if(!empty($scholars->result_array())) {
                         foreach($scholars->result_array() as $row1) { ?>
                         <div class="col-sm-6 col-xl-2 col-lg-3 col-md-6 col-12">
