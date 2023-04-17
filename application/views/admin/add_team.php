@@ -212,9 +212,9 @@
                                        <label for="banner_title1" class="control-label col-lg-3 col-md-3 col-sm-4">Program</label>
                                        <div class="col-lg-9 col-md-9 col-sm-8">
                                           <select class="form-control" id="program" name="program" require>
-                                          <?php if(!empty($ourteam)) { 
-                                             foreach($ourteam as $row) { ?>
-                                             <option value="<?php echo $row['id']?>"><?php echo $row['fname']?></option>
+                                          <?php if(!empty($designation)) { 
+                                             foreach($designation as $row) { ?>
+                                             <option value="<?php echo $row['id']?>" <?php if(@$banner['designation'] == $row['id']){ echo "selected"; } ?>><?php echo $row['designation']?></option>
                                           <?php  } } else { ?>
                                              <option value="">No Data</option>
                                              <?php } ?>

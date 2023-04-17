@@ -142,7 +142,7 @@ class Ourteam extends CI_Controller{
 		} else {
 			$data['page_title'] = "Add User";
 		}
-		$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[1,2],'status'=>1, 'is_delete'=>1));
+		$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".`fname` ASC",array('position'=>[1,2,8],'status'=>1, 'is_delete'=>1));
 		$data['designation']=$this->common_model->get_data_array(DESIGNATION,'','','','','','',DESIGNATION.".id DESC",array('status'=>1, 'is_delete'=>1));
 		$data['project_list']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('is_delete'=>1));
 		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
