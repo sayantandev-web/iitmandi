@@ -63,7 +63,7 @@ class Project extends CI_Controller{
         } else {
             $data['page_title'] = "Add Project";
         }
-        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>[1,2,8],'status'=>1, 'is_delete'=>1));
+        $data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".`fname` ASC",array('position'=>[1,2,8],'status'=>1, 'is_delete'=>1));
         $data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
         $data['header']=$this->load->view('admin/includes/admin_header','',true);
         $data['sidebar']=$this->load->view('admin/includes/admin_sidebar','',true);
