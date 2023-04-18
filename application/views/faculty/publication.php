@@ -123,9 +123,14 @@ echo $header;
                                                     $text .= $lastItem; 
                                                 } else {
                                                     $text .= ', & '.$lastItem; // a, b and c
-                                                }    
+                                                } 
+                                                if($row['issue_number'] != ""){
+                                                    $issue_number = "(".$row['issue_number'].")";
+                                                } else {
+                                                    $issue_number = '';
+                                                }
                                             ?> 
-                                            <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                            <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number'].$issue_number.", ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                             <td>
                                                 <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->

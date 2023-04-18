@@ -96,8 +96,13 @@ opacity: .5;}
                                             } else {
                                                 $text .= ', & '.$lastItem; // a, b and c
                                             }
+                                            if($row['issue_number'] != ""){
+                                                $issue_number = "(".$row['issue_number'].")";
+                                            } else {
+                                                $issue_number = '';
+                                            }
                                         ?> 
-                                        <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number']."(".$row['issue_number']."), ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
+                                        <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number'].$issue_number.", ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                         <td><a href="<?php echo base_url()?>pages/publication/publication_details/<?php echo $row['id']?>" target="_blank" class="btn btn-primary">View More</a></td>
                                     </tr>
                                     <?php $j++; } ?>
