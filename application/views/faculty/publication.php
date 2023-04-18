@@ -114,15 +114,14 @@ echo $header;
                                         <tr>
                                             <td><?php echo $j ?></td>
                                             <?php 
-                                            $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
-                                                //echo "<pre>"; print_r($author->result_array());
+                                                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
                                                 $value = $author->result_array();
-                                                $count = count($author->result_array());
+                                                $count = count($value);
                                                 for($i = 0; $i < $count; $i++) {
                                                     if ($value[$i]['mname'] == '') {
-                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem = array_pop($commonValues);
