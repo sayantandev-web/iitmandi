@@ -123,8 +123,8 @@
         <?php if (!empty($news)) {
           foreach ($news as $row) { ?>
             <div class="card1ed swiper-slide">
-              <img class="mb-2" src="uploads\news\<?php echo $row['file_name']?>" style="width: auto;height: 290px;">
-              <h5 style="line-height: 18px;"><a href="#" style="color: #fff;font-size: 16px;text-decoration: none;"; ><?php echo $row['title']?></a></h5> <!-- title of news -->
+              <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: auto;height: 290px;">
+              <h5 style="line-height: 18px;"><a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo "#";} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
               <hr>
             </div>
         <?php }
@@ -155,7 +155,6 @@
                     <?php echo date("d", strtotime($row['event_date']));?>
                   </div>
                 </div>
-                <!-- <span class="list-inline-item itemedit"><i class="ti-calendar text-color"></i><?php //echo $date = date("D, d M Y", strtotime($row['event_date'])); ?></span> -->
                 <a href="#">
                   <h5 class="card-title itemedit"><?php echo $row['title'] ?></h5>
                 </a>
