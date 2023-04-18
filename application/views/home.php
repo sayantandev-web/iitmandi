@@ -2,6 +2,7 @@
   <style>
     .imgedited {width: 100%;}
     .news-section .card1ed {padding: 0 0 20px 0 !important;}
+    h5:first-child {text-align: justify; font-size: 18px !important;}
   </style>
   <div id="wowslider-container1">
     <div class="ws_images">
@@ -163,9 +164,9 @@
                   <div>
                     <?php 
                     $string = strip_tags($row['description']);
-                    if (strlen($string) > 600) {
+                    if (strlen($string) > 580) {
                       // truncate string
-                      $stringCut = substr($string, 0, 600);
+                      $stringCut = substr($string, 0, 580);
                       $endPoint = strrpos($stringCut, ' ');
 
                       //if the string doesn't contain any space then it will cut without word basis.
