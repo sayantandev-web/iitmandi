@@ -78,16 +78,6 @@
                         </div>
                         <div class='col-sm-12' style="margin-top: 50px;">
                             <table id="datatable" class="table table-striped table-bordered dat_tbl">
-                                <?php if(!empty($research)) { ?>
-                                <thead>
-                                    <tr>
-                                        <th>Sl No.</th>
-                                        <th>Project Title</th>
-                                        <th>Status</th>
-                                        <th>View Details</th>
-                                    </tr>
-                                </thead>
-                                <?php } ?>
                                 <tbody id="showFilterData">
                                     <?php if(!empty($research)) { 
                                         $i=1; ?>

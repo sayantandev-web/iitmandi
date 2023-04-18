@@ -13,91 +13,84 @@ echo $header;
       .bio_img{width:100%; border-radius:50%; }
 </style>
 <main id="main">
-  <!-- ======= Portfolio Details Section ======= -->
-  <section id="portfolio-details" class="portfolio-details" style="margin-top: 70px;">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-12">
-          <div class="portfolio-info">
-            <?php if ($this->session->userdata('user_id') == '') { ?>
-            <div class="col-12">
-              <div class="row">
-                <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
-                  <div class="row p-3">
-                    <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
-                      <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
-                    </div>
-                    <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
-                      <h3 style="text-transform: capitalize; text-align: center;font-size: 36px; color:#022851;"><?php echo $about_me[0]['fname']." ".$about_me[0]['mname']." ".$about_me[0]['lname'];?></h3>
-                      <?php 
-                      $designation = $this->db->query("SELECT * FROM iitmandi_designation WHERE id = ".$about_me[0]['designation']);
-                      foreach ($designation->result_array() as $row1) { ?>
-                          <p style="text-align: center; background: #fff;font-size: 25px;margin: 0; "><?php echo $row1['designation'];?></p>
-                      <?php } ?>
-                      <p style="text-align: center; background: #fff;font-size: 25px;"><?php if ($about_me[0]['specialization'] == '1'){echo 'Environmental Engineering'; } else if($about_me[0]['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($about_me[0]['specialization'] == '3'){echo 'Structural Engineering'; } else if($about_me[0]['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($about_me[0]['specialization'] == '5'){echo 'Transportation Engineering'; } else if($about_me[0]['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
-                      <div class="social_sec">
-                        <a href='mailto:<?php echo $about_me[0]['email']?>' style="margin-right: 8%;"><i class="fa-regular fa-envelope"></i> <?php echo $about_me[0]['email']?></a></br>
-                        <a href='tel:<?php echo $about_me[0]['mobile']?>' style="margin-right: 17%;"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo $about_me[0]['mobile']?></a>
-                      </div>
-                      <div class="basr-social-share social" style="margin-top: 2%;">
-                        <ul class="">
-                          <?php if ($about_me[0]['research_gate'] != '') {?>
-                          <li style="margin-top: 10px;">
-                            <a class="facebook" href="<?php echo $about_me[0]['research_gate'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/research_gate.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                          <?php if($about_me[0]['google_scholar'] != '') {?>
-                          <li>
-                            <a class="twitter" href="<?php echo $about_me[0]['google_scholar'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/google-scholar.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                          <?php if($about_me[0]['linedin_link'] != '') {?>
-                          <li>
-                            <a class="googleplus" href="<?php echo $about_me[0]['linedin_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/linkedin-icon.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                          <?php if($about_me[0]['twitter_link'] != '') {?>
-                          <li>
-                            <a class="linkedin" href="<?php echo $about_me[0]['twitter_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/twitter-icon.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                          <?php if($about_me[0]['github_link'] != '') {?>
-                          <li>
-                            <a class="tumblr" href="<?php echo $about_me[0]['github_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/github-icon.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                          <?php if($about_me[0]['medium_link'] != '') {?>
-                          <li>
-                            <a class="tumblr" href="<?php echo $about_me[0]['medium_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/medium.png" alt="" style="border-radius: 50%;"/></a>
-                          </li>
-                          <?php } ?>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <?php } ?>
-            <div class="row">
-              <div class="col-12 profile_menu" style="text-align:center">
-                <!-- Tab navs -->
-                <a href="<?php echo base_url()?>faculty/dashboard/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Home</button></a>
-                <a href="<?php echo base_url()?>faculty/research/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Research</button></a>
-                <a href="<?php echo base_url()?>faculty/publication/<?php echo $uid?>"><button type="button" class="btn btn-primary active">Publication</button></a>
-                <?php if(!empty($project)) { ?>
-                <a href="<?php echo base_url()?>faculty/projects/<?php echo $uid?>"><button type="button" class="btn btn-primary">Projects</button></a>
-                <?php } ?>
-                <?php if(!empty($lab_member)) { ?>
-                <a href="<?php echo base_url()?>faculty/lab_members/<?php echo $uid?>"><button type="button" class="btn btn-primary">Lab Members</button></a>
-                <?php } ?>
-                <a href="<?php echo base_url()?>faculty/current_opening/<?php echo $uid?>"><button type="button" class="btn btn-primary">Current Openings</button></a>
-                <?php if ($this->session->userdata('user_id') != '') { ?>
-                <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
-                <?php } ?>
-                <!-- Tab navs -->
+    <section id="portfolio-details" class="portfolio-details" style="margin-top: 70px;">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-12">
+                    <div class="portfolio-info">
+                        <?php if ($this->session->userdata('user_id') == '') { ?>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class='col-sm-12' style="margin-top: 20px;margin-bottom: 30px; border:1px solid #ddd;">
+                                    <div class="row p-3">
+                                        <div class="col-sm-3" style="text-align: center;float: left;display: inline-block;">
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $about_me[0]['team_image'];?>" alt=""/>
+                                        </div>
+                                        <div class="col-sm-9" style="text-align: center;float: left;display: inline-block;margin-top: 28px;">
+                                            <h3 style="text-transform: capitalize; text-align: center;font-size: 36px; color:#022851;"><?php echo $about_me[0]['fname']." ".$about_me[0]['mname']." ".$about_me[0]['lname'];?></h3>
+                                            <?php 
+                                            $designation = $this->db->query("SELECT * FROM iitmandi_designation WHERE id = ".$about_me[0]['designation']);
+                                            foreach ($designation->result_array() as $row1) { ?>
+                                                <p style="text-align: center; background: #fff;font-size: 25px;margin: 0; "><?php echo $row1['designation'];?></p>
+                                            <?php } ?>
+                                            <p style="text-align: center; background: #fff;font-size: 25px;"><?php if ($about_me[0]['specialization'] == '1'){echo 'Environmental Engineering'; } else if($about_me[0]['specialization'] == '2'){echo 'Geotechnical Engineering'; } else if($about_me[0]['specialization'] == '3'){echo 'Structural Engineering'; } else if($about_me[0]['specialization'] == '4'){echo 'Water Resources Engineering'; } else if($about_me[0]['specialization'] == '5'){echo 'Transportation Engineering'; } else if($about_me[0]['specialization'] == '6'){echo 'Remote Sensing and GIS'; } else {echo '';} ?></p>
+                                            <div class="social_sec">
+                                                <a href='mailto:<?php echo $about_me[0]['email']?>' style="margin-right: 8%;"><i class="fa-regular fa-envelope"></i> <?php echo $about_me[0]['email']?></a></br>
+                                                <a href='tel:<?php echo $about_me[0]['mobile']?>' style="margin-right: 17%;"><i class="fa fa-phone" aria-hidden="true"></i> <?php echo $about_me[0]['mobile']?></a>
+                                            </div>
+                                            <div class="basr-social-share social" style="margin-top: 2%;">
+                                                <ul class="">
+                                                    <?php if ($about_me[0]['research_gate'] != '') {?>
+                                                    <li style="margin-top: 10px;">
+                                                        <a class="facebook" href="<?php echo $about_me[0]['research_gate'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/research_gate.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } if($about_me[0]['google_scholar'] != '') {?>
+                                                    <li>
+                                                        <a class="twitter" href="<?php echo $about_me[0]['google_scholar'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/google-scholar.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } if($about_me[0]['linedin_link'] != '') {?>
+                                                    <li>
+                                                        <a class="googleplus" href="<?php echo $about_me[0]['linedin_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/linkedin-icon.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } if($about_me[0]['twitter_link'] != '') {?>
+                                                    <li>
+                                                        <a class="linkedin" href="<?php echo $about_me[0]['twitter_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/twitter-icon.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } if($about_me[0]['github_link'] != '') {?>
+                                                    <li>
+                                                        <a class="tumblr" href="<?php echo $about_me[0]['github_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/github-icon.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } if($about_me[0]['medium_link'] != '') {?>
+                                                    <li>
+                                                        <a class="tumblr" href="<?php echo $about_me[0]['medium_link'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/medium.png" alt="" style="border-radius: 50%;"/></a>
+                                                    </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
+                        </div>
+                        <?php } ?>
+                        <div class="row">
+                            <div class="col-12 profile_menu" style="text-align:center">
+                                <!-- Tab navs -->
+                                <a href="<?php echo base_url()?>faculty/dashboard/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Home</button></a>
+                                <a href="<?php echo base_url()?>faculty/research/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Research</button></a>
+                                <a href="<?php echo base_url()?>faculty/publication/<?php echo $uid?>"><button type="button" class="btn btn-primary active">Publication</button></a>
+                                <?php if(!empty($project)) { ?>
+                                <a href="<?php echo base_url()?>faculty/projects/<?php echo $uid?>"><button type="button" class="btn btn-primary">Projects</button></a>
+                                <?php } ?>
+                                <?php if(!empty($lab_member)) { ?>
+                                <a href="<?php echo base_url()?>faculty/lab_members/<?php echo $uid?>"><button type="button" class="btn btn-primary">Lab Members</button></a>
+                                <?php } ?>
+                                <a href="<?php echo base_url()?>faculty/current_opening/<?php echo $uid?>"><button type="button" class="btn btn-primary">Current Openings</button></a>
+                                <?php if ($this->session->userdata('user_id') != '') { ?>
+                                <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
+                                <?php } ?>
+                                <!-- Tab navs -->
+                            </div>
                             <!-- Research Publication Start -->
                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                             <div class="col-sm-12" style="text-align: right; margin-top: 15px;">
@@ -121,7 +114,7 @@ echo $header;
                                                     if ($value[$i]['mname'] == '') {
                                                         $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).". ".substr($value[$i]['mname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem = array_pop($commonValues);
