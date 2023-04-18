@@ -96,40 +96,32 @@ echo $header;
                 <a href="<?php echo base_url()?>faculty/logout"><button type="button" class="btn btn-primary">Logout</button></a>
                 <?php } ?>
                 <!-- Tab navs -->
-                            </div>
-                                
-                            <!-- Research Start -->
-                            <section id="features" class="features section-bg1">
-                                <div class="container">
-                                    <!-- <div class="section-title">
-                                        <h2 data-aos="fade-in" style="color: #000 !important;">About Research</h2>
-                                    </div> -->
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class='col-sm-12'>
-                                                <div class="col-sm-12" style="float: left;display: inline-block;">
-                                                    <div class='bio_text1'><?php echo $about_me[0]['research_interest'];?></div>
-                                                </div>
-                                                <?php if ($this->session->userdata('user_id') != '') { ?>
-                                                <div class="col-sm-12" style="text-align: right;">
-                                                    <button type="button" class="btn btn-primary research_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Update Research</button>
-                                                </div>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="section-title">
-                                        <h2 data-aos="fade-in">Research Highlights</h2>
-                                    </div> -->
-                                </div>
-                            </section>
-                            <!-- Research End -->
+              </div>
+              <!-- Research Start -->
+              <section id="features" class="features section-bg1">
+                <div class="container">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class='col-sm-12'>
+                        <div class="col-sm-12" style="float: left;display: inline-block;">
+                          <div class='bio_text1'><?php echo $about_me[0]['research_interest'];?></div>
                         </div>
+                        <?php if ($this->session->userdata('user_id') != '') { ?>
+                        <div class="col-sm-12" style="text-align: right;">
+                          <button type="button" class="btn btn-primary research_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Update Research</button>
+                        </div>
+                        <?php } ?>
+                      </div>
                     </div>
+                  </div>
                 </div>
+              </section>
             </div>
+          </div>
         </div>
-    </section><!-- End Portfolio Details Section -->
+      </div>
+    </div>
+  </section><!-- End Portfolio Details Section -->
 </main><!-- End #main -->
 <div class="modal fade bd-example-modal-lg1 research_data" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="background: #000000b0;">
     <div class="modal-dialog modal-lg" style="margin-top: 5%; width: 100%;">

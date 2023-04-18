@@ -1,6 +1,7 @@
   <?php echo $header; ?>
   <style>
     .imgedited {width: 100%;}
+    .news-section .card1ed {padding: 0 0 20px 0 !important;}
   </style>
   <div id="wowslider-container1">
     <div class="ws_images">
@@ -123,7 +124,7 @@
         <?php if (!empty($news)) {
           foreach ($news as $row) { ?>
             <div class="card1ed swiper-slide">
-              <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: auto;height: 290px;">
+              <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: auto;height: 290px;border-radius: 20px 20px 0 0;">
               <h5 style="line-height: 18px;"><a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo "#";} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
               <hr>
             </div>
