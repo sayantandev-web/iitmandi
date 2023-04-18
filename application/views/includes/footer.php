@@ -1672,7 +1672,12 @@
         filebrowserUploadMethod: "form",
         removePlugins: 'easyimage',
     });
-    CKEDITOR.replace('research_interest');
+    //CKEDITOR.replace('research_interest');
+    CKEDITOR.replace('research_interest', {
+        filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
+        filebrowserUploadMethod: "form",
+        removePlugins: 'easyimage',
+    });
     //CKEDITOR.replace('short_summery');
     CKEDITOR.replace('short_summery', {
         filebrowserUploadUrl: '<?php echo base_url()?>home/ck_upload',
