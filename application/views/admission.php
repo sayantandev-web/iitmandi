@@ -39,10 +39,12 @@
     .box_sec:hover .res_txt1{opacity: 0;}
     .container {max-width: 1600px;}
     .admission_sec{padding-top: 100px;}
-    .admission_sec .field-content h4{margin:0px; font-size: 30px; text-align: center;}
+    .admission_sec .field-content h4{margin:0px; font-size: 30px; text-align: center; color: #fff; padding-top: 41px;}
+    .admission_sec .field-content p{color: #fff;}
     .admission_sec .views-field-field-eventdate{background:none; width: 100%; text-align: center;}
     .admission_sec .views-field-field-eventdate-1{background:none !important; width: 100%;}
     .admission_sec .btn { background: #ffdf80; color: #fff;border-radius: 5px; width: 100%;padding: 8px 0; color: #022851;}
+    .eventcard{background: #022851;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -50,10 +52,8 @@
 </style>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/style.css">
 <main id="main">
-    <section id="features" class="features section-bg admission_sec">
-      <div class="section-title">
-        <h2>Events</h2>
-      </div>
+    <section id="features" class="features admission_sec">
+      
       <div class="eventeditmain">
        
             <div class="eventcard">

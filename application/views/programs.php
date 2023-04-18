@@ -38,6 +38,7 @@
     .res_txt1{opacity: 1;}
     .box_sec:hover .res_txt1{opacity: 0;}
     .container {max-width: 1440px !important;}
+    .pad_btm{padding-bottom: 0px !important;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -48,29 +49,129 @@
     <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center">Courses</h3>
+                <div class="col-lg-12 portfolio-info pad_btm">
+                    <h3 style="text-align:center">Programmes</h3>
+                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Undergraduate</p>
 
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Sl No.</th>
-                                    <th>Course Id</th>
-                                    <th>Course Name</th>
+                                    <th>Degree</th>
+                                    <th>Specialization</th>
+                                    <th>Duration (years)</th>
+                                    <th>Credit</th>
                                    
                                 </tr>
                             </thead>
                             <tbody>
                                   <tr>
-                                    <td>1</td>
-                                    <td>M-Tech</td>
-                                    <td>IMPS College of Engineering and Technology</td>
-                                    
+                                    <td>B.Tech.</td>
+                                    <td>Civil Engineering</td>
+                                    <td>4</td>
+                                    <td>**</td>
                                 </tr>
-                                                                                            </tbody>
+                            </tbody>
                         </table>
-                                                   
+                    <p>For more details <a href="">Click here</a></p>
+                    <p>Further, students can obtain a minor in various other disciplines such as computer science, data science, economics, etc.
+</p>
+                </div>
+
+                <div class="col-lg-12 portfolio-info pad_btm">
                     
+                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Postgraduate</p>
+
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Degree</th>
+                                    <th>Specialization</th>
+                                    <th>Duration (years)</th>
+                                    <th>Credit</th>
+                                    <th></th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  <tr>
+                                    <td>M.Tech.</td>
+                                    <td>Structural Engineering</td>
+                                    <td>2</td>
+                                    <td>**</td>
+                                    <td><a href="">Link</a></td>
+                                </tr>
+                                 <tr>
+                                    <td>M.Tech (R)</td>
+                                    <td>Environmental Engineering</td>
+                                    <td>*</td>
+                                    <td>**</td>
+                                    <td><a href="">Link</a></td>
+                                </tr>
+                                 <tr>
+                                    <td>M.Tech (R)</td>
+                                    <td>Geotechnical Engineering</td>
+                                    <td>*</td>
+                                    <td>**</td>
+                                    <td><a href="">Link</a></td>
+                                </tr>
+                                <tr>
+                                    <td>M.Tech (R)</td>
+                                    <td>Structural Engineering</td>
+                                    <td>*</td>
+                                    <td>**</td>
+                                    <td><a href="">Link</a></td>
+                                </tr>
+                                 <tr>
+                                    <td>M.Tech (R)</td>
+                                    <td>Water Resources Engineering</td>
+                                    <td>*</td>
+                                    <td>**</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>For more details<a href=""> Click here</a></p>
+                </div>
+
+                <div class="col-lg-12 portfolio-info">
+                    
+                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Ph.D.</p>
+
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Degree</th>
+                                    <th>Research Area</th>
+                                    <th>Credit</th>
+                                    
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                  <tr>
+                                    <td>Ph.D. </td>
+                                    <td>Environmental Engineering</td>
+                                    <td>**</td>                                    
+                                </tr>
+                                 <tr>
+                                    <td>Ph.D. </td>
+                                    <td>Geotechnical Engineering</td>
+                                    <td>**</td>                                    
+                                </tr>
+                                 <tr>
+                                    <td>Ph.D. </td>
+                                    <td>Structural Engineering</td>
+                                    <td>**</td>                                    
+                                </tr>
+                                 <tr>
+                                    <td>Ph.D. </td>
+                                    <td>Water Resources Engineering</td>
+                                    <td>**</td>                                    
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                        <p>For more details<a href=""> Click here</a></p>
                 </div>
             </div>
         </div>
