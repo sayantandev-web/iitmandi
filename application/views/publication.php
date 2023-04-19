@@ -128,7 +128,7 @@ opacity: .5;}
                                                 if ($value1[$i]['mname'] == '') {
                                                     $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
                                                 } else {
-                                                    $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).", ".substr($value1[$i]['mname'], 0, 1).".";
+                                                    $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).". ".substr($value1[$i]['mname'], 0, 1).".";
                                                 }
                                             }
                                             $lastItem1 = array_pop($commonValues1);
@@ -165,7 +165,7 @@ opacity: .5;}
                                                 if ($value2[$i]['mname'] == '') {
                                                     $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
                                                 } else {
-                                                    $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).", ".substr($value2[$i]['mname'], 0, 1).".";
+                                                    $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).". ".substr($value2[$i]['mname'], 0, 1).".";
                                                 }
                                             }
                                             $lastItem2 = array_pop($commonValues2);
@@ -202,7 +202,7 @@ opacity: .5;}
                                                 if ($value3[$i]['mname'] == '') {
                                                     $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
                                                 } else {
-                                                    $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).", ".substr($value3[$i]['mname'], 0, 1).".";
+                                                    $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).". ".substr($value3[$i]['mname'], 0, 1).".";
                                                 }
                                             }
                                             $lastItem3 = array_pop($commonValues3);
@@ -239,7 +239,7 @@ opacity: .5;}
                                                 if ($value4[$i]['mname'] == '') {
                                                     $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
                                                 } else {
-                                                    $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).", ".substr($value4[$i]['mname'], 0, 1).".";
+                                                    $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).". ".substr($value4[$i]['mname'], 0, 1).".";
                                                 }
                                             }
                                             $lastItem4 = array_pop($commonValues4);
