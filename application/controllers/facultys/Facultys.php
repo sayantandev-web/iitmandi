@@ -11,7 +11,9 @@ class Facultys extends CI_Controller {
         $this->load->library('email');
 		$this->load->library('session');
         date_default_timezone_set('Asia/Calcutta');
-        session_start();
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
     }
 
     public function index() {
