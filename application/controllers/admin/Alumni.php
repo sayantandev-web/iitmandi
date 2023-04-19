@@ -9,7 +9,9 @@ class Alumni extends CI_Controller{
         $this->load->model('alumni_model');
         $this->load->library('form_validation');
         $this->load->helper('file');
-		session_start();
+		if(!isset($_SESSION)) { 
+            session_start(); 
+        }
 		if(!$this->session->userdata('uid')) {
             redirect(base_url().'admin/');
         }
