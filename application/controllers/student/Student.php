@@ -225,7 +225,7 @@ class Student extends CI_Controller {
 	}
 
 	public function save_publication() {
-		$author_name = implode(",", $this->input->post('author_name'));
+		$author_name = substr($this->input->post('author_name'), 0, -1);
 		$record_id = $this->input->post('pubid');
 		if($record_id != '') {
 			$insArr=array();

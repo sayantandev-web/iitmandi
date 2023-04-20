@@ -72,8 +72,15 @@
 </footer><!-- End Footer -->
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/js/chosen.min.css">
+
+<!-- <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script> -->
+<!-- <script src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script> -->
+<!-- <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/> -->
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/aos/aos.js"></script>
@@ -128,17 +135,18 @@
         },
     });
     $(document).ready(function(){
-        $(".chosen-select").chosen({
-            no_results_text: "Oops, nothing found!"
-        })
-        // $('.hero-slider').slick({
-        //     autoplay: false,
-        //     autoplaySpeed: 3000,
-        //     arrows : false,
-        // });
-        //var imageUrl = $(this).data('background');
-        //console.log(imageUrl);
-        //$('.slick-current').css('background-image', 'url(' + imageUrl + ')');
+        // $(".chosen-select").chosen({
+        //     no_results_text: "Oops, nothing found!"
+        // })
+        $('select.chosen').chosen();
+        var MY_SELECT = $('select[multiple].chosen').get(0);
+        $('.chosen-choices').hover(function() {
+            var selection = ChosenOrder.getSelectionOrder(MY_SELECT);
+            $('#s1-order-list').empty();
+            $(selection).each(function(i) {
+                $('#s1-order-list').append(selection[i] + ",");
+            });
+        });
         $('.number').each(function () {
             $(this).prop('Counter',0).animate({
                 Counter: $(this).text()
@@ -410,7 +418,7 @@
             var uid = $("#uid").val();
             var attachment = $('#attachment').val();
             var publication_type = $('#publication_type').val();
-            var author_name = $('#author_name').val();
+            var author_name = $('#s1-order-list').text();
             var paper_title = $('#paper_title').val();
             var chapter_title = $('#chapter_title').val();
             var patent_title = $('#patent_title').val();
@@ -435,7 +443,6 @@
                 type: "POST",
                 data:  {uid: uid, attachment: attachment, publication_type: publication_type, author_name: author_name, paper_title: paper_title, chapter_title: chapter_title, patent_title: patent_title, journal_name: journal_name, conference_name: conference_name, book_name: book_name, publish_date: publish_date, patient_number: patient_number, publisher: publisher, location: location, external_Link: external_Link, editors: editors, page_number: page_number, volume_number: volume_number, issue_number: issue_number, short_summery: short_summery, key_points: key_points, highlight: highlight, status: status},
                 beforeSend : function() {
-                    //$("#preview").fadeOut();
                     $("#err").fadeOut();
                 },
                 success: function(data) {

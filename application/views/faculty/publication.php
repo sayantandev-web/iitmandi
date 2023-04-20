@@ -357,7 +357,8 @@ echo $header;
                                     <div class="form-group col-sm-4 cstm_details author_name">
                                         <label for="Event Name" class="control-label">Authors Name</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
-                                            <select data-placeholder="Author List" multiple class="chosen-select"  id="author_name" name="author_name[]">
+                                            <!-- <select data-placeholder="Author List" multiple class="chosen-select" id="author_name" name="author_name[]"> -->
+                                            <select class="form-control chosen" multiple id="author_name" name="author_name">
                                                 <option value=""></option>
                                                 <?php if(!empty($ourteam)) { 
                                                 foreach($ourteam as $row) { ?>
@@ -367,6 +368,7 @@ echo $header;
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <input type="hidden" class="form-control required" id="s1-order-list" name="s1-order-list" value="">
                                         <div><a href="" class="pageLoad">Add External User</a></div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details paper_title">
