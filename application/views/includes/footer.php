@@ -135,13 +135,11 @@
         },
     });
     $(document).ready(function(){
-        // $(".chosen-select").chosen({
-        //     no_results_text: "Oops, nothing found!"
-        // })
         $('select.chosen').chosen();
         var MY_SELECT = $('select[multiple].chosen').get(0);
-        $('.chosen-choices').hover(function() {
+        $('.publication_save').hover(function() {
             var selection = ChosenOrder.getSelectionOrder(MY_SELECT);
+            //console.log(selection);
             $('#s1-order-list').empty();
             $(selection).each(function(i) {
                 $('#s1-order-list').append(selection[i] + ",");
