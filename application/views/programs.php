@@ -39,6 +39,11 @@
     .box_sec:hover .res_txt1{opacity: 0;}
     .container {max-width: 1440px !important;}
     .pad_btm{padding-bottom: 0px !important;}
+    .accordion-button:focus{box-shadow:none;}
+    .prog_list ul{margin:0px; padding-left: 32px;}
+    .prog_list ul li {padding: 5px 0 0; list-style-type: disc;color:#5c5c77; }
+    .accordion-header button{border:1px solid #dee2e6; border-radius:5px;}
+    .accordion-item{border-radius:5px;}
     @media screen and (max-width: 600px) {
       .box_sec{margin-top:10px;}  
 
@@ -49,130 +54,110 @@
     <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 portfolio-info pad_btm">
-                    <h3 style="text-align:center">Programmes</h3>
-                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Undergraduate</p>
+               
 
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Degree</th>
-                                    <th>Specialization</th>
-                                    <th>Duration (years)</th>
-                                    <th>Credit</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                  <tr>
-                                    <td>B.Tech.</td>
-                                    <td>Civil Engineering</td>
-                                    <td>4</td>
-                                    <td>**</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    <p>For more details <a href="">Click here</a></p>
-                    <p>Further, students can obtain a minor in various other disciplines such as computer science, data science, economics, etc.
-</p>
+
+                <div class="accordion mt-5" id="accordionExample">
+  <div class="accordion-item mb-3">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        UNDERGRADUATE
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row">
+            <div class="col-sm-6">
+                 <p>
+                The School of Civil and Environmental Engineering offers a four-year B.Tech. program in Civil Engineering.
+                The program is designed to provide students with a solid foundation in the fundamentals of Civil Engineering.
+                Course work include a wide variety of courses in the areas of Structural Engineering, Geotechnical Engineering, Water Resources Engineering, Transportation Engineering, Environmental Engineering, and Construction Engineering and Management.
+              
+                For more information on the program <a href="https://iitmandi.ac.in/academics/files/B.Tech%20Ordinance%20and%20Regulations.pdf">click here. </a>
+                
+            </p>
+        <p>For more details Click here</p>
+
+        <p>Further, students can obtain a minor in various other disciplines such as computer science, data science, economics, etc.</p>
+            </div>
+            <div class="col-sm-6">
+                <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mb-3">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        POSTGRADUATE
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       <div class="row">
+            <div class="col-sm-6 prog_list">
+                 <p style="margin-bottom: 15px !important;">
+               M.Tech.
+The School of Civil and Environmental Engineering offers a two-year M.Tech. program in Civil Engineering with specialization in Structural Engineering. The program is designed to provide students with a solid foundation in the fundamentals of Structural Engineering. The courses includes Design, Analysis and Construction of Structures, Earthquake Engineering, Structural Dynamics, Structural Mechanics, Structural Optimization, Structural Reliability, and Finite Element Methods. For more information on the program click here.</p>
+              
+                
+                <p>M.Tech. (By Research)
+The School of Civil and Environmental Engineering offers a two-year M.Tech. (By Research) program in following desciplines:
+<ul>
+    <li>Geotechnical Engineering</li>
+    <li>Water Resources Engineering</li>
+    <li>Environmental Engineering</li>
+    <li>Structural Engineering</li>
+    <li>For more information on the program click here.  </li>
+</ul>
+               
+            </p>
+        <p>For more details Click here</p>
+
+       
+            </div>
+            <div class="col-sm-6">
+                <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+            </div>
+        </div>
+    </div>
+  </div>
                 </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        PH.D.
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row">
+            <div class="col-sm-6 prog_list">
+                 <p style="margin-bottom: 15px !important;">
+              The School of Civil and Environmental Engineering also offers the prestigious doctoral program. Students enrolled in this program earn a degree of Doctor of Philosophy (PhD). Students are expected to make an original research contribution of significance in their chosen area of research. They also must finish a minimum coursework requirement. The courses are chosen suitably by students to aid in their respective research work. Towards the end, students must submit and defend a thesis. The broard research areas are as follows:</p>
+              
+<ul>
+    <li>Geotechnical Engineering</li>
+    <li>Remote Sensing and GIS</li>
+    <li>Environmental Engineering</li>
+    <li>Structural Engineering</li>
+    <li>Climate Change and Water Resources Engineering </li>
+</ul>
+               
+            </p>
+        <p>For more information on the program click here.</p>
 
-                <div class="col-lg-12 portfolio-info pad_btm">
-                    
-                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Postgraduate</p>
-
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Degree</th>
-                                    <th>Specialization</th>
-                                    <th>Duration (years)</th>
-                                    <th>Credit</th>
-                                    <th></th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                  <tr>
-                                    <td>M.Tech.</td>
-                                    <td>Structural Engineering</td>
-                                    <td>2</td>
-                                    <td>**</td>
-                                    <td><a href="">Link</a></td>
-                                </tr>
-                                 <tr>
-                                    <td>M.Tech (R)</td>
-                                    <td>Environmental Engineering</td>
-                                    <td>*</td>
-                                    <td>**</td>
-                                    <td><a href="">Link</a></td>
-                                </tr>
-                                 <tr>
-                                    <td>M.Tech (R)</td>
-                                    <td>Geotechnical Engineering</td>
-                                    <td>*</td>
-                                    <td>**</td>
-                                    <td><a href="">Link</a></td>
-                                </tr>
-                                <tr>
-                                    <td>M.Tech (R)</td>
-                                    <td>Structural Engineering</td>
-                                    <td>*</td>
-                                    <td>**</td>
-                                    <td><a href="">Link</a></td>
-                                </tr>
-                                 <tr>
-                                    <td>M.Tech (R)</td>
-                                    <td>Water Resources Engineering</td>
-                                    <td>*</td>
-                                    <td>**</td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p>For more details<a href=""> Click here</a></p>
-                </div>
-
-                <div class="col-lg-12 portfolio-info">
-                    
-                    <p style="font-size: 18px; font-weight:500; text-transform: uppercase;">Ph.D.</p>
-
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Degree</th>
-                                    <th>Research Area</th>
-                                    <th>Credit</th>
-                                    
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                  <tr>
-                                    <td>Ph.D. </td>
-                                    <td>Environmental Engineering</td>
-                                    <td>**</td>                                    
-                                </tr>
-                                 <tr>
-                                    <td>Ph.D. </td>
-                                    <td>Geotechnical Engineering</td>
-                                    <td>**</td>                                    
-                                </tr>
-                                 <tr>
-                                    <td>Ph.D. </td>
-                                    <td>Structural Engineering</td>
-                                    <td>**</td>                                    
-                                </tr>
-                                 <tr>
-                                    <td>Ph.D. </td>
-                                    <td>Water Resources Engineering</td>
-                                    <td>**</td>                                    
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                        <p>For more details<a href=""> Click here</a></p>
-                </div>
+       
+            </div>
+            <div class="col-sm-6">
+                <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
             </div>
         </div>
     </section>
