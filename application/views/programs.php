@@ -61,7 +61,7 @@
                     </p>
                   </div>
                   <div class="col-sm-6">
-                    <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+                    <img src="<?php echo base_url()?>documents/1680781829326843.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -90,7 +90,7 @@
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+                    <img src="<?php echo base_url()?>documents/1680781829326844.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                 <p>For more information on the program <a href="https://iitmandi.ac.in/academics/files/Ordinances_phd_mtech.pdf">Click Here. </a></p>
               </div>
               <div class="col-sm-6">
-                <img src="http://localhost/mandi/iitmandi/uploads/homeabout/1680781829326843.jpg" alt="">
+                <img src="<?php echo base_url()?>documents/1680781829326843.jpg" alt="">
               </div>
             </div>
           </div>
