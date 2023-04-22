@@ -57,11 +57,11 @@
               <div class="accordion-body">
                 <div class="row">
                   <div class="col-sm-6">
-                    <p>The School of Civil and Environmental Engineering offers a four-year B.Tech. program in Civil Engineering. The program is designed to provide students with a solid foundation in the fundamentals of Civil Engineering. Course work include a wide variety of courses in the areas of Structural Engineering, Geotechnical Engineering, Water Resources Engineering, Transportation Engineering, Environmental Engineering, and Construction Engineering and Management. For more information on the program <a href="<?php echo base_url()?>documents/BTech_Ordinance_and_Regulations.pdf">Click Here. </a>
+                    <p>The School of Civil and Environmental Engineering offers a four-year B.Tech. program in Civil Engineering. The program is designed to provide students with a solid foundation in the fundamentals of Civil Engineering. Course work include a wide variety of courses in the areas of Structural Engineering, Geotechnical Engineering, Water Resources Engineering, Transportation Engineering, Environmental Engineering, and Construction Engineering and Management. For more information on the program <a href="<?php echo base_url()?>uploads/documents/BTech_Ordinance_and_Regulations.pdf">Click Here. </a>
                     </p>
                   </div>
                   <div class="col-sm-6">
-                    <img src="<?php echo base_url()?>documents/1680781829326843.jpg" alt="">
+                    <img src="<?php echo base_url()?>uploads/documents/1680781829326843.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@
                   <div class="col-sm-6 prog_list">
                     <div style="margin-bottom: 15px !important;">
                       <h6>M.Tech. (Structural Engineering)</h6>
-                      <p>The School of Civil and Environmental Engineering offers a two-year M.Tech. program in Civil Engineering with specialization in Structural Engineering. The program is designed to provide students with a solid foundation in the fundamentals of Structural Engineering. The courses includes Design, Analysis and Construction of Structures, Earthquake Engineering, Structural Dynamics, Structural Mechanics, Structural Optimization, Structural Reliability, and Finite Element Methods. For more information on the program <a href="<?php echo base_url()?>documents/Mtech_Str_Engg.pdf">Click Here. </a></p>
+                      <p>The School of Civil and Environmental Engineering offers a two-year M.Tech. program in Civil Engineering with specialization in Structural Engineering. The program is designed to provide students with a solid foundation in the fundamentals of Structural Engineering. The courses includes Design, Analysis and Construction of Structures, Earthquake Engineering, Structural Dynamics, Structural Mechanics, Structural Optimization, Structural Reliability, and Finite Element Methods. For more information on the program <a href="<?php echo base_url()?>uploads/documents/Mtech_Str_Engg.pdf">Click Here. </a></p>
                       <h6>M.Tech (By Research)</h6>
                       <p>The School of Civil and Environmental Engineering offers a two-year M.Tech (By Research) program in following desciplines:</p>
                       <ul>
@@ -86,11 +86,11 @@
                         <li>Environmental Engineering</li>
                         <li>Structural Engineering</li>
                       </ul>
-                      <p>For more information on the program <a href="<?php echo base_url()?>documents/Ordinances_phd_mtech.pdf">Click Here. </a></p>
+                      <p>For more information on the program <a href="<?php echo base_url()?>uploads/documents/Ordinances_phd_mtech.pdf">Click Here. </a></p>
                     </div>
                   </div>
                   <div class="col-sm-6">
-                    <img src="<?php echo base_url()?>documents/1680781829326844.jpg" alt="">
+                    <img src="<?php echo base_url()?>uploads/documents/1680781829326844.jpg" alt="">
                   </div>
                 </div>
               </div>
@@ -116,7 +116,7 @@
                 <p>For more information on the program <a href="https://iitmandi.ac.in/academics/files/Ordinances_phd_mtech.pdf">Click Here. </a></p>
               </div>
               <div class="col-sm-6">
-                <img src="<?php echo base_url()?>documents/1680781829326843.jpg" alt="">
+                <img src="<?php echo base_url()?>uploads/documents/1680781829326843.jpg" alt="">
               </div>
             </div>
           </div>
