@@ -57,15 +57,17 @@
                                                     <td><?php echo $row['email']; ?></td>
                                                     <td><?php if ($row['position'] == '1'){echo 'Faculty'; } else if($row['position'] == '2'){echo 'Postdocs'; } else if($row['position'] == '3'){echo 'Scholars'; } else if($row['position'] == '4'){echo 'Project Staff'; } else if($row['position'] == '5'){echo 'Students'; } else if($row['position'] == '6'){echo 'Technical Staff'; } else if($row['position'] == '7'){echo 'Supporting Staff'; } else if($row['position'] == '8'){echo 'External'; } else {echo '';} ?>
                                                     </td>
+                                                    <td>
                                                     <?php 
                                                     if ($row['designation'] != '' OR $row['designation'] != null) {
                                                         $designation = $this->db->query("SELECT * from iitmandi_designation where id =".$row['designation']); 
-                                                        foreach($designation->result_array() as $row1) { ?>
-                                                        <td><?php echo $row1['designation']; ?></td>
-                                                        <?php } 
-                                                    } else { ?>
-                                                        <td><?php echo "None"; ?></td>
-                                                    <?php } ?>
+                                                        foreach($designation->result_array() as $row1) {
+                                                            echo $row1['designation'];
+                                                        } 
+                                                    } else { 
+                                                        echo "None";
+                                                    } ?>
+                                                    </td>
                                                     <?php if ($uid == '-1') { ?>
                                                     <td>
                                                     <a href="admin/ourteam/add_team/<?php echo $row['id']; ?>" class="btn btn-info waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
