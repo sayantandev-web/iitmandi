@@ -38,16 +38,16 @@ opacity: .5;}
                         <div class="row choose_sec filter_data">
                             <div class="col-sm-1"></div>
                             <div class="col-sm-4">
+                                <?php
+                                //$currently_selected = date('Y', strtotime('+10 years')); 
+                                $currently_selected = @$project['starting_year'];
+                                $earliest_year = 2000; 
+                                $latest_year = date('Y', strtotime('+20 years')); 
+                                ?>
                                 <select class="form-control" id="filterByYear" name="filterByYear">
                                     <option value="">Select Year</option>
-                                    <?php 
-                                    $dropdownyr = $this->db->query("SELECT DISTINCT YEAR(publish_date) AS year FROM `iitmandi_publication`");
-                                    $yearvalue = $dropdownyr->result_array();
-                                    if(!empty($yearvalue)) { 
-                                    foreach($yearvalue as $row) { ?>
-                                    <option value="<?php echo $row['year']?>"><?php echo $row['year']?></option>
-                                    <?php  } } else { ?>
-                                    <option value="">No Data</option>
+                                    <?php foreach ( range( $latest_year, $earliest_year ) as $i ) { ?>
+                                        <option value="<?php echo $i?>"><?php echo $i ?></option>
                                     <?php } ?>
                                 </select>
                             </div>

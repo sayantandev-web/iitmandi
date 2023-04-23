@@ -308,27 +308,31 @@ class Home extends CI_Controller {
 
         if(!empty($get_data->result_array())) {
             $html='';
-            $j=1;
             foreach($get_data->result_array() as $row){
+                $j=1;
                 $html .='<tbody><tr><td>'.$j.')</td>';
-                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row["author_name"].")");
-                    //echo "<pre>"; print_r($author->result_array());
-                    $value = $author->result_array();
-                    $count = count($author->result_array());
-                    for($i = 0; $i < $count; $i++) {
-                        if ($value[$i]['mname'] == '') {
-                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
-                        } else {
-                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
-                        }
-                    }
-                    $lastItem = array_pop($commonValues);
-                    $text = implode(', ', $commonValues); // a, b 
-                    if ($text == ''){
-                        $text .= $lastItem; 
+                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
+                $value = $author->result_array();
+                $count = count($value);
+                for($i = 0; $i < $count; $i++) {
+                    if ($value[$i]['mname'] == '') {
+                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                     } else {
-                        $text .= ', & '.$lastItem; // a, b and c
-                    }    
+                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).". ".substr($value[$i]['mname'], 0, 1).".";
+                    }
+                }
+                $lastItem = array_pop($commonValues);
+                $text = implode(', ', $commonValues); // a, b 
+                if ($text == ''){
+                    $text .= $lastItem; 
+                } else {
+                    $text .= ', & '.$lastItem; // a, b and c
+                }
+                if($row['issue_number'] != ""){
+                    $issue_number = "(".$row['issue_number'].")";
+                } else {
+                    $issue_number = '';
+                }    
                 $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
@@ -343,27 +347,31 @@ class Home extends CI_Controller {
         $get_data = $this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$athrid,') AND `publication_type` = '".$pub_type."' AND `status` = 1 AND `is_delete` = 1");
         if(!empty($get_data->result_array())) {
             $html='';
-            $j=1;
             foreach($get_data->result_array() as $row){
+                $j=1;
                 $html .='<tbody><tr><td>'.$j.')</td>';
-                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row["author_name"].")");
-                    //echo "<pre>"; print_r($author->result_array());
-                    $value = $author->result_array();
-                    $count = count($author->result_array());
-                    for($i = 0; $i < $count; $i++) {
-                        if ($value[$i]['mname'] == '') {
-                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
-                        } else {
-                            $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
-                        }
-                    }
-                    $lastItem = array_pop($commonValues);
-                    $text = implode(', ', $commonValues); // a, b 
-                    if ($text == ''){
-                        $text .= $lastItem; 
+                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
+                $value = $author->result_array();
+                $count = count($value);
+                for($i = 0; $i < $count; $i++) {
+                    if ($value[$i]['mname'] == '') {
+                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                     } else {
-                        $text .= ', & '.$lastItem; // a, b and c
-                    }    
+                        $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).". ".substr($value[$i]['mname'], 0, 1).".";
+                    }
+                }
+                $lastItem = array_pop($commonValues);
+                $text = implode(', ', $commonValues); // a, b 
+                if ($text == ''){
+                    $text .= $lastItem; 
+                } else {
+                    $text .= ', & '.$lastItem; // a, b and c
+                }
+                if($row['issue_number'] != ""){
+                    $issue_number = "(".$row['issue_number'].")";
+                } else {
+                    $issue_number = '';
+                }    
                 $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
             }
         } else {
