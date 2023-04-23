@@ -73,7 +73,7 @@ echo $header; ?>
                                 </div>
                             </div>
                             <div class="col-sm-12" style="text-align: right;">
-                                <button type="button" class="btn btn-primary about_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Edit Record</button>
+                                <button type="button" class="btn btn-primary about_btn" data-toggle="modal" data-target=".bd-example-modal-lg1">Edit About Me</button>
                             </div>
                         </div>
                         <div class="tab-pane degree_sec" id="v-pills-link2" role="tabpanel" aria-labelledby="v-pills-link2-tab">
@@ -116,7 +116,7 @@ echo $header; ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2">Add New Record</button>
+                                    <button type="button" class="btn btn-primary edu_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2">Add Education</button>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@ echo $header; ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3">Add New Record</button>
+                                    <button type="button" class="btn btn-primary exp_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg3">Add Professional Experience</button>
                                 </div>
                             </div>
                         </div>
@@ -358,7 +358,7 @@ echo $header; ?>
                                 <?php } ?>
                                 </div>
                                 <div class="col-sm-12" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Record</button>
+                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4">Add New Publication</button>
                                 </div>
                             </div>
                         </div>
@@ -395,7 +395,7 @@ echo $header; ?>
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary awrd_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5">Add New Record</button>
+                                    <button type="button" class="btn btn-primary awrd_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg5">Add Awards and Honours</button>
                                 </div>
                             </div>
                         </div>
@@ -623,7 +623,8 @@ echo $header; ?>
                                     <div class="form-group col-sm-4 cstm_details author_name">
                                         <label for="Event Name" class="control-label">Authors Name</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
-                                            <select data-placeholder="Author List" multiple class="chosen-select"  id="author_name" name="author_name[]">
+                                            <!-- <select data-placeholder="Author List" multiple class="chosen-select"  id="author_name" name="author_name[]"> -->
+                                            <select class="form-control chosen" multiple id="author_name" name="author_name">
                                                 <option value=""></option>
                                                 <?php if(!empty($ourteam)) { 
                                                 foreach($ourteam as $row) { ?>
@@ -633,6 +634,7 @@ echo $header; ?>
                                                 <?php } ?>
                                             </select>
                                         </div>
+                                        <input type="hidden" class="form-control required" id="s1-order-list" name="s1-order-list" value="">
                                         <div><a href="" class="pageLoad">Add External User</a></div>
                                     </div>
                                     <div class="form-group col-sm-4 cstm_details paper_title">
