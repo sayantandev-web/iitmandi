@@ -434,33 +434,20 @@
                 alert('Auther Name filed is required!');
                 return false;
             } else {
-                var uid = $("#uid").val();
-                var attachment = $('#attachment').val();
-                var publication_type = $('#publication_type').val();
-                var author_name = $('#s1-order-list').text();
-                var paper_title = $('#paper_title').val();
-                var chapter_title = $('#chapter_title').val();
-                var patent_title = $('#patent_title').val();
-                var journal_name = $('#journal_name').val();
-                var conference_name = $('#conference_name').val();
-                var book_name = $('#book_name').val();
-                var publish_date = $('#publish_date').val();
-                var patient_number = $('#patient_number').val();
-                var publisher = $('#publisher').val();
-                var location = $('#location').val();
-                var external_Link = $('#external_Link').val();
-                var editors = $('#editors').val();
-                var page_number = $('#page_number').val();
-                var volume_number = $('#volume_number').val();
-                var issue_number = $('#issue_number').val();
-                var short_summery = CKEDITOR.instances['short_summery'].getData();
-                var key_points = CKEDITOR.instances['key_points'].getData();
-                var highlight = $('#highlight').val();
-                var status = $('#status').val();
+                var form = $('#form_pub')[0];
+                var data = new FormData(form);
+                data.append('author_name', $('#s1-order-list').text());
+                data.append('short_summery', CKEDITOR.instances['short_summery'].getData());
+                data.append('key_points', CKEDITOR.instances['key_points'].getData());
                 $.ajax({
                     url: "<?php echo base_url()?>student/save_publication",
                     type: "POST",
-                    data:  {uid: uid, attachment: attachment, publication_type: publication_type, author_name: author_name, paper_title: paper_title, chapter_title: chapter_title, patent_title: patent_title, journal_name: journal_name, conference_name: conference_name, book_name: book_name, publish_date: publish_date, patient_number: patient_number, publisher: publisher, location: location, external_Link: external_Link, editors: editors, page_number: page_number, volume_number: volume_number, issue_number: issue_number, short_summery: short_summery, key_points: key_points, highlight: highlight, status: status},
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
                     beforeSend : function() {
                         $("#err").fadeOut();
                     },
@@ -556,7 +543,6 @@
             $.ajax({
                 url: "<?php echo base_url()?>faculty/save_aboutme",
                 type: "POST",
-                // data:  {uid: uid, aboutme: aboutme, research_gate: research_gate, google_scholar: google_scholar, linedin_link: linedin_link, twitter_link: twitter_link, github_link: github_link, medium_link: medium_link, team_image: team_image},
                 enctype: 'multipart/form-data',
                 data: data,
                 processData: false,

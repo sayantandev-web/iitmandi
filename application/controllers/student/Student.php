@@ -95,9 +95,9 @@ class Student extends CI_Controller {
 			if(!empty($id)){
 				$this->common_model->tbl_update(TEAM,array('id'=>$id),$insArr);
 			}
-			if($_FILES['team_image']['name'] != '') {
+			if($_FILES['attachment']['name'] != '') {
 				$data['result']=$this->common_model->get_data(TEAM,array('id'=>$id));
-				if(@$data['result'][0]['team_image']) {	
+				if(@$data['result'][0]['attachment']) {	
 					unlink('./uploads/our_team/'.$data['result'][0]['team_image']);	
 					unlink('./uploads/our_team/thumb/'.$data['result'][0]['team_image']);	
 				}
@@ -225,13 +225,13 @@ class Student extends CI_Controller {
 	}
 
 	public function save_publication() {
+		//print_r($this->input->post()); die();
 		$author_name = substr($this->input->post('author_name'), 0, -1);
 		$record_id = $this->input->post('pubid');
-		if($record_id != '') {
+		if($this->input->post()) {
 			$insArr=array();
 			$insArr['user_id'] = $this->input->post('uid');
 			$insArr['publication_type']=$this->input->post('publication_type');
-			$insArr['attachment']=$this->input->post('attachment');
 			$insArr['author_name']=$author_name;
 			if ($this->input->post('paper_title') != '') {
 				$insArr['paper_title'] = $this->input->post('paper_title');
@@ -258,41 +258,56 @@ class Student extends CI_Controller {
 			$insArr['short_summery']=$this->input->post('short_summery');
 			$insArr['key_points']=$this->input->post('key_points');
 			$insArr['status']=$this->input->post('status');
-			$this->common_model->tbl_update(PUBLICATION,array('id'=>$record_id),$insArr);
-			echo "Sucessfully Updated";
-		} else {
-			$insArr=array();
-			$insArr['user_id'] = $this->input->post('uid');
-			$insArr['publication_type']=$this->input->post('publication_type');
-			$insArr['attachment']=$this->input->post('attachment');
-			$insArr['author_name']=$author_name;
-			if ($this->input->post('paper_title') != '') {
-				$insArr['paper_title'] = $this->input->post('paper_title');
-			} 
-			if ($this->input->post('chapter_title') != '') {
-				$insArr['paper_title'] = $this->input->post('chapter_title');
+			if(!empty($record_id)){
+				$this->common_model->tbl_update(PUBLICATION,array('id'=>$record_id),$insArr);
 			}
-			if ($this->input->post('patent_title') != '') {
-				$insArr['paper_title'] = $this->input->post('patent_title');
+			if($_FILES['attachment']['name'] != '') {
+				$data['result']=$this->common_model->get_data(PUBLICATION,array('id'=>$record_id));
+				if(@$data['result'][0]['attachment']) {	
+					unlink('./uploads/publication/'.$data['result'][0]['attachment']);	
+					unlink('./uploads/publication/thumb/'.$data['result'][0]['attachment']);	
+				}
+				$config1=array();
+				$config1['upload_path']='./uploads/publication/thumb';
+				$config1['upload_path']='./uploads/publication/';
+				$random_number = substr(number_format(time() * rand(),0,'',''),0,6);
+				$config1['file_name']=time().$random_number;
+				$config1['allowed_types']='jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF|mp4|MPEG-4';
+				/*$config1['max_width'] = '2000';
+				$config1['max_height'] = '1125';*/
+				$config1['overwrite']=TRUE;
+				$this->load->library('upload',$config1);
+				$this->upload->initialize($config1);
+				if(!$this->upload->do_upload('attachment')){
+					$err_upload=$this->upload->display_errors();
+					$this->utilitylib->setMsg($err_upload,'ERROR');
+					print_r($err_upload);
+				} else {
+					$suc_upload2=array();
+					$suc_upload2=$this->upload->data();
+					$config1['image_library']='gd2';
+					$config1['source_image']='uploads/publication/'.$suc_upload2['file_name'];
+					$config1['new_image']='uploads/publication/thumb/'.$suc_upload2['file_name'];
+					$config1['maintain_ratio']=TRUE;
+					$config1['width']=150;
+					$config1['height']=97;
+					$this->image_lib->initialize($config1);
+					$this->image_lib->resize();
+					$insArr['attachment']=$suc_upload2['file_name'];
+					if(!empty($record_id)) {
+						$this->common_model->tbl_update(PUBLICATION,array('id'=>$record_id),$insArr);
+						$banner_id=$record_id;
+					} else {
+						$banner_id=$this->common_model->tbl_insert(PUBLICATION,$insArr);
+					}
+					$this->common_model->tbl_update(PUBLICATION,array('id'=>$banner_id),$insArr);
+				}
 			}
-			$insArr['journal_name']=$this->input->post('journal_name');
-			$insArr['conference_name']=$this->input->post('conference_name');
-			$insArr['book_name']=$this->input->post('book_name');
-			$insArr['publish_date']=$this->input->post('publish_date');
-			$insArr['patient_number']=$this->input->post('patient_number');
-			$insArr['publisher']=$this->input->post('publisher');
-			$insArr['location']=$this->input->post('location');
-			$insArr['external_Link']=$this->input->post('external_Link');
-			$insArr['editors']=$this->input->post('editors');
-			$insArr['page_number']=$this->input->post('page_number');
-			$insArr['volume_number']=$this->input->post('volume_number');
-			$insArr['issue_number']=$this->input->post('issue_number');
-			$insArr['highlight']=$this->input->post('highlight');
-			$insArr['short_summery']=$this->input->post('short_summery');
-			$insArr['key_points']=$this->input->post('key_points');
-			$insArr['status']=$this->input->post('status');
-			$banner_record_id=$this->common_model->tbl_insert(PUBLICATION,$insArr);
-			echo "Sucessfully Added";
+			if(!empty($record_id)) {
+				echo "Sucessfully Updated";
+			} else {
+				echo "Sucessfully Added";
+			}
 		}
 	}
 

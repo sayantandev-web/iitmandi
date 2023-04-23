@@ -1,7 +1,7 @@
 <?php echo $header;?>
 <style>
     .nav-pills .nav-link{margin-bottom: 15px;}
-    .bio_img {width: 200px; height: 200px;}
+    .bio_img {width: 100%; height: 500px;}
     .bio_text {margin-bottom: auto;}
     .bio_text1 {border: 1px solid #eee; padding: 30px; text-align: justify;}
     .td_class {padding: 0px; display: initial;}
@@ -31,7 +31,7 @@
                                     <?php if ($pub_details[0]['publication_type'] == 'Journal Article') { ?>
                                         <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
-                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
                                         <?php } ?>
                                         </div>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
