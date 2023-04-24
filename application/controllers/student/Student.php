@@ -10,6 +10,9 @@ class Student extends CI_Controller {
         $this->load->helper('cookie');
         $this->load->library('email');
         date_default_timezone_set('Asia/Calcutta');
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
     }
 
     public function index() {
@@ -21,20 +24,20 @@ class Student extends CI_Controller {
 
     public function login() {
     	$this->load->library('session');
-        if($this->session->userdata('user_id') != ''){
+        if($this->session->userdata('user_id') != '') {
             redirect(base_url('student/dashboard/'.$this->session->userdata('user_id')));
 		}
 		if($this->input->post()) {
 			$sql= "`email` ='".$this->input->post('email')."' AND (`position` = 3) AND (`status`= 1) AND (`is_delete`= 1)";
 			$result=$this->common_model->get_data(TEAM,$sql);
 			if(base64_encode($this->input->post('password')) == $result[0]['password']) {
-			$this->session->set_userdata('user_id',$result[0]['id']);
-			$id = $this->session->userdata('user_id');
-			if($result[0]['update_pass'] == 2) {
-				redirect(base_url()."student/dashboard/".$id);
-			} else {
-				redirect(base_url()."student/reset_password/".$id);
-			}
+				$this->session->set_userdata('user_id',$result[0]['id']);
+				$id = $this->session->userdata('user_id');
+				if($result[0]['update_pass'] == 2) {
+					redirect(base_url()."student/dashboard/".$id);
+				} else {
+					redirect(base_url()."student/reset_password/".$id);
+				}
 			} else {
 				$this->utilitylib->setMsg('<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Wrong email or password!','ERROR');
 				redirect(base_url()."student/");
@@ -301,6 +304,13 @@ class Student extends CI_Controller {
 						$banner_id=$this->common_model->tbl_insert(PUBLICATION,$insArr);
 					}
 					$this->common_model->tbl_update(PUBLICATION,array('id'=>$banner_id),$insArr);
+				}
+			} else {
+				if(!empty($record_id)) {
+					$this->common_model->tbl_update(PUBLICATION,array('id'=>$record_id),$insArr);
+					$banner_id=$record_id;
+				} else {
+					$banner_id=$this->common_model->tbl_insert(PUBLICATION,$insArr);
 				}
 			}
 			if(!empty($record_id)) {

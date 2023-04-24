@@ -170,7 +170,7 @@ echo $header; ?>
                                             <tr>
                                                 <td><?php echo $j ?></td>
                                                 <?php 
-                                                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                     //echo "<pre>"; print_r($author->result_array());
                                                     $value = $author->result_array();
                                                     $count = count($author->result_array());
@@ -210,7 +210,7 @@ echo $header; ?>
                                             foreach($conference->result_array() as $row) { ?>
                                             <tr>
                                                 <td><?php echo $j ?></td>
-                                                <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                     $value1 = $author1->result_array();
                                                     $count1 = count($author1->result_array());
                                                     for($i = 0; $i < $count1; $i++) {
@@ -249,7 +249,7 @@ echo $header; ?>
                                             foreach($bookc->result_array() as $row) { ?>
                                             <tr>
                                                 <td><?php echo $j ?></td>
-                                                <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                     $value2 = $author2->result_array();
                                                     $count2 = count($author2->result_array());
                                                     for($i = 0; $i < $count2; $i++) {
@@ -288,7 +288,7 @@ echo $header; ?>
                                             foreach($book->result_array() as $row) { ?>
                                             <tr>
                                                 <td><?php echo $j ?></td>
-                                                <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                     $value3 = $author3->result_array();
                                                     $count3 = count($author3->result_array());
                                                     for($i = 0; $i < $count3; $i++) {
@@ -327,7 +327,7 @@ echo $header; ?>
                                             foreach($patent->result_array() as $row) { ?>
                                             <tr>
                                                 <td><?php echo $j ?></td>
-                                                <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                 $value4 = $author4->result_array();
                                                 $count4 = count($author4->result_array());
                                                 for($i = 0; $i < $count4; $i++) {
