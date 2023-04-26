@@ -115,8 +115,10 @@ class Ourteam extends CI_Controller{
 				$this->utilitylib->setMsg(SUCCESS_ICON.' Sucessfully updated','SUCCESS');
 				redirect(base_url()."admin/ourteam/");
 			} else {
-				$check_email=$this->common_model->get_data_row(TEAM,array('email'=>strtolower($this->input->post('email')),'is_delete'=>1));
-				if($check_email['email'] == strtolower($this->input->post('email'))) {
+				// $check_email = $this->common_model->get_data_row(TEAM,array('email'=>strtolower($this->input->post('email')),'is_delete'=>1));
+				$check_email = $this->db->query("SELECT *  FROM `iitmandi_team` WHERE `email` LIKE '%".$this->input->post('email')."%' and `is_delete` = 1");
+				//if($check_email['email'] == strtolower($this->input->post('email'))) {
+				if(count($check_email->result_array()) != 0) {
 					echo ('<script>alert("Email ID is already exist!");</script>');
 				} else {
 					$alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789!@#$%^&*()";

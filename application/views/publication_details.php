@@ -29,11 +29,11 @@
                                 <div class="row">
                                     <div class='col-sm-12' style="margin-top: 50px;">
                                     <?php if ($pub_details[0]['publication_type'] == 'Journal Article') { ?>
-                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
+                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                             <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
-                                        <?php } ?>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
                                                 <h3 style="text-align:center;font-size: 40px;color: #022851;"> <?php echo $pub_details[0]['paper_title'];?></h3>
@@ -76,11 +76,11 @@
                                     <?php } ?>
 
                                     <?php if ($pub_details[0]['publication_type'] == 'Conference Paper') { ?>
-                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
-                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
-                                        <?php } ?>
+                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
                                                 <h3 style="text-align:center;font-size: 40px;color: #022851;"> <?php echo $pub_details[0]['paper_title'];?></h3>
@@ -123,11 +123,11 @@
                                     <?php } ?>
 
                                     <?php if ($pub_details[0]['publication_type'] == 'Book Chapter') { ?>
-                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
-                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
-                                        <?php } ?>
+                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
                                                 <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
@@ -169,11 +169,11 @@
                                     <?php } ?>
 
                                     <?php if ($pub_details[0]['publication_type'] == 'Book') { ?>
-                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
-                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
-                                        <?php } ?>
+                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
                                                 <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>
@@ -215,11 +215,11 @@
                                     <?php } ?>
 
                                     <?php if ($pub_details[0]['publication_type'] == 'Patent') { ?>
-                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
                                         <?php if (!empty($pub_details[0]['attachment'])) { ?>
-                                            <img class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
-                                        <?php } ?>
+                                        <div class="col-sm-12" style="text-align: center;float: left;display: inline-block;">
+                                            <img class="bio_img" src="<?php echo base_url();?>uploads/publication/<?php echo $pub_details[0]['attachment'];?>" alt=""/>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-sm-12" style="float: left;display: inline-block;">
                                             <div>
                                                 <h3 style="text-align:center;font-size: 40px;color: #022851;">Paper Title: <?php echo $pub_details[0]['paper_title'];?></h3>

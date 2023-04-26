@@ -118,7 +118,7 @@ class Home extends CI_Controller {
             if(!empty($filter_data)) {
                 $i=1;
                 foreach($filter_data as $row){
-                    $html .='<td>'.$i.'</td><td>'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
+                    $html .='<td>'.$i.'</td><td style="text-align: justify;">'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
                 $i++;}
             }
         } else {
@@ -136,7 +136,7 @@ class Home extends CI_Controller {
             if(!empty($filter_data)) {
                 $i=1;
                 foreach($filter_data as $row){
-                    $html .='<td>'.$i.'</td><td>'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
+                    $html .='<td>'.$i.'</td><td style="text-align: justify;">'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
                 $i++;}
             }
         } else {
@@ -154,7 +154,7 @@ class Home extends CI_Controller {
             if(!empty($filter_data)) {
                 $i=1;
                 foreach($filter_data as $row){
-                    $html .='<td>'.$i.'</td><td>'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
+                    $html .='<td>'.$i.'</td><td style="text-align: justify;">'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
                 $i++;}
             }
         } else {
@@ -172,7 +172,7 @@ class Home extends CI_Controller {
             if(!empty($filter_data)) {
                 $i=1;
                 foreach($filter_data as $row){
-                    $html .='<td>'.$i.'</td><td>'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
+                    $html .='<td>'.$i.'</td><td style="text-align: justify;">'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
                 $i++;}
             }
         } else {
