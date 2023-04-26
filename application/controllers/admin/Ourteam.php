@@ -43,7 +43,7 @@ class Ourteam extends CI_Controller{
 			$insArr['fname'] = $this->input->post('fname');
 			$insArr['mname'] = $this->input->post('mname');
 			$insArr['lname'] = $this->input->post('lname');
-			$insArr['email'] = $this->input->post('email');
+			$insArr['email'] = strtolower($this->input->post('email'));
 			$insArr['position'] = $this->input->post('position');
 			$insArr['enrollno'] = $this->input->post('enrollno');
 			if($this->input->post('designation') != '') {
@@ -115,8 +115,8 @@ class Ourteam extends CI_Controller{
 				$this->utilitylib->setMsg(SUCCESS_ICON.' Sucessfully updated','SUCCESS');
 				redirect(base_url()."admin/ourteam/");
 			} else {
-				$check_email=$this->common_model->get_data_row(TEAM,array('email'=>$this->input->post('email'),'is_delete'=>1));
-				if($check_email['email'] == $this->input->post('email')) {
+				$check_email=$this->common_model->get_data_row(TEAM,array('email'=>strtolower($this->input->post('email')),'is_delete'=>1));
+				if($check_email['email'] == strtolower($this->input->post('email'))) {
 					echo ('<script>alert("Email ID is already exist!");</script>');
 				} else {
 					$alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789!@#$%^&*()";
