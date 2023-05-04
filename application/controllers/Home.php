@@ -148,12 +148,13 @@ class Home extends CI_Controller {
     public function filterByfacultyMember() { 
         $fm_id = $this->input->post('fm_id');
         $pt_id = $this->input->post('pt_id');
-        $filter_data = $this->common_model->get_data_array(PROJECT,array('project_incharge' => $fm_id, 'project_type' =>$pt_id, 'status' =>1, 'is_delete' =>1),'','','','','','');
-        if(!empty($filter_data)) {
+        //$filter_data = $this->common_model->get_data_array(PROJECT,array('project_incharge' => $fm_id, 'project_type' =>$pt_id, 'status' =>1, 'is_delete' =>1),'','','','','','');
+        $filter_data = $this->db->query("SELECT * FROM `iitmandi_project` WHERE (instr(concat(',', project_incharge, ','), ',$fm_id,') AND instr(concat(',', coproject_incharge, ','), ',$fm_id,')) OR instr(concat(',', project_incharge, ','), ',$fm_id,') OR instr(concat(',', coproject_incharge, ','), ',$fm_id,') AND `project_type` = $pt_id AND `status` = 1 AND `is_delete` = 1");
+        if(!empty($filter_data->result_array())) {
             $html='<tr>';
-            if(!empty($filter_data)) {
+            if(!empty($filter_data->result_array())) {
                 $i=1;
-                foreach($filter_data as $row){
+                foreach($filter_data->result_array() as $row){
                     $html .='<td>'.$i.'</td><td style="text-align: justify;">'.$row['project_title'].'</td><td>'.$row['pstatus'].'</td><td><button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_details('.$row['id'].')">View More</button></td></tr>';
                 $i++;}
             }
@@ -220,6 +221,7 @@ class Home extends CI_Controller {
         $data['title']='Publications';
         $this->load->view('publication',$data);
     }
+
     public function conference() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
@@ -230,6 +232,7 @@ class Home extends CI_Controller {
         $data['title']='Publications';
         $this->load->view('publication',$data);
     }
+
     public function book_chapter() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
@@ -240,6 +243,7 @@ class Home extends CI_Controller {
         $data['title']='Publications';
         $this->load->view('publication',$data);
     }
+
     public function book() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
@@ -250,6 +254,7 @@ class Home extends CI_Controller {
         $data['title']='Publications';
         $this->load->view('publication',$data);
     }
+    
     public function patent() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");

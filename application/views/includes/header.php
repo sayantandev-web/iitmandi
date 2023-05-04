@@ -234,6 +234,15 @@
                     </ul>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" >Academics</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/specialization">Specialization</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/programs">Programs</a></li>                             
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/courses">Courses</a></li>
+                      <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/admission">Admission</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Facilities</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" style="color: #000;" href="<?php echo base_url()?>pages/teaching_labs">Teaching Labs</a></li>

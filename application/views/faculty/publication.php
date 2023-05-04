@@ -133,7 +133,6 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number'].$issue_number.", ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                             <td>
-                                                <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                 <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                             </td>
                                             <?php } else { ?>
@@ -160,9 +159,9 @@ echo $header;
                                                 $count1 = count($author1->result_array());
                                                 for($i = 0; $i < $count1; $i++) {
                                                     if ($value1[$i]['mname'] == '') {
-                                                        $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                        $commonValues1[$i] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).". ".substr($value1[$i]['mname'], 0, 1).".";
+                                                        $commonValues1[$i] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).". ".substr($value1[$i]['mname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem1 = array_pop($commonValues1);
@@ -176,7 +175,6 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
-                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -203,9 +201,9 @@ echo $header;
                                                 $count2 = count($author2->result_array());
                                                 for($i = 0; $i < $count2; $i++) {
                                                     if ($value2[$i]['mname'] == '') {
-                                                        $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                        $commonValues2[$i] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).". ".substr($value2[$i]['mname'], 0, 1).".";
+                                                        $commonValues2[$i] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).". ".substr($value2[$i]['mname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem2 = array_pop($commonValues2);
@@ -219,7 +217,6 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
-                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -246,9 +243,9 @@ echo $header;
                                                 $count3 = count($author3->result_array());
                                                 for($i = 0; $i < $count3; $i++) {
                                                     if ($value3[$i]['mname'] == '') {
-                                                        $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                        $commonValues3[$i] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).". ".substr($value3[$i]['mname'], 0, 1).".";
+                                                        $commonValues3[$i] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).". ".substr($value3[$i]['mname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem3 = array_pop($commonValues3);
@@ -262,7 +259,6 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
-                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -289,9 +285,9 @@ echo $header;
                                                 $count4 = count($author4->result_array());
                                                 for($i = 0; $i < $count4; $i++) {
                                                     if ($value4[$i]['mname'] == '') {
-                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                        $commonValues4[$i] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
                                                     } else {
-                                                        $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).". ".substr($value4[$i]['mname'], 0, 1).".";
+                                                        $commonValues4[$i] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).". ".substr($value4[$i]['mname'], 0, 1).".";
                                                     }
                                                 }
                                                 $lastItem4 = array_pop($commonValues4);
@@ -305,7 +301,6 @@ echo $header;
                                                 <td style="text-align: justify;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
-                                                    <!-- <a href="#" class="btn waves-effect waves-light tooltips td_class" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>

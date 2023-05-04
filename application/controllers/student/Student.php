@@ -56,11 +56,11 @@ class Student extends CI_Controller {
     		$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
-			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
-			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
-			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
-			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = $id AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = $id AND instr(concat(',', author_name, ','), ',$id,')) OR `user_id` = $id OR instr(concat(',', author_name, ','), ',$id,')) AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = $id AND instr(concat(',', author_name, ','), ',$id,')) OR `user_id` = $id OR instr(concat(',', author_name, ','), ',$id,')) AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = $id AND instr(concat(',', author_name, ','), ',$id,')) OR `user_id` = $id OR instr(concat(',', author_name, ','), ',$id,')) AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = $id AND instr(concat(',', author_name, ','), ',$id,')) OR `user_id` = $id OR instr(concat(',', author_name, ','), ',$id,')) AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = $id AND instr(concat(',', author_name, ','), ',$id,')) OR `user_id` = $id OR instr(concat(',', author_name, ','), ',$id,')) AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
 			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
 			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
@@ -71,11 +71,11 @@ class Student extends CI_Controller {
     		$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
-			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
-			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
-			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
-			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE `user_id` = base64_decode($id) AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
+			$data['journal']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = base64_decode($id) AND instr(concat(',', author_name, ','), ',base64_decode($id),')) OR `user_id` = base64_decode($id) OR instr(concat(',', author_name, ','), ',base64_decode($id),')) AND `publication_type` = 'Journal Article' AND `status` = 1 AND `is_delete` = 1");
+			$data['conference']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = base64_decode($id) AND instr(concat(',', author_name, ','), ',base64_decode($id),')) OR `user_id` = base64_decode($id) OR instr(concat(',', author_name, ','), ',base64_decode($id),')) AND `publication_type` = 'Conference Paper' AND `status` = 1 AND `is_delete` = 1");
+			$data['bookc']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = base64_decode($id) AND instr(concat(',', author_name, ','), ',base64_decode($id),')) OR `user_id` = base64_decode($id) OR instr(concat(',', author_name, ','), ',base64_decode($id),')) AND `publication_type` = 'Book Chapter' AND `status` = 1 AND `is_delete` = 1");
+			$data['book']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = base64_decode($id) AND instr(concat(',', author_name, ','), ',base64_decode($id),')) OR `user_id` = base64_decode($id) OR instr(concat(',', author_name, ','), ',base64_decode($id),')) AND `publication_type` = 'Book' AND `status` = 1 AND `is_delete` = 1");
+			$data['patent']=$this->db->query("SELECT * FROM `iitmandi_publication` WHERE ((`user_id` = base64_decode($id) AND instr(concat(',', author_name, ','), ',base64_decode($id),')) OR `user_id` = base64_decode($id) OR instr(concat(',', author_name, ','), ',base64_decode($id),')) AND `publication_type` = 'Patent' AND `status` = 1 AND `is_delete` = 1");
 			$data['award']=$this->common_model->get_data_array(AWARDEVENT,'','','','','','',AWARDEVENT.".id DESC",array('user_id'=>$id,'type'=> 'Award','status'=>1,'is_delete'=>1));
 			$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
@@ -85,7 +85,6 @@ class Student extends CI_Controller {
     }
 
     public function save_aboutme() {
-		//print_r($this->input->post()); die();
 		if($this->input->post()) {
 			$insArr=array();
 			$insArr['fname']=$this->input->post('fname');

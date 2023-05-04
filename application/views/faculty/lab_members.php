@@ -138,7 +138,7 @@ echo $header;
                                         <div class="col-sm-2">
                                             <div class="cstm_gllery">
                                                 <img src="<?php echo base_url()?>uploads/our_team/<?php echo $row['team_image']?>"/>
-                                                <h3><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></h3>
+                                                <h3><a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row['id'])?>' style="text-decoration: none;"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></a></h3>
                                             </div>
                                         </div>
                                     <?php $i++; } ?>

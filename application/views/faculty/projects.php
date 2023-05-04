@@ -85,7 +85,7 @@ echo $header;
                 <a href="<?php echo base_url()?>faculty/dashboard/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Home</button></a>
                 <a href="<?php echo base_url()?>faculty/research/<?php echo $uid?>"><button type="button" class="btn btn-primary ">Research</button></a>
                 <a href="<?php echo base_url()?>faculty/publication/<?php echo $uid?>"><button type="button" class="btn btn-primary">Publication</button></a>
-                <?php if(!empty($project)) { ?>
+                <?php if(!empty($project->result_array())) { ?>
                 <a href="<?php echo base_url()?>faculty/projects/<?php echo $uid?>"><button type="button" class="btn btn-primary active">Projects</button></a>
                 <?php } ?>
                 <?php if(!empty($lab_member)) { ?>
@@ -100,14 +100,14 @@ echo $header;
                             <div class="col-12">
                                 <div class="row">
                                     <div class='col-sm-12' style="margin-top: 50px;">
-                                        <table id="datatable" class="table table-striped table-bordered dat_tbl">
+                                        <table id="example" class="table table-striped table-bordered dat_tbl">
                                             <tbody>
-                                                <?php if(!empty($project)) { 
+                                                <?php if(!empty($project->result_array())) { 
                                                    $i=1; ?>
-                                                <?php foreach($project as $row) { ?>
+                                                <?php foreach($project->result_array() as $row) { ?>
                                                 <tr>
                                                     <td><?php echo $i; ?></td>
-                                                    <td><?php echo $row['project_title']; ?></td>
+                                                    <td style="text-align: justify;"><?php echo $row['project_title']; ?></td>
                                                     <td><?php echo $row['pstatus']; ?></td>
                                                     <td>
                                                     <button type="button" class="btn btn-primary myLargeModalLabel" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="project_fdetails(<?php echo $row['id']?>)">View More</button>
@@ -166,6 +166,14 @@ echo $header;
                                     <tr>
                                         <th>Principal Investigator</th>
                                         <td><span id="name_of_pi"></span></td>
+                                    </tr>
+                                    <tr class='name_of_copi'>
+                                        <th>Co - Principal Investigator</th>
+                                        <td><span id="name_of_copi"></span></td>
+                                    </tr>
+                                    <tr class='name_of_ps'>
+                                        <th>Project Staff</th>
+                                        <td><span id="name_of_ps"></span></td>
                                     </tr>
                                 </tbody>
                             </table>

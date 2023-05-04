@@ -158,13 +158,14 @@ class Facultys extends CI_Controller {
     }
 
 	public function projects($id='') {
-		if($this->session->userdata('user_id') != ''){
+		if($this->session->userdata('user_id') != '') {
 			$data['page_title'] = "Projects";
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
-			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
+			// $data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
+			$data['project']=$this->db->query("SELECT * FROM `iitmandi_project` WHERE (instr(concat(',', project_incharge, ','), ',$id,') AND instr(concat(',', coproject_incharge, ','), ',$id,')) OR instr(concat(',', project_incharge, ','), ',$id,') OR instr(concat(',', coproject_incharge, ','), ',$id,') AND `status` = 1 AND `is_delete` = 1");
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
@@ -176,7 +177,8 @@ class Facultys extends CI_Controller {
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
-			$data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
+			// $data['project']=$this->common_model->get_data_array(PROJECT,'','','','','','',PROJECT.".id DESC",array('project_incharge'=>$id,'is_delete'=>1));
+			$data['project']=$this->db->query("SELECT * FROM `iitmandi_project` WHERE (instr(concat(',', project_incharge, ','), ',$id,') AND instr(concat(',', coproject_incharge, ','), ',$id,')) OR instr(concat(',', project_incharge, ','), ',$id,') OR instr(concat(',', coproject_incharge, ','), ',$id,') AND `status` = 1 AND `is_delete` = 1");
 			$data['lab_member']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'status'=>1,'is_delete'=>1));
 			$data['copening']=$this->common_model->get_data_array(CRNTOPENING,'','','','','','',CRNTOPENING.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['header']=$this->load->view('includes/header','',true);
@@ -191,8 +193,10 @@ class Facultys extends CI_Controller {
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['phdteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>4,'status'=>1,'is_delete'=>1));
-			$data['mtechrteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>4,'designation'=>5,'status'=>1,'is_delete'=>1));
+			// $data['phdteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>4,'status'=>1,'is_delete'=>1));
+			$data['phdteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE (instr(concat(',', supervisor, ','), ',$id,') AND instr(concat(',', cosupervisors, ','), ',$id,')) OR (instr(concat(',', supervisor, ','), ',$id,') OR instr(concat(',', cosupervisors, ','), ',$id,')) AND `position` = 3 AND `designation` = 4 AND `status` = 1 AND `is_delete` = 1")->result_array();
+			// $data['mtechrteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>5,'status'=>1,'is_delete'=>1));
+			$data['mtechrteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE (instr(concat(',', supervisor, ','), ',$id,') AND instr(concat(',', cosupervisors, ','), ',$id,')) OR (instr(concat(',', supervisor, ','), ',$id,') OR instr(concat(',', cosupervisors, ','), ',$id,')) AND `position` = 3 AND `designation` = 5 AND `status` = 1 AND `is_delete` = 1")->result_array();
 			$data['mtechteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'degree'=>7,'status'=>1,'is_delete'=>1));
 			$data['btechteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('degree'=>6,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));
@@ -207,8 +211,10 @@ class Facultys extends CI_Controller {
 			$data['about_me']=$this->common_model->get_data(TEAM,array('id'=>$id));
 			$data['education']=$this->common_model->get_data_array(EDUCATION,'','','','','','',EDUCATION.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
 			$data['experience']=$this->common_model->get_data_array(EXPERIENCE,'','','','','','',EXPERIENCE.".id DESC",array('user_id'=>$id,'status'=>1,'is_delete'=>1));
-			$data['phdteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>4,'status'=>1,'is_delete'=>1));
-			$data['mtechrteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>5,'status'=>1,'is_delete'=>1));
+			// $data['phdteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>4,'status'=>1,'is_delete'=>1));
+			$data['phdteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE (instr(concat(',', supervisor, ','), ',$id,') AND instr(concat(',', cosupervisors, ','), ',$id,')) OR (instr(concat(',', supervisor, ','), ',$id,') OR instr(concat(',', cosupervisors, ','), ',$id,')) AND `position` = 3 AND `designation` = 4 AND `status` = 1 AND `is_delete` = 1")->result_array();
+			// $data['mtechrteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'position'=>3,'designation'=>5,'status'=>1,'is_delete'=>1));
+			$data['mtechrteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE (instr(concat(',', supervisor, ','), ',$id,') AND instr(concat(',', cosupervisors, ','), ',$id,')) OR (instr(concat(',', supervisor, ','), ',$id,') OR instr(concat(',', cosupervisors, ','), ',$id,')) AND `position` = 3 AND `designation` = 5 AND `status` = 1 AND `is_delete` = 1")->result_array();
 			$data['mtechteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('supervisor'=>$id,'degree'=>7,'status'=>1,'is_delete'=>1));
 			$data['btechteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('degree'=>6,'status'=>1,'is_delete'=>1));
 			$data['publications']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('status'=>1,'is_delete'=>1));

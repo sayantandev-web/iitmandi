@@ -204,15 +204,15 @@
                                                     <tr>
                                                         <td><?php echo $j ?></td>
                                                         <?php 
-                                                        $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                        $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                             //echo "<pre>"; print_r($author->result_array());
                                                             $value = $author->result_array();
                                                             $count = count($author->result_array());
                                                             for($i = 0; $i < $count; $i++) {
                                                                 if ($value[$i]['mname'] == '') {
-                                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
+                                                                    $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['fname'], 0, 1).".";
                                                                 } else {
-                                                                    $commonValues[] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
+                                                                    $commonValues[$i] = $value[$i]['lname'].", ".substr($value[$i]['mname'], 0, 1).", ".substr($value[$i]['fname'], 0, 1).".";
                                                                 }
                                                             }
                                                             $lastItem = array_pop($commonValues);
@@ -241,14 +241,14 @@
                                                     foreach($conference->result_array() as $row) { ?>
                                                     <tr>
                                                         <td><?php echo $j ?></td>
-                                                        <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                        <?php $author1 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                             $value1 = $author1->result_array();
                                                             $count1 = count($author1->result_array());
                                                             for($i = 0; $i < $count1; $i++) {
                                                                 if ($value1[$i]['mname'] == '') {
-                                                                    $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                                    $commonValues1[$i] = $value1[$i]['lname'].", ".substr($value1[$i]['fname'], 0, 1).".";
                                                                 } else {
-                                                                    $commonValues1[] = $value1[$i]['lname'].", ".substr($value1[$i]['mname'], 0, 1).", ".substr($value1[$i]['fname'], 0, 1).".";
+                                                                    $commonValues1[$i] = $value1[$i]['lname'].", ".substr($value1[$i]['mname'], 0, 1).", ".substr($value1[$i]['fname'], 0, 1).".";
                                                                 }
                                                             }
                                                             $lastItem1 = array_pop($commonValues1);
@@ -277,14 +277,14 @@
                                                     foreach($bookc->result_array() as $row) { ?>
                                                     <tr>
                                                         <td><?php echo $j ?></td>
-                                                        <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                        <?php $author2 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                             $value2 = $author2->result_array();
                                                             $count2 = count($author2->result_array());
                                                             for($i = 0; $i < $count2; $i++) {
                                                                 if ($value2[$i]['mname'] == '') {
-                                                                    $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                                    $commonValues2[$i] = $value2[$i]['lname'].", ".substr($value2[$i]['fname'], 0, 1).".";
                                                                 } else {
-                                                                    $commonValues2[] = $value2[$i]['lname'].", ".substr($value2[$i]['mname'], 0, 1).", ".substr($value2[$i]['fname'], 0, 1).".";
+                                                                    $commonValues2[$i] = $value2[$i]['lname'].", ".substr($value2[$i]['mname'], 0, 1).", ".substr($value2[$i]['fname'], 0, 1).".";
                                                                 }
                                                             }
                                                             $lastItem2 = array_pop($commonValues2);
@@ -313,14 +313,14 @@
                                                     foreach($book->result_array() as $row) { ?>
                                                     <tr>
                                                         <td><?php echo $j ?></td>
-                                                        <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                        <?php $author3 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                             $value3 = $author3->result_array();
                                                             $count3 = count($author3->result_array());
                                                             for($i = 0; $i < $count3; $i++) {
                                                                 if ($value3[$i]['mname'] == '') {
-                                                                    $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                                    $commonValues3[$i] = $value3[$i]['lname'].", ".substr($value3[$i]['fname'], 0, 1).".";
                                                                 } else {
-                                                                    $commonValues3[] = $value3[$i]['lname'].", ".substr($value3[$i]['mname'], 0, 1).", ".substr($value3[$i]['fname'], 0, 1).".";
+                                                                    $commonValues3[$i] = $value3[$i]['lname'].", ".substr($value3[$i]['mname'], 0, 1).", ".substr($value3[$i]['fname'], 0, 1).".";
                                                                 }
                                                             }
                                                             $lastItem3 = array_pop($commonValues3);
@@ -349,14 +349,14 @@
                                                     foreach($patent->result_array() as $row) { ?>
                                                     <tr>
                                                         <td><?php echo $j ?></td>
-                                                        <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$row['author_name'].")");
+                                                        <?php $author4 = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                                                         $value4 = $author4->result_array();
                                                         $count4 = count($author4->result_array());
                                                         for($i = 0; $i < $count4; $i++) {
                                                             if ($value4[$i]['mname'] == '') {
-                                                                $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                                $commonValues4[$i] = $value4[$i]['lname'].", ".substr($value4[$i]['fname'], 0, 1).".";
                                                             } else {
-                                                                $commonValues4[] = $value4[$i]['lname'].", ".substr($value4[$i]['mname'], 0, 1).", ".substr($value4[$i]['fname'], 0, 1).".";
+                                                                $commonValues4[$i] = $value4[$i]['lname'].", ".substr($value4[$i]['mname'], 0, 1).", ".substr($value4[$i]['fname'], 0, 1).".";
                                                             }
                                                         }
                                                         $lastItem4 = array_pop($commonValues4);
