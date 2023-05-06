@@ -22,10 +22,15 @@
     #example thead tr th { font-size: 18px;}
     #example tbody tr td { font-size: 16px;}
     .degree_sec h2 { margin: 0; padding: 0 0 25px; font-size: 25px;}
-    .co-codi{width:100px;float:left; text-align:center;}
+    .co-codi{width:100%;float:left; text-align:center;}
     .co-codi a{width:100%; text-align:center;}
     .co-codi .bio_text{margin:0px; text-align:center;}
     .degree_sec{margin-top:15px;}
+    .blue_back{width:100%; background:#022851; padding:20px 0;}
+    .supervisor_sec{width:100%; padding-left:50px;}
+    .co-codi_lt{width:auto; float:left; padding-left:15px;}
+    .co-codi img{width:100%; float:left;}
+    .co-codi .bio_text{text-align:left; color:#fff;}
 
 </style>
 <main id="main">
@@ -62,39 +67,55 @@
                                         <div class='bio_text1' style="margin-bottom:40px;"><?php echo $about_me[0]['aboutme'];?></div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
+                               
+                               <div class="col-sm-12">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <div>
+                                        <div class="col-sm-12">
+                                            <div class="blue_back">
+                                                <div class="row">
+                                                <div class="col-sm-6">
+                                            <div class="supervisor_sec">
                                                 <?php 
                                                 if ($about_me[0]['supervisor'] != "") { ?>
-                                                <span style="float:left;">Supervisor:</span> 
+                                                <span><h6 style="color:#fff; padding-bottom:15px;">Supervisor</h6></span> 
                                                 <?php $supervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` =".$about_me[0]['supervisor']);
                                                 if(!empty($supervisor->result_array())) {
                                                 foreach($supervisor->result_array() as $row1) { ?>
                                                 <div class="co-codi">
-                                                    <img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
-                                                    <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($about_me[0]['supervisor'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                    <img style="width:50px;border-radius: 50%;border: 2px solid #fff;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
+                                                    <span class="co-codi_lt">
+                                                    <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($about_me[0]['supervisor'])?>">
+                                                    <p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                    <p style="color:#fff;">Designation</p>
+                                                    </span>
                                                 </div>
                                                 <?php } } }?>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div>
+                                            <div class="supervisor_sec">
                                                 <?php 
                                                 if ($about_me[0]['cosupervisors'] != "") { ?>
-                                                <span style="float:left;">Co-Supervisor:</span> 
+                                                <span> <h6 style="color:#fff; padding-bottom:15px;">Co-Supervisor:</h6></span> 
                                                 <?php $cosupervisor = $this->db->query("SELECT * FROM `iitmandi_team` WHERE `id` IN (".$about_me[0]['cosupervisors'].")");
                                                 if(!empty($cosupervisor->result_array())) {
                                                 foreach($cosupervisor->result_array() as $row1) { ?>
-                                                <div class="co-codi"><img style="width:50px;border-radius: 50%;border: 3px solid #000;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
-                                                    <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row1['id'])?>"><p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                <div class="co-codi">
+                                                    <img style="width:50px;border-radius: 50%;border: 2px solid #fff;" class="bio_img" src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image'];?>" alt=""/>
+                                                    <span class="co-codi_lt">
+                                                    <a href="<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row1['id'])?>">
+                                                    <p class='bio_text'><?php echo $row1['fname'];?></p></a>
+                                                    <p style="color:#fff;">Designation</p>
                                                 </div>         
                                                 <?php } } }?>           
                                             </div>
                                         </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                               </div>
                                 <div class="tab-pane" id="v-pills-link2" role="tabpanel" aria-labelledby="v-pills-link2-tab">
                                     <?php if(!empty($education)) {
                                     $i=1; ?>
