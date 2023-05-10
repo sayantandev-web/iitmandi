@@ -75,6 +75,11 @@ if($this->session->userdata('uid') != '') {
                 </a>
             </li>
             <li class="treeview">
+                <a href="admin/programs"><i class="fa fa-circle-o"></i>
+                    <span>Programs Management</span>
+                </a>
+            </li>
+            <li class="treeview">
                 <a href="admin/settings"><i class="fa fa-circle-o"></i>
                     <span>Settings</span>
                 </a>

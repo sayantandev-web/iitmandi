@@ -42,6 +42,7 @@ class Home extends CI_Controller {
     }
 
     public function programs(){
+        $data['programs']=$this->common_model->get_data_array(PROGRAMS,array('status'=>1, 'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title'] = 'Programs';
