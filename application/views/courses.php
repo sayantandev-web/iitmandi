@@ -45,30 +45,31 @@
 </style>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/style.css">
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top: 70px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center"><?php //echo $title?></h3>
-                    <div class="wrap main-bg table-div">
-                        <div class="view-box d-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-12 position">
-                                        <div class="logo" style="text-align: center;">
-                                            <a href="index.html"><img src="images/logo-1.png" alt="" style="width:300px" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12">
-                                        <div class="main-content">
-                                            <div class="md-headline clearfix">
-                                                <h1 style="text-align: center;">Currently Under Construction</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <h3 style="text-align:center"><?php echo $title; ?></h3>
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Sl No.</th>
+                                <th>Course ID</th>
+                                <th>Course Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php if(!empty($course)) {
+                            $i = 1;
+                        foreach($course as $row) { ?>
+                            <tr>
+                                <td><?php echo $i;?></td>
+                                <td><a href="<?php echo $row['course_link']?>" target="_blank"><?php echo $row['course_id'];?></a></td>
+                                <td><?php echo $row['course_name'];?></td>
+                            </tr>
+                        <?php $i++; } }?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -50,6 +50,7 @@ class Home extends CI_Controller {
     }
 
     public function courses(){
+        $data['course']=$this->common_model->get_data_array(COURSES,'','','','','','',COURSES.".id DESC",array('status'=>1, 'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title'] = 'Courses';
@@ -57,6 +58,7 @@ class Home extends CI_Controller {
     }
     
     public function admission(){
+        $data['admission']=$this->common_model->get_data_array(ADMISSION,'','','','','','',ADMISSION.".id DESC",array('status'=>1, 'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title'] = 'Admission';
