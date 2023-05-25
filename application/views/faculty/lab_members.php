@@ -112,7 +112,7 @@ echo $header;
                                     <?php foreach($phdteam as $row) { ?>
                                         <div class="col-lg-3 col-xl-2 col-md-6 col-sm-6 col-12">
                                             <div class="cstm_gllery">
-                                                <img src="<?php echo base_url()?>uploads/our_team/<?php echo $row['team_image']?>"/>
+                                                <img src="<?php echo base_url()?>uploads/our_team/<?php echo $row['team_image']?>" style="width: 185px; height: 185px;"/>
                                                 <h3><a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row['id'])?>' style="text-decoration: none;"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'];?></a></h3>
                                             </div>
                                         </div>

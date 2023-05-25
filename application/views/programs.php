@@ -45,6 +45,7 @@
     list-style: inherit !important;
     margin: 0;
     padding-left: 2rem !important;
+    color: #5c5c77;
   }
   .accordion-body li {list-style: inherit !important;}
 </style>
