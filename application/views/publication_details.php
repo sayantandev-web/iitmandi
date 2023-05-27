@@ -40,7 +40,8 @@
                                                 <h3 style="text-align:center;font-size: 30px;"> <?php echo $pub_details[0]['journal_name'];?></h3>
                                                 <h3 style="text-align:center"> 
                                                     <?php
-                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    //$author = $this->db->query("SELECT * FROM iitmandi_team WHERE iitmandi_team.id IN (".$pub_details[0]['author_name'].")");
+                                                    $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$pub_details[0]['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$pub_details[0]['author_name'].")");
                                                     $value = $author->result_array();
                                                     $count = count($value);
                                                     for($i = 0; $i < $count; $i++) {
