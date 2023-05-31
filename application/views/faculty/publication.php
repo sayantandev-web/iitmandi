@@ -133,6 +133,7 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['journal_name'].", ".$row['volume_number'].$issue_number.", ".$row['page_number'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                             <td>
+                                                <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditjorID(<?php echo $row['id']?>)">Edit</button>
                                                 <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                             </td>
                                             <?php } else { ?>
@@ -175,6 +176,7 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
+                                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditconID(<?php echo $row['id']?>)">Edit</button>
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -217,6 +219,7 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
+                                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBcID(<?php echo $row['id']?>)">Edit</button>
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -259,6 +262,7 @@ echo $header;
                                             <td style="text-align: justify;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
+                                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBkID(<?php echo $row['id']?>)">Edit</button>
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
@@ -301,6 +305,7 @@ echo $header;
                                                 <td style="text-align: justify;"><?php echo $text4." (".date('Y, F d', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['patient_number']; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
+                                                    <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditPtID(<?php echo $row['id']?>)">Edit</button>
                                                     <button type="button" class="btn btn-primary evnt_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="DtljorID(<?php echo $row['id']?>)" style="background: red; color: #fff;">Delete</button>
                                                 </td>
                                             <?php } else { ?>
