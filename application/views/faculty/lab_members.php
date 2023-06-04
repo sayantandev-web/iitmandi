@@ -42,7 +42,7 @@ echo $header;
                                             <div class="basr-social-share social" style="margin-top: 2%;">
                                                 <ul class="">
                                                 <?php if ($about_me[0]['research_gate'] != '') {?>
-                                                <li style="margin-top: 10px;">
+                                                <li>
                                                     <a class="facebook" href="<?php echo $about_me[0]['research_gate'] ?>"><img class="" src="<?php echo base_url();?>assets/social_icon/research_gate.png" alt="" style="border-radius: 50%;"/></a>
                                                 </li>
                                                 <?php } ?>
