@@ -505,6 +505,7 @@ echo $header;
                         <div id="err"></div>
                         <input class="btn btn-primary publication_save" type="submit" value="Submit">
                         <input type="hidden" id="uid" name="uid" value="<?php echo $uid?>">
+                        <input type="hidden" id="pubid" name="pubid" value="">
                     </div>
                 </div>
             </form>

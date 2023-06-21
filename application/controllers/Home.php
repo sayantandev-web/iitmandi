@@ -316,8 +316,8 @@ class Home extends CI_Controller {
 
         if(!empty($get_data->result_array())) {
             $html='';
+            $j=1;
             foreach($get_data->result_array() as $row){
-                $j=1;
                 $html .='<tbody><tr><td>'.$j.')</td>';
                 $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                 $value = $author->result_array();
@@ -342,7 +342,7 @@ class Home extends CI_Controller {
                     $issue_number = '';
                 }    
                 $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
-            }
+            $j++;}
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
         }
@@ -355,8 +355,8 @@ class Home extends CI_Controller {
         $get_data = $this->db->query("SELECT * FROM `iitmandi_publication` WHERE instr(concat(',', author_name, ','), ',$athrid,') AND `publication_type` = '".$pub_type."' AND `status` = 1 AND `is_delete` = 1");
         if(!empty($get_data->result_array())) {
             $html='';
+            $j=1;
             foreach($get_data->result_array() as $row){
-                $j=1;
                 $html .='<tbody><tr><td>'.$j.')</td>';
                 $author = $this->db->query("SELECT * FROM iitmandi_team WHERE FIELD(iitmandi_team.id,".$row['author_name'].") ORDER BY FIELD(iitmandi_team.id,".$row['author_name'].")");
                 $value = $author->result_array();
@@ -381,7 +381,7 @@ class Home extends CI_Controller {
                     $issue_number = '';
                 }    
                 $html .='<td style="text-align: justify;">'.$text.' ('.date("Y", strtotime($row["publish_date"])).'). '.$row["paper_title"].'. '.$row["journal_name"].', '.$row["volume_number"].'('.$row["issue_number"].'), '.$row["page_number"].'. <a href='.$row["external_Link"].' target="_blank">'.$row["external_Link"].'</a></td><td><a href='.base_url().'pages/publication/publication_details/'.$row["id"].' class="btn btn-primary">View More</button></td></tr><input type="text" id="pub_type" value="'.$row["publication_type"].'"></tbody>';
-            }
+            $j++;}
         } else {
             $html='<p style="text-align: center;">No Data Found related to filter options you have selected.</p>';  
         }

@@ -322,8 +322,21 @@ class Student extends CI_Controller {
 
 	public function edit_publication() {
 		$id = $this->input->post('id');
-		$edication=$this->common_model->get_data_row(PUBLICATION,array('id'=>$id));
-		echo json_encode($edication);
+		$education=$this->common_model->get_data_row(PUBLICATION,array('id'=>$id));
+		$getData = explode(',', $education['author_name']);
+		$items = array();
+		foreach($getData as $key) {    
+		    $getName = $this->db->query("SELECT * FROM iitmandi_team WHERE id = '".$key."'")->result_array();
+		    if(!empty($getName[0]['mname'])) {
+		    	$fullName = $getName[0]['fname'].' '.$getName[0]['mname'].' '.$getName[0]['lname'];
+		    }  else {
+		    	$fullName = $getName[0]['fname'].' '.$getName[0]['lname'];
+		    }
+		    $items[] = $fullName;
+		}
+		$string_version['author_name'] = implode(',', $items);
+		$finalData = array_merge($education, $string_version);
+		echo json_encode($finalData);
 	}
 
 	public function dlt_publication() {

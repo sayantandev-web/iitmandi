@@ -938,7 +938,10 @@
 	        },
 	        success: function (response) {
 	            response = JSON.parse(response);
-                console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
