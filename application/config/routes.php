@@ -91,6 +91,7 @@ $route['pages/specialization'] = 'home/specialization';
 $route['pages/programs'] = 'home/programs';
 $route['pages/courses'] = 'home/courses';
 $route['pages/admission'] = 'home/admission';
+$route['pages/specialization_details/(:any)'] = 'home/specialization_details/$1';
 
 /* Students */
 $route['student'] = 'student/student/index';

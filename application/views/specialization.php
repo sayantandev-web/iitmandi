@@ -1,77 +1,63 @@
 <?php echo $header;?>
 <style>
-    .nav-pills .nav-link{margin-bottom: 15px;}
-    .bio_img {width: 140px; height: 140px; border-radius: 50%;}
-    .bio_text {margin-bottom: auto;}
-    .bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
-    .td_class {padding: 0px; display: initial;}
-    .table>:not(caption)>*>* {text-align: center;}
-    /*.col-sm-4{display: inline-block;}
-    .col-sm-2{display: inline-block;}
-    .filter_data{text-align:center;margin: 0 0 35px 0;}
-    .fetch_data {background-color: #ffbf00; color: #fff;}*/
-    .filter_data{text-align:center;margin: 0 0 35px 0;}
-    .fetch_data {background-color: #ffbf00; color: #fff;}
-    .box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px;}
-    .box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
-    .box_dwn a{display:inline-block; color:#000;}
-    .box_dwn a h6{margin:0px; text-transform:uppercase;}
-    .box_dwn{width:100%;  padding-top:8px;}
-    .box_dwn h6{margin:0px; line-height:20px;}
-    /* .box_dwn p{margin:0px; font-size:16px; line-height:20px; -webkit-transform: translate3d(0,100%,0);   transform: translate3d(0,100%,0); padding-left:15px; text-align:left; color:#222; text-align: center;}*/
-    .box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700; } 
-   
-    .box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
-    /* .box_sec:hover .box_dwn{transform: translateY(-131px); position: absolute; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;} */
-    .box_sec:hover .box_dwn{/*transform: translateY(-131px); */position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
-    /* .box_sec:hover{padding:32px 15px 130px;} */
-    .choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
-    .choose_sec .btn:hover{background:#022851; color:#fff;}
-    .choose_sec select{height:40px; font-size:16px; padding:0 10px;}
-    .box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
-    .box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
-    .social_sec{width:100%;}
-    .social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
-    .social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
-    .res_txt2{opacity: 0;}
-    .box_sec:hover .res_txt2{opacity: 1;}
-    .res_txt1{opacity: 1;}
-    .box_sec:hover .res_txt1{opacity: 0;}
-    .container {max-width: 1600px;}
-    @media screen and (max-width: 600px) {
-      .box_sec{margin-top:10px;}  
+.nav-pills .nav-link{margin-bottom: 15px;}
+.bio_img {width: 140px; height: 140px; border-radius: 50%;}
+.bio_text {margin-bottom: auto;}
+.bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
+.td_class {padding: 0px; display: initial;}
+.table>:not(caption)>*>* {text-align: center;}
+.fade:not(.show) { opacity: 1 !important; background: #00000063;}
+.modal-lg { margin-top : 10%}
+.close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;
+opacity: .5;}
+* {box-sizing: border-box;}
+.title {display: flex;width: 40%;border-width: 2px;border-radius: 20px;justify-content: center;vertical-align: middle;margin-bottom: 50px;margin-top: 20px;}
+h1 {color: rgb(1 15 112);}
+.card_sp {position: relative;transition: transform .2s;}
+.card_sp:hover {transform: scale(1.3);z-index: 9999;}
+.text-overlay {position: absolute; top: 0; left: 0; padding: 1rem; font-size: 1.5rem; font-weight: 100; color: white; backdrop-filter: blur(8px) brightness(30%);} 
 
-    }
+/*27.02.2023*/
+.portfolio-info{width:100%;}
+.portfolio-info h6{font-size: 35px; line-height: 45px; text-align: center; color: #010f70; margin: 0px;padding-bottom: 15px; }
+.lab_sec{width:100%; margin-top: 15px; position: relative; overflow: hidden;transition: all ease-in-out .2s; border-radius: 40px;} 
+.lab_img{width: 100%;} 
+.lab_img img{border-radius: 40px;   transition: all ease-in-out .2s; width: 100%;}
+.lab_txt{width: 100%; position: absolute; left:0px; right: 0px; margin: 0 auto; top: 36%; background: rgba(0, 0, 0, 0.5); padding: 10px 0;}
+.lab_txt p{font-size: 24px; line-height: 40px; text-align: center; color: #fff; margin: 0px;padding:0px; }
+.lab_sec:hover .lab_img img{transform: scale(1.1);transition: all ease-in-out .2s; border-radius: 40px;}
+a{cursor: pointer;}
 </style>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/style.css">
 <main id="main">
-    <section id="portfolio-details" class="portfolio-details" style="margin-top: 30px">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 portfolio-info">
-                    <h3 style="text-align:center"><?php //echo $title?></h3>
-                    <div class="wrap main-bg table-div">
-                        <div class="view-box d-cell">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12 col-md-12 position">
-                                        <div class="logo" style="text-align: center;">
-                                            <a href="index.html"><img src="images/logo-1.png" alt="" style="width:300px" /></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-12">
-                                        <div class="main-content">
-                                            <div class="md-headline clearfix">
-                                                <h1 style="text-align: center;">Currently Under Construction</h1>
+    <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
+        <div class="container_1">
+            <div class="row gy-4">
+                <div class="col-sm-10 offset-sm-1">
+                    <div class="portfolio-info">
+                       <h6>Specializations</h6>
+                        <div class="row">
+                        <?php if(!empty($specializations)) {
+                            $i=1; ?>
+                        <?php foreach($specializations as $row) { ?>
+                            <div class="col-sm-4">
+                                <a onclick="location.href='<?php echo base_url()?>pages/specialization_details/<?php echo $row['page_slug']?>'">
+                                    <div class="lab_sec">
+                                        <div class="lab_img">
+                                            <img src="<?php echo base_url()?>uploads/specialization/<?php echo $row['specialization_img']?>" alt="" style="height: 271px;">
+                                            <div class="lab_txt">
+                                                <p><?php echo $row['specialization_name']?></p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
+                        <?php $i++; } } ?>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-</main><!-- End #main -->
-<?php echo $footer?>
+</main>
+<?php echo $footer; ?>

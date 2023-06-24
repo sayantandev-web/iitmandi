@@ -35,10 +35,19 @@ class Home extends CI_Controller {
     }
 
     public function specialization(){
+        $data['specializations']=$this->common_model->get_data_array(SPECIALIZATION,'','','','','','',SPECIALIZATION.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title'] = 'Specialization';
         $this->load->view('specialization',$data);
+    }
+
+    public function specialization_details($slug){
+        $data['specializations_details']=$this->common_model->get_data_array(SPECIALIZATION,'','','','','','',SPECIALIZATION.".id DESC",array('page_slug'=> $slug,'status'=>1,'is_delete'=>1));
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title'] = 'Specialization';
+        $this->load->view('specialization_details',$data);
     }
 
     public function programs(){

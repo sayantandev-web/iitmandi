@@ -475,6 +475,8 @@
         })
     });
     CKEDITOR.replace('description');
+    CKEDITOR.replace('about_specialization');
+    CKEDITOR.replace('research_specialization');
 </script>
 <style type="text/css">
     /*.tox-statusbar{display: none !important;}*/

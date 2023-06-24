@@ -110,3 +110,4 @@ define('ROLEE', 'iitmandi_faculty_role');
 define('PROGRAMS', 'iitmandi_programs');
 define('COURSES', 'iitmandi_courses');
 define('ADMISSION', 'iitmandi_admission');
+define('SPECIALIZATION', 'iitmandi_specialization');
