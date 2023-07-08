@@ -128,7 +128,7 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12" style=" display: flex; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: auto;">
           <?php if (!empty($news)) {
             foreach ($news as $row) { ?>
               <div class="col-sm-4 homeNews" style="width: 32.333333%;display: inline-block;float: left;margin-right: 15px;background: #001730;border-radius: 20px;">
