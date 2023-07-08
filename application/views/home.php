@@ -120,24 +120,27 @@
       </div>
       <?php } ?>
     </div>
-    <div class="swiper mySwiper ">
+    </section>
+
+    <section id="features" class="features section-bg1">
       <div class="section-title">
-        <h2 style="color : black !important">News And Announcements</h2>
+        <h2 style="color:black !important">News And Announcements</h2>
       </div>
-      <div class="swiper-wrapper news-section" style="transition-duration: 0ms !important; transform: translate3d(68.75px, 0px, 0px) !important;">
-        <?php if (!empty($news)) {
-          foreach ($news as $row) { ?>
-            <div class="card1ed swiper-slide">
-              <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: 100%;height: 290px;border-radius: 20px 20px 0 0;">
-              <h5 style="line-height: 18px;padding-left: 10px; padding-bottom: 10px;margin-bottom: 5px;"><a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo "#";} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
-              <hr>
-            </div>
-        <?php }
-        } ?>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+          <?php if (!empty($news)) {
+            foreach ($news as $row) { ?>
+              <div class="col-sm-4 homeNews" style="width: 32.333333%;display: inline-block;float: left;margin-right: 15px;background: #001730;border-radius: 20px;">
+                <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: 100%;height: 290px;border-radius: 20px 20px 0 0;">
+                <h5 style="line-height: 18px;padding-left: 10px; padding-bottom: 10px;margin-bottom: 5px;"><a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo "#";} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
+                <hr>
+              </div>
+          <?php }
+          } ?>
+          </div>
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <br>
     </section>
     <section id="features" class="features section-bg">
       <div class="section-title">

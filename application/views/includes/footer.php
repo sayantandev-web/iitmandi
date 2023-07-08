@@ -70,9 +70,10 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js' crossorigin = "anonymous"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/js/chosen.min.css">
@@ -95,6 +96,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/script.js"></script>
 <script src="<?php echo base_url()?>ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>assets/fontend/js/primary-nav.nuKHgqPrYVsT.js?v=9.3.21" type="module"></script>
+
 <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -135,6 +137,7 @@
         },
     });
     $(document).ready(function(){
+        $('.homeNews').matchHeight();
         $('select.chosen').chosen();
         var MY_SELECT = $('select[multiple].chosen').get(0);
         $('.publication_save').hover(function() {
