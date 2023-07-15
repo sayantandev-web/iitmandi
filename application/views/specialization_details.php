@@ -96,6 +96,10 @@ h4:first-child{text-align: center;}
 .lab_sec:hover .lab_img img{transform: scale(1.1);transition: all ease-in-out .2s; border-radius: 40px;}
 a{cursor: pointer;}
 </style>
+<?php 
+$faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1 and iitmandi_team.specialization = '".$specializations_details[0]['id']."'ORDER BY fname ASC")->result_array();
+$facilities = $this->db->query("SELECT * FROM iitmandi_labsection where specialization = '".$specializations_details[0]['specialization_name']."' ORDER BY id ASC")->result_array();
+?>
 <main id="main">
     <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
         <div class="container">
@@ -107,10 +111,18 @@ a{cursor: pointer;}
                     </div>
                     <div class="row">
                         <div class="col-12 profile_menu" style="text-align:center">
+                            <?php if(!empty($specializations_details[0]['about_specialization'])) { ?>
                             <a href="#about"><button type="button" class="btn btn-primary active">About</button></a>
+                            <?php } 
+                            if($specializations_details[0]['research_specialization']) { ?>
                             <a href="#research"><button type="button" class="btn btn-primary">Research</button></a>
+                            <?php } 
+                            if(!empty($faculty1)) { ?>
                             <a href="#faculty"><button type="button" class="btn btn-primary">Faculty</button></a>
+                            <?php } 
+                            if(!empty($facilities)) { ?>
                             <a href="#facilities"><button type="button" class="btn btn-primary">Facilities</button></a>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="row">
@@ -122,15 +134,13 @@ a{cursor: pointer;}
                             <h4>Research</h4>
                             <div><?php echo $text = $specializations_details[0]['research_specialization']; ?></div>
                         </div>
+                        <?php if(!empty($faculty1)) { ?>
                         <div class="cont_txt" id="faculty">
                             <h4>Faculty</h4>
-                            <?php 
-                            $faculty1 = $this->db->query("SELECT iitmandi_team.id,iitmandi_team.fname,iitmandi_team.mname,iitmandi_team.lname,iitmandi_team.email,iitmandi_team.mobile,iitmandi_designation.designation,iitmandi_team.specialization,iitmandi_team.research_keyword,iitmandi_team.team_image from iitmandi_team JOIN iitmandi_designation ON iitmandi_team.designation = iitmandi_designation.id WHERE iitmandi_team.position = 1 and iitmandi_team.status = 1 and iitmandi_team.is_delete = 1 and iitmandi_designation.status = 1 and iitmandi_designation.is_delete = 1 and iitmandi_team.specialization = '".$specializations_details[0]['id']."'ORDER BY fname ASC");
-                            ?>
                             <div class="row cls_filter_data">
-                                <?php if(!empty($faculty1->result_array())) {
-                                    $i=1; ?>
-                                <?php foreach($faculty1->result_array() as $row) { ?>
+                                <?php
+                                $i=1; ?>
+                                <?php foreach($faculty1 as $row) { ?>
                                 <div class="col-sm-6 col-xl-2 col-lg-3 col-md-6 col-12">
                                     <div class="box_sec">
                                         <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
@@ -148,18 +158,16 @@ a{cursor: pointer;}
                                         </div>
                                     </div>   
                                 </div>
-                                <?php $i++; } } ?>
+                                <?php $i++; } ?>
                             </div>
                         </div>
+                        <?php } 
+                        if(!empty($facilities)) { ?>
                         <div class="cont_txt" id="facilities">
                             <h4>Facilities</h4>
-                            <?php 
-                            $facilities = $this->db->query("SELECT * FROM iitmandi_db.iitmandi_labsection where specialization = '".$specializations_details[0]['specialization_name']."' ORDER BY id ASC");
-                            ?>
                             <div class="row cls_filter_data">
-                                <?php if(!empty($facilities->result_array())) {
-                                    $i=1; ?>
-                                <?php foreach($facilities->result_array() as $row) { ?>
+                                <?php $i=1; ?>
+                                <?php foreach($facilities as $row) { ?>
                                     <div class="col-sm-4">
                                         <a onclick="location.href='<?php echo base_url()?>teaching_labs_details/<?php echo $row['page_slug']?>'">
                                             <div class="lab_sec">
@@ -172,9 +180,10 @@ a{cursor: pointer;}
                                             </div>
                                         </a>
                                     </div>
-                                <?php $i++; } } ?>
+                                <?php $i++; } ?>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
