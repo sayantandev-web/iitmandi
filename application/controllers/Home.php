@@ -226,7 +226,7 @@ class Home extends CI_Controller {
     public function journal() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('position'=>8,'status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
-        $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
+        $data['journal']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".publish_date DESC",array('publication_type'=>'Journal Article', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -237,7 +237,7 @@ class Home extends CI_Controller {
     public function conference() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
-        $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
+        $data['conference']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".publish_date DESC",array('publication_type'=>'Conference Paper', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -248,7 +248,7 @@ class Home extends CI_Controller {
     public function book_chapter() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
-        $data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
+        $data['bookc']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".publish_date DESC",array('publication_type'=>'Book Chapter', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -259,7 +259,7 @@ class Home extends CI_Controller {
     public function book() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
-        $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
+        $data['book']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".publish_date DESC",array('publication_type'=>'Book', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -270,7 +270,7 @@ class Home extends CI_Controller {
     public function patent() { 
         //$data['ourteam']=$this->common_model->get_data_array(TEAM,'','','','','','',TEAM.".id DESC",array('status'=>1,'is_delete'=>1));
         $data['ourteam']=$this->db->query("SELECT * FROM `iitmandi_team` WHERE `position` IN(1) AND `status` = 1 AND `is_delete` = 1");
-        $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".id DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
+        $data['patent']=$this->common_model->get_data_array(PUBLICATION,'','','','','','',PUBLICATION.".publish_date DESC",array('publication_type'=>'Patent', 'status'=>1,'is_delete'=>1));
         $data['consultancy']=$this->common_model->get_data_array(PROJECT,'','','','','','','',array('project_type' =>2,'is_delete' =>1));
         $data['header']=$this->load->view('includes/header','',true);
         $data['footer']=$this->load->view('includes/footer','',true);
@@ -409,5 +409,14 @@ class Home extends CI_Controller {
             $message='';
             echo "<script>window.parent.CKEDITOR.tools.callFunction('".$function_number."','".$url."','".$message."');</script>";     
         }
+    }
+
+    public function news_details($news_slug) {
+        $pageContent = $this->db->query("SELECT * FROM iitmandi_newsstorages where news_slug = '".$news_slug."'")->result_array();
+        $data['pageContent'] = $this->db->query("SELECT * FROM iitmandi_newsstorages where news_slug = '".$news_slug."'")->result_array();
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']= $pageContent[0]['title'];
+        $this->load->view('news_details',$data);
     }
 }

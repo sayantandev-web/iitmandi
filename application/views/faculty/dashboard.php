@@ -360,6 +360,12 @@ echo $header;
                                 <textarea id="aboutme" name="aboutme"><?php echo $about_me[0]['aboutme'];?></textarea>
                                 <div class="col-sm-12" style="float: left; display: inline-block;" style="margin-bottom: 40px;">
                                     <div class="form-group col-sm-12 cstm_details">
+                                        <label for="Event Name" class="control-label col-lg-3 col-md-3 col-sm-4">Phone Number</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-8">
+                                            <input type="text" class="form-control required" id="mobile" name="mobile" value="<?php echo $about_me[0]['mobile'];?>" maxlength="13">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-12 cstm_details">
                                         <label for="Event Name" class="control-label col-lg-3 col-md-3 col-sm-4">Research Gate Link</label>
                                         <div class="col-lg-9 col-md-9 col-sm-8">
                                             <input type="text" class="form-control required" id="research_gate" name="research_gate" value="<?php echo $about_me[0]['research_gate'];?>">

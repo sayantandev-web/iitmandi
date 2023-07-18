@@ -303,6 +303,7 @@ class Facultys extends CI_Controller {
 		if($this->input->post()) {
 			$insArr=array();
 			$insArr['aboutme']=$this->input->post('aboutme');
+			$insArr['mobile']=$this->input->post('mobile');
 			$insArr['research_gate']=$this->input->post('research_gate');
 			$insArr['google_scholar']=$this->input->post('google_scholar');
 			$insArr['linedin_link']=$this->input->post('linedin_link');

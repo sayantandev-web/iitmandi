@@ -1,208 +1,133 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php echo $title;?></title>
-    <meta name="title" content="<?php echo $fullnews[0]['meta_title'];?>">
-    <meta name="description" content="<?php echo $fullnews[0]['meta_desc'];?>">
-    <style type="text/css">
-    .wp-image-6{width: 708px; height: 400px;}
-    .wp-image-8{width: 708px; height: 400px;}
-    .page-banner{background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; content: ""; display: block; height: 100%; width: 100%; -webkit-box-shadow: inset 0 0 188px 0 #000000; -moz-box-shadow: inset 0 0 188px 0 #000000; box-shadow: inset 0 0 188px 0 #000000;z-index: -1; padding: 20px 30px !important;}
-    .cstm_meta_cls{display: inline-block !important; color: #fff;}
-    .page-breadcrumb{margin-bottom: 30% !important;}
-    .cstm_title_cls{color: #fff; font-size: 36px; line-height: 50px;}
-    .cstm_meta_cls .meta-item {margin: 0 10px;}
-    #accordion .panel {border-radius: 0; border: 0; margin-top: 0px; display: flow-root;}
-    #accordion a {display: block; padding: 10px 15px; border-bottom: 1px solid #b42b2b; text-decoration: none;}
-    #accordion .panel-heading a.collapsed:hover,
-    #accordion .panel-heading a.collapsed:focus {background-color: #b42b2b; color: white; transition: all 0.2s ease-in;}
-    #accordion .panel-heading a.collapsed:hover::before,
-    #accordion .panel-heading a.collapsed:focus::before {color: white;}
-    #accordion .panel-heading {padding: 0; border-radius: 0px; text-align: center;}
-    #accordion .panel-heading a:not(.collapsed) {color: white; background-color: #b42b2b; transition: all 0.2s ease-in;}
-    /* Add Indicator fontawesome icon to the left */
-    #accordion .panel-heading .accordion-toggle::before {font-family: 'FontAwesome'; content: '\f00d'; float: left; color: white; font-weight: lighter; transform: rotate(0deg); transition: all 0.2s ease-in;}
-    #accordion .panel-heading .accordion-toggle.collapsed::before {color: #444; transform: rotate(-135deg); transition: all 0.2s ease-in;}
-    .panel-collapse p {width: 100%;display: inline-block !important;}
-    .panel-collapse a { padding: 0 !important; border-bottom: none !important; text-decoration: none; display: inline-block !important;}
-    </style>
-    <?php echo $header;?>
-    <!-- <div class="blog-section section" style="background-image: url('<?php echo base_url();?>assets/images/news/<?php echo $fullnews[0]['file_name'];?>');z-index: 99999999;position: relative; background-size: contain;"> -->
-	<div class="blog-section section">
-        <input type="hidden" name="reader_id" id="reader_id" value="<?php echo $this->session->userdata('uid'); ?>">
-        <input type="hidden" name="news_id" id="news_id" value="<?php echo $fullnews[0]['id']; ?>">
+<?php echo $header;?>
+<style>
+.nav-pills .nav-link{margin-bottom: 15px;}
+.bio_img {width: 140px; height: 140px; border-radius: 50%;}
+.bio_text {margin-bottom: auto;}
+.bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
+.td_class {padding: 0px; display: initial;}
+.table>:not(caption)>*>* {text-align: center;}
+.fade:not(.show) { opacity: 1 !important; background: #00000063;}
+.modal-lg { margin-top : 10%}
+.close {padding: 0;background-color: transparent;border: 0;float: right;font-size: 1.5rem;font-weight: 700;line-height: 1;color: #000;text-shadow: 0 1px 0 #fff;opacity: .5;}
+.title {display: flex;width: 40%;border-width: 2px;border-radius: 20px;justify-content: center;vertical-align: middle;margin-bottom: 50px;margin-top: 20px;}
+h1 {color: rgb(1 15 112);}
+.block { display: flex; width: 90%; height: 400px; background-color: lightgray; border-radius: 20px; border:rgba(110, 130, 229, 0.6); border-width: .2px; padding-right: 5px;}
+.block img { max-width: 100%; max-height:100%; padding: 5px; border-radius: 20px; width: 400px; }
+.block .textblock { font-size: 20px; padding-left: 20px;}
+.block:hover { box-shadow: 0 0 11px rgba(110, 130, 229, 0.6); }
+.text { font-size: 20px; padding-left: 20px;}
+/*28.02.2023*/
+.lab_details_sec{width: 100%; text-align:center;}
+.lab_details_sec h4{font-size: 44px; line-height: 45px; text-align: center; color: #010f70; margin: 35px 0 30px; padding-bottom: 0px; }
+.lab_details_lt{width: 100%; border: 1px solid #ffbf00; border-radius: 15px;}
+.lab_details_lt img{width: 100%; border-radius: 15px;}
+.lab_details_rt{width: 100%; padding-top:0px;}
+.lab_details_rt h6{font-size: 26px; line-height: 30px; text-align: left; color: #13639e; margin: 0px;padding-bottom: 15px; }
+.lab_details_rt p{padding: 0px; font-size: 16px; line-height: 22px; text-align: left; color: #444444;}
+.lab_details_inn{width: 100%; margin-top:15px; padding: 15px; box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);     -webkit-box-shadow: 2px 4px 9px 0px rgb(120 120 120 / 75%);  -moz-box-shadow: 2px 4px 9px 0px rgba(120,120,120,0.75); border-radius: 8px; margin-bottom: 15px;}
+.lab_details_rt_top{width: 100%; margin-bottom: 30px;}
+.lab_details_rt_top p{font-size: 16px; color:#222; text-align: center; line-height: 25px}
+.lab_details_rt_top p strong{font-size: 20px;}
+.cont_txt{width:100%; padding: 15px;}
+.cont_txt p{padding: 0px 0 20px; font-size: 16px; line-height: 22px; text-align: left; color: #444444;}
+.specialization_img {/*width: 100%; height: 450px;*/ margin-bottom: 50px;}
+html {scroll-behavior: smooth;}
+.profile_menu {width: 100%;z-index: 99;position: static;}.profile_menu.sticky {position: fixed;top: 0;margin-left: -41px;}.profile_menu {padding: 0;margin: 0 0 30px;font-size: 1.5em;background: #fff;}.profile_menu a {border: none;border-bottom: 5px solid #fff;display: inline-block;padding: 5px 0;margin: 0 15px;}.profile_menu a:first-child {margin-left: 0;}.profile_menu a.active,.profile_menu a:hover {border-bottom-color: #0078d7;animation-name: menu-border-fade;animation-duration: .6s;animation-timing-function: ease;}.profile_menu a.active .menu-link,.menu-link:hover {animation-name: menu-link-fade;animation-duration: .4s;animation-timing-function: ease;color: #0078d7;}
+.nav-pills .nav-link{margin-bottom: 15px;}
+.bio_img {width: 140px; height: 140px; border-radius: 50%;}
+.bio_text {margin-bottom: auto;}
+.bio_text1 {margin-top: 30px; border: 1px solid #eee; padding: 30px; text-align: justify;}
+.td_class {padding: 0px; display: initial;}
+.table>:not(caption)>*>* {text-align: center;}
+.filter_data{text-align:center;margin: 0 0 35px 0;}
+.fetch_data {background-color: #ffbf00; color: #fff;}
+.box_sec{background: #efefef;  padding:20px 15px; border-radius: 20px; text-align: center; position: relative; margin-bottom:15px; height: 520px;}
+.box_sec img{width:220px; height:220px; transition:all ease-in-out .5s; position:relative; border-radius: 50%;}
+.box_dwn a{display:inline-block; color:#000;}
+.box_dwn a h6{margin:0px; text-transform:uppercase;}
+.box_dwn{width:100%;  padding-top:8px; height: 185px;}
+.box_dwn h6{margin:0px; line-height:20px; height: 40px;}
+.box_dwn p{margin:0px; font-size:12px; line-height:20px; padding-left:0px; color:#7a7a7a; text-align: center; font-weight:700;} 
+.box_sec:hover img{transition: all ease-in-out .5s; transform: scale(.7)translateY(-46px);}
+.box_sec:hover .box_dwn{transform: translateY(-75px); transition: all ease-in-out .5s; position: relative; z-index: 1; left: 0px; right: 0px; margin: 0 auto; overflow:visible;}
+.choose_sec .btn{background:#ffdf80; color:#fff; border-radius:5px; width:100%; padding:8px 0; color:#022851;}
+.choose_sec .btn:hover{background:#022851; color:#fff;}
+.choose_sec select{height:40px; font-size:16px; padding:0 10px;}
+.box_dwn small{color: #db0000; text-transform: uppercase; font-size: 15px;}
+.box_dwn_inn{width: 100%; display: inline-block; margin-top: 0px;}
+.social_sec{width:100%; margin-top: 50px;}
+.social_sec .fa-envelope{font-size: 20px; color: #7a7a7a;}
+.social_sec .fa-phone{font-size: 20px; color: #7a7a7a;}
+.res_txt2{display: none;}
+.box_sec:hover .res_txt2{display: block;}
+.res_txt1{display: block;}
+.box_sec:hover .res_txt1{display: block;}
+.container {max-width: 1600px;}
+@media screen and (max-width: 600px) {
+    .box_sec{margin-top:10px;}  
+}
+@media (min-width: 1200px) and (max-width: 1460px) {
+    .col-xl-2 {
+        flex: 0 0 auto !important;
+        width: 21.666667% !important;
+    }
+}
+@media (min-width: 991px) and (max-width: 1030px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 26% !important;
+    }
+}
+@media (min-width: 1461px) and (max-width: 1541px) {
+    .col-lg-3 {
+        flex: 0 0 auto;
+        width: 17.666667% !important;
+    }
+}
+.cont_txt {margin-bottom: 38px;float: left;width: 100%;background: #ffffff;margin-top: 30px;box-shadow: 0 0 10px #f87b42;-webkit-border-radius: 8px;-moz-border-radius: 8px;-ms-border-radius: 8px;-o-border-radius: 8px;border-radius: 8px;overflow: hidden;}
+h4:first-child{text-align: center;}
+.portfolio-info{width:100%;}
+.portfolio-info h6{font-size: 35px; line-height: 45px; text-align: center; color: #010f70; margin: 0px;padding-bottom: 15px; }
+.lab_sec{width:100%; margin-top: 15px; position: relative; overflow: hidden;transition: all ease-in-out .2s; border-radius: 40px;} 
+.lab_img{width: 100%;} 
+.lab_img img{border-radius: 40px;   transition: all ease-in-out .2s; width: 100%;}
+.lab_txt{width: 100%; position: absolute; left:0px; right: 0px; margin: 0 auto; top: 36%; background: rgba(0, 0, 0, 0.5); padding: 10px 0;}
+.lab_txt p{font-size: 24px; line-height: 40px; text-align: center; color: #fff; margin: 0px;padding:0px; }
+.lab_sec:hover .lab_img img{transform: scale(1.1);transition: all ease-in-out .2s; border-radius: 40px;}
+a{cursor: pointer;}
+</style>
+<main id="main">
+    <section id="portfolio-details" class="portfolio-details" style="margin-top:70px;">
         <div class="container">
-            <div class="row">
-                <div class="page-banner" style="background-image: url('<?php echo base_url();?>assets/images/news/<?php echo $fullnews[0]['file_name'];?>');z-index: 99999999;position: relative; background-size: cover;">
-                    <ol class="page-breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <?php $cat_name=$this->common_model->get_data_array(CATEGORY,array('slug'=>$fullnews[0]['category'],'status' =>1, 'is_delete'=>1),'','','','','',''); ?>
-                        <li class="active"><?php echo $cat_name[0]['category_name']?></li>
-                        <li class="active"><?php echo $fullnews[0]['title']; ?></li>
-                    </ol>
-                    <a href="<?php echo base_url().'category/'.$fullnews[0]['category']?>"><h3 class="category" style="padding: 5px;font-size: 12px;color: #fff;background: #000;"><?php echo $cat_name[0]['category_name']?></h3></a>
-                    <h3 class="title cstm_title_cls"><?php echo $fullnews[0]['title']; ?></h3>
-                    <div class="meta fix cstm_meta_cls">
-                        <a href="#" class="meta-item author">
-                            <?php 
-                            $fa_user = $this->db->query("SELECT * FROM `knosmosdb_users` WHERE `id` = '".$fullnews[0]['role_id']."'")->result_array();
-                            if(!empty($fa_user)){
-                                if($fa_user[0]['id'] == $fullnews[0]['role_id']){
-                                    echo $fa_user[0]['fullname'];
-                                } else {
-                                    echo "Admin";
-                                }
-                            } else {
-                                echo "Admin";   
-                            }
-                            ?>
-                        </a>
-                        <span class="meta-item date"><i class="fa fa-clock-o"></i><?php echo date("jS M, Y", strtotime($fullnews[0]['add_date']));?></span>
-                        <span class="meta-item view"><i class="fa fa-eye"></i><?php echo $fullnews[0]['viewers']?></span>
+            <div class="row gy-4">
+                <div class="col-sm-12 offset-sm-0">
+                    <div class="lab_details_sec">
+                        <h4><?php echo $pageContent[0]['title']?></h4>
+                        <img class="specialization_img" src="<?php echo base_url()?>/uploads/news/<?php echo $pageContent[0]['file_name']?>">
                     </div>
-                </div>
-                <div class="col-sm-12" style="background: #fff;">
-                    <div class="col-sm-8 mb-50" style="float: left; display: inline-block;">
-                        <div class="single-blog mb-50">
-                            <div class="blog-wrap">
-                                <div class="content cstm_news_cls">
-                                    <div id="accordion" class="panel-group">
-                                        <?php 
-                                        if($fullnews[0]['role_id'] != "0"){ 
-                                            //$a_bio = $this->common_model->get_data_array(USERS,array('id'=>$fullnews[0]['role_id'],'status' =>1),'','','','','',''); 
-                                            $a_bio = $this->db->query("SELECT * FROM `knosmosdb_users` WHERE `id` = '".$fullnews[0]['role_id']."' AND `status` = '1'")->result_array();
-                                            if($a_bio[0]['bio'] != ""){ 
-                                        ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyOne" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">Author Bio</a></h4>
-                                            </div>
-                                            <div id="panelBodyOne" class="panel-collapse collapse show">
-                                                <div class="panel-body">
-                                                    <div><?php echo $a_bio[0]['bio']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php }} ?>
-                                        <?php /*if($fullnews[0]['table_content'] != "" && $a_bio[0]['bio'] != ""){ */?>
-                                        <?php if($fullnews[0]['table_content'] != ""){ ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyTwo" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion">Table of Contents</a></h4>
-                                            </div>
-                                            <div id="panelBodyTwo" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['table_content']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } else { ?>
-                                        	<div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyTwo" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">Table of Contents</a></h4>
-                                            </div>
-                                            <div id="panelBodyTwo" class="panel-collapse collapse show">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['table_content']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        <?php if($fullnews[0]['description'] != ""){ ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyThree" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion">Overview</a></h4>
-                                            </div>
-                                            <div id="panelBodyThree" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['overview']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        <?php if($fullnews[0]['overview'] != ""){ ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyFour" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion">Description</a></h4>
-                                            </div>
-                                            <div id="panelBodyFour" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['description']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        <?php if($fullnews[0]['conclusion'] != ""){ ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodyFive" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion">Conclusion</a></h4>
-                                            </div>
-                                            <div id="panelBodyFive" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['conclusion']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                        <?php if($fullnews[0]['reference'] != ""){ ?>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="#panelBodySix" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion">Reference</a></h4>
-                                            </div>
-                                            <div id="panelBodySix" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    <div><?php echo $fullnews[0]['reference']; ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
-                                    </div>
-                                </div>
-                                <div class="tags-social float-left">
-                                    <div class="tags float-left"></div>
-                                    <!-- AddToAny BEGIN -->
-									<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                                        <a class="a2a_button_facebook"></a>
-                                        <a class="a2a_button_twitter"></a>
-                                        <a class="a2a_button_google_gmail"></a>
-    									<a class="a2a_button_whatsapp"></a>
-    									<a class="a2a_button_reddit"></a>
-    									<a class="a2a_button_pinterest"></a>
-    									<a class="a2a_button_linkedin"></a>
-									</div>
-									<script async src="https://static.addtoany.com/menu/page.js"></script>
-									<!-- AddToAny END -->
-                                </div>
-                                <div style=" display: inline-block; margin: 25px 0 0 0;"><a href="<?php echo base_url().'page/forums'?>">Click Here to Discuss</a></div>
-                            </div>
+                    <div class="row">
+                        <div class="cont_txt" id="about">
+                            <h4>Description</h4>
+                            <div style="font-size: 18px;"><?php echo $text = $pageContent[0]['description']; ?></div>
                         </div>
                     </div>
-                    <?php echo $sidebar;?>
                 </div>
             </div>
         </div>
-    </div>
-    <?php echo $footer; ?>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            var reader_id = $('#reader_id').val();
-            var news_id = $('#news_id').val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url();?>user/readernews",
-                data: 'reader_id='+ reader_id + '&news_id=' + news_id,
-                success: function(result) {}
-            });
-            var news_id = $('#news_id').val();
-            $.ajax({
-                type: "POST",
-                url: "<?php echo base_url();?>home/viewnews",
-                data: 'news_id=' + news_id,
-                success: function(result) {}
-            });
-        });
-    </script>
-</body>
-</html>
+    </section>
+</main>
+<?php echo $footer; ?>
+<script>
+    var div_top = $('.profile_menu').offset().top;
+
+    $(window).scroll(function() {
+        var window_top = $(window).scrollTop() - 0;
+        if (window_top > div_top) {
+            if (!$('.profile_menu').is('.sticky')) {
+                $('.profile_menu').addClass('sticky');
+            }
+        } else {
+            $('.profile_menu').removeClass('sticky');
+        }
+    });
+</script>

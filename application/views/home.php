@@ -128,12 +128,14 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-sm-12" style=" display: flex; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: auto;">
+          <div class="col-sm-12">
           <?php if (!empty($news)) {
             foreach ($news as $row) { ?>
-              <div class="col-sm-4 homeNews" style="width: 32.333333%;display: inline-block;float: left;margin-right: 15px;background: #001730;border-radius: 20px;">
+              <!-- <div class="col-sm-4 homeNews" style="width: 32.333333%;display: inline-block;float: left;margin-right: 15px;background: #001730;border-radius: 20px;"> -->
+              <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 homeNews">
                 <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: 100%;height: 290px;border-radius: 20px 20px 0 0;">
-                <h5 style="line-height: 18px;padding-left: 10px; padding-bottom: 10px;margin-bottom: 5px;"><a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo "#";} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
+                <h5 style="line-height: 18px;padding-left: 10px; padding-bottom: 10px;margin-bottom: 5px;">
+                <a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo base_url().'news_details/'.$row['news_slug'];} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
                 <hr>
               </div>
           <?php }
@@ -192,4 +194,7 @@
     <!-- End Events Section -->
   </main>
   <!-- End #main -->
+  <style>
+    .homeNews{display: inline-block;float: left;margin: 0px 10px 10px 0px;background: #001730;border-radius: 20px;}
+  </style>
   <?php echo $footer; ?>

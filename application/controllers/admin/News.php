@@ -37,10 +37,10 @@ class News extends CI_Controller{
             $insert_array=array();
             $insert_array['title'] = $this->input->post('title');
             $insert_array['type']= "news";
-            $insert_array['description']=nl2br($this->input->post('description'));
+            $insert_array['description']=$this->input->post('description');
             $insert_array['a_link']=$this->input->post('a_link');
             $insert_array['status']=$this->input->post('status');
-            if($_FILES['news_image']['size']!='') {
+            if($_FILES['news_image']['name']!='') {
                 if(!empty($id)){
                     $data['result']=$this->common_model->get_data_row(STORAGES,array('id'=>$id));
                     if(!empty($data['result']['cubrid_field_name(result, field_offset)'])) {
@@ -76,7 +76,7 @@ class News extends CI_Controller{
                     $insert_array=array();
                     $insert_array['title'] = $this->input->post('title');
                     $insert_array['type']= "news";
-                    $insert_array['description']=nl2br($this->input->post('description'));
+                    $insert_array['description']=$this->input->post('description');
                     $insert_array['status']=$this->input->post('status');
                     $insert_array['file_name']=$suc_upload2['file_name'];
                 }
@@ -84,7 +84,6 @@ class News extends CI_Controller{
             if(!empty($id)) {
                 $this->common_model->tbl_update(STORAGES,array('id'=>$id),$insert_array);
                 $this->utilitylib->setMsg(SUCCESS_ICON.' News successfully updated','SUCCESS');
-                //redirect(base_url('admin/news/add_news/'.$id));
                 redirect(base_url('admin/news/'));
             } else {
                 $page_title = trim($this->input->post('title'));
