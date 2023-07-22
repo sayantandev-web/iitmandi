@@ -137,7 +137,8 @@
         },
     });
     $(document).ready(function(){
-        $('.homeNews').matchHeight();
+        $('.homeNews1').matchHeight();
+        $('.homeNews1 h5').matchHeight();
         $('select.chosen').chosen();
         var MY_SELECT = $('select[multiple].chosen').get(0);
         $('.publication_save').hover(function() {

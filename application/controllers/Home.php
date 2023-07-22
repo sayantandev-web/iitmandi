@@ -19,7 +19,7 @@ class Home extends CI_Controller {
         $data['count_r'] = $this->db->query("SELECT COUNT(id) as 'Total' FROM `iitmandi_publication` WHERE `status` = 1 AND `is_delete` = 1");
         $data['count_f'] = $this->db->query("SELECT COUNT(id) as 'Total' FROM `iitmandi_team` WHERE `position` = 1 AND `status` = 1 AND `is_delete` = 1");
         $data['count_l'] = $this->db->query("SELECT COUNT(id) as 'Total' FROM `iitmandi_labsection` WHERE `status` = 1 AND `is_delete` = 1");
-        $data['news'] = $this->common_model->get_data_array(STORAGES,array('status' =>1,'is_delete' =>1),'','','3','','',STORAGES.".add_date DESC",'','','');
+        $data['news'] = $this->common_model->get_data_array(STORAGES,array('status' =>1,'is_delete' =>1),'','','4','','',STORAGES.".add_date DESC",'','','');
         $data['events'] = $this->common_model->get_data_array(EVENTS,array('status' =>1,'is_delete' =>1),'','','','','',EVENTS.".event_date DESC",'','','');
         $data['header'] = $this->load->view('includes/header','',true);
         $data['footer'] = $this->load->view('includes/footer','',true);
@@ -409,6 +409,14 @@ class Home extends CI_Controller {
             $message='';
             echo "<script>window.parent.CKEDITOR.tools.callFunction('".$function_number."','".$url."','".$message."');</script>";     
         }
+    }
+
+    public function viewallnews() {
+        $data['allNews'] = $this->db->query("SELECT * FROM iitmandi_newsstorages where `status` = '1' AND is_delete = '1'")->result_array();
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        //$data['title']= $pageContent[0]['title'];
+        $this->load->view('all_news',$data);
     }
 
     public function news_details($news_slug) {

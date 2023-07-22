@@ -92,6 +92,7 @@ $route['pages/programs'] = 'home/programs';
 $route['pages/courses'] = 'home/courses';
 $route['pages/admission'] = 'home/admission';
 $route['pages/specialization_details/(:any)'] = 'home/specialization_details/$1';
+$route['pages/all_news'] = 'home/viewallnews';
 $route['news_details/(:any)'] = 'home/news_details/$1';
 
 /* Students */
@@ -106,8 +107,6 @@ $route['student/save_educate'] = 'student/student/save_educate';
 $route['student/save_experience'] = 'student/student/save_experience';
 $route['student/save_publication'] = 'student/student/save_publication';
 $route['student/logout'] = 'student/student/logout';
-
-
 
 /* Faculty */
 $route['faculty'] = 'facultys/facultys/index';
