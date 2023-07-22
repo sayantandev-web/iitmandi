@@ -129,19 +129,20 @@
                     <div class="portfolio-info" style="box-shadow: none;">
                     <h2 style="color:black !important; text-align: center;">News And Announcements</h2>
                         <div class="row">
-                            <!-- <div class="col-sm-12"> -->
                             <?php if (!empty($news)) {
                             foreach ($news as $row) { ?>
                             <div class="col-sm-6 col-xl-3 col-lg-4 col-md-6 col-12 homeNews" style="padding-left: 0px !important;">
-                            <div class="homeNews1" style="width: 100%; display: inline-block; float: left; margin: 0px 10px 10px 0px; background: #001730; border-radius: 20px;">
-                                <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width: 100%;height: 290px;border-radius: 20px 20px 0 0;">
-                                <h5 style="line-height: 18px;padding-left: 10px; padding-bottom: 10px;margin-bottom: 5px;">
-                                <a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo base_url().'news_details/'.$row['news_slug'];} ?>" style="color: #fff;font-size: 16px;text-decoration: none;" target="_blank"><?php echo $row['title']?></a></h5>
-                                <hr>
-                            </div>
+                                <div class="homeNews1" style="width:100%; display:inline-block; float:left; margin:0px 10px 10px 0px;background: #001730;border-radius: 20px;cursor: pointer;">
+                                    <img class="mb-2" src="<?php echo base_url() ?>uploads/news/<?php echo $row['file_name']?>" style="width:100%;height:290px;border-radius:20px 20px 0 0;">
+                                    <h5 style="line-height:18px;padding-left:10px;padding-bottom:10px;margin-bottom:5px;">
+                                    <a href="<?php if($row['a_link'] != "") {echo $row['a_link'];} else { echo base_url().'news_details/'.$row['news_slug'];} ?>" style="color:#fff;font-size:16px;text-decoration:none;" target="_blank"><?php echo $row['title']?></a></h5>
+                                    <hr>
+                                </div>
                             </div>
                             <?php } } ?>
-                            <!-- </div> -->
+                            <?php if(count($news) > 4) { ?>
+                            <div style="text-align: center; margin: 50px 0 0 0;"><a href="<?php echo base_url().'pages/all_news'?>" type="button" class="btn btn-primary" target="blank">View All</a></div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -200,6 +201,6 @@
   </main>
   <!-- End #main -->
   <style>
-    .homeNews{display: inline-block; float: left; border-radius: 20px;}
+    .homeNews{display: inline-block;float: left; border-radius: 20px;}
   </style>
   <?php echo $footer; ?>

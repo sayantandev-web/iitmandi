@@ -40,8 +40,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>Image</th>
-                                                    <th>Equipment Name</th>
-                                                    <th>Lab Name</th>
+                                                    <!-- <th>Equipment Name</th> -->
+                                                    <!-- <th>Lab Name</th> -->
+                                                    <th>Specialization Name</th>
+                                                    <!-- <th>Description</th> -->
                                                     <th style="width: 160px;">Action</th>
                                                 </tr>
                                             </thead>
@@ -58,7 +60,7 @@
                                                         <?php } ?>
                                                     </td>
                                                     <td><?php echo $row['specialization_name'] ?></td>
-                                                    <td><?php echo mb_substr(html_entity_decode($row['about_specialization']),0,200); ?></td>
+                                                    <!-- <td><?php echo mb_substr(html_entity_decode($row['about_specialization']),0,100)."..."; ?></td> -->
                                                     <td>
                                                         <a href="admin/specialization/add_specialization/<?php echo $row['id']; ?>" class="btn btn-info waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                         <?php if($row['status']==1) { ?>
