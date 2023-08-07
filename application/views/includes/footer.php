@@ -73,15 +73,17 @@
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js' crossorigin = "anonymous"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/js/chosen.min.css">
 
-<!-- <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script> -->
-<!-- <script src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script> -->
-<!-- <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script> -->
-<!-- <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/> -->
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/aos/aos.js"></script>
@@ -137,6 +139,7 @@
         },
     });
     $(document).ready(function(){
+        //$('.js-example-basic-multiple').select2();
         $('.homeNews1').matchHeight();
         $('.homeNews1 h5').matchHeight();
         $('select.chosen').chosen();
@@ -1764,6 +1767,10 @@
         filebrowserUploadMethod: "form",
         removePlugins: 'easyimage',
     });
+    function clearAuthor() {
+        $('.search-choice').remove();
+        $('.chosen-results li').attr('class','active-result');
+    }
 </script>
 <script>
     ! function(d, s, id) {
