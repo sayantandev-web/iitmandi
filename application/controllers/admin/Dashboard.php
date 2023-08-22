@@ -132,11 +132,13 @@ class Dashboard extends CI_Controller{
     
     public function change_password() {
         if($this->input->post()) {
-            $result=$this->common_model->get_data(ADMIN,array('user_id'=>1));
-            if(md5($this->input->post('current_pass'))==@$result[0]['password']) {
-                $upt=$this->common_model->tbl_update(ADMIN,array('user_id'=>1),array('password'=>md5($this->input->post('confirm_pass'))));
+            $result=$this->common_model->get_data(ADMIN,array('user_id'=>'-1'));
+            if(md5($this->input->post('current_pass')) == @$result[0]['password']) {
+                $upt=$this->common_model->tbl_update(ADMIN,array('user_id'=>'-1'),array('password'=>md5($this->input->post('confirm_pass'))));
                 $this->utilitylib->setMsg('Password changed successfully','SUCCESS');
-                redirect(base_url()."admin/Dashboard/change_password");
+                $this->session->unset_userdata('uid');
+                session_unset();  
+                redirect(base_url()."admin");
             } else {
                 $this->utilitylib->setMsg('<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Please enter old password correctly!','ERROR');
                 redirect(base_url()."admin/Dashboard/change_password");

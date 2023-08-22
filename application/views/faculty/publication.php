@@ -180,7 +180,7 @@ echo $header;
                                                     $text1 .= ', & '.$lastItem1; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: justify;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location']; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text1." (".date('Y, F', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['conference_name'].", ".$row['location'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
                                                     <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditconID(<?php echo $row['id']?>)">Edit</button>
@@ -223,7 +223,7 @@ echo $header;
                                                     $text2 .= ', & '.$lastItem2; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: justify;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")"; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text2." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['editors'].", ".$row['book_name']." (".$row['page_number'].")".". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?>; ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
                                                     <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBcID(<?php echo $row['id']?>)">Edit</button>
@@ -266,7 +266,7 @@ echo $header;
                                                     $text3 .= ', & '.$lastItem3; // a, b and c
                                                 }
                                             ?>
-                                            <td style="text-align: justify;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher']; ?></td>
+                                            <td style="text-align: justify;"><?php echo $text3." (".date('Y', strtotime($row['publish_date']))."). ".$row['paper_title'].". ".$row['publisher'].". <a href=".$row['external_Link']." target='_blank'>".$row['external_Link']."</a>" ?></td>
                                             <?php if ($this->session->userdata('user_id') != '' && $this->session->userdata('position') == 'Faculty') { ?>
                                                 <td>
                                                     <button type="button" class="btn btn-primary pub_add_btn" data-toggle="modal" data-target=".bd-example-modal-lg4" onclick="EditBkID(<?php echo $row['id']?>)">Edit</button>

@@ -5,14 +5,13 @@
    <head>
       <?php echo $header_scripts; ?>
    </head>
-   <body class="fixed-left">
-      <!-- Begin page -->
-      <div id="wrapper">
-         <?php echo $header; ?>
-         <?php echo $sidebar; ?>
-         <!-- ============================================================== -->
-         <!-- Start right Content here -->
-         <!-- ============================================================== -->
+   <body class="skin-blue">
+      <div class="wrapper">
+         <header class="main-header">
+            <a href="admin" class="logo"><b>Admin</b>Panel</a>
+            <?php echo $header; ?>
+         </header>
+         <?php echo $sidebar;?>
          <div class="content-page">
             <!-- Start content -->
             <div class="content">
@@ -72,19 +71,18 @@
             <?php echo $footer; ?>
          </div>
       </div>
-      <!-- END wrapper -->
       <?php echo $footer_scripts; ?>
       <script src="assets/js/jquery.validate.min.js"></script>
       <script>
-         $( document ).ready(function() {
-            $("#editForm").validate({
-         rules:{
-            current_pass:{required:true},
-            password:{required:true, minlength:5},
-            confirm_pass:{equalTo:$("#password")}
-         }
+      $( document ).ready(function() {
+         $("#editForm").validate({
+            rules:{
+               current_pass:{required:true},
+               password:{required:true, minlength:5},
+               confirm_pass:{equalTo:$("#password")}
+            }
+         });
       });
-          });
       </script>
    </body>
 </html>

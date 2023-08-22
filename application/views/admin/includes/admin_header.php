@@ -23,7 +23,7 @@ if($this->session->userdata('uid') != '') {
                     </li>
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="admin/Dashboard/profile" class="btn btn-default btn-flat">Profile</a>
+                            <a href="admin/Dashboard/change_password" class="btn btn-default btn-flat">Change Password</a>
                         </div>
                         <div class="pull-right">
                             <a href="admin/Login/logout" class="btn btn-default btn-flat">Sign out</a>
