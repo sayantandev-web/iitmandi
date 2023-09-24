@@ -1698,7 +1698,8 @@
                         } else if (result.position2 == 2){
                             $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
                         } else if (result.position2 == 8){
-                            $("#name_of_pi").html(result.fname);
+                            //$("#name_of_pi").html(result.fname);
+                            $("#name_of_copi").html(result.copi);
                         }
                     } else {
                         $(".name_of_copi").hide();
