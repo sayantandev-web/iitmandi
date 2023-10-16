@@ -138,11 +138,15 @@
                                     </tr>
                                     <tr>
                                         <th>Principal Investigator</th>
-                                        <td><span id="name_of_pi"></span></td>
+                                        <td id="name_of_pi"></td>
                                     </tr>
                                     <tr class='name_of_copi'>
                                         <th>Co - Principal Investigator</th>
-                                        <td><span id="name_of_copi"></span></td>
+                                        <td>
+                                            <span id="name_of_copi">
+                                                <ul class='main' style="list-style-type: none;padding: 0;margin: 0 !important;"></ul>
+                                            </span>
+                                        </td>
                                     </tr>
                                     <tr class='name_of_ps'>
                                         <th>Project Staff</th>
