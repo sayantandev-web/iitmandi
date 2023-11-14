@@ -126,26 +126,26 @@ class Publication extends CI_Controller{
     }
     
     public function change_status($id) {
-        $news=$this->common_model->get_data(STORAGES,array('id'=>$id));
+        $news=$this->common_model->get_data(PUBLICATION,array('id'=>$id));
         if($news[0]['status']==1) {
             $status = array('status'=>2);
         } else {
             $status = array('status'=>1);
         }
-        $this->common_model->tbl_update(STORAGES,array('id'=>$id),$status);
+        $this->common_model->tbl_update(PUBLICATION,array('id'=>$id),$status);
         $this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i> Status successfully changed.','SUCCESS');
-        redirect(base_url()."admin/news");
+        redirect(base_url()."admin/publication");
     }
     
     public function delete($id) {
-        $news=$this->common_model->get_data_row(STORAGES,array('id'=>$id));
+        $news=$this->common_model->get_data_row(PUBLICATION,array('id'=>$id));
         if($news['is_delete']==1) {
             $status = array('is_delete'=>2);
         } else {
             $status = array('is_delete'=>1);
         }
-        $this->common_model->tbl_update(STORAGES,array('id'=>$id),$status);
-        $this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i> News successfully deleted.','SUCCESS');
-        redirect(base_url()."admin/news/");
+        $this->common_model->tbl_update(PUBLICATION,array('id'=>$id),$status);
+        $this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i> Publication successfully deleted.','SUCCESS');
+        redirect(base_url()."admin/publication/");
     }
 }
