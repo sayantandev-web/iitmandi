@@ -70,6 +70,11 @@ if($this->session->userdata('uid') != '') {
                 </ul>
             </li> 
             <li class="treeview">
+                <a href="admin/publication"><i class="fa fa-circle-o"></i>
+                    <span>Publication Management</span>
+                </a>
+            </li>
+            <li class="treeview">
                 <a href="admin/project"><i class="fa fa-circle-o"></i>
                     <span>Project Management</span>
                 </a>

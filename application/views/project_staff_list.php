@@ -22,7 +22,7 @@
                         <?php foreach($project_staff as $row) { ?>
                         <div class="col-sm-12" style="border: 1px solid;box-shadow: 1px 1px 0px #999,2px 2px 0px #999,3px 3px 0px #999,4px 4px 0px #999,5px 5px 0px #999,6px 6px 0px #999; margin-bottom: 30px; float: left;">
                             <div class="col-sm-2">
-                                <?php if($row['team_image'] != ""){ ?>
+                                <?php if(!empty($row['team_image'])){ ?>
                                     <img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="" style="width: 100%; height: 194px;">
                                 <?php } else { ?>
                                     <img src="<?php echo base_url(); ?>assets/images/no-cover.png" alt="no-cover.png"  alt="" style="width: 100%; height: 194px;">

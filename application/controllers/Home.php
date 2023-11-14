@@ -256,7 +256,7 @@ class Home extends CI_Controller {
         }
     }
 
-    public function project_fdetails() { 
+    /*public function project_fdetails() { 
         $p_id = $this->input->post('p_id');
         $project_data = $this->db->query("SELECT iitmandi_project.id, iitmandi_project.project_title, iitmandi_project.funding_agency, iitmandi_project.funding_amount,iitmandi_project.starting_year, iitmandi_project.project_duration, iitmandi_project.reference_number, iitmandi_team.id as 'teamid1', CONCAT(iitmandi_team.fname, ' ', iitmandi_team.mname, ' ', iitmandi_team.lname) as 'fname', iitmandi_team.position as 'position1', iitmandi_team.status, iitmandi_team.is_delete FROM iitmandi_project JOIN iitmandi_team ON iitmandi_team.id = iitmandi_project.project_incharge WHERE iitmandi_project.id = $p_id AND iitmandi_project.is_delete = 1");
         $project_data2 = $this->db->query("SELECT iitmandi_project.id, iitmandi_project.project_title, iitmandi_project.funding_agency, iitmandi_project.funding_amount,iitmandi_project.starting_year, iitmandi_project.project_duration, iitmandi_project.reference_number, iitmandi_team.id as 'teamid2', CONCAT(iitmandi_team.fname, ' ', iitmandi_team.mname, ' ', iitmandi_team.lname) as 'copi', iitmandi_team.position as 'position2', iitmandi_team.status, iitmandi_team.is_delete FROM iitmandi_project JOIN iitmandi_team ON iitmandi_team.id = iitmandi_project.coproject_incharge WHERE iitmandi_project.id = $p_id AND iitmandi_project.is_delete = 1");
@@ -267,6 +267,50 @@ class Home extends CI_Controller {
             echo json_encode($result);
         } else {
             echo json_encode($project_data[0]);
+        }
+    }*/
+
+    public function project_fdetails() {
+        $p_id = $this->input->post('p_id');
+        //$pt_id = $this->input->post('pt_id');
+        $project_data = $this->db->query("SELECT iitmandi_project.*, iitmandi_team.id as 'teamid', CONCAT(iitmandi_team.fname, ' ', iitmandi_team.mname, ' ', iitmandi_team.lname) as 'project_incharge_name', iitmandi_team.position as 'piposition' FROM iitmandi_project JOIN iitmandi_team ON iitmandi_team.id = iitmandi_project.project_incharge WHERE iitmandi_project.id = $p_id AND iitmandi_project.is_delete = 1");
+        $project_data = $project_data->result_array();
+        if(!empty($project_data)) {
+            $projectdataList = array();
+            foreach ($project_data as $key => $value) {
+                $projectdataList[$key]['id'] = $value['id'];
+                $projectdataList[$key]['project_title'] = $value['project_title'];
+                $projectdataList[$key]['funding_agency'] = $value['funding_agency'];
+                $projectdataList[$key]['funding_amount'] = $value['funding_amount'];
+                $projectdataList[$key]['project_incharge'] = $value['project_incharge'];
+                $projectdataList[$key]['project_incharge_name'] = $value['project_incharge_name'];
+                $projectdataList[$key]['piposition'] = $value['piposition'];
+                $projectdataList[$key]['coproject_incharge_id'] = $value['coproject_incharge'];
+                if(!empty($value['coproject_incharge'])) {
+                    $coPIcount = explode(",", $value['coproject_incharge']);
+                    $string = [];
+                    for ($i = 0; $i < count($coPIcount); $i++) {
+                        $coPIName = $this->db->query("SELECT id, position, CONCAT(iitmandi_team.fname, ' ', iitmandi_team.mname, ' ', iitmandi_team.lname) as 'copi_name' FROM iitmandi_team WHERE id = '".$coPIcount[$i]."'")->result_array();
+                        $string[$i]['id'] = $coPIName[0]['id'];
+                        $string[$i]['copiposition'] = $coPIName[0]['position'];
+                        $string[$i]['copi_name'] = $coPIName[0]['copi_name'];
+                    }
+                    // $projectdataList[$key]['coproject_incharge_name'] = implode(", ",$string);
+                    $projectdataList[$key]['coproject_incharge_name'] = $string;
+                } else {
+                    $projectdataList[$key]['coproject_incharge_name'] = "";
+                }
+                $projectdataList[$key]['projectstuff_id'] = $value['projectstuff_id'];
+                $projectdataList[$key]['starting_year'] = $value['starting_year'];
+                $projectdataList[$key]['ending_year'] = $value['project_duration'];
+                $projectdataList[$key]['reference_number'] = $value['reference_number'];
+                $projectdataList[$key]['description'] = $value['description'];
+                $projectdataList[$key]['project_status'] = $value['pstatus'];
+                $projectdataList[$key]['status'] = $value['status'];
+                $projectdataList[$key]['is_delete'] = $value['is_delete'];
+            }
+            //print_r($projectdataList[$key]);
+            echo json_encode($projectdataList[$key]);
         }
     }
 

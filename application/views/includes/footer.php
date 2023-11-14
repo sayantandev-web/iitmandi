@@ -1767,7 +1767,7 @@
         )
     };
 
-    function project_fdetails(id) {
+    /*function project_fdetails(id) {
         var p_id = id;
         $.post(
             "<?php echo base_url('home/project_fdetails') ?>", {p_id: p_id}, 
@@ -1792,6 +1792,57 @@
                     if (result.hasOwnProperty('copi')) {
                         $(".name_of_copi").show();
                         $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
+                    } else {
+                        $(".name_of_copi").hide();
+                    }
+                    if (result.hasOwnProperty('stuffname')) {
+                        $(".name_of_ps").show();
+                        $("#name_of_ps").html(result.stuffname);
+                    } else {
+                        $(".name_of_ps").hide();
+                    }
+                }
+            }
+        )
+    };*/
+
+    function project_fdetails(id) {
+        var p_id = id;
+        $.post(
+            "<?php echo base_url('home/project_fdetails') ?>", {p_id: p_id}, 
+            function(result){
+                if(result) {
+                    console.log(result);
+                    result = JSON.parse(result);
+                    //console.log(result.coproject_incharge_name.length);
+                    $("#project_title").html(result.project_title);
+                    $("#proj_ref_new").html(result.reference_number);
+                    $("#agency_name").html(result.funding_agency);
+                    $("#project_amount").html(result.funding_amount);
+                    $("#project_start").html(result.starting_year + '-' + result.ending_year);
+                    if(result.piposition == 1) {
+                        $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.project_incharge)+"'>"+result.project_incharge_name+"</a>");
+                    } else if (result.piposition == 2){
+                        $("#name_of_pi").html("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.project_incharge)+"'>"+result.project_incharge_name+"</a>");
+                    } else if (result.piposition == 8){
+                        $("#name_of_pi").html(result.project_incharge_name);
+                    }
+                    if(result.coproject_incharge_name.length > 0) {
+                        $(".name_of_copi").show();
+                        $('.name_of_copi .main').empty();
+                        for (var i=0; i < result.coproject_incharge_name.length; i++) {
+                            console.log(result.coproject_incharge_name[i]);
+                            if(result.coproject_incharge_name[i].copiposition == 8) {
+                                //copi_name.push(result.coproject_incharge_name[i].copi_name);
+                                $("#name_of_copi .main").append("<li>"+result.coproject_incharge_name[i].copi_name+"</li>");
+                            } else if(result.coproject_incharge_name[i].copiposition == 1) {
+                                //copi_name.push("<a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.coproject_incharge_name[i].id)+"'>"+result.coproject_incharge_name[i].copi_name+"</a>");
+                                $("#name_of_copi .main").append("<li><a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.coproject_incharge_name[i].id)+"'>"+result.coproject_incharge_name[i].copi_name+"</a></li>");
+                            } else if(result.coproject_incharge_name[i].copiposition == 2) {
+                                // copi_name.push("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.coproject_incharge_name[i].id)+"'>"+result.coproject_incharge_name[i].copi_name+"</a>");
+                                $("#name_of_copi .main").append("<li><a href='<?php echo base_url()?>pages/faculty_details/"+btoa(result.coproject_incharge_name[i].id)+"'>"+result.coproject_incharge_name[i].copi_name+"</a></li>");
+                            }
+                        }
                     } else {
                         $(".name_of_copi").hide();
                     }

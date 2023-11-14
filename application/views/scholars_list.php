@@ -74,7 +74,12 @@
                         foreach($scholars->result_array() as $row1) { ?>
                         <div class="col-sm-6 col-xl-2 col-lg-3 col-md-6 col-12">
                             <div class="box_sec">
-                                <a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="">
+                                <?php if(!empty($row1['team_image'])){ ?>
+                                <a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row1['team_image']?>" alt="" style="width: 100%; height: 194px;">
+                                <?php } else { ?>
+                                <img src="<?php echo base_url(); ?>assets/images/no-cover.png" alt="no-cover.png"  alt="" style="width: 100%; height: 194px;">
+                                <?php } ?>
+                                
                                 <div class="box_dwn">
                                     <h6><a href='<?php echo base_url();?>pages/student_details/<?php echo base64_encode($row1['id'])?>' style="text-decoration: none;"><?php echo $row1['fname']." ".$row1['mname']." ".$row1['lname'] ?></a></h6><small><?php echo $row['designation']?></small>
                                     <div class="box_dwn_inn">

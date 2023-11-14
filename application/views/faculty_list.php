@@ -102,7 +102,11 @@
                         <?php foreach($faculty1->result_array() as $row) { ?>
                         <div class="col-sm-6 col-xl-2 col-lg-3 col-md-6 col-12">
                             <div class="box_sec">
-                                <a href= '<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt="">
+                                <?php if(!empty($row['team_image'])){ ?>
+                                <a href= '<?php echo base_url();?>pages/postdocs_details/<?php echo base64_encode($row['id'])?>'><img src="<?php echo base_url();?>uploads/our_team/<?php echo $row['team_image']?>" alt=""  style="width: 100%; height: 194px;">
+                                <?php } else { ?>
+                                <img src="<?php echo base_url(); ?>assets/images/no-cover.png" alt="no-cover.png"  alt="" style="width: 100%; height: 194px;">
+                                <?php } ?>
                                 <div class="box_dwn">
                                     <h6><a href='<?php echo base_url();?>pages/faculty_details/<?php echo base64_encode($row['id'])?>' style="text-decoration: none;"><?php echo $row['fname']." ".$row['mname']." ".$row['lname'] ?></a></h6><small><?php echo $row['designation']?></small>
                                     <div class="box_dwn_inn">

@@ -70,17 +70,20 @@
         </div>
     </div>
 </footer><!-- End Footer -->
+
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js' crossorigin = "anonymous"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/js/chosen.min.css">
 
-<!-- <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script> -->
-<!-- <script src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script> -->
-<!-- <script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script> -->
-<!-- <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/> -->
+<script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>assets/js/chosen.order.jquery.min.js"></script>
+<link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
 <script src="<?php echo base_url()?>assets/plugins/jQuery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url()?>assets/fontend/vendor/aos/aos.js"></script>
@@ -95,6 +98,7 @@
 <script type="text/javascript" src="<?php echo base_url()?>assets/engine1/script.js"></script>
 <script src="<?php echo base_url()?>ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="<?php echo base_url();?>assets/fontend/js/primary-nav.nuKHgqPrYVsT.js?v=9.3.21" type="module"></script>
+
 <script>
     ! function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -135,6 +139,9 @@
         },
     });
     $(document).ready(function(){
+        //$('.js-example-basic-multiple').select2();
+        $('.homeNews1').matchHeight();
+        $('.homeNews1 h5').matchHeight();
         $('select.chosen').chosen();
         var MY_SELECT = $('select[multiple].chosen').get(0);
         $('.publication_save').hover(function() {
@@ -733,8 +740,8 @@
         });
 
         $("#filterByYear").change(function(){
-            var yrid = $("#filterByYear").val();
-            var pub_type = $("#pub_type").val();
+            var yrid = $("#filterByYear").val(); console.log(yrid);
+            var pub_type = $("#pub_type").val(); console.log(pub_type);
             $.post(
                 "<?php echo base_url('home/filterByYear') ?>", {yrid: yrid, pub_type: pub_type}, 
                 function(result){
@@ -746,8 +753,8 @@
         });
 
         $("#filterByAuthor").change(function(){
-            var athrid = $("#filterByAuthor").val();
-            var pub_type = $("#pub_type").val();
+            var athrid = $("#filterByAuthor").val(); console.log(athrid);
+            var pub_type = $("#pub_type").val(); console.log(pub_type);
             $.post(
                 "<?php echo base_url('home/filterByAuthor') ?>", {athrid: athrid, pub_type: pub_type}, 
                 function(result){
@@ -937,23 +944,33 @@
                 $("#err").fadeOut();
 	        },
 	        success: function (response) {
-                //console.log(response);
 	            response = JSON.parse(response);
-                console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $("#paper_title").prop('required',true);
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').show();
+                $("#journal_name").prop('required',true);
                 $('.conference_name').hide();
                 $('.book_name').hide();
                 $('.publish_date').show();
+                $("#publish_date").prop('required',true);
                 $('.patient_number').hide();
                 $('.publisher').show();
                 $('.location').hide();
                 $('.external_Link').show();
+                $("#external_Link").prop('required',true);
                 $('.editors').hide();
                 $('.page_number').show();
+                $('.volume_number').show();
+                $('.issue_number').show();
                 $('.short_summery').show();
                 $('.key_points').show();
                 $("#pubid").val(response.id);
@@ -961,10 +978,12 @@
                 $("#author_name").val(response.author_name);
                 $("#paper_title").val(response.paper_title);
                 $("#journal_name").val(response.journal_name);
-                $("#publish_date").val(response.journal_name);
+                $("#publish_date").val(response.publish_date);
                 $("#publisher").val(response.publisher);
                 $("#external_Link").val(response.external_Link);
                 $("#page_number").val(response.page_number);
+                $("#volume_number").val(response.volume_number);
+                $("#issue_number").val(response.issue_number);
                 $("#highlight").val(response.highlight);
                 $("#short_summery").val(response.short_summery);
                 $("#key_points").val(response.key_points);
@@ -1010,21 +1029,33 @@
 	        success: function (response) {
                 //console.log(response);
 	            response = JSON.parse(response);
-                console.log(response);
+                //console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $("#paper_title").prop('required',true);
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').show();
+                $("#conference_name").prop('required',true);
                 $('.book_name').hide();
                 $('.publish_date').show();
+                $("#publish_date").prop('required',true);
                 $('.patient_number').hide();
                 $('.publisher').show();
                 $('.location').show();
                 $('.external_Link').show();
+                $("#external_Link").prop('required',true);
                 $('.editors').hide();
                 $('.page_number').show();
+                $('.volume_number').show();
+                $('.issue_number').hide();
                 $('.short_summery').show();
                 $('.key_points').show();
                 $("#pubid").val(response.id);
@@ -1082,21 +1113,33 @@
 	        success: function (response) {
                 //console.log(response);
 	            response = JSON.parse(response);
-                console.log(response);
+                //console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
-                $('.paper_title').show();
+                $('.paper_title').hide();
+                $('.chapter_title').show();
+                $("#chapter_title").prop('required',true);
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').show();
+                $("#book_name").prop('required',true);
                 $('.publish_date').show();
+                $("#publish_date").prop('required',true);
                 $('.patient_number').hide();
                 $('.publisher').hide();
                 $('.location').hide();
                 $('.external_Link').show();
+                $("#external_Link").prop('required',true);
                 $('.editors').show();
                 $('.page_number').show();
+                $('.volume_number').hide();
+                $('.issue_number').hide();
                 $('.short_summery').show();
                 $('.key_points').show();
                 $("#pubid").val(response.id);
@@ -1153,21 +1196,32 @@
 	        success: function (response) {
                 //console.log(response);
 	            response = JSON.parse(response);
-                console.log(response);
+                //console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
                 $('.paper_title').show();
+                $("#paper_title").prop('required',true);
+                $('.chapter_title').hide();
+                $('.patent_title').hide();
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').hide();
                 $('.publish_date').show();
+                $("#publish_date").prop('required',true);
                 $('.patient_number').hide();
                 $('.publisher').show();
                 $('.location').hide();
                 $('.external_Link').show();
+                $("#external_Link").prop('required',true);
                 $('.editors').hide();
                 $('.page_number').show();
+                $('.volume_number').hide();
+                $('.issue_number').hide();
                 $('.short_summery').show();
                 $('.key_points').show();
                 $("#pubid").val(response.id);
@@ -1223,23 +1277,33 @@
 	        success: function (response) {
                 //console.log(response);
 	            response = JSON.parse(response);
-                console.log(response);
+                //console.log(response);
+                var data = response.author_name.split(",");
+                for (i=0;i<data.length;i++){
+                    $(".chosen-choices").append('<li class="search-choice"><span>'+data[i]+'</span><a class="search-choice-close" data-option-array-index="'+(i+1)+'"></a></li>');
+                }
                 $('.body_content').show();
                 $('.attachment').show();
                 $('.author_name').show();
-                $('.paper_title').show();
+                $('.paper_title').hide();
+                $('.chapter_title').hide();
+                $('.patent_title').show();
+                $("#patent_title").prop('required',true);
                 $('.journal_name').hide();
                 $('.conference_name').hide();
                 $('.book_name').hide();
                 $('.publish_date').show();
+                $("#publish_date").prop('required',true);
                 $('.patient_number').show();
                 $('.publisher').hide();
                 $('.location').hide();
                 $('.external_Link').hide();
                 $('.editors').hide();
                 $('.page_number').hide();
+                $('.volume_number').hide();
+                $('.issue_number').hide();
                 $('.short_summery').show();
-                $('.key_points').show();
+                $('.key_points').hide();
                 $("#pubid").val(response.id);
                 $("#publication_type").val(response.publication_type);
                 $("#author_name").val(response.author_name);
@@ -1634,7 +1698,8 @@
                         } else if (result.position2 == 2){
                             $("#name_of_copi").html("<a href='<?php echo base_url()?>pages/postdocs_details/"+btoa(result.teamid2)+"'>"+result.copi+"</a>");
                         } else if (result.position2 == 8){
-                            $("#name_of_pi").html(result.fname);
+                            //$("#name_of_pi").html(result.fname);
+                            $("#name_of_copi").html(result.copi);
                         }
                     } else {
                         $(".name_of_copi").hide();
@@ -1719,6 +1784,10 @@
         filebrowserUploadMethod: "form",
         removePlugins: 'easyimage',
     });
+    function clearAuthor() {
+        $('.search-choice').remove();
+        $('.chosen-results li').attr('class','active-result');
+    }
 </script>
 <script>
     ! function(d, s, id) {
