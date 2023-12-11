@@ -394,9 +394,7 @@ echo $header; ?>
                                     <div class='col-sm-12'>
                                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
-                                            <?php if(!empty($award)) {
-                                                $i=1; ?>
-                                                <?php foreach($award as $row) { ?>
+                                            <?php if(!empty($award)) { ?>
                                                 <tr>
                                                     <th>Name</th>
                                                     <th>Year</th>
@@ -404,6 +402,8 @@ echo $header; ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $i=1;
+                                                foreach($award as $row) {  ?>
                                                 <tr>
                                                     <td><?php echo $row['name'];?></td>
                                                     <td><?php echo $row['year'];?></td>

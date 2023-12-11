@@ -20,7 +20,7 @@ class Home extends CI_Controller {
         $data['count_f'] = $this->db->query("SELECT COUNT(id) as 'Total' FROM `iitmandi_team` WHERE `position` = 1 AND `status` = 1 AND `is_delete` = 1");
         $data['count_l'] = $this->db->query("SELECT COUNT(id) as 'Total' FROM `iitmandi_labsection` WHERE `status` = 1 AND `is_delete` = 1");
         $data['news'] = $this->common_model->get_data_array(STORAGES,array('status' =>1,'is_delete' =>1),'','','4','','',STORAGES.".add_date DESC",'','','');
-        $data['events'] = $this->common_model->get_data_array(EVENTS,array('status' =>1,'is_delete' =>1),'','','','','',EVENTS.".event_date DESC",'','','');
+        $data['events'] = $this->common_model->get_data_array(EVENTS,array('status' =>1,'is_delete' =>1),'','','4','','',EVENTS.".event_date DESC",'','','');
         $data['header'] = $this->load->view('includes/header','',true);
         $data['footer'] = $this->load->view('includes/footer','',true);
         $data['title'] = 'Home';
@@ -538,5 +538,22 @@ class Home extends CI_Controller {
         $data['footer']=$this->load->view('includes/footer','',true);
         $data['title']= $pageContent[0]['title'];
         $this->load->view('news_details',$data);
+    }
+
+    public function viewallevents() {
+        $data['allEvents'] = $this->db->query("SELECT * FROM iitmandi_events where `status` = '1' AND is_delete = '1'")->result_array();
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        //$data['title']= $pageContent[0]['title'];
+        $this->load->view('all_events',$data);
+    }
+
+    public function event_details($event_slug) {
+        $pageContent = $this->db->query("SELECT * FROM iitmandi_events where slug = '".$event_slug."'")->result_array();
+        $data['pageContent'] = $this->db->query("SELECT * FROM iitmandi_events where slug = '".$event_slug."'")->result_array();
+        $data['header']=$this->load->view('includes/header','',true);
+        $data['footer']=$this->load->view('includes/footer','',true);
+        $data['title']= $pageContent[0]['title'];
+        $this->load->view('event_details',$data);
     }
 }

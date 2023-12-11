@@ -97,9 +97,9 @@ class Student extends CI_Controller {
 			if(!empty($id)){
 				$this->common_model->tbl_update(TEAM,array('id'=>$id),$insArr);
 			}
-			if($_FILES['attachment']['name'] != '') {
+			if($_FILES['team_image']['name'] != '') {
 				$data['result']=$this->common_model->get_data(TEAM,array('id'=>$id));
-				if(@$data['result'][0]['attachment']) {	
+				if(@$data['result'][0]['team_image']) {	
 					unlink('./uploads/our_team/'.$data['result'][0]['team_image']);	
 					unlink('./uploads/our_team/thumb/'.$data['result'][0]['team_image']);	
 				}

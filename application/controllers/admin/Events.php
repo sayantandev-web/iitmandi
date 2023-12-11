@@ -33,6 +33,11 @@ class Events extends CI_Controller{
 			$insArr['event_date']=$this->input->post('event_date');
 			$insArr['description']=nl2br($this->input->post('description'));
 			$insArr['status']=$this->input->post('status');
+			$page_title = trim($this->input->post('event_name'));
+            $special_char = array('\'','"',',',';','<','>','!','@','#','$','%','^','&','*','(',')','_','+','=','/','~','`','?','|',' ',':','{','}','[',']','¢','£','¤','¥','¦','§','¨','©','«','¬','®','±','µ','¶','»','.');
+            $resource_slug=str_replace($special_char,'-',$page_title);
+            $resource_slug=str_replace('--','-',$resource_slug);
+            $insArr['slug']=$resource_slug;
 			if(!empty($id)){
 				$this->common_model->tbl_update(EVENTS,array('id'=>$id),$insArr);
 		    } else{

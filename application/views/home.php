@@ -140,7 +140,9 @@
                                 </div>
                             </div>
                             <?php } } ?>
-                            <?php if(count($news) > 4) { ?>
+                            <?php 
+                            $countnews = $this->common_model->get_data_array(STORAGES,array('status' =>1,'is_delete' =>1),'','','','','',STORAGES.".add_date DESC",'','','');
+                            if(count($countnews) > 4) { ?>
                             <div style="text-align: center; margin: 50px 0 0 0;"><a href="<?php echo base_url().'pages/all_news'?>" type="button" class="btn btn-primary" target="blank">View All</a></div>
                             <?php } ?>
                         </div>
@@ -185,7 +187,8 @@
 
                       //if the string doesn't contain any space then it will cut without word basis.
                       $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                      $string .= '... <a href="#">Read More</a>';
+                      //$string .= '... <a href="#">Read More</a>';
+                      $string .= '... <a href="'.base_url().'event_details/'.$row['slug'].'" style="color: #fdc134; font-size: 15px;">Read More</a>';
                     }
                     echo $string;
                     ?>
@@ -196,6 +199,11 @@
         <?php }
         } ?>
       </div>
+      <?php 
+        $countevent = $this->common_model->get_data_array(EVENTS,array('status' =>1,'is_delete' =>1),'','','','','',EVENTS.".id DESC",'','','');
+        if(count($countevent) > 4) { ?>
+        <div style="text-align: center; margin: 50px 0 0 0;"><a href="<?php echo base_url().'pages/all_events'?>" type="button" class="btn btn-primary" target="blank">View All</a></div>
+      <?php } ?>
     </section>
     <!-- End Events Section -->
   </main>
