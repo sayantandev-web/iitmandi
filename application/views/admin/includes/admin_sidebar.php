@@ -102,11 +102,6 @@ if($this->session->userdata('uid') != '') {
                 </a>
             </li>
             <li class="treeview">
-                <a href="admin/settings"><i class="fa fa-circle-o"></i>
-                    <span>Settings</span>
-                </a>
-            </li>
-            <li class="treeview">
                 <a href="javascript:void(0);"><i class="fa fa-circle-o"></i>
                     <span>Role Management</span><i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -114,6 +109,11 @@ if($this->session->userdata('uid') != '') {
                     <li><a href="admin/roles/role_access"><i class="fa fa-circle-o"></i>Role Access</a></li>
                     <li><a href="admin/roles/role_access_list"><i class="fa fa-circle-o"></i>Role access list</a></li>
                 </ul>
+            </li>
+            <li class="treeview">
+                <a href="admin/settings"><i class="fa fa-circle-o"></i>
+                    <span>Settings</span>
+                </a>
             </li>
             <?php } else { 
             $getPageList = $this->db->query("SELECT * FROM iitmandi_role_access WHERE u_id = '".$uid."'")->result_array();
