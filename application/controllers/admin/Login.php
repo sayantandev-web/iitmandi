@@ -9,16 +9,20 @@ class Login extends CI_Controller {
     }
     
     public function index() {
-        if($this->session->userdata('uid') == '-1'){
+        if($this->session->userdata('uid') == '1'){
            redirect(base_url('admin/dashboard'));
         }
         if($this->input->post()) {
-            $sql="`email` ='".$this->input->post('email')."' AND (`user_type`='-1')";
+            $sql="`email` ='".$this->input->post('email')."' AND user_type = '-1'";
+            //echo $sql; die;
             $result=$this->common_model->get_data(ADMIN,$sql);
+            //echo "<pre>"; print_r($result);
             if(md5($this->input->post('password')) == $result[0]['password']) {
+                //echo "if"; die;
                 $this->session->set_userdata('uid',$result[0]['user_id']);
                 redirect(base_url()."admin/dashboard");
             } else {
+                //echo "else"; die;
                 $this->utilitylib->setMsg('<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Wrong email or password!','ERROR');
                 redirect(base_url()."admin/login");
             }

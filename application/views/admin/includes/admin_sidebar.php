@@ -2,6 +2,7 @@
 if($this->session->userdata('uid') != '') {
     $uid=$this->session->userdata('uid');
     $get_name = get_admin_name($uid);
+    //echo "<pre>"; print_r($get_name); die;
     $footer_content=$this->common_model->get_data(SETTINGS,array('id'=>1));
 ?>
 <aside class="main-sidebar">
@@ -17,6 +18,7 @@ if($this->session->userdata('uid') != '') {
         </div>
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
+            <?php if($get_name[0]['vcode'] == 'superadmin') { ?>
             <li class="treeview">
                 <a href="admin/dashboard">
                     <i class="fa fa-circle-o"></i> <span>Dashboard</span></i>
@@ -104,6 +106,25 @@ if($this->session->userdata('uid') != '') {
                     <span>Settings</span>
                 </a>
             </li>
+            <li class="treeview">
+                <a href="javascript:void(0);"><i class="fa fa-circle-o"></i>
+                    <span>Role Management</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="admin/roles/role_access"><i class="fa fa-circle-o"></i>Role Access</a></li>
+                    <li><a href="admin/roles/role_access_list"><i class="fa fa-circle-o"></i>Role access list</a></li>
+                </ul>
+            </li>
+            <?php } else { 
+            $getPageList = $this->db->query("SELECT * FROM iitmandi_role_access WHERE u_id = '".$uid."'")->result_array();
+            if(!empty($getPageList)) {
+            foreach ($getPageList as $page) { ?>
+            <li class="treeview">
+                <a href="admin/<?= $page['page_list']?>">
+                    <i class="fa fa-circle-o"></i> <span><?= $page['page_list']." Management"?></span></i>
+                </a>
+            </li>
+            <?php } } }?>
         </ul>
     </section>
 </aside>

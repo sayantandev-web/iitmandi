@@ -96,6 +96,7 @@ $route['pages/all_news'] = 'home/viewallnews';
 $route['news_details/(:any)'] = 'home/news_details/$1';
 $route['pages/all_events'] = 'home/viewallevents';
 $route['event_details/(:any)'] = 'home/event_details/$1';
+//$route['admin/role_access'] = 'admin/roles/role_access';
 
 /* Students */
 $route['student'] = 'student/student/index';

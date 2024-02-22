@@ -111,3 +111,6 @@ define('PROGRAMS', 'iitmandi_programs');
 define('COURSES', 'iitmandi_courses');
 define('ADMISSION', 'iitmandi_admission');
 define('SPECIALIZATION', 'iitmandi_specialization');
+define('ROLES', 'iitmandi_roles');
+define('PAGELIST', 'iitmandi_pagelist');
+define('ROLES_ACCESS', 'iitmandi_role_access');
