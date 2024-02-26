@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 25, 2023 at 12:41 PM
+-- Generation Time: Feb 23, 2024 at 02:51 AM
 -- Server version: 5.7.42-0ubuntu0.18.04.1
 -- PHP Version: 7.4.27
 
@@ -50,8 +50,8 @@ CREATE TABLE `iitmandi_admin` (
   `vcode` varchar(255) NOT NULL,
   `login_from` varchar(10) NOT NULL,
   `status` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `iitmandi_admin` (
 --
 
 INSERT INTO `iitmandi_admin` (`user_id`, `fname`, `lname`, `user_type`, `email`, `password`, `gender`, `location1`, `location2`, `fb_id`, `contact`, `whatsapp`, `profile_pic`, `logo`, `facekbook_url`, `twitter_url`, `googleplus_url`, `pintrest_url`, `linkedin_url`, `vcode`, `login_from`, `status`, `created_at`, `updated_at`) VALUES
-(-1, 'Super', 'Admin', -1, 'iitmandi@gmail.com', '3e7014a2a0e26e6a1fe3c8748c19a3f6', 1, 'kolkata', '', '', '', '', '1628374167752859.jpeg', '', 'https://www.facebook.com/', 'https://twitter.com', 'https://plus.google.com/', 'http://pinterest.com', 'http://www.linkedin.com/', '', '', 1, '2023-12-05 19:30:57', '0000-00-00 00:00:00');
+(-1, 'Super', 'Admin', -1, 'iitmandi@gmail.com', '25d55ad283aa400af464c76d713c07ad', 1, 'kolkata', '', '', '', '', '1628374167752859.jpeg', '', 'https://www.facebook.com/', 'https://twitter.com', 'https://plus.google.com/', 'http://pinterest.com', 'http://www.linkedin.com/', 'superadmin', '', 1, '2024-02-22 20:38:06', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `iitmandi_admission` (
 --
 
 INSERT INTO `iitmandi_admission` (`id`, `title`, `description`, `link`, `status`, `is_delete`) VALUES
-(1, 'Special Recruitment Drive for Reserved Categories (OBC(NCL)/SC/ST)', '<p>Applications are invited for the following programs in School of Civil &amp; Environmental Engineering</p>\r\n\r\n<p>1. M.Tech (Research)</p>\r\n\r\n<p>2.&nbsp;M.Tech (Research) + Ph.D. Dual Degree Program</p>\r\n\r\n<p>3. Ph.D.</p>\r\n\r\n<p>For full advertisement :<strong><span style=\"color:#2980b9\">&nbsp;</span><a href=\"https://www.iitmandi.ac.in/pdf/admissions/Advertisement%20for%20special%20drive%20admission%20in%20%20various%20program%20in%20school%20of%20Civil%20&amp;%20Environmental%20Engineering.pdf\"><span style=\"color:#2980b9\">Detailed Advertisement</span></a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n', 'https://oas.iitmandi.ac.in/External/Admission/Login.aspx', '1', '1');
+(1, 'Special Recruitment Drive for Reserved Categories (OBC(NCL)/SC/ST)', '<p>Applications are invited for the following programs in School of Civil &amp; Environmental Engineering</p>\r\n\r\n<p>1. M.Tech (Research)</p>\r\n\r\n<p>2.&nbsp;M.Tech (Research) + Ph.D. Dual Degree Program</p>\r\n\r\n<p>3. Ph.D.</p>\r\n\r\n<p>For full advertisement :<strong><span style=\"color:#2980b9\">&nbsp;</span><a href=\"https://www.iitmandi.ac.in/pdf/admissions/Advertisement%20for%20special%20drive%20admission%20in%20%20various%20program%20in%20school%20of%20Civil%20&amp;%20Environmental%20Engineering.pdf\"><span style=\"color:#2980b9\">Detailed Advertisement</span></a></strong></p>\r\n\r\n<p>&nbsp;</p>\r\n', 'https://oas.iitmandi.ac.in/External/Admission/Login.aspx', '2', '1');
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,31 @@ INSERT INTO `iitmandi_awardevent` (`id`, `user_id`, `name`, `location`, `year`, 
 (184, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
 (185, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
 (186, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
-(187, NULL, NULL, NULL, NULL, 'Event', NULL, '1');
+(187, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(188, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(189, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(190, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(191, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(192, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(193, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(194, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(195, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(196, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(197, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(198, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(199, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(200, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(201, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(202, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(203, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(204, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(205, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(206, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(207, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(208, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(209, NULL, NULL, NULL, NULL, 'Event', NULL, '1'),
+(210, NULL, NULL, NULL, NULL, 'Award', NULL, '1'),
+(211, NULL, NULL, NULL, NULL, 'Event', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -339,7 +363,7 @@ CREATE TABLE `iitmandi_banner` (
 INSERT INTO `iitmandi_banner` (`id`, `banner_title`, `banner_title1`, `banner_title2`, `banner_title3`, `banner_image`, `status`, `is_delete`) VALUES
 (1, 'IIT Mandi', '', NULL, NULL, '1680781417277912.jpg', '1', '2'),
 (2, 'Engineer\'s Day Celebration', '', NULL, NULL, '1680781446182544.JPG', '1', '2'),
-(3, 'G20 || S20', '', NULL, NULL, '1687233531159792.png', '1', '1');
+(3, 'SCENE', '', NULL, NULL, '1703687764840499.gif', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -514,7 +538,20 @@ INSERT INTO `iitmandi_crntopening` (`id`, `user_id`, `position`, `description`, 
 (69, NULL, NULL, NULL, NULL, '1'),
 (70, NULL, NULL, NULL, NULL, '1'),
 (71, NULL, NULL, NULL, NULL, '1'),
-(72, NULL, NULL, NULL, NULL, '1');
+(72, NULL, NULL, NULL, NULL, '1'),
+(73, NULL, NULL, NULL, NULL, '1'),
+(74, NULL, NULL, NULL, NULL, '1'),
+(75, NULL, NULL, NULL, NULL, '1'),
+(76, NULL, NULL, NULL, NULL, '1'),
+(77, NULL, NULL, NULL, NULL, '1'),
+(78, NULL, NULL, NULL, NULL, '1'),
+(79, NULL, NULL, NULL, NULL, '1'),
+(80, NULL, NULL, NULL, NULL, '1'),
+(81, NULL, NULL, NULL, NULL, '1'),
+(82, NULL, NULL, NULL, NULL, '1'),
+(83, NULL, NULL, NULL, NULL, '1'),
+(84, NULL, NULL, NULL, NULL, '1'),
+(85, NULL, NULL, NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -843,7 +880,46 @@ INSERT INTO `iitmandi_newsstorages` (`id`, `news_slug`, `title`, `description`, 
 (12, 'Prime-Minister-Research-Fellowship-2023', 'Prime Minister Research Fellowship 2023 awarded to Kirti Kumar Mahanta , Saran Raaj (PhD Scholars)', '<p><a href=\"https://scholar.google.com/citations?user=E5XZRgsAAAAJ&amp;hl=en&amp;authuser=1&amp;oi=ao\"><span style=\"color:#2980b9\">Kirti Kumar Mahanta google scholar profile&nbsp;</span></a><span style=\"color:#2980b9\">&nbsp;</span></p>\r\n\r\n<p><a href=\"http://www.linkedin.com/in/kirti-kumar-mahanta-787249120/\"><span style=\"color:#2980b9\">Follow Kirti @ Linkedin</span></a><span style=\"color:#2980b9\">&nbsp;</span></p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:https://scene.iitmandi.ac.in/c11e0250-e410-4b00-be4f-50c9919c38c5\" width=\"1193\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p><a href=\"http://https://scholar.google.com/citations?user=nLoW5dsAAAAJ&amp;hl=en&amp;authuser=1&amp;oi=ao\"><span style=\"color:#2980b9\">Saran Raaj google scholar profile</span></a></p>\r\n\r\n<p><a href=\"http://www.linkedin.com/in/saran-raaj-21b812141/\"><span style=\"color:#2980b9\">Follow Saran @ Linkedin</span></a><span style=\"color:#2980b9\">&nbsp;</span></p>\r\n\r\n<p>&nbsp;</p>\r\n', '', 'news', '1698748525888681.jpg', '2023-10-31 09:34:55', '1', '1'),
 (13, 'We-are-thrilled-to-announce-that-Varun-Sharma-PhD-Scholar-secured-the-first-position-in-the-poster-presentation-competition-at-the-recently-concluded-GEOHIM-2023-workshop-', 'Varun Sharma secured the first position in the poster presentation competition at the recently concluded GEOHIM-2023 workshop. ', '<p>Varun secured the first position in the poster presentation competition at the recently concluded GEOHIM-2023 workshop. This prestigious event, jointly organized by the Central University of Himachal Pradesh and the Geological Society of India, served as a platform for showcasing cutting-edge research in Geodynamics and Natural Disaster Management. His presentation highlighted&nbsp;employing the spectral element method and the ANN function of Sharma et al., 2023, to simulate the time history of the 1905 Kangra earthquake.&nbsp;The 3-day workshop featured keynote talks by eminent scientists, including Padam Shri Dr. H.K. Gupta (Director, GSI), Dr. Sumeer Chopra (Director, IRS Gandhinagar), D. O.P. Mishra (NCS, MoES), and Dr. Himanshu Mittal (NCS).</p>\r\n', '', 'news', '1699932667496148.png', '2023-11-13 05:46:27', '1', '1'),
 (14, 'Promising-Young-Structural-Engineer-Award', 'Promising Young Structural Engineer Award', '<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:10pt\"><span style=\"font-family:Arial,sans-serif\">Dr. Shivang Shekhar, Ph.D.</span></span></span></span></span></span></span></p>\r\n\r\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:10pt\"><span style=\"font-family:Arial,sans-serif\">Assistant Professor</span></span></span></span></span></span></span></p>\r\n\r\n<p style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\"><span style=\"font-size:10pt\"><span style=\"font-family:Arial,sans-serif\">School of Civil and Environmental Engineering</span></span></span></span></span></span></span></p>\r\n\r\n<div style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"color:#222222\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><span style=\"color:#000000\">Indian Institute of Technology Mandi (IIT Mandi)</span></span></span></span></span></div>\r\n\r\n<div style=\"text-align:start\"><span style=\"font-size:small\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\"><a href=\"https://scholar.google.com/citations?hl=en&amp;user=Y4IKxpIAAAAJ\"><span style=\"color:#3498db\">Google Scholar</span></a></span></span></span></div>\r\n\r\n<div style=\"text-align:start\"><a href=\"https://www.linkedin.com/in/shivang-shekhar-ph-d-15752347/?originalSubdomain=in\"><span style=\"color:#3498db\"><span style=\"font-size:small\"><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"background-color:#ffffff\">Linkedin</span></span></span></span></a></div>\r\n', '', 'news', '1700480169241030.png', '2023-11-20 11:32:00', '1', '1'),
-(15, 'Project--Earthquake-source-characterization-for-physics-based-seismic-hazard-estimations-has-been-recommended-by-the-related-SERB-POWER-Grant-to-the-Science-and-Engineering-Research-Board-SERB-for-funding-', 'Science and Engineering Research Board (SERB)  grant awarded to Dr. J. Dhanya ', '<p>Project : &quot;Earthquake source characterization for physics-based seismic hazard estimations&quot; has been recommended by the related SERB-POWER Grant to the Science and Engineering Research Board (SERB) for funding.&nbsp;</p>\r\n', '', 'news', '1702953582273204.png', '2023-12-19 02:35:38', '1', '1');
+(15, 'Project--Earthquake-source-characterization-for-physics-based-seismic-hazard-estimations-has-been-recommended-by-the-related-SERB-POWER-Grant-to-the-Science-and-Engineering-Research-Board-SERB-for-funding-', 'Science and Engineering Research Board (SERB)  grant awarded to Dr. J. Dhanya ', '<p>Project : &quot;Earthquake source characterization for physics-based seismic hazard estimations&quot; has been recommended by the related SERB-POWER Grant to the Science and Engineering Research Board (SERB) for funding.&nbsp;</p>\r\n', '', 'news', '1702953582273204.png', '2023-12-19 02:35:38', '1', '1'),
+(16, 'Ms-Charu-Chauhan-PhD-scholar-received-the-2nd-Best-Paper-award-at-Indian-Geotechnical-Conference-IGC-2023-held-in-IIT-Roorkee-from-14-16-December-2023', ' Ms Charu Chauhan, PhD scholar, received the 2nd Best Paper award at Indian Geotechnical Conference (IGC 2023) held in IIT Roorkee from 14-16 December 2023', '<p>In the Indian Geotechnical Conference (IGC 2023) held in IIT Roorkee during 14-16 December 2023, faculty and students of&nbsp;<a href=\"https://www.linkedin.com/in/ACoAAEQPjU0BJshS_J3FMkQxKS0LgleEnvkWzVo\">SCEnE IIT Mandi</a>&nbsp;interacted with experts and presented their research outcomes.<br />\r\n<br />\r\n<a href=\"https://www.linkedin.com/in/ACoAAAMMp7ABkn8E9YaPCzCBMRch5qQHJKgUReE\">Dr. Venkata Uday Kala</a>, Associate Professor, SCEnE, IIT Mandi, delivered an invited theme lecture on &quot;Non-structural Landslide mitigation measures: Schemes, Applications and Case studies.&quot;<br />\r\n<br />\r\nWe are also delighted to share that our PhD scholar, Ms Charu Chauhan, received the 2nd Best Paper award for her presentation on &quot;Experimental Evaluation of Permeability in Soil vis-&agrave;-vis Transpiration of Plants with Different Root Types&quot; under the Geoenvironmental Engineering theme.</p>\r\n', '', 'news', '1703585236286010.png', '2023-12-26 10:00:54', '1', '1'),
+(17, 'Atmospheric-Chemistry-and-Climate-Change-group-is-participating-in-the-Indian-Arctic-Expedition-2023-24-to-study-aerosol-climate-forcing', 'Atmospheric Chemistry and Climate Change group is participating in the Indian Arctic Expedition 2023-24 to study aerosol climate forcing', '<p>We are&nbsp;happy to share that our research group is participating in the Indian Arctic Expedition 2023-24 for a project sponsored by NCPOR, MoES to investigate climate forcing aerosols in the Arctic. Mr Prashant Rawat, a PhD student under Dr&nbsp;Sayanatan Sarkar, is currently visiting the&nbsp;Arctic for a month. This is the second time that students from&nbsp;Atmospheric Chemistry and Climate Change group are participating in the Expedition, the first one being in 2019.</p>\r\n\r\n<p>This is also the first time the campaign is being held during the polar night. Recent&nbsp;coverage by Indian Express on the Indian Team&#39;s winter campaign.&nbsp;</p>\r\n\r\n<p><a href=\"https://indianexpress.com/article/india/arctic-expedition-indian-scientists-sun-phones-polar-bears-company-9083665/lite/\" rel=\"noreferrer\" target=\"_blank\">https://indianexpress.com/article/india/arctic-expedition-indian-scientists-sun-phones-polar-bears-company-9083665/lite/</a></p>\r\n', '', 'news', '1703659137332480.png', '2023-12-27 06:38:57', '1', '1'),
+(18, 'Dr-Anand-Giri-delivered-a-guest-lecture-on-Bacteriological-contamination-of-drinking-water-supply-in-Himalayan-area-Challenges-and-sustainable-water-quality-management-at-Baba-Balak-Nath-College-Chakmoh-Hamirpur-H-P-', 'Dr Anand Giri delivered a guest lecture at Baba Balak Nath College, Chakmoh, Hamirpur, H.P.', '<p>Topic -&nbsp;Bacteriological contamination of drinking water supply in Himalayan area: Challenges and sustainable water quality management</p>\r\n', '', 'news', '1703688114238213.png', '2023-12-27 14:40:00', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `iitmandi_pagelist`
+--
+
+CREATE TABLE `iitmandi_pagelist` (
+  `id` int(11) NOT NULL,
+  `page_name` text NOT NULL,
+  `status` enum('1','2') NOT NULL,
+  `is_delete` enum('1','2') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `iitmandi_pagelist`
+--
+
+INSERT INTO `iitmandi_pagelist` (`id`, `page_name`, `status`, `is_delete`) VALUES
+(1, 'banner', '1', '1'),
+(2, 'homeabout', '1', '1'),
+(3, 'homemessage', '1', '1'),
+(4, 'page', '1', '1'),
+(5, 'news', '1', '1'),
+(6, 'events', '1', '1'),
+(7, 'designation', '1', '1'),
+(8, 'ourteam', '1', '1'),
+(9, 'alumni', '1', '1'),
+(10, 'labsection', '1', '1'),
+(11, 'labequipment', '1', '1'),
+(12, 'publication', '1', '1'),
+(13, 'project', '1', '1'),
+(14, 'programs', '1', '1'),
+(15, 'courses', '1', '1'),
+(16, 'admission', '1', '1'),
+(17, 'specialization', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -930,7 +1006,7 @@ INSERT INTO `iitmandi_project` (`id`, `project_title`, `funding_agency`, `fundin
 (9, 'Development of an operational monitoring system of landslides in Kinnaur district through satellite and low-cost IoT based sensors data', 'DC- Kinnaur, H.P.', '0', '75', '13', '', '', '2021', '2024', '	IITM/DC-Kinn/VD/345', '', 'Ongoing', '1', '1'),
 (10, 'Deployment of low cost landslide monitoring and warning systems', 'District Disaster Management Authority', '4920000', '75', '13', '', '1', '2021', '2024', 'IITM/DDMA-M/VD/325	', '', 'Ongoing', '1', '1'),
 (11, 'Development of in - situ leachate treatment system to prevent water contaminations', 'SCENE', '1005000', '156', '1', '', '1', '2022', '2025', 'IITM/SERB-TARE/ALS/392', '', 'Ongoing', '1', '1'),
-(12, 'Seismic safety evaluation of life- line building in Mandi district', 'HP State Disaster Management Authority (HPSDMA)', '3604700', '7', '4', '', '1', '2021', '2021', 'IITM/HP-SDMA/SSH/327', '', 'Ongoing', '1', '1'),
+(12, 'Seismic safety evaluation of life- line building in Mandi district', 'HP State Disaster Management Authority (HPSDMA)', '3604700', '7', '4', '', '1', '2021', '2021', 'IITM/HP-SDMA/SSH/327', '', 'Closed', '1', '1'),
 (13, 'Chemical speciation and airways deposition modeling of bulk and size-segregate aerosols in residential microenvironments from three northeast Indian states: implications for human exposure', 'SERB', '2932560', '11', NULL, '', '1', '2019', '2021', 'IITM/SERB/SYS/296', '', 'Ongoing', '1', '1'),
 (14, 'Aerosol brown carbon, humic-like substances and nitoaromatics in the Himalayas: implications for regional climate', 'MoES', '7800636', '11', NULL, '', '1', '2022', '2025', 'IITM/MoES/SYS/378', '', 'Ongoing', '1', '1'),
 (15, 'Coal-based economics in developing countries: An enviornmental, health and cost evaluation around mega thermal power plants', 'Linkoping University', '3083500', '11', NULL, '', '1', '2021', '2024', '	IITM/LU-SW/SYS/330', '', 'Ongoing', '1', '1'),
@@ -960,9 +1036,10 @@ INSERT INTO `iitmandi_project` (`id`, `project_title`, `funding_agency`, `fundin
 (39, 'Suitability of higher modeling approach for reactive solute transport through hetrogeneous porous medium: experimental and numerical study', 'SERB', '4274600', '55', NULL, '', '1', '2017', '2020', 'IITM/SERB/DS/172', '', 'Completed', '1', '1'),
 (40, 'In situ x-ray computed tomography exploration and numerical modelling of fracture mechanisms involved in the failure of interfacial transition zone of cement concrete', 'SERB', '3724600', '14', NULL, '', '1', '2016', '2019', 'IITM/SERB/RS/125', '', 'Completed', '1', '1'),
 (41, 'Developing a Framework for Landslide Susceptibility and Adaptability in South East Asia (SEAL)', 'NERC', '799500', '12', NULL, '', '1', '2021', '2022', '	IITM/NERC/ASK/340', '', 'Completed', '1', '1'),
+(67, 'Energy absorption capacity study of FRC for RVNL Bilaspur Bhanupali package 5 site', 'Bajaj Reinforcements Pvt Ltd, Maharashtra', '162250', '4', NULL, '', '2', '2024', '2024', 'IITM/CONS/BRPL/KS/128', '', 'Closed', '1', '1'),
 (42, 'Third party site inspection of \'A\' type school building for Kendriya Vidyalaya Saloh, Distt- Una (H.P.)', 'BSNL Civil Division, Hamirpur (H.P.)', '69030', '55', NULL, '', '2', '2020', '2022', '	IITM/CONS/BSNL/DS/40', '', 'Ongoing', '1', '1'),
 (43, 'Condition assessment of bridges under HPPWD division Seraj, Janjehli, Manali (Himachal Pradesh)', 'The Executive Engineer Seraj, Janjehli, Mandi, Himchal Pradesh', '18408', '16', NULL, '', '2', '2021', '2023', 'IITM/CONS/HPPWD/SUS/48', '', 'Ongoing', '1', '1'),
-(44, 'Professional advice on the structural analyses, design and drawings of the calibration laboratory building facility at SASE Manali', 'M/s VASTU Mandal architects, interior designers: F328 Lado Sarai, 3rd Floor Super Tire House; Meharuli, New Delhi-110030', '121953', '7', NULL, '', '2', '2031', '2021', 'IITM/CONS/SASE/SKS/51', '', 'Ongoing', '1', '1'),
+(44, 'Professional advice on the structural analyses, design and drawings of the calibration laboratory building facility at SASE Manali', 'M/s VASTU Mandal architects, interior designers: F328 Lado Sarai, 3rd Floor Super Tire House; Meharuli, New Delhi-110030', '121953', '7', NULL, '', '2', '2031', '2021', 'IITM/CONS/SASE/SKS/51', '', 'Completed', '1', '1'),
 (45, 'Site inspection visit for structural audit of Jawahar Navodaya Vidalays School buildings in Himachal Pradesh', 'Mr. Virendra Singh, Project ManagerUPJN, A-63, Ground Floor, Sector-70, Nodia-201307', '69030', '16', NULL, '', '2', '2021', '2023', 'IITM/CONS/UPJN/SUS/52', '', 'Ongoing', '1', '1'),
 (46, 'Providing expertise in the execution of bridge construction under PMGSY', 'Executive Engineer (PMGSY) HPPWD, Nigam Vihar, Shimla- 171002', '155408', '4', NULL, '', '2', '2023', '2024', 'IITM/CONS/HPPWD/KS/53', '', 'Completed', '1', '1'),
 (47, 'PSPCL Multistory integrated corporate office complex at Shakti Vhar Patiala PB', 'Planners Group, Chandigarh', '378640', '14', '4', '', '2', '2016', '2017', '	IITM/CONS/PG/RS/10', '', 'Completed', '1', '1'),
@@ -983,7 +1060,9 @@ INSERT INTO `iitmandi_project` (`id`, `project_title`, `funding_agency`, `fundin
 (62, 'Channelization of Sokodi khad between the new bridge to Suhara Muhalla Bridge', 'HPPWD', '506220', '14', '1,4', '', '2', '2018', '2018', 'IITM/CONS/HPPWD/RS/22', '', 'Completed', '1', '1'),
 (63, 'The structural design of IHBT Campus at Keylong in HP', 'IHBT', '306800', '14', '4', '', '2', '2019', '2019', 'IIT/CONS/IHBT/RS/32', '', 'Completed', '1', '1'),
 (64, 'Proof checking of the district courts building at Gurgaon state PWD', 'Tarun Mathur Structural Consultant, Chandigarh', '345000', '14', '4', '', '2', '2017', '2017', 'IITM/CONS/TMSC/RS/13', '', 'Completed', '1', '1'),
-(65, 'Proof checking of the two railway flyover bridges design for PWD (B&R) Haryana ', 'Tarun Mathur Structural Consultant, Chandigarh', '177000', '14', '4', '', '2', '2018', '2018', 'IITM/CONS/TMSC/RS/20', '', 'Completed', '1', '1');
+(65, 'Proof checking of the two railway flyover bridges design for PWD (B&R) Haryana ', 'Tarun Mathur Structural Consultant, Chandigarh', '177000', '14', '4', '', '2', '2018', '2018', 'IITM/CONS/TMSC/RS/20', '', 'Completed', '1', '1'),
+(66, 'Structural audit of minor highway bridge in Jammu', 'VK Gupta & Associates, Panchkula, Haryana', '207680', '4', '7', '', '2', '2023', '2024', 'IITM/CONS/VKG/KS/125', '', 'Ongoing', '1', '1'),
+(68, 'Energy absorption capacity study of FRC for RVNL Bilaspur Bhanupali package 4 site ', 'Bajaj Reinforcements Pvt Ltd, Maharashtra', '121688', '4', NULL, '', '2', '2024', '2024', 'IITM/CONS/BRPL/KS/130', '', 'Ongoing', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -1147,23 +1226,23 @@ INSERT INTO `iitmandi_publication` (`id`, `user_id`, `publication_type`, `attach
 (123, '11', 'Journal Article', NULL, '11,186', 'Association of polycyclic aromatic hydrocarbons (PAHs) and metallic species in a tropical urban atmosphere – Delhi, India', 'Journal of Atmospheric Chemistry', '', '', '2011-01-01', '', '', '', 'https://doi.org/10.1007/s10874-012-9212-y', '', '107-126', '68', '', '', '', 'On My Page', '1', '2'),
 (124, '11', 'Journal Article', NULL, '11,186,187,188,189', 'Chemical speciation of respirable suspended particulate matter during a major firework festival in India', 'Journal of Hazardous Materials', '', '', '2010-01-01', '', '', '', 'https://doi.org/10.1016/j.jhazmat.2010.08.039', '', '321-330', '184', '', '', '', 'On My Page', '1', '2'),
 (125, '11', 'Journal Article', NULL, '190,191,192,193,194,195,11,196,197', 'Contribution of marine biological emissions to gaseous methylamines in the atmosphere: An emission inventory based on multi-source data sets', 'Science of The Total Environment', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2023.165285', '', '165285', '', '', '', '', 'On My Page', '1', '1'),
-(126, '11', 'Journal Article', NULL, '198,36,199,201,202,203,204,193,191,205,206,11', 'Optical source apportionment of aqueous brown carbon (BrC) on a daytime and nighttime basis in the eastern Indo-Gangetic Plain (IGP) and insights from 13C and 15N isotopic signatures.', 'Science of the Total Environment ', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2023.164872', '', '164872', '894', '', '', '', 'On My Page', '1', '1'),
+(126, '11', 'Journal Article', NULL, '198,36,199,201,202,203,204,193,191,205,206,11', 'Optical source apportionment of aqueous brown carbon (BrC) on a daytime and nighttime basis in the eastern Indo-Gangetic Plain (IGP) and insights from 13C and 15N isotopic signatures.', 'Science of the Total Environment ', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2023.164872', '', '164872', '894', '', '', '', 'On My Page', '1', '2'),
 (127, '11', 'Journal Article', NULL, '200,199,11', 'Sources, transport pathways and radiative effects of BC aerosol during 2018-2020 at a receptor site in the eastern Indo-Gangetic Plain', 'Atmospheric Environment', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.1016/j.atmosenv.2023.119900', '', '119900', '309', '', '', '', 'On My Page', '1', '1'),
 (128, '11', 'Journal Article', NULL, '201,202,207,208,209,210,36,198,11,212,213,214,215,216,217,218,204,206,219', 'Chemical characterization and source apportionment of PM10 using receptor models over the Himalayan region of India', 'Atmosphere', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.3390/atmos14050880', '', '880', '14', '', '', '', 'On My Page', '1', '2'),
 (129, '11', 'Journal Article', NULL, '39,11,220', 'Understanding population exposure to size-segregated aerosol and associated trace elements during residential cooking in northeastern India; Implications for disease burden and health risk', 'Science of The Total Environment', '', '', '2023-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2023.162539', '', '162539', '875', '', '', '', 'On My Page', '1', '1'),
 (130, '11', 'Journal Article', NULL, '39,191,221,222,223,224,193,11', 'Seasonal variations in aerosol acidity and its driving factors in the eastern Indo-Gangetic Plain: A quantitative analysis', 'Chemosphere', '', '', '2022-01-01', '', '', '', 'https://doi.org/10.1016/j.chemosphere.2022.135490', '', '135490', '305', '', '', '', 'On My Page', '1', '1'),
 (131, '11', 'Journal Article', NULL, '199,39,198,200,225,221,193,191,226,186,11', 'Are fireworks a significant episodic source of brown carbon? ', 'Environmental Science and Pollution Research', '', '', '2022-01-01', '', '', '', 'https://doi.org/10.1007/s11356-022-20183-4', '', '40252-40261', '29', '', '', '', 'On My Page', '1', '1'),
 (132, '11', 'Journal Article', NULL, '222,227,11,223', 'Seven-year study of monsoonal rainwater chemistry over the mid-Brahmaputra plain, India: assessment of trends and source regions of soluble ions', 'Environmental Science and Pollution Research', '', '', '2022-01-01', '', '', '', 'https://doi.org/10.1007/s11356-021-17385-7', '', '25276-25295', '29', '', '', '', 'On My Page', '1', '1'),
-(133, '11', 'Journal Article', NULL, '198,225,221,200,193,191,226,186,11', 'Brown carbon aerosols in the Indo-Gangetic Plain outflow: insights from excitation emission matrix (EEM) fluorescence spectroscopy', 'Environmental Science: Processes and Impacts', '', '', '2021-01-01', '', '', '', 'https://doi.org/10.1039/D1EM00050K', '', '745', '23', '', '', '', 'On My Page', '1', '1'),
+(133, '11', 'Journal Article', NULL, '198,225,221,200,193,191,226,186,11', 'Brown carbon aerosols in the Indo-Gangetic Plain outflow: insights from excitation emission matrix (EEM) fluorescence spectroscopy', 'Environmental Science: Processes and Impacts', '', '', '2021-01-01', '', '', '', 'https://doi.org/10.1039/D1EM00050K', '', '745', '23', '', '', '', 'On My Page', '1', '2'),
 (134, '11', 'Journal Article', NULL, '191,190,194,11,195,193,228,229,230,197,192', 'Deposition of ambient particles in the human respiratory system based on single particle analysis: A case study in the Pearl River Delta, China', 'Environmental Pollution', '', '', '2021-01-01', '', '', '', 'https://doi.org/10.1016/j.envpol.2021.117056', '', '117056', '283', '', '', '', 'On My Page', '1', '1'),
 (135, '11', 'Journal Article', NULL, '231,232,191,11,233,234,235,236', 'Peat-forest burning smoke in Maritime Continent: Impacts on receptor PM2.5 and implications at emission sources', 'Environmental Pollution', '', '', '2021-01-01', '', '', '', 'https://doi.org/10.1016/j.envpol.2021.116626', '', '116626', '275', '', '', '', 'On My Page', '1', '1'),
 (136, '11', 'Journal Article', NULL, '193,194,195,11,190,192,242,191,197', 'Comparative study of chemical characterization and source apportionment of PM2.5 in South China by filter-based and single particle analysis', 'Elementa: Science of the Anthropocene', '', '', '2021-01-01', '', '', '', 'https://doi.org/10.1525/elementa.2021.00046', '', '46', '9', '', '', '', 'On My Page', '1', '1'),
 (137, '11', 'Journal Article', NULL, '226,11,187,199,237,238,186', 'Fine particulate matter bound polycyclic aromatic hydrocarbons and carbonaceous species in Delhi’s atmosphere: seasonal variation, sources, and health risk assessment', 'Aerosol Science and Engineering', '', '', '2021-01-01', '', '', '', 'ttps://doi.org/10.1007/s41810-021-00094-6', '', '193-213', '5', '', '', '', 'On My Page', '1', '1');
 INSERT INTO `iitmandi_publication` (`id`, `user_id`, `publication_type`, `attachment`, `author_name`, `paper_title`, `journal_name`, `conference_name`, `book_name`, `publish_date`, `patient_number`, `publisher`, `location`, `external_Link`, `editors`, `page_number`, `volume_number`, `issue_number`, `short_summery`, `key_points`, `highlight`, `status`, `is_delete`) VALUES
-(138, '11', 'Journal Article', NULL, '225,198,200,191,239,11', 'Sources and atmospheric processing of brown carbon and HULIS in the Indo-Gangetic Plain: insights from compositional analysis', 'Environmental Pollution', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.envpol.2020.115440', '', '115440', '267', '', '', '', 'On My Page', '1', '1'),
+(138, '11', 'Journal Article', NULL, '225,198,200,191,239,11', 'Sources and atmospheric processing of brown carbon and HULIS in the Indo-Gangetic Plain: insights from compositional analysis', 'Environmental Pollution', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.envpol.2020.115440', '', '115440', '267', '', '', '', 'On My Page', '1', '2'),
 (139, '11', 'Journal Article', NULL, '200,198,199,225,193,191,186,226,11', 'Optical properties of aerosol brown carbon (BrC) in the eastern Indo-Gangetic Plain', 'Science of The Total Environment', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2020.137102', '', '137102', '716', '', '', '', 'On My Page', '1', '1'),
 (140, '11', 'Journal Article', NULL, '191,190,11,193,228,192,197,194', 'Size-segregated deposition of atmospheric elemental carbon (EC) in the human respiratory system: A case study of the Pearl River Delta, China', 'Science of The Total Environment', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2019.134932', '', '134932', '708', '', '', '', 'On My Page', '1', '1'),
-(141, '11', 'Journal Article', NULL, '240,39,200,198,199,11', 'Spatially resolved distribution, sources and health risks of heavy metals in size-fractionated road dust from 57 sites across megacity Kolkata, India', 'Science of The Total Environment', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2019.135805', '', '135805', '705', '', '', '', 'On My Page', '1', '1'),
+(141, '11', 'Journal Article', NULL, '240,39,200,198,199,11', 'Spatially resolved distribution, sources and health risks of heavy metals in size-fractionated road dust from 57 sites across megacity Kolkata, India', 'Science of The Total Environment', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2019.135805', '', '135805', '705', '', '', '', 'On My Page', '1', '2'),
 (142, '11', 'Journal Article', NULL, '241,242,243,197,11,191,244,196', 'The role of natural factors in constraining long-term ozone trends over Southern China', 'Atmospheric Environment', '', '', '2020-01-01', '', '', '', 'https://doi.org/10.1016/j.atmosenv.2019.117060', '', '117060', '220', '', '', '', 'On My Page', '1', '1'),
 (143, '11', 'Journal Article', NULL, '190,11,197,230,193,194,245,191', 'Evaluation of factors influencing secondary organic carbon (SOC) estimation by CO and EC tracer methods', 'Science of The Total Environment', '', '', '2019-01-01', '', '', '', 'https://doi.org/10.1016/j.scitotenv.2019.05.402', '', '915-930', '686', '', '', '', 'On My Page', '1', '1'),
 (144, '11', 'Journal Article', NULL, '199,11,191,186,39', 'Regional sulfate drives long-term rise in AOD over megacity Kolkata, India', 'Atmospheric Environment', '', '', '2019-01-01', '', '', '', 'https://doi.org/10.1016/j.atmosenv.2019.04.031', '', '167-181', '209', '', '', '', 'On My Page', '1', '1'),
@@ -1407,7 +1486,7 @@ INSERT INTO `iitmandi_publication` (`id`, `user_id`, `publication_type`, `attach
 (376, '50', 'Journal Article', NULL, '50', 'Reviewing the properties of recycled concrete aggregates and iron slag in concrete', 'Journal of Building Engineering', '', '', '2022-09-03', '', 'Elsevier', '', 'https://doi.org/10.1016/j.jobe.2022.105150', '', '1-25', '60', '2352-7102', '', '', 'On My Page', '1', '1'),
 (377, '39', 'Journal Article', NULL, '39,11', 'Disease burden and health risk to rural communities of northeastern India from indoor cooking-related exposure to parent, oxygenated and alkylated PAHs', 'Science of the Total Environment', '', '', '2023-09-18', '', 'Elsevier', '', 'https://doi.org/10.1016/j.scitotenv.2023.167163', '', '167163', '905', '', '', '', 'On My Page', '1', '1'),
 (378, '323', 'Journal Article', NULL, '323,36,199,201,202,203,204,193,191,205,206,11', 'Optical source apportionment of aqueous brown carbon (BrC) on a daytime and nighttime basis in the eastern Indo-Gangetic Plain (IGP) and insights from 13C and 15N isotopic signatures', 'Science of the Total Environment', '', '', '2023-06-19', '', 'Elsevier', '', 'http://dx.doi.org/10.1016/j.scitotenv.2023.164872', '', '164872', '894', '', '', '', 'On My Page', '1', '1'),
-(379, '323', 'Journal Article', NULL, '199,39,323,200,225,221,193,191,226,186,11', 'Are fireworks a significant episodic source of brown carbon?', 'Environmental Science and Pollution Research', '', '', '2022-04-11', '', 'Springer', '', 'https://doi.org/10.1007/s11356-022-20183-4', '', '40252–40261', '29', '', '', '', 'On My Page', '1', '1'),
+(379, '323', 'Journal Article', NULL, '199,39,323,200,225,221,193,191,226,186,11', 'Are fireworks a significant episodic source of brown carbon?', 'Environmental Science and Pollution Research', '', '', '2022-04-11', '', 'Springer', '', 'https://doi.org/10.1007/s11356-022-20183-4', '', '40252–40261', '29', '', '', '', 'On My Page', '1', '2'),
 (380, '323', 'Journal Article', NULL, '323,225,221,200,193,191,226,186,11', 'Brown carbon aerosols in the Indo-Gangetic Plain outflow: insights from excitation emission matrix (EEM) fluorescence spectroscopy', 'Environmental Science Processes & Impacts', '', '', '2021-04-07', '', 'Royal Society of Chemistry', '', 'https://doi.org/10.1039/D1EM00050K', '', '745', '23', '', '', '', 'On My Page', '1', '1'),
 (381, '323', 'Journal Article', NULL, '225,323,200,191,239,11', 'Sources and atmospheric processing of brown carbon and HULIS in the Indo-Gangetic Plain: Insights from compositional analysis', 'Environmental Pollution', '', '', '2020-08-19', '', 'Elsevier', '', 'https://doi.org/10.1016/j.envpol.2020.115440', '', '115440', '267', '', '', '', 'On My Page', '1', '1'),
 (382, '323', 'Journal Article', NULL, '200,323,199,225,193,191,186,226,11', 'Optical properties of aerosol brown carbon (BrC) in the eastern IndoGangetic Plain', 'Science of the Total Environment', '', '', '2020-02-04', '', 'Elsevier', '', 'https://doi.org/10.1016/j.scitotenv.2020.137102', '', '137102', '716', '', '', '', 'On My Page', '1', '1'),
@@ -1726,7 +1805,44 @@ INSERT INTO `iitmandi_publication` (`id`, `user_id`, `publication_type`, `attach
 (685, '-1', 'Conference Paper', NULL, '16', 'Temperature Robust Health Bench-Marking and Monitoring of an Heritage Suspension Bridge Using Coupled IWCM and TBSI Method', '', 'Recent Advances in Materials Processing and Characterization', '', '2022-09-30', '', 'Springer, Singapore', '', 'https://doi.org/10.1007/978-981-19-5347-7_30', '', '363-370', '', '', '<p>Bridges play a crucial role in transportation across water bodies, junctions, etc., minimizing the distance and traffic in a route. With ageing and continuous use, the bridges deteriorate and may even collapse if not monitored. With the gradual deterioration of its health, the dynamic properties alter with time. This damage-sensitive feature is therefore exploited by several techniques for damage quantification, and localization, which is in general categorized as vibration-based structural health monitoring (VBSHM). However, these features also change in an environment of varying temperature quite substantially that may mask the damage effect. This eventually entails inclusion of temperature information within the SHM procedure. This study undertakes Temperature-Based Structural Identification (TBSI) to locate and quantify structural faults in terms of fixity damage, material degradation, etc. Further, to dilute the effect of ambient noises and bias errors in the estimation procedure, Iterative Windowed Curve Fitting Method (IWCM) has been opted that supplies cleaner modal domain information for the TBSI to work. The investigation is undertaken simultaneously through numerical as well as real experimentation.</p>\r\n', '', 'All of Above', '1', '1'),
 (686, '-1', 'Conference Paper', NULL, '16', 'Mode Specific Damping Estimation—An Inverse Damping Modelling Technique', '', 'Indian Structural Steel Conference', '', '2023-08-23', '', 'Springer, Singapore', '', 'https://doi.org/10.1007/978-981-19-9394-7_22', '', '271-284', '2', '', '<p>Composites are extensively used in various fields such as civil, aerospace, naval due to their high specific stiffness and strength. These properties are adversely affected due to damage. For damage detection, vibration-based methods are generally used which use modal parameters, i.e. modal frequencies, mode shapes and modal damping ratios. These modal parameters depend on the physical properties of the system, i.e. mass, stiffness and damping. Among these properties, damping is the most sensitive to damage. Therefore, the occurrence of damage should be sensed through changes in damping. Further, in order to localize the damage, a support model for damping is needed to spatially isolate the origin of the changes. Unfortunately, damping depends on numerous known and unknown physical phenomena that makes it difficult to model or estimate. In this study, first variation of modal damping ratios with damage in a composite column has been shown. Then, a new model of damping, called mode specific damping, is proposed. The performance has been checked through numerical simulations and compared with the Rayleigh model of damping.</p>\r\n', '', 'All of Above', '1', '1'),
 (687, '-1', 'Conference Paper', NULL, '120,16', 'Subdomain boundary forces estimation of bridge structure under vehicle loading using interacting Ensemble-Particle filtering', '', '67th Congress of the Indian Society of Theoretical and Applied Mechanics (ISTAM)', '', '2022-12-16', '', '', '', 'https://istam.iitkgp.ac.in/resources/2022/proceedings/Full_paper/PA0213.pdf', '', '', '', '', '<p>Vehicle-induced vibration may cause fatigue in bridge structures leading to sudden failure causing loss of economy and human lives. Structural fatigue estimation is however a complicated proposition since the entire structure needs to be monitored irrespective of the fatigue proneness of different parts of it. This eventually invites huge computational cost due to high dimensional modelling and also dense instrumentation for precise estimation of the fatigue related properties or parameters. It has been perceived that only a certain specific locations are fatigue prone and standalone fatigue monitoring of only that subdomain is possible provided the forces acting on to it is available. To isolate the subdomain of interest from the entire structural domain, one needs to compensate with boundary forces at the domain boundaries which is never possible to be measured. This study proposes a subdomain estimation based approach powered by interacting Ensemble-Particle filtering approach (IP-EnKF) that monitors only a subdomain of interest (fatigue prone) independently for its structural and damping properties while estimating the boundary forces in parallel for subsequent fatigue life estimation. This allows employment of computationally inexpensive predictor models for any model assisted health monitoring approach while reducing the required cost and effort of instrumentation. The approach has been validated on a bridge structure excited by a 4-degrees-of-freedom half-car model and subsequently unknown boundary forces are estimated for the fatigue life assessment. The proposed method estimates the boundary force under vehicle-bridge interaction has been found effective and reliable.</p>\r\n', '', 'All of Above', '1', '1'),
-(688, '312', 'Journal Article', '1703170416867659.JPG', '312', 'Thermo- mechanical and microstructural characterization of LECA and low carbon cement based lightweight mortar using box behnken design, and embodied energy analysis', 'Construction and Building Materials', '', '', '2023-12-20', '', 'Elsevier', '', 'https://doi.org/10.1016/j.conbuildmat.2023.134530', '', '1-19', '411', '134530', '', '', 'On My Page', '1', '1');
+(688, '312', 'Journal Article', '1703170416867659.JPG', '312', 'Thermo- mechanical and microstructural characterization of LECA and low carbon cement based lightweight mortar using box behnken design, and embodied energy analysis', 'Construction and Building Materials', '', '', '2023-12-20', '', 'Elsevier', '', 'https://doi.org/10.1016/j.conbuildmat.2023.134530', '', '1-19', '411', '134530', '', '', 'On My Page', '1', '1'),
+(689, '11', 'Journal Article', NULL, '39,193,191,206,204,220,11', 'Size-distribution and driving factors of aerosol oxidative potential in rural kitchen microenvironments of northeastern India', 'Environmental Pollution', '', '', '2024-01-01', '', 'Elsevier', '', 'https://doi.org/10.1016/j.envpol.2023.123246', '', '123246', '343', '', '', '', 'On My Page', '1', '1'),
+(690, '7', 'Journal Article', NULL, '95,106,7', 'Construction Practices and Seismic Vulnerability of Buildings in Indian Himalayan Region: A Case Study', 'Natural Hazards Review (ASCE)', '', '', '2023-12-12', '', 'American Society of Civil Engineers', '', 'DOI: 10.1061/NHREFO/NHENG-1902', '', '00', '00', '00', '', '', 'On My Page', '1', '1'),
+(691, '7', 'Journal Article', NULL, '101,7,102', 'Reliability-Based Multi-Hazard Design Optimization of Base-Isolated Buildings', 'Engineering Structures', '', '', '2024-01-01', '', 'Elsevier', '', 'https://doi.org/10.1016/j.engstruct.2023.117242', '', '00', '301', '00', '', '', 'On My Page', '1', '1'),
+(692, '7', 'Journal Article', NULL, '95,43,7', 'Seismic Performance Evaluation of Reinforced Concrete Hilly Buildings Under Sequence of Earthquakes', ' The Structural Design of Tall and Special Buildings', '', '', '2023-12-12', '', 'Wiley', '', 'https://doi.org/10.1002/tal.2086', '', '00', '00', '00', '', '', 'On My Page', '1', '1'),
+(693, '565', 'Journal Article', NULL, '565', 'Effect of lockdown on pollutant levels in the Delhi megacity: Role of local emission sources and chemical lifetimes', 'Frontiers in Environmental Science', '', '', '2021-10-13', '', '', '', 'https://doi.org/10.3389/fenvs.2021.743894', '', '', '', '', '', '', 'On My Page', '1', '2'),
+(694, '565', 'Journal Article', NULL, '565', 'Interpreting the COVID effect on atmospheric constituents over the Indian region during the lockdown: chemistry, meteorology, and seasonality', 'Environmental Monitoring and Assessment', '', '', '2022-03-14', '', '', '', 'https://doi.org/10.1007/s10661-022-09932-7', '', '', '', '', '', '', 'On My Page', '1', '1'),
+(695, '565', 'Book Chapter', NULL, '565', NULL, '', '', 'Extremes in Atmospheric Processes and Phenomenon: Assessment, Impacts and Mitigation', '2022-05-27', '', '', '', 'https://doi.org/10.1007/978-981-16-7727-4_10', '', '', '', '', '', '', 'On My Page', '1', '1'),
+(696, '565', 'Journal Article', NULL, '565', 'Relation between PM2.5 and O3 over Different Urban Environmental Regimes in India', 'Urban Science', '', '', '2023-01-17', '', '', '', 'https://doi.org/10.3390/urbansci7010009', '', '', '', '', '', '', 'On My Page', '1', '1'),
+(697, '565', 'Journal Article', NULL, '783', 'Effect of lockdown on pollutant levels in the Delhi megacity: Role of local emission sources and chemical lifetimes', 'Frontiers in Environmental Science', '', '', '2021-10-13', '', '', '', 'https://doi.org/10.3389/fenvs.2021.743894', '', '', '', '', '', '', 'On My Page', '1', '1');
+INSERT INTO `iitmandi_publication` (`id`, `user_id`, `publication_type`, `attachment`, `author_name`, `paper_title`, `journal_name`, `conference_name`, `book_name`, `publish_date`, `patient_number`, `publisher`, `location`, `external_Link`, `editors`, `page_number`, `volume_number`, `issue_number`, `short_summery`, `key_points`, `highlight`, `status`, `is_delete`) VALUES
+(698, '323', 'Journal Article', NULL, '650,649,323,611,625,221,623,619,186,11', 'Are fireworks a significant episodic source of brown carbon?', 'Environmental Science and Pollution Research', '', '', '2022-04-11', '', 'Springer', '', 'https://doi.org/10.1007/s11356-022-20183-4', '', '40252–40261', '29', '', '', '', 'On My Page', '1', '1'),
+(699, '17', 'Journal Article', NULL, '17', 'Nettle (Urtica spp.) phytotomy and applications: Crop variety selection and advanced product development for the manufacturing of natural fiber composites', 'Industrial Crops and Products', '', '', '2024-04-01', '', 'Elsevier', '', 'https://doi.org/10.1016/j.indcrop.2024.118180', '', '118180', '210', '', '', '', 'All of Above', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `iitmandi_roles`
+--
+
+CREATE TABLE `iitmandi_roles` (
+  `id` int(11) NOT NULL,
+  `role_name` text NOT NULL,
+  `status` enum('1','2') NOT NULL,
+  `is_delete` enum('1','2') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `iitmandi_role_access`
+--
+
+CREATE TABLE `iitmandi_role_access` (
+  `id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `page_list` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1844,7 +1960,7 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (4, 'Kaustav', '', 'Sarkar', 'srkr@iitmandi.ac.in', '1', '', '2', '', NULL, '', '', '1905267901', '', '3', '', '', '', '', '', '', 0, '1681303554444479.jpg', '<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><u><strong>Research Interests:</strong></u></span></span></p>\n\n<ul>\n	<li><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:10.0pt\">Hygrothermics of&nbsp;porous building materials </span></span></li>\n	<li><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:10.0pt\">Durability of structural materials in tropical climates</span></span></li>\n	<li><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:10.0pt\">Climatic severity for steel and concrete structures in India</span></span></li>\n	<li><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:10.0pt\">Sustainable concrete production based on alternative resources</span></span></li>\n	<li><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:10.0pt\">Optimum structural design</span></span></li>\n</ul>\n', 'Durable Infrastructure; Climate-sensitive design; Construction Materials', 'UGFzc3dvcmRAMTIzIw==', '', 'https://www.researchgate.net/profile/Kaustav-Sarkar', 'https://scholar.google.co.in/citations?user=5vKlOe0AAAAJ&hl=en', '', '', '', '', '', '2', '1', '1'),
 (5, 'Tanushree', '', 'Parsai', 'tanushree@iitmandi.ac.in', '1', '', '188', '', NULL, '', '', '7798467664', '', '1', '', '', '', '', '', '', 0, '1681304067145273.jpg', '', 'Emerging contaminants, nanoparticles, microplastic, human health , risk assessment, water pollution ', 'UmlzaGkhMTIzNA==', '', 'https://www.researchgate.net/profile/Tanushree-Parsai', 'https://scholar.google.com/citations?user=b0YT_70AAAAJ&hl=en', 'https://www.linkedin.com/in/tanushree-parsai-596a8986/', '', '', '', '', '2', '2', '1'),
 (6, 'Harshad', 'Vijay', 'Kulkarni', 'harshad@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '0190526773', '', '1', '', '', '', '', '', '', 0, '1681365030151811.jpg', '<table>\n	<tbody>\n		<tr>\n			<td>\n			<p>I am an environmental engineer with two years of industrial and four years of academic research experience, and has worked on research projects of regional, national and international significance. My research interests include studying natural processes that affect the quantity and quality of water, developing novel technologies for sustainable use of environmental resources, and applying environmental engineering principles to explore novel research areas like astrobiology and planetary analog investigations.</p>\n\n			<p>The broader impacts of my research include advancing fundamental science questions, development of novel and sustainable technologies to provide clean environment, ensure sufficient and safe drinking water to communities, promoting undergraduate and graduate education, and promoting principles of diversity, equity and inclusion through research.</p>\n\n			<p><strong>My research interests are in three directions:</strong></p>\n\n			<p>(R1) Biogeochemical cycling of elements of human health concern and emerging contaminants in the environment</p>\n\n			<p>(R2) Applications of biogeochemical processes in advanced water-wastewater purification, desalination and sustainable water reuse</p>\n\n			<p>(R3) Investigating terrestrial planetary analog sites of astrobiological significance using principles of biogeochemistry.</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n', 'Environmental engineering; Aqueous biogeochemistry; Advanced water purification and desalination;', 'Y2hhdHUxMzU3Qmh1dHU3NTMh', '', 'https://www.researchgate.net/profile/Harshad-Kulkarni-6', 'https://scholar.google.com/citations?user=vkDl-nwAAAAJ&hl=en', 'https://www.linkedin.com/in/harshadvkulkarni/', 'https://twitter.com/harshadenv', '', '', '', '2', '1', '1'),
-(7, 'Sandip', 'Kumar', 'Saha', 'sandip_saha@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '1905267907', '', '3', '', '', '', '', '', '', 0, '1681365139337820.jpg', '<p><img alt=\"\" src=\"https://scene.iitmandi.ac.in/uploads/ckeditor/Research-01.png\" style=\"float:left; height:539px; width:959px\" /></p>\n', 'Multi-hazard resilient infrastructure; Passive vibration control; Seismic Soil-Structure interaction', 'c2FuZGlwQDUwNA==', '<p>Sandip Kumar Saha is an Assistant Professor in the School of Engineering at the Indian Institute of Technology Mandi (IIT Mandi). He obtained his Ph.D. degree from IIT Delhi, India, and carried out postdoctoral research in the University of Canterbury, New Zealand. His research interest includes, performance based earthquake engineering, seismic vibration control, uncertainty modeling in dynamical systems, and design and assessment of structures under multiple hazards.</p>\r\n\r\n<p>Dr Saha has published more than fifty research articles in the field of Earthquake Engineering in reputed journals, conferences, and has also edited two book volumes. He is member of several professional organizations, namely Indian Society of Earthquake Technology (ISET), Indian Association of Computational Mechanics, Earthquake Engineering Research Institute (USA), and currently serving as an associate editor of the Practice Periodical on Structural Design and Construction, published by ASCE. He has also guest edited a special issue of the ISET Journal of Earthquake Technology and a special issue of the Indian Concrete Journal.</p>\r\n', 'https://www.researchgate.net/profile/Sandip-Saha-2?ev=hdr_xprf', 'https://scholar.google.co.nz/citations?user=pwlA3LUAAAAJ&hl=en&oi=ao', '', '', '', '', '', '2', '1', '1'),
+(7, 'Sandip', 'Kumar', 'Saha', 'sandip_saha@iitmandi.ac.in', '1', '', '2', '', NULL, '', '', '1905267907', '', '3', '', '', '', '', '', '', 0, '1681365139337820.jpg', '<p><img alt=\"\" src=\"https://scene.iitmandi.ac.in/uploads/ckeditor/Research-01.png\" style=\"float:left; height:539px; width:959px\" /></p>\n', 'Multi-hazard resilient infrastructure; Passive vibration control; Seismic Soil-Structure interaction', 'c2FuZGlwQDUwNA==', '<p>Sandip Kumar Saha is an Associate Professor in the School of Engineering at the Indian Institute of Technology Mandi (IIT Mandi). He obtained his Ph.D. degree from IIT Delhi, India, and carried out postdoctoral research in the University of Canterbury, New Zealand. His research interest includes, performance based earthquake engineering, seismic vibration control, uncertainty modeling in dynamical systems, and design and assessment of structures under multiple hazards.</p>\r\n\r\n<p>Dr Saha has published more than fifty research articles in the field of Earthquake Engineering in reputed journals, conferences, and has also edited two book volumes. He is member of several professional organizations, namely Indian Society of Earthquake Technology (ISET), Indian Association of Computational Mechanics, Earthquake Engineering Research Institute (USA), and currently serving as an associate editor of the Practice Periodical on Structural Design and Construction, published by ASCE. He has also guest edited a special issue of the ISET Journal of Earthquake Technology and a special issue of the Indian Concrete Journal.</p>\r\n', 'https://www.researchgate.net/profile/Sandip-Saha-2?ev=hdr_xprf', 'https://scholar.google.co.nz/citations?user=pwlA3LUAAAAJ&hl=en&oi=ao', '', '', '', '', '', '2', '1', '1'),
 (8, 'Shivang', '', 'Shekhar', 'shivang@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '8193048583', '', '3', '', '', '', '', '', '', 0, '1681365205358960.jpg', '<ul>\n	<li>Bridge Engineering</li>\n	<li>Probabilistic seismic risk and vulnerability assessment of aging and deteriorated civil engineering structures</li>\n	<li>Life-cycle analysis of civil engineering structures</li>\n	<li>Use of advanced machine learning algorithms for multi-dimensional fragility models</li>\n	<li>Uncertainty quantification in structural reliability problems</li>\n	<li>Nonlinear modeling and analysis of structures</li>\n	<li>Earthquake-resistant design of structures</li>\n</ul>\n', 'Bridge Engineering, Earthquake Engineering, Risk and Reliability of Infrastructure Systems', 'ZnJhZ2lsaXR5QDEyMw==', '<p style=\"text-align:justify\"><span style=\"color:#e74c3c\"><strong>https://sites.google.com/site/shivangssingh122/</strong></span></p>\r\n\r\n<p style=\"text-align:justify\">&nbsp;</p>\r\n\r\n<p style=\"text-align:justify\">Dr. Shivang Shekhar specializes in Structural and Earthquake Engineering. Prior to joining academia, he has three years of industrial experience in Structural Engineering Design consultancy. His research focuses on the structural reliability assessment of civil infrastructure systems, under service loads and extreme events such as earthquakes. His research also emphasizes on assessing the impact of corrosion deterioration and design code evolution on the seismic vulnerability and loss assessment of bridges. His research encompasses nonlinear modeling and analysis of structures, probabilistic seismic risk and vulnerability assessment, life-cycle analysis of civil engineering structures, application of advanced machine learning algorithms for multi-dimensional fragility models, and uncertainty quantification in structural reliability problems.</p>\r\n\r\n<ul>\r\n</ul>\r\n\r\n<p><img alt=\"\" src=\"https://scene.iitmandi.ac.in/uploads/ckeditor/zzzz.JPG\" style=\"height:422px; width:1173px\" /></p>\r\n', '', 'https://scholar.google.co.in/citations?user=Y4IKxpIAAAAJ&hl=en', 'https://www.linkedin.com/in/shivang-shekhar-ph-d-15752347/', '', '', '', '', '2', '1', '1'),
 (9, 'Shashank', '', 'Pathak', 'shashank@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '1905267716', '', '3', '', '', '', '', '', '', 0, '1681365275105967.JPG', '<p><strong><u>Research Interest:</u>&nbsp;</strong> Structural Dynamics, Uncertainty Analysis, Extreme and Transient Loads, Blast Dynamics.</p>\n\n<p><u><strong>Sponsored Research Projects</strong></u></p>\n\n<p>[Under review] Pathak, S. Stability Analysis of Concrete Gravity Dams Subjected to Air-Explosions, DST-SERB start-up research grant call-2023.</p>\n\n<p>[Ongoing] Pathak, S. Integrated Risk and Resiliency Assessment of Himalayan Tunnels in Multi-Hazard Scenario, Seed-grant IIT Mandi.</p>\n\n<p><u><strong>Consultancy Projects</strong></u></p>\n\n<p>Vetting of structural design and drawing of 100 MLD Water Treatment Plant, Gurugram. [Client: Jain Construction Company, Gurugram, Haryana] (As a Co-PI with Dr. Sandip Saha and Dr. Kaustav Sarkar).</p>\n\n<p>Vetting of structural design of 333-bed MES Base Hospital Barrackpore (PH-I), Kolkata (W.B.) [Client: KNY Projects Pvt. Ltd., Gurugram, Haryana]&nbsp;(As a PI with Dr. Sandip Saha and Dr. Kaustav Sarkar).</p>\n\n<p>Conducted various in-situ rock-mechanics investigations for hydroelectric projects in India, Nepal, and Bhutan.</p>\n\n<p>Evaluation of in-situ rock-mechanics investigations in detailed project reports of various hydroelectric projects.</p>\n\n<p>Design of underground rectangular water tank structure [Client: Additional Process Units, ONGC, Uran]</p>\n\n<p>Design of substructures of bridges [Client: Vedanta Aluminium Ltd., Jharsuguda, Odisha]</p>\n\n<p><u><strong>Doctoral Thesis Supervision</strong></u></p>\n\n<p>[Ongoing] Goel, T. Air-Blast Response of Concrete Gravity Dams. Indian Institute of Technology Mandi, India.</p>\n\n<p><u><strong>Master Thesis Supervision</strong></u></p>\n\n<p>[ongoing] Pudi, S. Risk and Resiliency Assessment of Himalayan Tunnels in Multi-hazard Scenario. Indian Institute of Technology Mandi, India.</p>\n\n<p>Manikanta, S. G. (2023). Closed-form Solutions for Shock Spectrum and PI Diagrams. Indian Institute of Technology Mandi, India. (defended on 22.06.2023)</p>\n\n<p>Toderascu, C. (2022). Response Spectrum Based Optimisation of Tuned Mass Dampers for Structures Subjected to Earthquakes. Universit&acute;e Libre de Bruxelles, Belgium. [Co-supervision with Prof. A. Deraemaeker]. (defended on 07.09.2022)</p>\n\n<p>Risopoulos, S. (2021). Optimization of Tuned Mass Damper Parameters Considering the Uncertainties in the Earthquake Loading. Universit&acute;e Libre de Bruxelles, Belgium. [Co-supervision with Prof. A. Deraemaeker].</p>\n\n<p>Crollen-Vandromme, E. (2020). Optimisation of Mass-spring Tuned Mass Dampers on Complex Structures Considering Uncertainties in Structural Parameters. Universit&acute;e Libre de Bruxelles, Belgium. [Co-supervision with Prof. A. Deraemaeker].</p>\n\n<p><u><strong>Journal Papers</strong></u></p>\n\n<p>Paknejad, A., Jamshidi, R., Pathak, S., &amp; Collette, C. (2023). Active vibration mitigation of bladed structures with piezoelectric patches by decentralized positive position feedback controller. Journal of Engineering for Gas Turbines and Power , 145 (2).</p>\n\n<p>Piron, D., Pathak, S., Deraemaeker, A., &amp; Collette, C. (2022). On the link between pole-zero distance and maximum reachable damping in MIMO systems. Mechanical Systems and Signal Processing, 181 , 109519.</p>\n\n<p>Pathak, S., Piron, D., Paknejad, A., Collette, C., &amp; Deraemaeker, A. (2022). On transmission zeros of piezoelectric structures. Journal of Intelligent Material Systems and Structures, 33 (12), 1538&ndash;1561.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2021b). On stress-strain function of geomaterials subjected to blast-loads. Indian Geotechnical Journal, 51 , 520&ndash;538.</p>\n\n<p>Piron, D., Pathak, S., Deraemaeker, A., &amp; Collette, C. (2021). A pole-zero based criterion for optimal placement of collocated sensor-actuator pair. Mechanical Systems and Signal Processing, 155 , 107533.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2020). Probabilistic characterization of nuclear blast loads. Journal of Structural Engineering, 146 (5).</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2019). A first order quantification of effects of uncertainties in hydro-fracturing parameters on tunnel ovalization estimates. Geotechnical and Geological Engineering, 37 (4), 3049&ndash;3064.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2018a). A designer&rsquo;s approach for estimation of nuclear-air-blast-induced ground motion. Advances in Civil Engineering, 2018 , 1&ndash;12.</p>\n\n<p>Pathak, S., &amp; Gupta, V. K. (2017). On nonstationarity-related errors in modal combination rules of the response spectrum method. Journal of Sound and Vibration, 407 , 106&ndash;127.</p>\n\n<p><u><strong>Book Chapters</strong></u></p>\n\n<p>Pathak, S. (2023). A combination of innovative pedagogical theories to enhance the learning output&mdash;a case study with engineering students. In Engineering Pedagogy: A collection of articles in honor of prof. Amitabha Ghosh (pp. 49&ndash;61). Springer.</p>\n\n<p>Ramana, G. V., Moghal, A. A. B., &amp; Pathak, S. (2021). Reappraisal on the field tests for determination of rock mass characteristics for open terrain(s). In Patel, S. et al. (Ed.), Proceedings of the Indian Geotechnical Conference 2019, Lecture Notes in Civil Engineering (Vol. 137, pp. 711&ndash;721). Springer, Singapore.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2021a). A note on partial safety factors for in-situ shear strength parameters of rock-mass. In Garg, A. et al. (Ed.), Proceedings of the 1st Indo-China Research Series in Geotechnical and Geoenvironmental Engineering, Lecture Notes in Civil Engineering (Vol. 123, p. 129-138). Springer Nature&nbsp; Singapore Pte Ltd.</p>\n\n<p>Ramana, G. V., Pathak, S., &amp; Dev, H. (2019). Shear strength parameters of granite rock mass: A case study. In V. Stalin &amp; M. Muttharam (Eds.), Geotechnical Characterisation and Geoenvironmental Engineering: Lecture Notes in Civil Engineering (Indian Geotechnical Conference-2016, IIT Madras) (Vol. 16, pp. 273&ndash;280). Springer, Singapore.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2018c). Uncertainties of a nuclear-air-blast induced ground displacement model. In B. Fatahi, A. Mwanza, &amp; D. Chang (Eds.), Geochina 2018: Civil infrastructures confronting severe weathers and climate changes conference (pp. 183&ndash;196). Springer, Cham.</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2018b). A stress-strain model for geomaterials subjected to air-blast. In A. Zhou, J. Tao, X. Gu, &amp; L. Hu (Eds.), Geoshanghai 2018 International Conference: Fundamentals of soil behaviours (pp. 388&ndash;396). Springer, Singapore.</p>\n\n<p><u><strong>International Conferences</strong></u></p>\n\n<p>Rasa, J., Ahmad, P., Pathak, S., Dimitri, P., &amp; Christophe, C. (2022). Active damping of high modal density of bladed structures with piezoelectric patches. In Proceedings of international conference on noise and vibration engineering and international conference on uncertainty in structural dynamics (12-14 September 2022), Leuven, Belgium.</p>\n\n<p>Crollen-Vandromme, E., Pathak, S., Soltani, P., Collette, C., &amp; Deraemaeker, A. (2020). Robust design of tuned mass dampers attached to host structures&nbsp;containing uncertainties in the form of fuzzy parameters. In Proceedings of international conference on noise and vibration engineering and international conference on uncertainty in structural dynamics (7-9 September 2020), Leuven, Belgium (p. 3811-3824).</p>\n\n<p>Pathak, S., &amp; Ramana, G. V. (2017). Air-blast induced ground displacement. Procedia Engineering: 11th International Symposium on Plasticity and Impact Mechanics&ndash; 2016 , 173 , 555&ndash;562.</p>\n\n<p>Ramana, G. V., Pathak, S., &amp; Kumar, N. (2013). Selection and interpretation of shear strength parameters for weak phyllites. In Kwasniewski &amp; Lydzba (Eds.), Rock mechanics for resources, energy and environment: ISRM&ndash;International Symposium: EUROCK-2013 (pp. 331&ndash;336). Wroclaw, Poland: Taylor &amp; Francis Group, London.</p>\n\n<p>Jain, S. K., &amp; Pathak, S. (2012). Intensity based casualty models: case study of bhuj and latur earthquake in india. In World Conference on Earthquake Engineering&ndash; 2012. Lisbon, Portugal: Sociedade Portuguesa de Engenharia S&acute;?smica.</p>\n\n<p><u><strong>Editorial/Review Services </strong></u></p>\n\n<p>International Journal of Structural Stability and Dynamics</p>\n\n<p>17th Symposium on Earthquake Engineering, IIT Roorkee</p>\n\n<p>Engineering Computations</p>\n\n<p>Journal of Intelligent Material Systems and Structures</p>\n\n<p>Geotechnical and Geological Engineering</p>\n\n<p>Journal of the Geological Society of India</p>\n\n<p><u><strong>Invited Talks</strong></u></p>\n\n<p>Pathak, S. (2023). Differential Equations &amp; Structural Dynamics at Ghent Analysis &amp; PDE Centre, Department of Mathematics: Analysis, Logic and Discrete Mathematics, 20 January 2023. Ghent University, Ghent, Belgium.</p>\n\n<p>Pathak, S. (2022). The Science of Teaching In Faculty Development Program for B.Tech. Faculty of HP Govt. Engg. Colleges, 29 August&ndash;3 September 2022. Indian Institute of Technology Mandi, Himachal Pradesh.</p>\n\n<p>Pathak, S. (2022). Blast Dynamics of Structures. In Faculty Development Program for B.Tech. Faculty of HP Govt. Engg. Colleges, 29 August&ndash;3 September 2022. Indian Institute of Technology Mandi, Himachal Pradesh.</p>\n\n<p>Pathak, S. (2022). Fundamentals of Statistical Analysis for Civil Engineers. In Faculty Development Program for Faculty, HP Government, Polytechnic Institutions, 18-24 July 2022. Indian Institute of Technology Mandi, Himachal</p>\n\n<p>Pathak, S. (2022). Teaching &amp; Learning: Engineering Pedagogy. In Faculty Development Program for Faculty, HP Government, Polytechnic Institutions, 18-24 July 2022. Indian Institute of Technology Mandi, Himachal Pradesh.</p>\n\n<p>Pathak, S. (2022). The Dynamics of Piezoelectric Structures: Why &amp; How? In Advanced Course on Smart Materials and Intelligent System Design, 5-6 May 2022. CSIR-Structural Engineering Research Centre, Chennai.</p>\n\n<p>Pathak, S. (2020). Surfing the Ocean of Uncertainties. In Faculty Development Programme on Future Trends in Earthquake Resistant Design of Structures, TEQIP-III, 17&ndash;21 August 2020. BIET, Jhansi (U.P.).</p>\n\n<p>&nbsp;</p>\n\n<p>&nbsp;</p>\n', 'Blast Engineering; Structural Dynamics; Random Vibrations; Uncertainty Analysis', 'YWlyQDEyMzQ1', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
 (10, 'J', '', 'Dhanya', 'dhanya@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '8219933624', '', '3', '', '', '', '', '', '', 0, '1681365385540335.jpg', NULL, 'Random field modelling, Computational Earth Model, Earthquake data analysis, Seismic Hazard, Predict', 'TWFkaHUxMjMj', '', 'https://www.researchgate.net/profile/Dhanya-Jaya', 'https://scholar.google.co.in/citations?user=3BVPGEUAAAAJ&hl=en', 'https://www.linkedin.com/in/dhanya-jaya-5815b749/', '', '', '', '', '2', '1', '1'),
@@ -1867,7 +1983,7 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (26, 'Pooja', '', 'Sharma', 'd22176@students.iitmandi.ac.in', '3', 'D22176', '4', '1', NULL, '', '', '', '', '6', '2023', '', '', '', '', '', 0, '1699095412209861.jpg', 'Remote Sensing and GIS', '', 'TXVtbWFwYXBhQDE1', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (27, 'Madhu ', '', 'Sudan', 'd20013@students.iitmandi.ac.in', '3', 'D20013', '4', '15', NULL, '', '', '', '', '2', '2020', '', '', '', '', '', 0, '1681554339155623.jpg', 'Discrete Element Modelling of Granular materials, Geomechanics, Constitutive modelling of Geomaterials, Transportation Geotechnics  ', '', 'U2lzdGVyQDk5OQ==', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (28, 'Vivek', 'Prakash', 'Mani', 'D22084@students.iitmandi.ac.in', '3', 'D22084', '4', '12', NULL, '', '', '', '', '2', '2022', '', '', '', '', '', 0, '1681554509114119.jpg', 'Railway Geotechnics, Unsaturated Soil Mechanics', '', 'OTk1NTc3OTQ5OUBWcA==', '', '', '', '', '', '', '', '', '2', '1', '1'),
-(29, 'Km', '', 'Shraddha', 'D22098@students.iitmandi.ac.in', '3', 'D22098', '4', '15', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681554724223589.jpg', NULL, '', 'U2hyYWRkaGEjMg==', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
+(29, 'Km', '', 'Shraddha', 'D22098@students.iitmandi.ac.in', '3', 'D22098', '4', '15', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681554724223589.jpg', '', '', 'U2hyYWRkaGEjMg==', '<p>Km Shraddha currently works as a Ph.D.&nbsp;Scholar at School of Civil and Environmental Engineering, Indian Institute of Technology Mandi (IITMD), India.</p>\r\n', '', '', '', '', '', '', '', '2', '1', '1'),
 (30, 'Siddharth', '', 'Pathak', 'd18019@students.iitmandi.ac.in', '3', 'D18019', '4', '15', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681554842144201.JPG', NULL, '', 'd2FrZXVwc2lk', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
 (31, 'Adil', '', 'Nazir', 'd22121@students.iitmandi.ac.in', '3', 'D22121', '4', '15', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681555083309481.jpg', NULL, '', 'UmVzZWFycGNoMTg=', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
 (32, 'Charu', '', 'Chauhan', 'd22085@students.iitmandi.ac.in', '3', 'D22085', '4', '13', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681555165841689.jpg', NULL, '', 'Y2hhcnVjaGF1aGFuQDEyMw==', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
@@ -1895,7 +2011,7 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (54, 'Mrityunjay', '', 'Doddamani', 'mrityunjay@iitmandi.ac.in', '8', '', '', '', NULL, 'Associate Professor', '', '', '', '', '', 'School of Mechanical and Materials Engineering', 'Indian Institute of Technology, Mandi', 'https://se.iitmandi.ac.in/facprofile.php?user=mrityunjay', '', '', 0, '1681564633269864.jpg', NULL, '', 'IyhQYjMlakJaTUFpZWtqSnUxVyNnMA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (55, 'Deepak', '', 'Swami', 'deepak@iitmandi.ac.in', '1', '', '2', '', NULL, '', '', '1905267269', '', '4', '', '', '', '', '', '', 0, '1681566093198610.jpg', NULL, '', 'ZFg1MDEkQkBKdURXbFVtN3piQU5aIQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (56, 'Prasanna', '', 'Rousseau', 'prasanna@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1681566454318567.jpg', NULL, 'Experimental Geotechnique, Geotechincal Earthquake Engineering, Critical State Soil Mechanics', 'TmFyYXlhbmEqOA==', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
-(57, 'Maheshreddy', '', 'Gade', 'maheshreddy@iitmandi.ac.in', '1', '', '1', '', NULL, '', '', '1905267223', '', '3', '', '', '', '', '', '', 0, '1681566553263495.jpg', NULL, 'Wave propagation in elastic half-space, Rotational seismology, Earthquake source modelling', 'NkRPeSlNdXlXaGJuM3dRJVNMeGxQJA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(57, 'Maheshreddy', '', 'Gade', 'maheshreddy@iitmandi.ac.in', '1', '', '2', '', NULL, '', '', '1905267223', '', '3', '', '', '', '', '', '', 0, '1681566553263495.jpg', NULL, 'Wave propagation in elastic half-space, Rotational seismology, Earthquake source modelling', 'NkRPeSlNdXlXaGJuM3dRJVNMeGxQJA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (58, 'Sukh', 'Sagar', 'Shukla', 'd22178@students.iitmandi.ac.in', '3', 'D22178', '4', '10', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, '1681566861338272.jpg', NULL, '', 'eG8kSGFLejRIKWdHJFlGeU5qZjBnJA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (59, 'Utsav', '', 'Rajput', 'd21031@students.iitmandi.ac.in', '3', 'D21031', '4', '55', '13', '', '', '', '', '4', '2021', '', '', '', '', '', 0, '1681567029659308.jpg', 'Groundwater contaminant transport, GIS, Hydrology', '', 'V2hAdGcwZXNhcm91bmQ=', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (60, 'Sahil', '', 'Sharma', 'd17051@students.iitmandi.ac.in', '3', 'D17051', '4', '55', NULL, '', '', '', '', '4', 'Feb 2018', '', '', '', '', '', 0, '1681567111141221.jpg', 'Soil Mositure Monitoring', '', 'MjgyNjEzI0lJVA==', '', '', '', '', '', '', '', '', '2', '1', '1'),
@@ -1986,7 +2102,7 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (145, 'Shankar', '', 'Yadav', 'd22094@students.iitmandi.ac.in', '8', '', '', '', NULL, 'Scholar', '', '', '', '', '', 'SCENE IIT MANDI', 'IIT MANDI', '', '', '', 0, NULL, NULL, '', 'Myl1d1pDXlElTnBIcm9mNyNna3ooRA==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (147, 'Shankar', '', 'Yadav', 'd22094@students.iitmandi.ac.in', '8', '', '', '', NULL, 'Scholar', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'UldqZHVJd2hOYjJneWRaJk1IJE5NVA==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (148, 'Shankar', '', 'Yadav', 'd22094@students.iitmandi.ac.in', '8', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'Umx1YkR3ZEttRDMhRGpOMFE2ME9VZw==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
-(149, 'Aman', '', 'Chandel', 'd18021@students.iitmandi.ac.in', '3', 'D18021', '4', '55', NULL, '', '', '', '', '4', '', '', '', '', '', '', 0, '1682529202303484.jpg', NULL, '', 'akF4eCUxTnFzVWZlY0o5T3k2ZUFCQg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(149, 'Aman', '', 'Chandel', 'd18021@students.iitmandi.ac.in', '3', 'D18021', '4', '55', NULL, '', '', '', '', '4', '', '', '', '', '', '', 0, '1703714892358879.jpg', '', '', 'QkdjaXZpbF85MQ==', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (150, 'test', 'test', 'test', 'd22177@students.iitmandi.ac.in', '8', '', '', '', NULL, 'Demo Post 1', '', '', '', '', '', 'demo department', 'demo institute', 'https://timesofindia.indiatimes.com/coronavirus', '', '', 0, NULL, NULL, '', 'cHpyU3k2TyRYVSNvaTRxR1FuckdTaA==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (151, 'q', 'q', 'q', 'd22177@students.iitmandi.ac.in', '8', '', '', '', NULL, 'q', '', '', '', '', '', 'q', 'q', 'q', '', '', 0, NULL, NULL, '', 'bHJnJFcqZVByQDN4JTMqYXhiVE9NbA==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (152, 'Sonu', '', 'Kumar', 'd20015@students.iitmandi.ac.in', '3', 'D20015', '4', '12', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1682874981533519.jpg', NULL, '', 'UXdlcnR5QDEyMzQ1', NULL, '', '', '', '', '', '', '', '2', '1', '1'),
@@ -2033,9 +2149,9 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (193, 'Jingying', '', 'Mao', 'a4@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'KEFMNDhiJG5ESU9ReEpyZlAwbXljNA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (194, 'Liming', '', 'Yang', 'a5@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'Z29UNmJraHlJWl51RW1sRU0oT2Q2MA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (195, 'Padmaja', '', 'Krishnan', 'a6@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'eihoUmlmS0FtSWh4JiFCcXhvJTJFUw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(196, 'Min', '', 'Shao', 'a7@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'dG4zNV5VOTRzOHQxQl53Y0JuREpSJg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(197, 'Xuemei', '', 'Wang', 'a8@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'SShwc0ZYKnJZSipVa2xeJjJSKGQ5cA==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
+(196, 'Min', '', 'Shao', 'a7@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'dG4zNV5VOTRzOHQxQl53Y0JuREpSJg==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
 INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
+(197, 'Xuemei', '', 'Wang', 'a8@gmail.com', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'SShwc0ZYKnJZSipVa2xeJjJSKGQ5cA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (198, 'Supriya', '', 'Dey', 'd21058@students.iitmandi.ac.in', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'YVJTMjYyV0s4bUBCKlBYJl4kYzdCIw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (199, 'Prashant', '', 'Rawat', 'd21112@students.iitmandi.ac.in', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'OXJ1RlcoYzlhKiopcSUjOVpteiVebg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (200, 'Archita', '', 'Rana', 'ar17ip020@iiserkol.ac.in', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'SyVCTGExUk1ZamNyajg4VU5xYyhpeQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
@@ -2130,10 +2246,10 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (289, 'Niraj', 'Khatri', 'Chhetri', 'd18058@students.iitmandi.ac.in', '', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'N1VFSGRpMShOQikhYnljckxCcFltYg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (290, 'Munmun', '', 'Baisantry', 'munmun@dgre.drdo.in', '8', '', '', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'YU4lTGQjZXpUc3pjXkAzV1g5VyhtJQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (291, 'Anil', 'Kumar', 'Sao', 'anil@iitmandi.ac.inn', '', '', '188', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'KmUka1pwVXFJa2JuR3lTJSNrM1VUIw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(292, 'Dhanasree', '', 'Suresh', 'd21032@students.iitmandi.ac.in', '3', 'D21032', '4', '13', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, NULL, NULL, '', 'Z2todSU0cG5yT1ppWm5KYlF5aTRPYw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(293, 'Sengar', 'Ketan', 'Kumar', 'd18028@students.iitmandi.ac.in', '3', 'D18028', '188', '7', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, NULL, NULL, '', 'WkEqR2llWjdkIUpkWEVDWDBHdVI1Tw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(292, 'Dhanasree', '', 'Suresh', 'd21032@students.iitmandi.ac.in', '3', 'D21032', '4', '13', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1705476226109725.jpg', '', '', 'MjcyNjQzI0lJVA==', '', '', '', '', '', '', '', '', '2', '1', '1'),
+(293, 'Sengar', 'Ketan', 'Kumar', 'd18028@students.iitmandi.ac.in', '3', 'D18028', '4', '7', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, NULL, NULL, '', 'WkEqR2llWjdkIUpkWEVDWDBHdVI1Tw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (294, 'H ', 'Keerthi ', 'Teja', 'd23060@students.iitmandi.ac.in', '3', 'd23060', '4', '2', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701320051666736.jpg', '', '', 'aEtUQElJVE0yMDIz', '', '', '', '', '', '', '', '', '2', '1', '1'),
-(295, 'Akhil', '', 'Rana', 'd23061@students.iitmandi.ac.in', '3', 'd23061', '4', '4', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1697606000226127.jpg', '', '', 'U3BlY3RyYUAxMjM=', '', '', '', '', '', '', '', '', '2', '1', '1'),
+(295, 'Akhil', '', 'Rana', 'd23061@students.iitmandi.ac.in', '3', 'd23061', '4', '4', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1697606000226127.jpg', '', '', 'U3BlY3RyYUAxMjM=', '', '', '', '', '', '', '', '', '2', '1', '2'),
 (296, 'Divesh ', '', 'Sharma', 'd23062@students.iitmandi.ac.in', '3', 'd23062', '4', '8', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, '1697611150246335.jpeg', NULL, '', 'Myk2IXAmVUVeNVhTSCZLRW1MMHNPOQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (297, 'Yash ', '', 'Shukla', 'd23063@students.iitmandi.ac.in', '3', 'd23063', '4', '3', NULL, '', '', '', '', '4', '2023', '', '', '', '', '', 0, '1701256045201438.jpeg', '', '', 'WWFzaEA5Mjc0', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (298, 'Shailesh', 'Kumar', 'Jha', 'd23065@students.iitmandi.ac.in', '3', 'd23065', '4', '3', NULL, '', '', '', '', '1', '2023', '', '', '', '', '', 0, '1701255924195207.jpg', '', '', 'U2hhaWxlc2hAMQ==', '', '', '', '', '', '', '', '', '2', '1', '1'),
@@ -2143,22 +2259,22 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (302, 'Vishal', '', '', 'd23069@students.iitmandi.ac.in', '3', 'D23069', '4', '11', NULL, '', '', '', '', '1', '', '', '', '', '', '', 0, NULL, '', '', 'dmlzaGFsNzg2', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (303, 'Rahul', 'Kant', 'Yadav', 'd23090@students.iitmandi.ac.in', '3', 'd23090', '370', '', NULL, '', '', '', '', '1', '2023', '', '', '', '', '', 0, NULL, '', '', 'MTIzNEBTYXlhbnRhbg==', '', '', '', '', '', '', '', '', '1', '1', '2'),
 (304, 'Pushkar', '', 'Sharma', 'd23091@students.iitmandi.ac.in', '3', 'd23091', '4', '7', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701237492814791.jpg', 'Earthquake Engineering', '', 'c29sYW5AMTIz', '', '', '', '', '', '', '', '', '2', '1', '1'),
-(305, 'Kriti ', '', 'Kumari', 'd23104@students.iitmandi.ac.in', '3', 'd23104', '4', '57', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, NULL, NULL, '', 'I09HZnExRGgkQzJzN2lKTHhoTVlyWA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(305, 'Kriti ', '', 'Kumari', 'd23104@students.iitmandi.ac.in', '3', 'd23104', '4', '57', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, '1704863740736340.jpg', NULL, '', 'I09HZnExRGgkQzJzN2lKTHhoTVlyWA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (306, 'Moringkhul ', 'Molung', 'Kanshowa', 'd23105@students.iitmandi.ac.in', '3', 'D23105', '4', '2', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701320527321381.jpg', '', '', 'TWFuZGlANDIw', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (307, 'Neetu', '', '', 'd23106@students.iitmandi.ac.in', '3', 'd23106', '4', '1', '322', '', '', '', '', '6', '', '', '', '', '', '', 0, NULL, NULL, '', 'SnRSemIwM3d4ZnR5bjRidGUmeSloMw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (308, 'Vinay', '', 'Thakur', 'd23121@students.iitmandi.ac.in', '3', 'd23121', '4', '12', NULL, '', '', '', '', '2', '2023', '', '', '', '', '', 0, '1702019741314767.jpg', '', '', 'VmluYXkxOTk3JA==', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (309, 'Chandra ', '', 'Prakash', 'd23122@students.iitmandi.ac.in', '3', 'd23122', '4', '3', NULL, '', '', '', '', '4', '', '', '', '', '', '', 0, NULL, NULL, '', 'Q2hhbmRyYUA4NA==', NULL, '', '', '', '', '', '', '', '2', '1', '2'),
 (310, 'Rehan', '', 'Fazal', 'd23123@students.iitmandi.ac.in', '3', 'd23123', '4', '9', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, '1701600622102304.jpg', '', '', 'UmFqYWJoYWlANzg2QElBUw==', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (311, 'Shubham ', '', 'Sharma', 'd23126@students.iitmandi.ac.in', '3', 'd23126', '4', '14', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, NULL, 'Foam Concrete,3D printed Concrete (3DPC)', '', 'U2h1YmhhbUAxMjM=', '', '', '', '', '', '', '', '', '2', '1', '1'),
-(312, 'Anurag', '', 'rajput', 'd23124@students.iitmandi.ac.in', '3', 'd23124', '4', '4', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1697186160301757.jpg', 'Fibre reinforced concrete, Durability of concrete, Corrosion and its control in RCC structures', '', 'QW51cmFnQDUxMw==', '<p style=\"text-align:justify\"><span style=\"font-size:14px\"><span style=\"font-family:Georgia,serif\">Anurag Rajput is currently pursuing PhD&nbsp;from Indian Institute of Technology, Mandi, Himachal Pradesh. His area of research is fiber reinforced concrete and corrosion control in&nbsp;RCC structures. He did&nbsp;his Masters degree (Structural Engineering) from Thapar university, Patiala in 2021. During his masters, he has worked as research intern at CSIR-CBRI, Roorkee for 1 year. He obtained his&nbsp;B.Tech degree in Civil Engineering&nbsp;from JMIETI, Radaur (Kurukshetra University) in 2018. He has pubished 6 research articles (4 SCI and 2 Scopus). During his graduation, he worked&nbsp;with Larsen &amp; Toubro on&nbsp;DLF Cyber Park project, Gurugram in 2016. He also has&nbsp;certification&nbsp;of AUTOCad and StaadPro with Autodesk. Along with this,&nbsp; he is&nbsp;an Associate life member of Institute of Engineers, India (IEI), RILEM and student member of ASCE, AMPP.&nbsp;</span></span></p>\r\n', '', '', '', '', '', '', '', '2', '1', '1'),
+(312, 'Anurag', '', 'Rajput', 'd23124@students.iitmandi.ac.in', '3', 'd23124', '4', '4', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1697186160301757.jpg', 'Fibre reinforced concrete, Durability of concrete, Corrosion and its control in RCC structures', '', 'QW51cmFnQDUxMw==', '<p style=\"text-align:justify\"><span style=\"font-size:14px\"><span style=\"font-family:Georgia,serif\">Anurag Rajput is currently pursuing PhD&nbsp;from Indian Institute of Technology, Mandi, Himachal Pradesh. His area of research is fiber reinforced concrete and corrosion control in&nbsp;RCC structures. He did&nbsp;his Masters degree (Structural Engineering) from Thapar university, Patiala in 2021. During his masters, he has worked as research intern at CSIR-CBRI, Roorkee for 1 year. He has pubished 6 research articles. He obtained his&nbsp;B.Tech degree in Civil Engineering&nbsp;from Kurukshetra University&nbsp;in 2018. During his graduation, he worked&nbsp;with Larsen &amp; Toubro on&nbsp;DLF Cyber Park project, Gurugram in 2016. He also has&nbsp;certification&nbsp;of AUTOCad and StaadPro with Autodesk. Along with this,&nbsp; he is&nbsp;an Associate life member of Institution&nbsp;of Engineers, India (IEI), RILEM and student member of ASCE, AMPP.&nbsp;</span></span></p>\r\n\r\n<p style=\"text-align:justify\"><span style=\"color:#c0392b\"><span style=\"font-size:14px\"><span style=\"font-family:Georgia,serif\">https://www.researchgate.net/profile/Anurag-Rajput-5</span></span></span></p>\r\n', '', '', '', '', '', '', '', '2', '1', '1'),
 (313, 'Ramandeep ', 'Singh', 'Malhotra', 's23021@students.iitmandi.ac.in', '3', 's23021', '5', '13', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, NULL, NULL, '', 'RGFRWTRVU0pRSzIxUzNVUW9CKSQoWg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (314, 'Salil ', '', 'Sharma', 's23022@students.iitmandi.ac.in', '3', 's23022', '5', '3', NULL, '', '', '', '', '4', '2023', '', '', '', '', '', 0, '1701248264278330.jpg', 'Climate Change induced Natural Disasters', '', 'aHAzNGMwNTc0', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (315, 'Saksham', '', 'Sharma', 's23023@students.iitmandi.ac.in', '3', 's23023', '5', '8', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701499706231781.jpeg', '', '', 'UG9seWVzdGVyQDIwMDE=', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (316, 'Sonam', '', 'Rohaun', 's23024@students.iitmandi.ac.in', '3', 's23024', '5', '6', NULL, '', '', '', '', '1', '2023', '', '', '', '', '', 0, '1694512674129050.jpg', 'Analysis of chemical pollutants in wastewater released from automobile industries and it\'s treatment', '', 'U09OQU1Acm9oYXVuXzE3', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (317, 'Vaibhav ', '', 'Thakur', 's23071@students.iitmandi.ac.in', '3', 's23071', '370', '', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1701670155188287.jpg', NULL, '', 'ODI3N0dURWlicWFmZkxxSCRYdzAmRw==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (318, 'Piyush', '', 'Verma', 's23072@students.iitmandi.ac.in', '3', 's23072', '5', '12', NULL, '', '', '', '', '2', '2023', '', '', '', '', '', 0, '1701246819338477.jpg', '', '', 'UElZVVNIQDEyMDQ=', '', '', '', '', '', '', '', '', '2', '1', '1'),
-(319, 'Aarti', '', 'Dhaka', 's23073@students.iitmandi.ac.in', '3', 's23073', '5', '56', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, NULL, NULL, '', 'R1BlVTV4bTVuZHdVYlFLKWt6NkFtVw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(320, 'Ananay', '', 'Thakur', 's23074@students.iitmandi.ac.in', '3', 's23074', '5', '16', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, NULL, NULL, '', 'WSY2azEyREpRJUVCOClUJkdvWDgpQg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(319, 'Aarti', '', 'Dhaka', 's23073@students.iitmandi.ac.in', '3', 's23073', '5', '56', '8', '', '', '', '', '2', '', '', '', '', '', '', 0, '1704710149108011.jpg', NULL, '', 'R1BlVTV4bTVuZHdVYlFLKWt6NkFtVw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(320, 'Ananay', '', 'Thakur', 's23074@students.iitmandi.ac.in', '3', 's23074', '5', '16', NULL, '', '', '', '', '3', '', '', '', '', '', '', 0, '1705555465243579.jpg', NULL, '', 'WSY2azEyREpRJUVCOClUJkdvWDgpQg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (321, 'Shivani', '', '', 's23075@students.iitmandi.ac.in', '3', 's23075', '5', '13', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, NULL, NULL, '', 'OEp6TEgjdE44Z15jdSVreCk5aXAwbQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (322, 'Reet', 'Kamal', 'Tiwari', 'reetkamal@iitrpr.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', 'Civil Engineering', 'IIT Ropar', 'https://www.iitrpr.ac.in/reet', '', '', 0, NULL, NULL, '', 'Sm1INXFuTnd0JHRnMlBJSChQI1JKSA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (323, 'Supriya ', '', 'Dey', 'd21058@students.iitmandi.ac.in', '3', 'd21058', '4', '11', NULL, '', '', '', '', '1', '2018', '', '', '', '', '', 0, '1696583092183255.jpg', 'Aerosol Chemistry, Air Pollution, Spectroscopic characterization of carbonaceous aerosols, Radiative forcing', '', 'RGVzdGlueSMwOA==', '', '', '', '', '', '', '', '', '2', '1', '1'),
@@ -2225,10 +2341,10 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (384, 'S.', 'M.', ' Keshava', 'keshavagajini@gmail.com', '8', '', '', '', NULL, 'PhD Scholar', '', '', '', '', '', '', 'Institute of Infrastructure Technology Research And Management', '', '', '', 0, NULL, NULL, '', 'UHUwcDhZakNkMmd1JEczUWdmbCppOQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (385, 'Mahesh ', 'S ', 'Tirumkudulu', 'mahesh@che.iitb.ac.in', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Indian Institute of Technology Bombay', '', '', '', 0, NULL, NULL, '', 'bnBAMEFvR2FrSjVVJjImb0hsKmtlWg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (386, 'Anurag ', '', 'Gupta', 'ag@iitk.ac.in', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Indian Institute of Technology Kanpur', '', '', '', 0, NULL, NULL, '', 'UUVrS21TeFc3Xnd0bnB5MjVHREdScw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(387, 'Amit ', 'Prashant', '', 'ap@iitgn.ac.in', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Indian Institute of Technology Gandhinagar', '', '', '', 0, NULL, NULL, '', 'T1JVekxNbUVyIW1JSXRBbnlxNyh4MA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(388, 'Debayan ', '', 'Bhattacharya', 'debayanb@civil.iitd.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', '', 'Indian Institute of Technology Delhi', '', '', '', 0, NULL, NULL, '', 'KHhVbTRsNSZIdCFedXAzeWNRQnNxcQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(389, 'Arindam ', '', 'Dey', 'arindamdeyiitg16@gmail.com', '8', '', '', '', NULL, 'Associate Professor', '', '', '', '', '', '', 'IIT Guwahati', '', '', '', 0, NULL, NULL, '', 'KEU4QyFIc2JKUngxYVhhUUlzJEE0Mw==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
+(387, 'Amit ', 'Prashant', '', 'ap@iitgn.ac.in', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Indian Institute of Technology Gandhinagar', '', '', '', 0, NULL, NULL, '', 'T1JVekxNbUVyIW1JSXRBbnlxNyh4MA==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
 INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
+(388, 'Debayan ', '', 'Bhattacharya', 'debayanb@civil.iitd.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', '', 'Indian Institute of Technology Delhi', '', '', '', 0, NULL, NULL, '', 'KHhVbTRsNSZIdCFedXAzeWNRQnNxcQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(389, 'Arindam ', '', 'Dey', 'arindamdeyiitg16@gmail.com', '8', '', '', '', NULL, 'Associate Professor', '', '', '', '', '', '', 'IIT Guwahati', '', '', '', 0, NULL, NULL, '', 'KEU4QyFIc2JKUngxYVhhUUlzJEE0Mw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (390, 'Rana ', '', 'Acharyya', 'r.acharyya@iitg.ac.in', '8', '', '', '', NULL, 'Research Scholars', '', '', '', '', '', '', 'IIT Guwahati', '', '', '', 0, NULL, NULL, '', 'WWxSYUVEXnhRaHRLWFBoUzQqbWo5RQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (391, 'Giang ', 'D. ', 'Nguyen', 'giang.nguyen@trinity.oxon.org', '8', '', '', '', NULL, 'Associate Prof/Reader', '', '', '', '', '', 'School of Civil, Environmental and Mining Engineering', 'The University of Adelaide, Australia', '', '', '', 0, NULL, NULL, '', 'Jk5uOHhyI2hUITJkISRxSGEyMkdhUw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (392, 'Arash ', '', 'Mir', 'arash.mirahmadizoghi@adelaide.edu.au', '8', '', '', '', NULL, 'Research Associate', '', '', '', '', '', 'School of Civil, Environmental and Mining Engineering', ' The University of Adelaide, Australia', '', '', '', 0, NULL, NULL, '', 'c29SRGMmdUZHSkJNaktkeTNxR21QUw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
@@ -2396,16 +2512,16 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (554, 'Ajeet ', '', 'Srivastav', 'ajeetkumar@iitg.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', '', 'IIT Guwahati	', '', '', '', 0, NULL, NULL, '', 'TUVvbCZPdSRBekRiXklTWXdpMnNOUQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (555, 'Sudarshan ', '', 'B. Shinde', 'sudar@aero.iitb.ac.in', '8', '', '', '', NULL, 'Associate Professor', '', '', '', '', '', '', 'Indian Institute of Technology Bombay', '', '', '', 0, NULL, NULL, '', 'Tm8lRWlHMV5AbkpaYnJvWEJseWZRKg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (556, 'Sayantan', '', 'Bhakta', 'sayantan.ece.imps@gmail.com', '3', 'EN2023', '4', '370', '328', '', '', '', '', '1', '2011', '', '', '', '', '', 0, '1701201464289533.jpg', 'Software', '', 'MTExMTEx', '<p>test</p>\r\n', '', '', '', '', '', '', '', '2', '1', '2'),
-(557, 'Tanushree', '', 'Parsai', 'parsai@civil.iitm.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', 'Civil Engineering', 'IIT Madras', '', '', '', 0, NULL, NULL, '', 'IWhYYU9QTFFZem43ZXpBT2ZUeXp6aw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(557, 'Tanushree', '', 'Parsai', 'parsai@civil.iitm.ac.in', '8', '', '', '', NULL, 'Assistant Professor', '', '', '', '', '', 'Civil Engineering', 'IIT Madras', '', '', '', 0, NULL, NULL, '', 'IWhYYU9QTFFZem43ZXpBT2ZUeXp6aw==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
+INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
 (558, 'Rahul', '', 'Jamwal', 'rahuljamwal@iitmandi.ac.in', '6', '', '370', '', NULL, 'Junior  Lab Assistant', 'SCENE labs', '9805895718', '', '', '', '', '', '', '', '', 0, '1701322262337351.jpg', NULL, '', 'N1hKcExiNnp6XiYhNEZubDFYRXUpRw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (559, 'Akash', '', 'Manju', 'dd23005@students.iitmandi.ac.in', '3', 'DD23005', '370', '55', NULL, '', '', '', '', '4', '', '', '', '', '', '', 0, NULL, NULL, '', 'aUhDY01VQkhBNVQhNnRUN2IyWjFwag==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
-(560, 'Mithun ', 'Kumar', 'Singh', 'dd23006@students.iitmandi.ac.in', '3', 'DD23006', '4', '7', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701782683248687.jpg', '', '', 'TWl0aHVuY2l2aWxAMTQz', '', '', '', '', '', '', '', '', '2', '1', '1');
-INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
+(560, 'Mithun ', 'Kumar', 'Singh', 'dd23006@students.iitmandi.ac.in', '3', 'DD23006', '4', '7', NULL, '', '', '', '', '3', '2023', '', '', '', '', '', 0, '1701782683248687.jpg', '', '', 'TWl0aHVuY2l2aWxAMTQz', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (561, 'Anand ', '', 'Prabhakar', 'dd23017@students.iitmandi.ac.in', '3', 'DD23017', '4', '11', NULL, '', '', '', '', '1', '2023', '', '', '', '', '', 0, '1701511630138591.jpg', 'Air pollution, Secondary Organic Aerosol, Climate change and mitigation', '', 'OThzVE5CSDR2OVdmdWVn', '<p>Research Scholar (Env. Sc. and Engineering) @ SCENE, IIT MANDI</p>\r\n\r\n<blockquote>\r\n<p>Linkedin - <a href=\"https://linkedin.com/in/anand-prabhakar-0507\"><span style=\"color:#2980b9\">Click Here</span></a></p>\r\n</blockquote>\r\n', '', '', '', '', '', '', '', '2', '1', '1'),
 (562, 'Akash', 'Manju', '', 'dd23005@students.iitmandi.ac.in', '3', 'DD23005', '370', '55', NULL, '', '', '', '', '4', '', '', '', '', '', '', 0, NULL, NULL, '', 'KU1GMjIxMGZvWkteYUVKWEEkKCFrQg==', NULL, '', '', '', '', '', '', '', '1', '1', '2'),
 (563, 'Aakash', 'Manju', '', 'dd23005@students.iitmandi.ac.in', '3', 'DD23005', '4', '55', NULL, '', '', '', '', '4', '2023', '', '', '', '', '', 0, '1701508770244957.jpg', '', '', 'QWFrYXNoQDIwMjM=', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (564, 'Alpa', '', 'Rajput', 'd23068@students.iitmandi.ac.in', '3', 'D23068', '4', '6', NULL, '', '', '', '', '1', '', '', '', '', '', '', 0, '1701495949949213.jpg', NULL, '', 'JnNvWHFAamNndDk2cGk2cXh5MzMxVA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(565, 'Rahul', 'Kant', 'Yadav', 'd23090@students.iitmandi.ac.in', '3', 'D23090', '4', '11', NULL, '', '', '', '', '1', '', '', '', '', '', '', 0, NULL, NULL, '', 'QjAyOTJ0JURReCRiQmtwRSZVIWNaWg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(565, 'Rahul', 'Kant', 'Yadav', 'd23090@students.iitmandi.ac.in', '3', 'D23090', '4', '11', NULL, '', '', '', '', '1', '2023', '', '', '', '', '', 0, '1706185337279383.jpg', 'Atmospheric Chemistry, Atmospheric Physics, Meteorology, Aerosols, Air Pollution, Brown Carbon', '', 'R29ncmVlbkAxOTk3', '', '', '', '', '', '', '', '', '2', '1', '1'),
 (566, 'Vaibhav ', '', 'Thakur', 's23071@students.iitmandi.ac.in', '3', 'S23071', '5', '56', NULL, '', '', '', '', '2', '', '', '', '', '', '', 0, '1701670458511280.jpg', NULL, '', 'ZjgmNGV6QGlkNldvNFkoUDdIenR1dQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (567, 'Geethesh ', '', 'Naiyyalga', 'geetheshnai762@gmail.com', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Indian Institute of Technology Mandi', '', '', '', 0, NULL, NULL, '', 'ZyQoa0MmOXAhWHRpeW1RUU5seWtNZg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (568, 'Dikshita ', '', 'Nath', 'dikshita.nath@ubc.ca', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Indian Institute of Technology Mandi', '', '', '', 0, NULL, NULL, '', 'QnVOQ1MkbUdeRjBXNklMZk9TV0piSg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
@@ -2558,11 +2674,11 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (715, 'FD Lopez', '', '', 'fjplopes@gmail.com', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Federal University of Rio de Janeiro', '', '', '', 0, NULL, NULL, '', 'Szk4bmpeMEVKbV5jTXE1Z2tETzltTw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (716, 'Karen H. ', '', 'Johannesson', 'kjohanne@tulane.edu', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'University of Massachusetts Boston', '', '', '', 0, NULL, NULL, '', 'KWdBKDhkMGNrISkzIWgmMktxJkRJRw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (717, 'Ganga M ', '', 'Hettiarachchi', 'ganga@ksu.edu', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Kansas State University', '', '', '', 0, NULL, NULL, '', 'NlBRNGhjJU5yNmsqRVJqa25sMWZnWA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(718, 'Minkyu ', '', 'Park', 'snyders2@email.arizona.edu', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Department of Chemical and Environmental Engineering, University of Arizona, Tucson, AZ 85721, USA', '', '', '', 0, NULL, NULL, '', 'RUFhSVQzZylrNiFaMk1QdDAhcmhkUg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(718, 'Minkyu ', '', 'Park', 'snyders2@email.arizona.edu', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Department of Chemical and Environmental Engineering, University of Arizona, Tucson, AZ 85721, USA', '', '', '', 0, NULL, NULL, '', 'RUFhSVQzZylrNiFaMk1QdDAhcmhkUg==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
+INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
 (719, 'Ryan ', '', 'Tappero', 'rtappero@bnl.gov', '8', '', '', '', NULL, 'Research Assistant', '', '', '', '', '', '', 'Photon Sciences Dept., Brookhaven National Lab, Upton, NY, 11973, USA', '', '', '', 0, NULL, NULL, '', 'VXlPcks1Mkk4Sk9SUVFua2pRMnltZQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (720, 'Anthony ', '', 'Bednar', 'anthony.j.bednar@usace.army.mil', '', '', '370', '', NULL, '', '', '', '', '', '', '', '', '', '', '', 0, NULL, NULL, '', 'ZVBYd0xmJWpLeU1Ia0IjMCp1eEJDMA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(721, 'T. Jade ', '', 'Mohajerin', 'mohajerin132@gmail.com', '8', '', '', '', NULL, 'Research Assistant', '', '', '', '', '', '', 'Department of Earth and Environmental Sciences, Tulane University, New Orleans, LA, 70118, USA', '', '', '', 0, NULL, NULL, '', 'ayhPa0kyaGFQJTZsNyNsSU1YQUVpeQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
-INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position`, `enrollno`, `designation`, `supervisor`, `cosupervisors`, `post`, `lab`, `mobile`, `office`, `specialization`, `admssnyear`, `department`, `institutename`, `profilelink`, `program`, `degree`, `project_name`, `team_image`, `research_interest`, `research_keyword`, `password`, `aboutme`, `research_gate`, `google_scholar`, `linedin_link`, `twitter_link`, `github_link`, `medium_link`, `other_link`, `update_pass`, `status`, `is_delete`) VALUES
+(721, 'T. Jade ', '', 'Mohajerin', 'mohajerin132@gmail.com', '8', '', '', '', NULL, 'Research Assistant', '', '', '', '', '', '', 'Department of Earth and Environmental Sciences, Tulane University, New Orleans, LA, 70118, USA', '', '', '', 0, NULL, NULL, '', 'ayhPa0kyaGFQJTZsNyNsSU1YQUVpeQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (722, 'Paul R. ', '', 'Sheppard', 'sheppard@ltrr.arizona.edu', '8', '', '', '', NULL, 'Research Assistant', '', '', '', '', '', '', 'University of Arizona, Tucson, AZ, 85721, USA', '', '', '', 0, NULL, NULL, '', 'SSVvRG5KZ0hTamJ4NmExYiowd2oqcQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (723, 'Mark L. ', '', 'Witten', 'wittenmark4654@gmail.com', '8', '', '', '', NULL, 'Research Director', '', '', '', '', '', '', 'Odyssey Research Institute, Tucson, AZ, 85710, USA', '', '', '', 0, NULL, NULL, '', 'bjNAOUp1aWxVa240MypXdEluMkMqcw==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (724, 'Numa N. ', '', 'Sosa', 'nsosa@cig.museo.unlp.edu.ar', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Centro de Investigaciones Geológicas (CONICET – UNLP), Diag.113 # 275, La Plata 1900, Argentina', '', '', '', 0, NULL, NULL, '', 'eCpRJUNITEtkI24pc2trZngkXmpoKA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
@@ -2623,7 +2739,8 @@ INSERT INTO `iitmandi_team` (`id`, `fname`, `mname`, `lname`, `email`, `position
 (779, 'An ', '', 'Yin', 'yin@ess.ucla.edu', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Department of Earth and Space Sciences and the Institute of Geophysics and Planetary Physics,', '', '', '', 0, NULL, NULL, '', 'ZFpFZlVzWjQhUmpPVEZeJXpBJWJUcg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (780, 'Marty ', '', 'Grove', 'mjgrove@stanford.edu', '8', '', '', '', NULL, 'Professor', '', '', '', '', '', '', 'Department of Geological & Environmental Sciences', '', '', '', 0, NULL, NULL, '', 'clVoM2Z6dEA0SEhaUU9vJDNqdVlQZg==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
 (781, 'Oscar M. ', '', 'Lovera', 'lovera@ucla.edu', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Department of Earth and Space Sciences, University of California, Los Angeles, 3806 Geology, Los Angeles', '', '', '', 0, NULL, NULL, '', 'QSNBIUAxRE9uaUFDb3VYRlIpeW1SSA==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
-(782, 'Thomas K. ', '', 'Kelty', 'tkelty@csulb.edu', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Department of Geological Sciences, California State University, Long Beach, CA 90840-3902, USA', '', '', '', 0, NULL, NULL, '', 'czNwUkBLaWNIVCZ5TDVPcHFwcHh4aQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
+(782, 'Thomas K. ', '', 'Kelty', 'tkelty@csulb.edu', '8', '', '', '', NULL, 'Ph.D', '', '', '', '', '', '', 'Department of Geological Sciences, California State University, Long Beach, CA 90840-3902, USA', '', '', '', 0, NULL, NULL, '', 'czNwUkBLaWNIVCZ5TDVPcHFwcHh4aQ==', NULL, '', '', '', '', '', '', '', '1', '1', '1'),
+(783, 'Chinmay', '', 'Mallik', 'chinmay.mallik@curaj.ac.in', '8', '', '', '', NULL, 'Asst Professor', '', '', '', '', '', 'Atmospheric Science', 'Central University of Rajasthan', '', '', '', 0, NULL, NULL, '', 'ZkZHVFRyUjBsZTNOcW1JRiVhTkhaeA==', NULL, '', '', '', '', '', '', '', '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -2873,7 +2990,34 @@ INSERT INTO `iitmandi_user_education` (`id`, `user_id`, `degree`, `university`, 
 (225, '561', 'B. TECH. in CIVIL ENGINEERING', 'BIHAR ENGINEERING UNIVERSITY, PATNA', '2019-2023', '1', '1'),
 (226, NULL, NULL, NULL, NULL, NULL, '1'),
 (227, NULL, NULL, NULL, NULL, NULL, '1'),
-(228, NULL, NULL, NULL, NULL, NULL, '1');
+(228, NULL, NULL, NULL, NULL, NULL, '1'),
+(229, NULL, NULL, NULL, NULL, NULL, '1'),
+(230, NULL, NULL, NULL, NULL, NULL, '1'),
+(231, NULL, NULL, NULL, NULL, NULL, '1'),
+(232, NULL, NULL, NULL, NULL, NULL, '1'),
+(233, NULL, NULL, NULL, NULL, NULL, '1'),
+(234, NULL, NULL, NULL, NULL, NULL, '1'),
+(235, NULL, NULL, NULL, NULL, NULL, '1'),
+(236, '565', 'MSc', 'CURaj', '2021', '2', '1'),
+(237, '565', 'BSc', 'NEHU', '2019', '2', '1'),
+(238, '565', 'MSc', 'CURaj', '2021', '1', '1'),
+(239, '565', 'BSc', 'NEHU', '2019', '1', '1'),
+(240, NULL, NULL, NULL, NULL, NULL, '1'),
+(241, NULL, NULL, NULL, NULL, NULL, '1'),
+(242, NULL, NULL, NULL, NULL, NULL, '1'),
+(243, NULL, NULL, NULL, NULL, NULL, '1'),
+(244, NULL, NULL, NULL, NULL, NULL, '1'),
+(245, NULL, NULL, NULL, NULL, NULL, '1'),
+(246, NULL, NULL, NULL, NULL, NULL, '1'),
+(247, NULL, NULL, NULL, NULL, NULL, '1'),
+(248, NULL, NULL, NULL, NULL, NULL, '1'),
+(249, NULL, NULL, NULL, NULL, NULL, '1'),
+(250, NULL, NULL, NULL, NULL, NULL, '1'),
+(251, NULL, NULL, NULL, NULL, NULL, '1'),
+(252, NULL, NULL, NULL, NULL, NULL, '1'),
+(253, NULL, NULL, NULL, NULL, NULL, '1'),
+(254, NULL, NULL, NULL, NULL, NULL, '1'),
+(255, NULL, NULL, NULL, NULL, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -2933,7 +3077,7 @@ INSERT INTO `iitmandi_user_experience` (`id`, `user_id`, `organization`, `positi
 (35, '9', 'Universite Libre de Bruxelles (ULB), Brussels, Belgium', 'Post-doctoral researcher', '2019-2021', '1', '1'),
 (36, '7', 'Indian Institute of Technology Delhi', 'Project Scientist', '2014-2015', '1', '1'),
 (37, '7', 'University of Canterbury ,  Christchurch, New Zealand', 'Postdoctoral  Fellow', '2015-2017', '1', '1'),
-(38, '7', 'Indian Institute of Technology Mandi', 'Assistant Professor', '2017-Present', '1', '1'),
+(38, '7', 'Indian Institute of Technology Mandi', 'Assistant Professor', '2017-2024', '2', '1'),
 (39, '16', 'IIT Mandi', 'Assistant Professor', '2017-2022', '2', '1'),
 (40, '16', 'IIT Mandi', 'Associate Professor', '2022-Till now', '1', '2'),
 (41, '16', 'IIT Mandi', 'Assistant Professor', '2017-2022', '1', '2'),
@@ -3057,7 +3201,25 @@ INSERT INTO `iitmandi_user_experience` (`id`, `user_id`, `organization`, `positi
 (159, NULL, '', NULL, NULL, NULL, '1'),
 (160, NULL, '', NULL, NULL, NULL, '1'),
 (161, NULL, '', NULL, NULL, NULL, '1'),
-(162, NULL, '', NULL, NULL, NULL, '1');
+(162, NULL, '', NULL, NULL, NULL, '1'),
+(163, NULL, '', NULL, NULL, NULL, '1'),
+(164, '7', 'Indian Institute of Technology Mandi', 'Associate Professor', '2024', '1', '2'),
+(165, '7', 'Indian Institute of Technology Mandi', 'Assistant Professor', '2017-2024', '1', '1'),
+(166, '7', 'Indian Institute of Technology Mandi', 'Associate Professor', '2024-Present', '1', '1'),
+(167, NULL, '', NULL, NULL, NULL, '1'),
+(168, NULL, '', NULL, NULL, NULL, '1'),
+(169, '565', '', 'Project Associate-I (CURaj)', '2022', '1', '1'),
+(170, '565', '', 'Junior Research Fellow (IISER MOHALI)', '2023', '1', '1'),
+(171, NULL, '', NULL, NULL, NULL, '1'),
+(172, NULL, '', NULL, NULL, NULL, '1'),
+(173, NULL, '', NULL, NULL, NULL, '1'),
+(174, NULL, '', NULL, NULL, NULL, '1'),
+(175, NULL, '', NULL, NULL, NULL, '1'),
+(176, NULL, '', NULL, NULL, NULL, '1'),
+(177, NULL, '', NULL, NULL, NULL, '1'),
+(178, NULL, '', NULL, NULL, NULL, '1'),
+(179, NULL, '', NULL, NULL, NULL, '1'),
+(180, NULL, '', NULL, NULL, NULL, '1');
 
 --
 -- Indexes for dumped tables
@@ -3154,6 +3316,12 @@ ALTER TABLE `iitmandi_newsstorages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `iitmandi_pagelist`
+--
+ALTER TABLE `iitmandi_pagelist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `iitmandi_programs`
 --
 ALTER TABLE `iitmandi_programs`
@@ -3169,6 +3337,18 @@ ALTER TABLE `iitmandi_project`
 -- Indexes for table `iitmandi_publication`
 --
 ALTER TABLE `iitmandi_publication`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `iitmandi_roles`
+--
+ALTER TABLE `iitmandi_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `iitmandi_role_access`
+--
+ALTER TABLE `iitmandi_role_access`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3206,6 +3386,12 @@ ALTER TABLE `iitmandi_user_experience`
 --
 
 --
+-- AUTO_INCREMENT for table `iitmandi_admin`
+--
+ALTER TABLE `iitmandi_admin`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `iitmandi_admission`
 --
 ALTER TABLE `iitmandi_admission`
@@ -3221,7 +3407,7 @@ ALTER TABLE `iitmandi_alumni`
 -- AUTO_INCREMENT for table `iitmandi_awardevent`
 --
 ALTER TABLE `iitmandi_awardevent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_banner`
@@ -3239,7 +3425,7 @@ ALTER TABLE `iitmandi_courses`
 -- AUTO_INCREMENT for table `iitmandi_crntopening`
 --
 ALTER TABLE `iitmandi_crntopening`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_designation`
@@ -3287,7 +3473,13 @@ ALTER TABLE `iitmandi_labsection`
 -- AUTO_INCREMENT for table `iitmandi_newsstorages`
 --
 ALTER TABLE `iitmandi_newsstorages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `iitmandi_pagelist`
+--
+ALTER TABLE `iitmandi_pagelist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_programs`
@@ -3299,13 +3491,25 @@ ALTER TABLE `iitmandi_programs`
 -- AUTO_INCREMENT for table `iitmandi_project`
 --
 ALTER TABLE `iitmandi_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_publication`
 --
 ALTER TABLE `iitmandi_publication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=689;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=700;
+
+--
+-- AUTO_INCREMENT for table `iitmandi_roles`
+--
+ALTER TABLE `iitmandi_roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `iitmandi_role_access`
+--
+ALTER TABLE `iitmandi_role_access`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_specialization`
@@ -3317,19 +3521,19 @@ ALTER TABLE `iitmandi_specialization`
 -- AUTO_INCREMENT for table `iitmandi_team`
 --
 ALTER TABLE `iitmandi_team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=783;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=784;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_user_education`
 --
 ALTER TABLE `iitmandi_user_education`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=256;
 
 --
 -- AUTO_INCREMENT for table `iitmandi_user_experience`
 --
 ALTER TABLE `iitmandi_user_experience`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

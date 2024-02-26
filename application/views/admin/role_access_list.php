@@ -63,7 +63,7 @@
 													</td>
                                                     <td style="width: 142px;">
                                                         <a href="admin/roles/role_access/<?php echo $row['u_id']; ?>" class="btn btn-primary waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                                        <a  onclick="return confirm('Are you sure you want to delete this?')" href="admin/page/delete/<?php echo $row['id']; ?>" class="btn btn-danger waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                        <a  onclick="return confirm('Are you sure you want to delete this?')" href="admin/roles/role_delete/<?php echo $row['u_id']; ?>" class="btn btn-danger waves-effect waves-light tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                                 <?php  $i++; } } ?>

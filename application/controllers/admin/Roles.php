@@ -57,30 +57,6 @@ class Roles extends CI_Controller{
 		$this->load->view('admin/add_role',$data);
 	} 
 
-	public function change_status($id) {
-		$banner=$this->common_model->get_data(BANNER,array('id'=>$id));
-		if($banner[0]['status']==1) {
-			$status = array('status'=>2);
-		} else {
-			$status = array('status'=>1);
-		}
-		$this->common_model->tbl_update(BANNER,array('id'=>$id),$status);
-		$this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i> Status successfully changed.','SUCCESS');
-		redirect(base_url()."admin/banner");
-	}
-	
-	public function banner_delete($id) {
-		$banner=$this->common_model->get_data(BANNER,array('id'=>$id));
-		if($banner[0]['is_delete']==1) {
-			$status = array('is_delete'=>2);
-		} else {
-			$status = array('is_delete'=>1);
-		}
-		$this->common_model->tbl_update(BANNER,array('id'=>$id),$status);
-		$this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i>Successfully Deleted.','SUCCESS');
-		redirect(base_url()."admin/banner");
-	}
-
 	public function role_access($id='') {
 		// if(!empty($id)) {
 		// 	$data['roleAccessList'] = $this->db->query("SELECT page_list FROM iitmandi_role_access WHERE u_id = '".$id."'")->result_array();
@@ -109,7 +85,6 @@ class Roles extends CI_Controller{
 			$insArr['email']=$this->input->post('email');
 			$insArr['user_type']='-1';
 			$insArr['status']='1';
-			$insArr['password']=md5($this->input->post('status'));
 			$pageList = $this->input->post('pageList');
 			if(!empty($uid)) {
 				$this->common_model->tbl_update(ADMIN,array('user_id'=>$uid),$insArr);
@@ -123,6 +98,7 @@ class Roles extends CI_Controller{
 				$this->utilitylib->setMsg(SUCCESS_ICON.' Role updated','SUCCESS');
 				redirect(base_url('admin/roles/role_access_list'));
 			} else {
+				$insArr['password']=md5($this->input->post('password'));
 				$this->common_model->tbl_insert(ADMIN,$insArr);
 				$insertId = $this->db->insert_id();
 				$count = count($pageList);
@@ -144,7 +120,7 @@ class Roles extends CI_Controller{
 	}
 
 	public function role_access_list() {
-		$data['role_access_list'] = $this->db->query("SELECT * FROM iitmandi_role_access GROUP BY u_id")->result_array();
+		$data['role_access_list'] = $this->db->query("SELECT DISTINCT(u_id) FROM `iitmandi_role_access`;")->result_array();
 		$data['page_title'] = "Access List";
 		$data['header_scripts'] = $this->load->view('admin/includes/admin_header_scripts','',true);
 	    $data['header']=$this->load->view('admin/includes/admin_header','',true);
@@ -152,5 +128,12 @@ class Roles extends CI_Controller{
 		$data['footer']=$this->load->view('admin/includes/admin_footer','',true);
 		$data['footer_scripts']=$this->load->view('admin/includes/admin_footer_scripts','',true);
 		$this->load->view('admin/role_access_list',$data);
+	}
+	
+	public function role_delete($id) {
+		$this->db->query("DELETE FROM iitmandi_role_access WHERE u_id = '".$id."'");
+		$this->db->query("DELETE FROM iitmandi_admin WHERE user_id = '".$id."'");
+		$this->utilitylib->setMsg('<i class="fa fa-info-circle" aria-hidden="true"></i>Successfully Deleted.','SUCCESS');
+		redirect(base_url()."admin/role_access_list");
 	}
 }
